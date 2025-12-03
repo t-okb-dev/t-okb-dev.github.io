@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List with Stopwatch - Boost Your Productivity</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2A3F54;
+            color: #ECF0F1;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #34495E;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid #1ABB9C;
+            color: #1ABB9C;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        .lang-btn.active {
+            background-color: #1ABB9C;
+            color: white;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #1ABB9C;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #BDC3C7;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1ABB9C;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #16A085;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .feature {
+            background-color: #34495E;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature h3 {
+            color: #1ABB9C;
+            margin-top: 0;
+        }
+
+        .screenshot-section {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .screenshot-container {
+            margin-bottom: 40px;
+        }
+
+        .screenshot-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #4B6584;
+        }
+
+        .screenshot-caption {
+            margin-top: 10px;
+            color: #BDC3C7;
+            font-style: italic;
+        }
+
+        footer {
+            background-color: #34495E;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            color: #7F8C8D;
+        }
+
+        [lang="ja"] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1 lang="en">TODO List with Stopwatch</h1>
+            <h1 lang="ja">TODO List with Stopwatch</h1>
+        </div>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('en')">EN</button>
+            <button class="lang-btn" onclick="switchLang('ja')">JP</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <p lang="en">Manage your tasks, track your time, and stay organized with our powerful browser extension.</p>
+            <p lang="ja">タスクを管理し、時間を計測し、強力なブラウザ拡張機能で整理整頓しましょう。</p>
+            <a href="#" class="btn" lang="en">Add to Chrome</a>
+            <a href="#" class="btn" lang="ja">Chromeに追加</a>
+        </section>
+
+        <section class="screenshot-section">
+            <div class="screenshot-container">
+                <img src="images/main.png" alt="Main TODO List Interface">
+                <div class="screenshot-caption" lang="en">Clean and intuitive interface with integrated stopwatch for
+                    every task.</div>
+                <div class="screenshot-caption" lang="ja">すべてのタスクにストップウォッチが統合された、クリーンで直感的なインターフェース。</div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <h3 lang="en">⏱ Integrated Stopwatch</h3>
+                <h3 lang="ja">⏱ 統合ストップウォッチ</h3>
+                <p lang="en">Track exactly how much time you spend on each task. Start, pause, and reset timers with a
+                    single
+                    click.</p>
+                <p lang="ja">各タスクに費やした時間を正確に追跡します。ワンクリックでタイマーを開始、一時停止、リセットできます。</p>
+            </div>
+            <div class="feature">
+                <h3 lang="en">🏷 Powerful Tagging</h3>
+                <h3 lang="ja">🏷 強力なタグ付け</h3>
+                <p lang="en">Organize tasks with custom color-coded tags. Filter your list to focus on what matters now.
+                </p>
+                <p lang="ja">カスタムカラーコード付きのタグでタスクを整理します。リストをフィルタリングして、今重要なことに集中します。</p>
+            </div>
+            <div class="feature">
+                <h3 lang="en">📝 Memos & Subtasks</h3>
+                <h3 lang="ja">📝 メモとサブタスク</h3>
+                <p lang="en">Add detailed notes to any task and break down complex projects into manageable subtasks.
+                </p>
+                <p lang="ja">タスクに詳細なメモを追加し、複雑なプロジェクトを管理可能なサブタスクに分割します。</p>
+            </div>
+            <div class="feature">
+                <h3 lang="en">📊 CSV Export</h3>
+                <h3 lang="ja">📊 CSVエクスポート</h3>
+                <p lang="en">Export your task data, including time spent and tags, to CSV for further analysis or
+                    reporting.</p>
+                <p lang="ja">時間経過やタグを含むタスクデータをCSVにエクスポートして、さらなる分析やレポート作成に役立てます。</p>
+            </div>
+        </section>
+
+        <section class="screenshot-section">
+            <div class="features" style="grid-template-columns: 1fr 1fr;">
+                <div class="screenshot-container">
+                    <img src="images/tags.png" alt="Manage Tags Dialog">
+                    <div class="screenshot-caption" lang="en">Customize your workflow with the Manage Tags dialog.</div>
+                    <div class="screenshot-caption" lang="ja">タグ管理ダイアログでワークフローをカスタマイズ。</div>
+                </div>
+                <div class="screenshot-container">
+                    <img src="images/memo.png" alt="Memo Dialog">
+                    <div class="screenshot-caption" lang="en">Keep detailed notes with the Memo feature.</div>
+                    <div class="screenshot-caption" lang="ja">メモ機能で詳細なノートを記録。</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero">
+            <p lang="en">Ready to boost your productivity?</p>
+            <p lang="ja">生産性を向上させる準備はできましたか？</p>
+            <a href="#" class="btn" lang="en">Get Started Today</a>
+            <a href="#" class="btn" lang="ja">今すぐ始める</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2025 TODO List with Stopwatch. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            // Update body class to trigger CSS-based toggling
+            document.body.className = lang;
+
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(lang === 'en' ? 'en' : 'jp')) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Initial setup
+        switchLang('en');
+    </script>
+    <style>
+        /* Override display property based on body class */
+        body.en [lang="ja"] {
+            display: none !important;
+        }
+
+        body.en [lang="en"] {
+            display: block;
+        }
+
+        body.ja [lang="en"] {
+            display: none !important;
+        }
+
+        body.ja [lang="ja"] {
+            display: block;
+        }
+
+        /* Fix for buttons to be inline-block */
+        body.en a.btn[lang="en"],
+        body.ja a.btn[lang="ja"] {
+            display: inline-block;
+        }
+
+        /* Fix for h1, h3, p to be block */
+        h1,
+        h3,
+        p,
+        div {
+            display: block;
+        }
+    </style>
+</body>
+
+</html>
