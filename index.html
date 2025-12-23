@@ -1,21 +1,436 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
-  <title>App Support & Privacy Policy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t-okb-dev Portfolio</title>
+  <meta name="description"
+    content="Personal developer portfolio of t-okb-dev. Showcasing Browser Extensions and iOS Apps for productivity and fitness.">
+  <meta name="keywords" content="developer, portfolio, iOS apps, Chrome extensions, productivity, fitness, t-okb-dev">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="t-okb-dev Portfolio">
+  <meta property="og:description"
+    content="Personal developer portfolio of t-okb-dev. Exploring tools for productivity and health.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- <meta property="og:image" content="og-image.png"> -->
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --text-color: #1e293b;
+      --card-bg: #ffffff;
+      --accent-color: #3b82f6;
+      --accent-hover: #2563eb;
+      --subtext-color: #64748b;
+      --border-color: #e2e8f0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0f172a;
+        --text-color: #f1f5f9;
+        --card-bg: #1e293b;
+        --accent-color: #60a5fa;
+        --accent-hover: #3b82f6;
+        --subtext-color: #94a3b8;
+        --border-color: #334155;
+      }
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 4rem 1rem;
+      text-align: center;
+      background: linear-gradient(135deg, var(--bg-color) 0%, var(--card-bg) 100%);
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .lang-switch {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--subtext-color);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .lang-btn.active {
+      background: var(--accent-color);
+      color: #fff;
+      border-color: var(--accent-color);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    header p {
+      color: var(--subtext-color);
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--accent-color);
+      padding-left: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      border-color: var(--accent-color);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    .card h3 a {
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+    .card h3 a:hover {
+      color: var(--accent-color);
+    }
+
+    .card p {
+      color: var(--subtext-color);
+      font-size: 0.95rem;
+      flex-grow: 1;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      color: var(--subtext-color);
+    }
+
+    .link {
+      display: inline-block;
+      color: var(--accent-color);
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: auto;
+    }
+
+    .link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--subtext-color);
+      font-size: 0.875rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    footer a {
+      color: var(--subtext-color);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      color: var(--accent-color);
+    }
+
+    .bmc-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #FFDD00;
+      color: #000000 !important;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: opacity 0.2s;
+    }
+
+    .bmc-button:hover {
+      opacity: 0.9;
+      color: #000000 !important;
+      text-decoration: none;
+    }
+
+    .emoji-icon {
+      display: none;
+      /* Hide old emoji class just in case */
+    }
+
+    .app-icon {
+      width: 48px;
+      height: 48px;
+      vertical-align: middle;
+      margin-right: 12px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      /* Fallback */
+    }
+
+    /* Language switching styles */
+    [lang]:not(:lang(en)):not(:lang(ja)) {
+      /* Default visible if no lang attribute on parent logic matches */
+    }
+
+    body.lang-en [lang="ja"] {
+      display: none !important;
+    }
+
+    body.lang-ja [lang="en"] {
+      display: none !important;
+    }
+  </style>
 </head>
-<body>
-  <h1>App Support & Privacy Policy</h1>
-  <ul>
-    <li><a href="sudoku-scansolver.marketing.html">sudoku-scansolver.marketing</a></li>
-    <li><a href="sudoku-scansolver.privacy-policy.html">sudoku-scansolver.privacy-policy</a></li>
-    <li><a href="TrainingTimerPrivacyPolicy.html">training timer.privacy-policy</a></li>
-    <li><a href="TrainingTimer.marketing.html">training timer.marketing</a></li>
 
-    <li><a href="TrumpTrainingPrivacyPolicy.html">TrumpTraining.privacy-policy</a></li>
-    <li><a href="TrumpTraining.marketing.html">TrumpTraining.marketing</a></li>
+<body class="lang-en"> <!-- Default to English, script will update -->
 
-    <li><a href="support.html">support.html</a></li>
-  </ul>
+  <header>
+    <div class="lang-switch">
+      <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+      <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+    </div>
+
+    <h1>Portfolio</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2 lang="en">iOS Apps</h2>
+      <h2 lang="ja">iOS アプリ</h2>
+      <div class="grid">
+        <!-- Training Timer -->
+        <article class="card">
+          <h3><a href="TrainingTimer.marketing.html"><img src="images/TrainingTimer.app_icon.png" alt="Icon"
+                class="app-icon"><span lang="en">Simple
+                Training Timer</span><span lang="ja">シンプル トレーニング タイマー</span></a></h3>
+          <div class="tags">
+            <span class="tag">iOS App</span>
+            <span class="tag" lang="en">Fitness</span><span class="tag" lang="ja">フィットネス</span>
+          </div>
+          <p lang="en">A simple yet powerful timer for round-based training like Boxing, HIIT, and Tabata. Fully
+            customizable intervals.</p>
+          <p lang="ja">ボクシング、HIIT、タバタなどのラウンド制トレーニングに最適なシンプルで強力なタイマー。インターバルもフルカスタマイズ可能。</p>
+          <a href="TrainingTimer.marketing.html" class="link" lang="en">View Details &rarr;</a>
+          <a href="TrainingTimer.marketing.html" class="link" lang="ja">詳細を見る &rarr;</a>
+        </article>
+
+        <!-- Trump Training -->
+        <article class="card">
+          <h3><a href="TrumpTraining.marketing.html"><img src="images/TrumpTraining.app_icon.png" alt="Icon"
+                class="app-icon"><span lang="en">Trump
+                Training</span><span lang="ja">トランプでトレーニング</span></a></h3>
+          <div class="tags">
+            <span class="tag">iOS App</span>
+            <span class="tag" lang="en">Fitness</span><span class="tag" lang="ja">フィットネス</span>
+            <span class="tag" lang="en">Game</span><span class="tag" lang="ja">ゲーム</span>
+          </div>
+          <p lang="en">Turn fitness into a game using cards. Draw a card to determine your exercise repetition. Fun and
+            random workout routine.</p>
+          <p lang="ja">トランプを使ってフィットネスをゲームに。引いたカードで回数が決まる、楽しくランダムなワークアウトルーチン。</p>
+          <a href="TrumpTraining.marketing.html" class="link" lang="en">View Details &rarr;</a>
+          <a href="TrumpTraining.marketing.html" class="link" lang="ja">詳細を見る &rarr;</a>
+        </article>
+
+        <!-- Sudoku Scan & Solve -->
+        <article class="card">
+          <h3><a href="sudoku-scansolver.marketing.html"><img src="images/sudoku-scansolver.app_icon.png" alt="Icon"
+                class="app-icon">Sudoku Scan &
+              Solve</a></h3>
+          <div class="tags">
+            <span class="tag">iOS App</span>
+            <span class="tag" lang="en">Utility</span><span class="tag" lang="ja">ユーティリティ</span>
+            <span class="tag">AI</span>
+          </div>
+          <p lang="en">Instantly scan and solve Sudoku puzzles using your camera. Great for checking answers or getting
+            hints on difficult puzzles.</p>
+          <p lang="ja">カメラで数独パズルを瞬時にスキャンして解答。答え合わせや、難しいパズルのヒントを得るのに最適です。</p>
+          <a href="sudoku-scansolver.marketing.html" class="link" lang="en">View Details &rarr;</a>
+          <a href="sudoku-scansolver.marketing.html" class="link" lang="ja">詳細を見る &rarr;</a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 lang="en">Browser Extensions</h2>
+      <h2 lang="ja">ブラウザ拡張機能</h2>
+      <div class="grid">
+        <!-- IDE Shortcut Cheatsheet -->
+        <article class="card">
+          <h3><a href="browser_extension/IDE_cheatsheet/index.html"><img src="browser_extension/IDE_cheatsheet/icon.png"
+                alt="Icon" class="app-icon">IDE Shortcut
+              Cheatsheet</a></h3>
+          <div class="tags">
+            <span class="tag">Chrome Extension</span>
+            <span class="tag" lang="en">Productivity</span><span class="tag" lang="ja">生産性</span>
+          </div>
+          <p lang="en">Quickly search and reference shortcuts for major IDEs like VSCode, IntelliJ, Android Studio, and
+            Xcode directly from your browser.</p>
+          <p lang="ja">VSCode、IntelliJ、Android Studio、Xcodeなど主要IDEのショートカットをブラウザから素早く検索・参照できます。</p>
+          <a href="browser_extension/IDE_cheatsheet/index.html" class="link" lang="en">View Details &rarr;</a>
+          <a href="browser_extension/IDE_cheatsheet/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
+        </article>
+
+        <!-- TODO List with Stopwatch -->
+        <article class="card">
+          <h3><a href="browser_extension/StopwatchTODO/index.html"><img src="browser_extension/StopwatchTODO/icon.png"
+                alt="Icon" class="app-icon">TODO List with
+              Stopwatch</a></h3>
+          <div class="tags">
+            <span class="tag">Chrome Extension</span>
+            <span class="tag" lang="en">Task Management</span><span class="tag" lang="ja">タスク管理</span>
+          </div>
+          <p lang="en">Manage tasks and track time simultaneously. Features color-coded tags, memos, and CSV export for
+            productivity analysis.</p>
+          <p lang="ja">タスク管理と時間計測を同時に。色分けタグ、メモ機能、CSVエクスポート機能を備え、生産性向上を支援します。</p>
+          <a href="browser_extension/StopwatchTODO/index.html" class="link" lang="en">View Details &rarr;</a>
+          <a href="browser_extension/StopwatchTODO/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
+        </article>
+
+        <!-- Timezone Check -->
+        <article class="card">
+          <h3><a href="browser_extension/check_timezone/index.html"><img src="browser_extension/check_timezone/icon.png"
+                alt="Icon" class="app-icon">Timezone Check</a></h3>
+          <div class="tags">
+            <span class="tag">Chrome Extension</span>
+            <span class="tag" lang="en">Utility</span><span class="tag" lang="ja">ユーティリティ</span>
+          </div>
+          <p lang="en">Instantly search and convert timezones worldwide. Features a modern UI with search filtering for
+            easy communication with global teams.</p>
+          <p lang="ja">世界中のタイムゾーンを瞬時に検索・変換。検索機能付きのモダンなUIで、海外チームとのコミュニケーションをスムーズにします。</p>
+          <a href="browser_extension/check_timezone/index.html" class="link" lang="en">View Details &rarr;</a>
+          <a href="browser_extension/check_timezone/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <a href="support.html" lang="en">App Support & Privacy Policy</a>
+      <a href="support.html" lang="ja">アプリサポート & プライバシーポリシー</a>
+    </p>
+    <p>
+      <a href="https://buymeacoffee.com/tokb" target="_blank" class="bmc-button">
+        <span>☕</span> Buy me a coffee
+      </a>
+    </p>
+    <p>&copy; 2025 t-okb-dev. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function setLanguage(lang) {
+      document.body.className = 'lang-' + lang;
+
+      // Update active button state
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // Save preference (optional, using localStorage for persistence)
+      localStorage.setItem('preferred-language', lang);
+    }
+
+    // Auto-detect language on load
+    (function () {
+      // 1. Check saved preference
+      const savedLang = localStorage.getItem('preferred-language');
+      if (savedLang) {
+        setLanguage(savedLang);
+        return;
+      }
+
+      // 2. Check browser language
+      const browserLang = navigator.language || navigator.userLanguage;
+      if (browserLang.startsWith('ja')) {
+        setLanguage('ja');
+      } else {
+        setLanguage('en');
+      }
+    })();
+  </script>
+
 </body>
+
 </html>
