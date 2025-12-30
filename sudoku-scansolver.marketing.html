@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sudoku Scan & Solve - 数独を一瞬で解くアプリ</title>
+  <title>Sudoku Scan & Solve - Solve Sudoku Instantly</title>
   <style>
     body {
       font-family: "Helvetica Neue", Arial, sans-serif;
@@ -13,39 +14,48 @@
       color: #333;
       line-height: 1.6;
     }
+
     header {
       background: #3b82f6;
       color: white;
       text-align: center;
       padding: 2rem 1rem;
+      position: relative;
     }
+
     header h1 {
       font-size: 2rem;
       margin-bottom: 0.5rem;
     }
+
     header p {
       font-size: 1.1rem;
     }
+
     .container {
       max-width: 900px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
+
     .features {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.5rem;
     }
+
     .feature {
       background: white;
       padding: 1rem;
       border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
+
     .feature h3 {
       margin-top: 0;
       color: #2563eb;
     }
+
     .screenshots {
       display: flex;
       flex-wrap: wrap;
@@ -53,15 +63,18 @@
       margin-top: 2rem;
       justify-content: center;
     }
+
     .screenshots img {
       width: 280px;
       border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
+
     .download {
       text-align: center;
       margin: 3rem 0;
     }
+
     .download a {
       background: #3b82f6;
       color: white;
@@ -69,8 +82,9 @@
       border-radius: 8px;
       text-decoration: none;
       font-size: 1.2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
+
     footer {
       text-align: center;
       padding: 1rem;
@@ -78,43 +92,92 @@
       color: #555;
       font-size: 0.9rem;
     }
+
+    /* Language switching styles */
+    body.lang-en [lang="ja"] {
+      display: none !important;
+    }
+
+    body.lang-ja [lang="en"] {
+      display: none !important;
+    }
+
+    /* Additional styles for switcher */
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #fff;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    .lang-btn.active {
+      background: rgba(255, 255, 255, 0.2);
+      font-weight: bold;
+      border-color: #fff;
+    }
   </style>
 </head>
-<body>
+
+<body class="lang-en">
 
   <header>
+    <div class="lang-switch">
+      <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+      <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+    </div>
     <h1>Sudoku Scan & Solve</h1>
-    <p>数独を一瞬でスキャンして解答！初心者から上級者まで楽しめる無料アプリ</p>
+    <p lang="en">Scan and solve Sudoku instantly! Free app for beginners to experts.</p>
+    <p lang="ja">数独を一瞬でスキャンして解答！初心者から上級者まで楽しめる無料アプリ</p>
   </header>
 
   <div class="container">
     <section class="features">
       <div class="feature">
-        <h3>📷 写真からスキャン</h3>
-        <p>新聞・雑誌・本の数独をカメラで撮影するだけ。瞬時に盤面を認識します。</p>
+        <h3 lang="en">📷 Scan from Photo</h3>
+        <h3 lang="ja">📷 写真からスキャン</h3>
+        <p lang="en">Just take a picture of Sudoku from newspaper/magazine. Instantly recognizes board.</p>
+        <p lang="ja">新聞・雑誌・本の数独をカメラで撮影するだけ。瞬時に盤面を認識します。</p>
       </div>
       <div class="feature">
-        <h3>⚡ 高速解答</h3>
-        <p>わずか数秒で完全解答を表示。懸賞応募の答え合わせにも便利です。</p>
+        <h3 lang="en">⚡ High Speed Solve</h3>
+        <h3 lang="ja">⚡ 高速解答</h3>
+        <p lang="en">Complete solution in seconds. Good for checking answers.</p>
+        <p lang="ja">わずか数秒で完全解答を表示。懸賞応募の答え合わせにも便利です。</p>
       </div>
       <div class="feature">
-        <h3>✅ 間違いチェック</h3>
-        <p>入力した答えが正しいかすぐに確認可能。学習や練習にも役立ちます。</p>
+        <h3 lang="en">✅ Mistake Check</h3>
+        <h3 lang="ja">✅ 間違いチェック</h3>
+        <p lang="en">Check if your answer is correct. Good for practice.</p>
+        <p lang="ja">入力した答えが正しいかすぐに確認可能。学習や練習にも役立ちます。</p>
       </div>
       <div class="feature">
-        <h3>✏️ 盤面編集</h3>
-        <p>スキャン後に数字を自由に修正。自分だけの盤面を作ることもできます。</p>
+        <h3 lang="en">✏️ Edit Board</h3>
+        <h3 lang="ja">✏️ 盤面編集</h3>
+        <p lang="en">Fix numbers after scan. Create your own board.</p>
+        <p lang="ja">スキャン後に数字を自由に修正。自分だけの盤面を作ることもできます。</p>
       </div>
     </section>
 
     <section class="screenshots">
-      <img src="images/screenshot1.png" alt="数独スキャン画面">
-      <img src="images/screenshot2.png" alt="解答画面">
-      <img src="images/screenshot3.png" alt="間違いチェック機能">
+      <img src="images/screenshot1.png" alt="Scan Screen">
+      <img src="images/screenshot2.png" alt="Solve Screen">
+      <img src="images/screenshot3.png" alt="Mistake Check">
     </section>
 
     <div class="download">
-      <a href="https://apps.apple.com/us/app/sudoku-scan-solver/id6749896084" target="_blank">App Storeでダウンロード</a>
+      <a href="https://apps.apple.com/us/app/sudoku-scan-solver/id6749896084" target="_blank" lang="en">Download on App
+        Store</a>
+      <a href="https://apps.apple.com/us/app/sudoku-scan-solver/id6749896084" target="_blank" lang="ja">App
+        Storeでダウンロード</a>
     </div>
   </div>
 
@@ -122,5 +185,37 @@
     <p>&copy; 2025 Sudoku Scan & Solve</p>
   </footer>
 
+  <script>
+    function setLanguage(lang) {
+      document.body.className = 'lang-' + lang;
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      localStorage.setItem('preferred-language', lang);
+    }
+
+    (function () {
+      const savedLang = localStorage.getItem('preferred-language');
+      if (savedLang) {
+        setLanguage(savedLang);
+        return;
+      }
+
+      const browserLang = navigator.language || navigator.userLanguage;
+      if (browserLang.startsWith('ja')) {
+        setLanguage('ja');
+      } else {
+        setLanguage('en');
+      }
+    })();
+  </script>
+
 </body>
+
 </html>

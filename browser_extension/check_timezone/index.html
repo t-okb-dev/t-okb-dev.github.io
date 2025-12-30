@@ -4,24 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timezone Check - 世界中の時間を、一瞬で。 </title>
-    <meta name="description" content="世界中のタイムゾーンを瞬時に検索・変換。検索機能付きのモダンなインターフェースで、海外チームとのコミュニケーションをスムーズにします。">
+    <title>Timezone Check - World Time in an Instant</title>
+    <meta name="description"
+        content="Instantly search and convert timezones worldwide. Modern interface with search function for smooth communication with global teams.">
     <meta name="keywords"
         content="timezone, converter, world clock, chrome extension, developer tools, タイムゾーン, 時間変換, 世界時計, Chrome拡張機能, 開発効率化">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo">
-    <meta property="og:title" content="Timezone Check - 世界中の時間を、一瞬で。">
-    <meta property="og:description" content="世界中のタイムゾーンを瞬時に検索・変換。検索機能付きのモダンなインターフェースで、海外チームとのコミュニケーションをスムーズにします。">
+    <meta property="og:url"
+        content="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo">
+    <meta property="og:title" content="Timezone Check - World Time in an Instant">
+    <meta property="og:description"
+        content="Instantly search and convert timezones worldwide. Modern interface with search function for smooth communication with global teams.">
     <meta property="og:image" content="og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo">
-    <meta property="twitter:title" content="Timezone Check - 世界中の時間を、一瞬で。">
-    <meta property="twitter:description" content="世界中のタイムゾーンを瞬時に検索・変換。検索機能付きのモダンなインターフェースで、海外チームとのコミュニケーションをスムーズにします。">
+    <meta property="twitter:url"
+        content="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo">
+    <meta property="twitter:title" content="Timezone Check - World Time in an Instant">
+    <meta property="twitter:description"
+        content="Instantly search and convert timezones worldwide. Modern interface with search function for smooth communication with global teams.">
     <meta property="twitter:image" content="og-image.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,9 +35,41 @@
     <link rel="stylesheet" href="style.css">
     <!-- Icon -->
     <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        /* Language switching styles */
+        body.lang-en [lang="ja"] {
+            display: none !important;
+        }
+
+        body.lang-ja [lang="en"] {
+            display: none !important;
+        }
+
+        /* Additional styles for switcher */
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+    </style>
 </head>
 
-<body>
+<body class="lang-en">
     <div class="background-mesh"></div>
 
     <div class="container">
@@ -41,48 +78,74 @@
                 <img src="icon.png" alt="Logo">
                 <span>Timezone Check</span>
             </div>
+            <div class="lang-switch">
+                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+            </div>
         </nav>
 
         <section class="hero">
-            <h1>世界中の時間を、<br>あなたの手の中に。</h1>
-            <p>
+            <h1 lang="en">World time,<br>in your hands.</h1>
+            <h1 lang="ja">世界中の時間を、<br>あなたの手の中に。</h1>
+            <p lang="en">
+                Time difference calculation, no longer a confusion.<br>
+                Get current time with one click, and find the time of your destination<br>
+                instantly with searchable select box.
+            </p>
+            <p lang="ja">
                 時差の計算で、もう迷わない。 <br>
                 クリックひとつで現在時刻を取得し、検索可能なセレクトボックスで<br>
                 目的の地域の日時を瞬時に導き出します。
             </p>
-            <a href="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo" class="btn btn-primary">Chromeに追加する (無料)</a>
+            <a href="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo"
+                class="btn btn-primary" lang="en">Add to Chrome (Free)</a>
+            <a href="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo"
+                class="btn btn-primary" lang="ja">Chromeに追加する (無料)</a>
         </section>
 
         <section class="features">
             <div class="feature-card">
                 <div class="icon-box">🔍</div>
-                <h3>爆速タイムゾーン検索</h3>
-                <p>都市名や国名を入力するだけで、膨大な世界中のタイムゾーンから目的の場所をフィルタリングできます。</p>
+                <h3 lang="en">Blazing Fast Search</h3>
+                <h3 lang="ja">爆速タイムゾーン検索</h3>
+                <p lang="en">Filter from vast world timezones by city or country name instantly.</p>
+                <p lang="ja">都市名や国名を入力するだけで、膨大な世界中のタイムゾーンから目的の場所をフィルタリングできます。</p>
             </div>
             <div class="feature-card">
                 <div class="icon-box">🌍</div>
-                <h3>多言語・自動対応</h3>
-                <p>ブラウザの言語設定に合わせて最適化。日本語だけでなく、グローバルな環境でも快適に使用可能です。</p>
+                <h3 lang="en">Multilingual & Auto</h3>
+                <h3 lang="ja">多言語・自動対応</h3>
+                <p lang="en">Optimized for browser language. Works comfortably in global environments.</p>
+                <p lang="ja">ブラウザの言語設定に合わせて最適化。日本語だけでなく、グローバルな環境でも快適に使用可能です。</p>
             </div>
             <div class="feature-card">
                 <div class="icon-box">⚡️</div>
-                <h3>スマートな変換</h3>
-                <p>現在の時刻を一瞬でセット。SourceとTargetを入れ替えるスワップ機能で、双方向の確認もスムーズです。</p>
+                <h3 lang="en">Smart Conversion</h3>
+                <h3 lang="ja">スマートな変換</h3>
+                <p lang="en">Set current time instantly. Swap source and target for smooth two-way checks.</p>
+                <p lang="ja">現在の時刻を一瞬でセット。SourceとTargetを入れ替えるスワップ機能で、双方向の確認もスムーズです。</p>
             </div>
             <div class="feature-card">
                 <div class="icon-box">📋</div>
-                <h3>ワンクリックコピー</h3>
-                <p>計算結果はワンクリックでクリップボードへ。チャットやメール、カレンダーへの貼り付けも一瞬です。</p>
+                <h3 lang="en">One-Click Copy</h3>
+                <h3 lang="ja">ワンクリックコピー</h3>
+                <p lang="en">Copy result to clipboard. Paste to chat, email, or calendar in a flash.</p>
+                <p lang="ja">計算結果はワンクリックでクリップボードへ。チャットやメール、カレンダーへの貼り付けも一瞬です。</p>
             </div>
             <div class="feature-card">
                 <div class="icon-box">🎨</div>
-                <h3>プレミアムなデザイン</h3>
-                <p>ダークモードに最適化された、目に優しく洗練されたUI。開発効率を損なわないUXを追求しました。</p>
+                <h3 lang="en">Premium Design</h3>
+                <h3 lang="ja">プレミアムなデザイン</h3>
+                <p lang="en">Dark mode optimized, eye-friendly refined UI. UX that doesn't hinder development
+                    efficiency.</p>
+                <p lang="ja">ダークモードに最適化された、目に優しく洗練されたUI。開発効率を損なわないUXを追求しました。</p>
             </div>
             <div class="feature-card">
                 <div class="icon-box">🔒</div>
-                <h3>完全オフライン動作</h3>
-                <p>データはブラウザ内のみで処理され、外部への通信は行いません。プライバシーとセキュリティを重視しています。</p>
+                <h3 lang="en">Fully Offline</h3>
+                <h3 lang="ja">完全オフライン動作</h3>
+                <p lang="en">Data processed in browser only, no external communication. Privacy and security first.</p>
+                <p lang="ja">データはブラウザ内のみで処理され、外部への通信は行いません。プライバシーとセキュリティを重視しています。</p>
             </div>
         </section>
 
@@ -96,6 +159,36 @@
             </p>
         </footer>
     </div>
+    <script>
+        function setLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        (function () {
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang) {
+                setLanguage(savedLang);
+                return;
+            }
+
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('ja')) {
+                setLanguage('ja');
+            } else {
+                setLanguage('en');
+            }
+        })();
+    </script>
 </body>
 
 </html>

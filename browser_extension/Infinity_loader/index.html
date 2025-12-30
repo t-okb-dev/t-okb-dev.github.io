@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity Loader - The Ultimate Joke Extension</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0c0c0c;
+            color: #ccc;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #111;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid #00ff00;
+            position: relative;
+        }
+
+        header h1 {
+            color: #00ff00;
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #58a6ff;
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+
+        .lang-btn.active {
+            background: #00ff00;
+            color: #000;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .hero img {
+            max-width: 100%;
+            border: 2px solid #333;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+
+        h2 {
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            color: #eee;
+            margin-top: 40px;
+        }
+
+        ul,
+        ol {
+            color: #aaa;
+        }
+
+        ul {
+            list-style-type: square;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #00ff00;
+            color: #000;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #00cc00;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
+            color: #555;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+        }
+
+        /* Language switching styles */
+        body.lang-en [lang="ja"] {
+            display: none !important;
+        }
+
+        body.lang-ja [lang="en"] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="lang-en">
+
+    <header>
+        <div class="lang-switch">
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+        </div>
+        <h1>Infinity Loader</h1>
+        <p lang="en">The ultimate joke extension for pretending to work.</p>
+        <p lang="ja">仕事をしているフリをするための、究極のジョーク拡張機能</p>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <img src="promo.png" alt="Infinity Loader Promo">
+            <p lang="en">Endless installations, unstoppable progress bars.<br>Make your screen look "busy" forever.</p>
+            <p lang="ja">終わらないインストール、止まらないプログレスバー。<br>あなたの画面を常に「忙しそう」に見せかけます。</p>
+            <a href="#" class="cta-button" lang="en">Add to Chrome</a>
+            <a href="#" class="cta-button" lang="ja">Chromeに追加</a>
+        </div>
+
+        <h2 lang="en">What is this?</h2>
+        <h2 lang="ja">これは何？</h2>
+        <p lang="en">"Infinity Loader" is a joke extension that displays an infinitely running fake installation screen.
+            Perfect for when your boss walks by, when you want to impress friends with "hacking", or just want to watch
+            green text flow.</p>
+        <p lang="ja">「Infinity
+            Loader」は、無限に続くフェイクのインストール画面を表示するジョーク拡張機能です。上司が後ろを通るとき、友人に「ハッキングしてるの？」と言わせたいとき、あるいは単に緑色の文字が流れるのを眺めていたいときに最適です。
+        </p>
+
+        <h2 lang="en">Key Features (Useless Features)</h2>
+        <h2 lang="ja">主な機能 (無駄機能)</h2>
+        <ul lang="en">
+            <li><strong>Realistic Fake Logs:</strong> Generates plausible commands like `npm install`, `docker pull`,
+                `mining crypto` endlessly.</li>
+            <li><strong>Doors OS:</strong> Pretends to run on the non-existent parody OS "Doors OS".</li>
+            <li><strong>Typing Animation:</strong> Commands are typed out character by character. Skip with `Alt+T`.
+            </li>
+            <li><strong>Crash Simulation:</strong> Occasional kernel panics and errors that auto-recover. Adds tension.
+            </li>
+            <li><strong>User Input:</strong> You can actually type commands (nothing happens, but it's logged).</li>
+        </ul>
+        <ul lang="ja">
+            <li><strong>リアルなフェイクログ:</strong> `npm install`, `docker pull`, `mining crypto` など、それっぽいコマンドが無限に生成されます。</li>
+            <li><strong>Doors OS搭載:</strong> 実際には存在しないパロディOS「Doors OS」上で動作するフリをします。</li>
+            <li><strong>タイピング演出:</strong> コマンドが一文字ずつタイプされるアニメーション。`Alt+T`でスキップも可能。</li>
+            <li><strong>クラッシュシミュレーション:</strong> 時々カーネルパニックやエラーが発生し、自動で復旧します。緊迫感を演出。</li>
+            <li><strong>ユーザー入力:</strong> 実際にコマンドを打てます（何も起きませんが、ログには残ります）。</li>
+        </ul>
+
+        <div class="hero">
+            <!-- Live Terminal Demo -->
+            <div id="terminal-demo"
+                style="background-color: #0c0c0c; border: 2px solid #333; padding: 15px; text-align: left; font-family: 'Roboto Mono', monospace; height: 300px; overflow-y: hidden; box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); position: relative;">
+                <div id="terminal-content" style="color: #ccc; font-size: 14px; line-height: 1.5;"></div>
+                <div style="position: absolute; bottom: 10px; left: 15px; color: #00ff00; font-weight: bold;">
+                    admin@doors-os:~/work$ <span id="cursor"
+                        style="background-color: #ccc; width: 8px; height: 1em; display: inline-block;"></span>
+                </div>
+            </div>
+            <p style="font-size: 0.9em; color: #666; margin-top: 5px;" lang="en">* This is a live demo. It is actually
+                running.</p>
+            <p style="font-size: 0.9em; color: #666; margin-top: 5px;" lang="ja">※ 上記はライブデモです。実際に動いています。</p>
+        </div>
+
+        <script>
+            (function () {
+                const terminalContent = document.getElementById('terminal-content');
+                const PACKAGES = ['react-fake', 'typescript-lighting', 'vite-fast', 'webpack-heavy', 'babel-fish', 'nasa-mainframe', 'fbi-database'];
+                const COMMANDS = [
+                    { t: 'npm install {pkg}', o: 'added {num} packages in {time}s' },
+                    { t: 'docker pull {pkg}:latest', o: 'Status: Downloaded newer image for {pkg}:latest' },
+                    { t: 'mining crypto --pool {pkg}', o: 'Hashrate: {num} MH/s\nShare accepted.' },
+                    { t: 'hacking mainframe --target {pkg}', o: 'Access granted.\nDownloading secure files...' }
+                ];
+
+                function getRandomInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+                function getRandomItem(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+                function addLine(text, color = '#ccc') {
+                    const div = document.createElement('div');
+                    div.textContent = text;
+                    div.style.color = color;
+                    terminalContent.appendChild(div);
+                    if (terminalContent.childElementCount > 10) terminalContent.removeChild(terminalContent.firstChild);
+                }
+
+                function runTask() {
+                    const cmdObj = getRandomItem(COMMANDS);
+                    const pkg = getRandomItem(PACKAGES);
+                    const cmd = cmdObj.t.replace('{pkg}', pkg);
+                    const output = cmdObj.o.replace('{pkg}', pkg).replace('{num}', getRandomInt(10, 999)).replace('{time}', getRandomInt(1, 10));
+
+                    // Command
+                    addLine(`admin@doors-os:~/work$ ${cmd}`, '#f1f1f1');
+
+                    // Fake progress
+                    let progress = 0;
+                    const interval = setInterval(() => {
+                        progress += getRandomInt(5, 20);
+                        if (progress >= 100) {
+                            clearInterval(interval);
+                            addLine(output, '#ccc');
+                            setTimeout(runTask, getRandomInt(500, 1500));
+                        } else {
+                            // Update last line if it's a progress bar (simplified for demo: just wait)
+                        }
+                    }, 100);
+                }
+
+                // Cursor Blink
+                setInterval(() => {
+                    const cursor = document.getElementById('cursor');
+                    cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+                }, 500);
+
+                setTimeout(runTask, 1000);
+            })();
+        </script>
+
+        <h2 lang="en">How to use</h2>
+        <h2 lang="ja">使い方</h2>
+        <ol lang="en">
+            <li>Click the icon to open a new tab.</li>
+            <li>Watch the screen.</li>
+            <li>When someone walks by, look serious and say "The build is taking forever...".</li>
+            <li>Press `Space` to pause, `Esc` for interruption effect.</li>
+        </ol>
+        <ol lang="ja">
+            <li>アイコンをクリックして新しいタブを開きます。</li>
+            <li>画面を眺めます。</li>
+            <li>誰かが来たら、難しい顔をして「ビルドが長引いてて...」と言い訳します。</li>
+            <li>`Space`キーで一時停止、`Esc`キーで中断演出も可能です。</li>
+        </ol>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <p lang="en">* This is a joke app. No actual installation or hacking occurs.<br>* It (probably) won't affect
+                PC performance.</p>
+            <p lang="ja">※ この拡張機能はジョークアプリです。実際のインストールやハッキングは行われません。<br>※ PCのパフォーマンスには（多分）影響しません。</p>
+            <a href="#" class="cta-button" lang="en">Waste Time Now</a>
+            <a href="#" class="cta-button" lang="ja">今すぐ無駄な時間を過ごす</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Macrohard Corporation. (Fake Company)</p>
+        <p>Created by tooku</p>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        (function () {
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang) {
+                setLanguage(savedLang);
+                return;
+            }
+
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('ja')) {
+                setLanguage('ja');
+            } else {
+                setLanguage('en');
+            }
+        })();
+    </script>
+</body>
+
+</html>

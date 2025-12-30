@@ -1,137 +1,373 @@
 <!doctype html>
 <html lang="ja">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>シンプル トレーニング タイマー｜ラウンド制トレーニングに最適</title>
-  <meta name="description" content="ボクシング、MMA、HIIT、縄跳び、プランクなど、ラウンド制トレーニングに最適なタイマーアプリ。初心者からプロまで直感的に使えるシンプル設計。" />
-  <meta name="keywords" content="トレーニング,タイマー,習慣,筋トレ,フィットネス,リマインダー,記録,運動,日課,目標,集中,ワークアウト,健康,自分磨き,毎日続ける,ルーティン,boxing,ボクシング,MMA,柔術,縄跳び" />
+  <title>Simple Training Timer｜Round-Based Training Timer</title>
+  <meta name="description"
+    content="Optimal timer app for Boxing, MMA, HIIT, Jump Rope, Plank, etc. Simple design intuitive for everyone from beginners to pros." />
+  <meta name="keywords"
+    content="training, timer, habit, fitness, muscle, reminder, record, exercise, routine, goal, focus, workout, health, boxing, MMA, jump rope" />
 
   <!-- OGP / Twitter -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="シンプル トレーニング タイマー - ラウンド制トレーニングに対応">
-  <meta property="og:description" content="ボクシング、MMA、HIIT、縄跳び、プランクなどに最適。誰でも直感的に使えるシンプル設計。">
+  <meta property="og:title" content="Simple Training Timer - For Round-Based Training">
+  <meta property="og:description"
+    content="Perfect for Boxing, MMA, HIIT, Jump Rope, Plank. Simple design intuitive for everyone.">
 
   <!-- App Store Smart App Banner（iOS Safariで上部に表示）-->
   <!-- URLを実ストアに差し替え -->
-  <meta name="apple-itunes-app" content="app-id=id6749538572"> 
+  <meta name="apple-itunes-app" content="app-id=id6749538572">
 
   <!-- JSON-LD（構造化データ）-->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "MobileApplication",
-    "name": "シンプル トレーニング タイマー",
+    "name": "Simple Training Timer",
     "operatingSystem": "iOS",
     "applicationCategory": "https://schema.org/SportsApplication",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
-    "description": "ボクシング、MMA、HIIT、縄跳び、プランクなど、ラウンド制トレーニングに最適。初心者からプロまで直感的に使えるシンプル設計。"
+    "description": "Optimal timer app for Boxing, MMA, HIIT, Jump Rope, Plank, etc. Simple design intuitive for everyone from beginners to pros."
   }
   </script>
 
   <style>
-    :root{
-      --bg:#0b0c10; --card:#121317; --text:#f4f6f8; --muted:#b9c2cc; --acc:#38bdf8; --chip:#1f232b; --ok:#22c55e;
+    :root {
+      --bg: #0b0c10;
+      --card: #121317;
+      --text: #f4f6f8;
+      --muted: #b9c2cc;
+      --acc: #38bdf8;
+      --chip: #1f232b;
+      --ok: #22c55e;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;line-height:1.6}
-    a{color:var(--acc);text-decoration:none}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;padding:24px}
-    .hero h1{font-size:clamp(28px,4.4vw,44px);line-height:1.15;margin:0 0 12px}
-    .lead{color:var(--muted);font-size:clamp(16px,2.2vw,18px)}
-    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-    .btn{background:var(--acc);color:#001b2b;border:none;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer}
-    .btn.ghost{background:transparent;border:1px solid var(--acc);color:var(--acc)}
-    .card{background:var(--card);border:1px solid #1d222a;border-radius:16px;padding:20px}
-    .grid{display:grid;gap:16px}
-    .grid.features{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .chiprow{display:flex;gap:8px;flex-wrap:wrap}
-    .chip{background:var(--chip);border:1px solid #222a33;border-radius:999px;padding:6px 10px;font-size:13px;color:var(--muted)}
-    .section{margin-top:28px}
-    .icon{font-weight:900;color:var(--ok);margin-right:6px}
-    img.sshot{width:100%;border-radius:16px;border:1px solid #1d222a;background:#0f1216}
-    footer{color:#8e99a8;font-size:13px;padding:28px 0;text-align:center}
-    @media (max-width:900px){.hero{grid-template-columns:1fr}}
-    @media (max-width:680px){.grid.features{grid-template-columns:1fr}}
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      line-height: 1.6
+    }
+
+    a {
+      color: var(--acc);
+      text-decoration: none
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 24px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 4.4vw, 44px);
+      line-height: 1.15;
+      margin: 0 0 12px
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: clamp(16px, 2.2vw, 18px)
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      background: var(--acc);
+      color: #001b2b;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-weight: 700;
+      cursor: pointer
+    }
+
+    .btn.ghost {
+      background: transparent;
+      border: 1px solid var(--acc);
+      color: var(--acc)
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #1d222a;
+      border-radius: 16px;
+      padding: 20px
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px
+    }
+
+    .grid.features {
+      grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+
+    .chiprow {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .chip {
+      background: var(--chip);
+      border: 1px solid #222a33;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .section {
+      margin-top: 28px
+    }
+
+    .icon {
+      font-weight: 900;
+      color: var(--ok);
+      margin-right: 6px
+    }
+
+    img.sshot {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid #1d222a;
+      background: #0f1216
+    }
+
+    footer {
+      color: #8e99a8;
+      font-size: 13px;
+      padding: 28px 0;
+      text-align: center
+    }
+
+    @media (max-width:900px) {
+      .hero {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media (max-width:680px) {
+      .grid.features {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* Language switching styles */
+    body.lang-en [lang="ja"] {
+      display: none !important;
+    }
+
+    body.lang-ja [lang="en"] {
+      display: none !important;
+    }
+
+    /* Additional styles for switcher */
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    .lang-btn.active {
+      background: rgba(255, 255, 255, 0.2);
+      font-weight: bold;
+    }
+
+    /* Ensure lang switch doesn't break grid/flex in header if needed. 
+       Here .hero is a grid, so absolute positioning right top works fine. */
   </style>
 </head>
-<body>
+
+<body class="lang-en">
   <header class="wrap hero">
+    <div class="lang-switch">
+      <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+      <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+    </div>
     <div>
-      <h1>シンプル トレーニング タイマー<br>— あらゆるラウンド制トレーニングに対応</h1>
-      <p class="lead">
+      <h1 lang="en">Simple Training Timer<br>— Perfect for all round-based training</h1>
+      <h1 lang="ja">シンプル トレーニング タイマー<br>— あらゆるラウンド制トレーニングに対応</h1>
+      <p class="lead" lang="en">
+        Optimal timer app for Boxing, MMA, HIIT, Jump Rope, Plank, etc.<br>
+        Simple design intuitive for everyone from beginners to experts.
+      </p>
+      <p class="lead" lang="ja">
         ボクシング、MMA、HIIT、縄跳び、プランクなど、ラウンド制トレーニングに最適なタイマーアプリ！<br>
         初心者からプロ格闘家、トレーナー、フィットネス愛好家まで、誰でも直感的に使えるシンプル設計。
       </p>
       <div class="cta">
         <!-- App Store URL を差し替え -->
-        <a class="btn" href="https://apps.apple.com/jp/app/simpe-training-timer/id6749538572" target="_blank" rel="noopener">App Storeで入手</a>
-        <a class="btn ghost" href="#details">機能を見る</a>
+        <a class="btn" href="https://apps.apple.com/jp/app/simpe-training-timer/id6749538572" target="_blank"
+          rel="noopener" lang="en">Get on App Store</a>
+        <a class="btn" href="https://apps.apple.com/jp/app/simpe-training-timer/id6749538572" target="_blank"
+          rel="noopener" lang="ja">App Storeで入手</a>
+
+        <a class="btn ghost" href="#details" lang="en">See Features</a>
+        <a class="btn ghost" href="#details" lang="ja">機能を見る</a>
       </div>
       <div class="chiprow" style="margin-top:12px">
-        <span class="chip">無料</span>
-        <span class="chip">軽量・高速起動</span>
-        <span class="chip">日本語 / 英語対応</span>
-        <span class="chip">ラウンド制トレーニング特化</span>
+        <span class="chip" lang="en">Free</span>
+        <span class="chip" lang="ja">無料</span>
+
+        <span class="chip" lang="en">Lightweight & Fast</span>
+        <span class="chip" lang="ja">軽量・高速起動</span>
+
+        <span class="chip" lang="en">JP / EN Support</span>
+        <span class="chip" lang="ja">日本語 / 英語対応</span>
+
+        <span class="chip" lang="en">Round Training</span>
+        <span class="chip" lang="ja">ラウンド制トレーニング特化</span>
       </div>
     </div>
     <div class="card">
       <!-- スクショ画像を差し替え -->
-      <img class="sshot" src="images/training-screen01.jpg" alt="アプリのスクリーンショット">
+      <img class="sshot" src="images/training-screen01.jpg" alt="App Screenshot">
     </div>
   </header>
 
   <main class="wrap">
     <section id="details" class="section grid features">
       <div class="card">
-        <h3>ラウンド制に特化</h3>
-        <p><span class="icon">●</span>ラウンド時間・インターバル（休憩）・ラウンド数を自由に設定。シンプル操作ですぐ開始。</p>
+        <h3 lang="en">Specialized for Rounds</h3>
+        <h3 lang="ja">ラウンド制に特化</h3>
+        <p lang="en"><span class="icon">●</span>Set round time, interval, and round count freely. Easy to start.</p>
+        <p lang="ja"><span class="icon">●</span>ラウンド時間・インターバル（休憩）・ラウンド数を自由に設定。シンプル操作ですぐ開始。</p>
       </div>
       <div class="card">
-        <h3>柔軟なプリセット管理</h3>
-        <p><span class="icon">●</span>設定を名前付きで保存。「2分×3R・休憩30秒」など競技別プリセットにも対応。</p>
+        <h3 lang="en">Flexible Presets</h3>
+        <h3 lang="ja">柔軟なプリセット管理</h3>
+        <p lang="en"><span class="icon">●</span>Save settings with names. Presets for different sports like "3min x 3R".
+        </p>
+        <p lang="ja"><span class="icon">●</span>設定を名前付きで保存。「2分×3R・休憩30秒」など競技別プリセットにも対応。</p>
       </div>
       <div class="card">
-        <h3>幅広いトレーニング</h3>
-        <p><span class="icon">●</span>ボクシング・MMA・キック、HIIT、縄跳び、プランク、筋トレインターバル など。</p>
+        <h3 lang="en">Wide Range of Uses</h3>
+        <h3 lang="ja">幅広いトレーニング</h3>
+        <p lang="en"><span class="icon">●</span>Boxing, MMA, Kickboxing, HIIT, Jump Rope, Plank, Intervals.</p>
+        <p lang="ja"><span class="icon">●</span>ボクシング・MMA・キック、HIIT、縄跳び、プランク、筋トレインターバル など。</p>
       </div>
       <div class="card">
-        <h3>多言語対応</h3>
-        <p><span class="icon">●</span>日本語／英語に対応。海外ユーザーやトレーナー仲間とも共有しやすい。</p>
+        <h3 lang="en">Multilingual</h3>
+        <h3 lang="ja">多言語対応</h3>
+        <p lang="en"><span class="icon">●</span>Supports English/Japanese. Easy to share with global friends.</p>
+        <p lang="ja"><span class="icon">●</span>日本語／英語に対応。海外ユーザーやトレーナー仲間とも共有しやすい。</p>
       </div>
       <div class="card">
-        <h3>シンプルUI / 軽量設計</h3>
-        <p><span class="icon">●</span>無駄のない画面で迷わない。軽量・高速起動でトレーニング中も快適。</p>
+        <h3 lang="en">Simple UI / Lightweight</h3>
+        <h3 lang="ja">シンプルUI / 軽量設計</h3>
+        <p lang="en"><span class="icon">●</span>No distraction. Lightweight and fast startup for smooth training.</p>
+        <p lang="ja"><span class="icon">●</span>無駄のない画面で迷わない。軽量・高速起動でトレーニング中も快適。</p>
       </div>
       <div class="card">
-        <h3>おすすめの方</h3>
-        <p><span class="icon">●</span>手軽にラウンドタイマーを使いたい方／柔軟なカスタムが必要な方／指導するトレーナー／短時間で集中したい方／複雑なUIに疲れた方。</p>
+        <h3 lang="en">Recommended For</h3>
+        <h3 lang="ja">おすすめの方</h3>
+        <p lang="en"><span class="icon">●</span>Quick round timer users / Custom needs / Trainers / Focus seekers /
+          Minimalist lovers.</p>
+        <p lang="ja"><span class="icon">●</span>手軽にラウンドタイマーを使いたい方／柔軟なカスタムが必要な方／指導するトレーナー／短時間で集中したい方／複雑なUIに疲れた方。</p>
       </div>
     </section>
 
     <section class="section card">
-      <h2>アプリ紹介</h2>
-      <p>
+      <h2 lang="en">About App</h2>
+      <h2 lang="ja">アプリ紹介</h2>
+      <p lang="en">
+        Simple Training Timer is designed to start round-based training with minimal operations.
+        Customize round time, interval, and rounds freely. Perfect for Boxing, MMA, HIIT, Jump Rope, Plank, and more.
+      </p>
+      <p lang="ja">
         シンプル トレーニング タイマーは、ラウンド制トレーニングを最短・最小の操作で始められるよう設計されたタイマーアプリです。
         ラウンド時間・インターバル・ラウンド数を自由に設定。ボクシング、MMA、HIIT、縄跳び、プランクなど、幅広い用途に最適です。
       </p>
       <div class="cta" style="margin-top:6px">
-        <a class="btn" href="https://apps.apple.com/jp/app/simpe-training-timer/id6749538572" target="_blank" rel="noopener">今すぐダウンロード</a>
-        <!-- 2枚目スクショ（任意） -->
-        <!-- <a class="btn ghost" href="https://your-domain.example/screen02.jpg" target="_blank">スクリーンショットを見る</a> -->
+        <a class="btn" href="https://apps.apple.com/jp/app/simpe-training-timer/id6749538572" target="_blank"
+          rel="noopener" lang="en">Download Now</a>
+        <a class="btn" href="https://apps.apple.com/jp/app/simpe-training-timer/id6749538572" target="_blank"
+          rel="noopener" lang="ja">今すぐダウンロード</a>
       </div>
     </section>
 
     <section class="section card">
-      <h2>キーワード</h2>
-      <p style="color:var(--muted)">
-        トレーニング, タイマー, 習慣, 筋トレ, フィットネス, リマインダー, 記録, 運動, 日課, 目標, 集中, ワークアウト, 健康, 自分磨き, 毎日続ける, ルーティン, boxing, ボクシング, MMA, 柔術, 縄跳び
+      <h2 lang="en">Keywords</h2>
+      <h2 lang="ja">キーワード</h2>
+      <p style="color:var(--muted)" lang="en">
+        Training,Timer,Habit,Fitness,Muscle,Reminder,Record,Exercise,Routine,Goal,Focus,Workout,Health,Boxing,MMA,Jiu-jitsu,Jump
+        rope
+      </p>
+      <p style="color:var(--muted)" lang="ja">
+        トレーニング, タイマー, 習慣, 筋トレ, フィットネス, リマインダー, 記録, 運動, 日課, 目標, 集中, ワークアウト, 健康, 自分磨き, 毎日続ける, ルーティン, boxing, ボクシング, MMA,
+        柔術, 縄跳び
       </p>
     </section>
   </main>
 
   <footer class="wrap">
   </footer>
+
+  <script>
+    function setLanguage(lang) {
+      document.body.className = 'lang-' + lang;
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      localStorage.setItem('preferred-language', lang);
+    }
+
+    (function () {
+      const savedLang = localStorage.getItem('preferred-language');
+      if (savedLang) {
+        setLanguage(savedLang);
+        return;
+      }
+
+      const browserLang = navigator.language || navigator.userLanguage;
+      if (browserLang.startsWith('ja')) {
+        setLanguage('ja');
+      } else {
+        setLanguage('en');
+      }
+    })();
+  </script>
 </body>
+
 </html>

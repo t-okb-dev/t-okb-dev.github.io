@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IDE Shortcut Cheatsheet - 開発スピードを加速させる拡張機能</title>
+    <title>IDE Shortcut Cheatsheet</title>
     <meta name="description"
         content="Eclipse, VSCode, IntelliJ, Android Studio, Xcodeのショートカットキーをブラウザから一瞬で検索。カスタマイズ可能な開発者向けチートシート拡張機能。">
     <meta name="keywords"
@@ -13,16 +13,18 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://chromewebstore.google.com/detail/ide-shortcut-cheatsheet/occkakmonjghphhdfhdmakkjpfjhmoml">
-    <meta property="og:title" content="IDE Shortcut Cheatsheet - 開発スピードを加速させる拡張機能">
+    <meta property="og:url"
+        content="https://chromewebstore.google.com/detail/ide-shortcut-cheatsheet/occkakmonjghphhdfhdmakkjpfjhmoml">
+    <meta property="og:title" content="IDE Shortcut Cheatsheet">
     <meta property="og:description"
         content="Eclipse, VSCode, IntelliJ, Android Studio, Xcodeのショートカットキーをブラウザから一瞬で検索。カスタマイズ可能な開発者向けチートシート拡張機能。">
     <meta property="og:image" content="og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://chromewebstore.google.com/detail/ide-shortcut-cheatsheet/occkakmonjghphhdfhdmakkjpfjhmoml">
-    <meta property="twitter:title" content="IDE Shortcut Cheatsheet - 開発スピードを加速させる拡張機能">
+    <meta property="twitter:url"
+        content="https://chromewebstore.google.com/detail/ide-shortcut-cheatsheet/occkakmonjghphhdfhdmakkjpfjhmoml">
+    <meta property="twitter:title" content="IDE Shortcut Cheatsheet">
     <meta property="twitter:description"
         content="Eclipse, VSCode, IntelliJ, Android Studio, Xcodeのショートカットキーをブラウザから一瞬で検索。カスタマイズ可能な開発者向けチートシート拡張機能。">
     <meta property="twitter:image" content="og-image.png">
@@ -51,9 +53,41 @@
     <link rel="stylesheet" href="style.css">
     <!-- Icon -->
     <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        /* Language switching styles */
+        body.lang-en [lang="ja"] {
+            display: none !important;
+        }
+
+        body.lang-ja [lang="en"] {
+            display: none !important;
+        }
+
+        /* Additional styles for switcher */
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+    </style>
 </head>
 
-<body>
+<body class="lang-en">
     <div class="background-mesh"></div>
 
     <div class="container">
@@ -62,49 +96,73 @@
                 <img src="icon.png" alt="Logo">
                 <span>IDE Cheatsheet</span>
             </div>
-            <!-- Future links could go here -->
+            <div class="lang-switch">
+                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+            </div>
         </nav>
 
         <section class="hero">
-            <h1>IDEショートカットを、<br>もっと身近に。</h1>
-            <p>
+            <h1 lang="en">IDE Shortcuts,<br>Closer Than Ever.</h1>
+            <h1 lang="ja">IDEショートカットを、<br>もっと身近に。</h1>
+            <p lang="en">
+                Eclipse, VSCode, IntelliJ, Android Studio, Xcode.<br>
+                Search shortcuts instantly from your browser.<br>
+                No more wasting time on Google searches.
+            </p>
+            <p lang="ja">
                 Eclipse, VSCode, IntelliJ, Android Studio, Xcode。<br>
                 主要なIDEのショートカットキーを、ブラウザから一瞬で検索。<br>
                 もう、Google検索で時間を無駄にする必要はありません。
             </p>
-            <a href="https://chromewebstore.google.com/detail/ide-shortcut-cheatsheet/occkakmonjghphhdfhdmakkjpfjhmoml" class="btn btn-primary">Chromeに追加する (無料)</a>
+            <a href="https://chromewebstore.google.com/detail/ide-shortcut-cheatsheet/occkakmonjghphhdfhdmakkjpfjhmoml"
+                class="btn btn-primary" lang="en">Add to Chrome (Free)</a>
+            <a href="https://chromewebstore.google.com/detail/ide-shortcut-cheatsheet/occkakmonjghphhdfhdmakkjpfjhmoml"
+                class="btn btn-primary" lang="ja">Chromeに追加する (無料)</a>
         </section>
 
         <section class="features">
             <div class="feature-card">
                 <div class="icon-box">⚡️</div>
-                <h3>主要IDE完全対応</h3>
-                <p>Eclipse, VSCode, IntelliJ, Android Studio, Xcodeに対応。必要なIDEだけを選んで表示できます。</p>
+                <h3 lang="en">Major IDE Support</h3>
+                <h3 lang="ja">主要IDE完全対応</h3>
+                <p lang="en">Supports Eclipse, VSCode, IntelliJ, Android Studio, Xcode. Choose only what you use.</p>
+                <p lang="ja">Eclipse, VSCode, IntelliJ, Android Studio, Xcodeに対応。必要なIDEだけを選んで表示できます。</p>
             </div>
             <div class="feature-card">
                 <div class="icon-box">🇯🇵</div>
-                <h3>日本語対応・自動切替</h3>
-                <p>ブラウザの言語設定に合わせて自動で日本語表示。Android Studio公式ドキュメントに準拠した正確な翻訳です。</p>
+                <h3 lang="en">Multilingual & Auto-Switch</h3>
+                <h3 lang="ja">日本語対応・自動切替</h3>
+                <p lang="en">Auto-detects browser language. Accurate translations based on official documentation.</p>
+                <p lang="ja">ブラウザの言語設定に合わせて自動で日本語表示。Android Studio公式ドキュメントに準拠した正確な翻訳です。</p>
             </div>
             <div class="feature-card">
                 <div class="icon-box">🛠</div>
-                <h3>柔軟なカスタマイズ</h3>
-                <p>ショートカットの追加・編集・削除が可能。自分だけの最強のチートシートを作成できます。</p>
+                <h3 lang="en">Flexible Customization</h3>
+                <h3 lang="ja">柔軟なカスタマイズ</h3>
+                <p lang="en">Add, edit, and delete shortcuts. Create your own ultimate cheatsheet.</p>
+                <p lang="ja">ショートカットの追加・編集・削除が可能。自分だけの最強のチートシートを作成できます。</p>
             </div>
             <div class="feature-card">
                 <div class="icon-box">✨</div>
-                <h3>モダンなUX</h3>
-                <p>ダークモード対応、ドラッグ&ドロップでの列並び替え、絞り込み検索など、開発者のための使いやすさを追求。</p>
+                <h3 lang="en">Modern UX</h3>
+                <h3 lang="ja">モダンなUX</h3>
+                <p lang="en">Dark mode, drag & drop sort, filtering. Designed for developers.</p>
+                <p lang="ja">ダークモード対応、ドラッグ&ドロップでの列並び替え、絞り込み検索など、開発者のための使いやすさを追求。</p>
             </div>
             <div class="feature-card">
                 <div class="icon-box">📂</div>
-                <h3>設定の保存と共有</h3>
-                <p>カスタマイズした設定はCSVでエクスポート可能。チームメンバーへの共有やバックアップも簡単です。</p>
+                <h3 lang="en">Save & Share</h3>
+                <h3 lang="ja">設定の保存と共有</h3>
+                <p lang="en">Export settings to CSV. Easy to share with teams or backup.</p>
+                <p lang="ja">カスタマイズした設定はCSVでエクスポート可能。チームメンバーへの共有やバックアップも簡単です。</p>
             </div>
             <div class="feature-card">
                 <div class="icon-box">🔒</div>
-                <h3>プライバシーファースト</h3>
-                <p>データはすべてローカル（Chrome Storage）に保存されます。外部サーバーへの送信は一切ありません。</p>
+                <h3 lang="en">Privacy First</h3>
+                <h3 lang="ja">プライバシーファースト</h3>
+                <p lang="en">All data saved locally (Chrome Storage). No external transmission.</p>
+                <p lang="ja">データはすべてローカル（Chrome Storage）に保存されます。外部サーバーへの送信は一切ありません。</p>
             </div>
         </section>
 
@@ -118,6 +176,36 @@
             </p>
         </footer>
     </div>
+    <script>
+        function setLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        (function () {
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang) {
+                setLanguage(savedLang);
+                return;
+            }
+
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('ja')) {
+                setLanguage('ja');
+            } else {
+                setLanguage('en');
+            }
+        })();
+    </script>
 </body>
 
 </html>

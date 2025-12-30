@@ -146,8 +146,8 @@
             <h1 lang="ja">TODO List with Stopwatch</h1>
         </div>
         <div class="lang-switch">
-            <button class="lang-btn active" onclick="switchLang('en')">EN</button>
-            <button class="lang-btn" onclick="switchLang('ja')">JP</button>
+            <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
         </div>
     </header>
 
@@ -155,8 +155,10 @@
         <section class="hero">
             <p lang="en">Manage your tasks, track your time, and stay organized with our powerful browser extension.</p>
             <p lang="ja">タスクを管理し、時間を計測し、強力なブラウザ拡張機能で整理整頓しましょう。</p>
-            <a href="https://chromewebstore.google.com/detail/lnojbkbbcogmbcabfpgoeffopghfloom?utm_source=item-share-cb" class="btn" lang="en">Add to Chrome</a>
-            <a href="https://chromewebstore.google.com/detail/lnojbkbbcogmbcabfpgoeffopghfloom?utm_source=item-share-cb" class="btn" lang="ja">Chromeに追加</a>
+            <a href="https://chromewebstore.google.com/detail/lnojbkbbcogmbcabfpgoeffopghfloom?utm_source=item-share-cb"
+                class="btn" lang="en">Add to Chrome</a>
+            <a href="https://chromewebstore.google.com/detail/lnojbkbbcogmbcabfpgoeffopghfloom?utm_source=item-share-cb"
+                class="btn" lang="ja">Chromeに追加</a>
         </section>
 
         <section class="screenshot-section">
@@ -218,8 +220,10 @@
         <section class="hero">
             <p lang="en">Ready to boost your productivity?</p>
             <p lang="ja">生産性を向上させる準備はできましたか？</p>
-            <a href="https://chromewebstore.google.com/detail/lnojbkbbcogmbcabfpgoeffopghfloom?utm_source=item-share-cb" class="btn" lang="en">Get Started Today</a>
-            <a href="https://chromewebstore.google.com/detail/lnojbkbbcogmbcabfpgoeffopghfloom?utm_source=item-share-cb" class="btn" lang="ja">今すぐ始める</a>
+            <a href="https://chromewebstore.google.com/detail/lnojbkbbcogmbcabfpgoeffopghfloom?utm_source=item-share-cb"
+                class="btn" lang="en">Get Started Today</a>
+            <a href="https://chromewebstore.google.com/detail/lnojbkbbcogmbcabfpgoeffopghfloom?utm_source=item-share-cb"
+                class="btn" lang="ja">今すぐ始める</a>
         </section>
     </div>
 
@@ -230,9 +234,9 @@
     </footer>
 
     <script>
-        function switchLang(lang) {
+        function setLanguage(lang) {
             // Update body class to trigger CSS-based toggling
-            document.body.className = lang;
+            document.body.className = 'lang-' + lang;
 
             // Update buttons
             document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -241,32 +245,47 @@
                     btn.classList.add('active');
                 }
             });
+
+            localStorage.setItem('preferred-language', lang);
         }
 
         // Initial setup
-        switchLang('en');
+        (function () {
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang) {
+                setLanguage(savedLang);
+                return;
+            }
+
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('ja')) {
+                setLanguage('ja');
+            } else {
+                setLanguage('en');
+            }
+        })();
     </script>
     <style>
         /* Override display property based on body class */
-        body.en [lang="ja"] {
+        body.lang-en [lang="ja"] {
             display: none !important;
         }
 
-        body.en [lang="en"] {
+        body.lang-en [lang="en"] {
             display: block;
         }
 
-        body.ja [lang="en"] {
+        body.lang-ja [lang="en"] {
             display: none !important;
         }
 
-        body.ja [lang="ja"] {
+        body.lang-ja [lang="ja"] {
             display: block;
         }
 
         /* Fix for buttons to be inline-block */
-        body.en a.btn[lang="en"],
-        body.ja a.btn[lang="ja"] {
+        body.lang-en a.btn[lang="en"],
+        body.lang-ja a.btn[lang="ja"] {
             display: inline-block;
         }
 
