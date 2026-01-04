@@ -186,11 +186,33 @@
       display: none !important;
     }
 
-    /* Additional styles for switcher */
+    /* Navigation styles */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      position: relative;
+      z-index: 10;
+    }
+
     .lang-switch {
-      position: absolute;
-      top: 20px;
-      right: 20px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .back-home {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9em;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      display: flex;
+      align-items: center;
+    }
+
+    .back-home:hover {
+      opacity: 1;
     }
 
     .lang-btn {
@@ -207,34 +229,19 @@
       background: rgba(255, 255, 255, 0.2);
       font-weight: bold;
     }
-
-    .back-home {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.9em;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-
-    .back-home:hover {
-      opacity: 1;
-    }
-
-    /* Ensure lang switch doesn't break grid/flex in header if needed. 
-       Here .hero is a grid, so absolute positioning right top works fine. */
   </style>
 </head>
 
 <body class="lang-en">
-  <header class="wrap hero">
+  <nav class="top-nav wrap">
     <a href="index.html" class="back-home">← Home</a>
     <div class="lang-switch">
       <button class="lang-btn" onclick="setLanguage('en')">EN</button>
       <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
     </div>
+  </nav>
+
+  <header class="wrap hero">
     <div>
       <h1 lang="en">Simple Training Timer<br>— Perfect for all round-based training</h1>
       <h1 lang="ja">シンプル トレーニング タイマー<br>— あらゆるラウンド制トレーニングに対応</h1>
