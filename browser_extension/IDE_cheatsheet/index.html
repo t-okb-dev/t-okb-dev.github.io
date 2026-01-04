@@ -84,6 +84,33 @@
             background: rgba(255, 255, 255, 0.2);
             font-weight: bold;
         }
+
+        .back-home {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9em;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-home:hover {
+            opacity: 1;
+            color: #38bdf8;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -92,9 +119,12 @@
 
     <div class="container">
         <nav>
-            <div class="logo">
-                <img src="icon.png" alt="Logo">
-                <span>IDE Cheatsheet</span>
+            <div class="nav-left">
+                <a href="../../index.html" class="back-home">← Home</a>
+                <div class="logo">
+                    <img src="icon.png" alt="Logo">
+                    <span>IDE Cheatsheet</span>
+                </div>
             </div>
             <div class="lang-switch">
                 <button class="lang-btn" onclick="setLanguage('en')">EN</button>

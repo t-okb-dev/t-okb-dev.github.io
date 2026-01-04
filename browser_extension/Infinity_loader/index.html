@@ -125,12 +125,32 @@
         body.lang-ja [lang="en"] {
             display: none !important;
         }
+
+        .back-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 0.9em;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+
+        .back-home:hover {
+            opacity: 1;
+            background: #00ff00;
+            color: #000;
+        }
     </style>
 </head>
 
 <body class="lang-en">
 
     <header>
+        <a href="../../index.html" class="back-home">← Home</a>
         <div class="lang-switch">
             <button class="lang-btn" onclick="setLanguage('en')">EN</button>
             <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
@@ -145,8 +165,10 @@
             <img src="promo.png" alt="Infinity Loader Promo">
             <p lang="en">Endless installations, unstoppable progress bars.<br>Make your screen look "busy" forever.</p>
             <p lang="ja">終わらないインストール、止まらないプログレスバー。<br>あなたの画面を常に「忙しそう」に見せかけます。</p>
-            <a href="https://chromewebstore.google.com/detail/hmnapkfdjejjankgjdldeligenofpokn?utm_source=item-share-cb" class="cta-button" lang="en">Add to Chrome</a>
-            <a href="https://chromewebstore.google.com/detail/hmnapkfdjejjankgjdldeligenofpokn?utm_source=item-share-cb" class="cta-button" lang="ja">Chromeに追加</a>
+            <a href="https://chromewebstore.google.com/detail/hmnapkfdjejjankgjdldeligenofpokn?utm_source=item-share-cb"
+                class="cta-button" lang="en">Add to Chrome</a>
+            <a href="https://chromewebstore.google.com/detail/hmnapkfdjejjankgjdldeligenofpokn?utm_source=item-share-cb"
+                class="cta-button" lang="ja">Chromeに追加</a>
         </div>
 
         <h2 lang="en">What is this?</h2>
@@ -267,8 +289,10 @@
             <p lang="en">* This is a joke app. No actual installation or hacking occurs.<br>* It (probably) won't affect
                 PC performance.</p>
             <p lang="ja">※ この拡張機能はジョークアプリです。実際のインストールやハッキングは行われません。<br>※ PCのパフォーマンスには（多分）影響しません。</p>
-            <a href="https://chromewebstore.google.com/detail/hmnapkfdjejjankgjdldeligenofpokn?utm_source=item-share-cb" class="cta-button" lang="en">Waste Time Now</a>
-            <a href="https://chromewebstore.google.com/detail/hmnapkfdjejjankgjdldeligenofpokn?utm_source=item-share-cb" class="cta-button" lang="ja">今すぐ無駄な時間を過ごす</a>
+            <a href="https://chromewebstore.google.com/detail/hmnapkfdjejjankgjdldeligenofpokn?utm_source=item-share-cb"
+                class="cta-button" lang="en">Waste Time Now</a>
+            <a href="https://chromewebstore.google.com/detail/hmnapkfdjejjankgjdldeligenofpokn?utm_source=item-share-cb"
+                class="cta-button" lang="ja">今すぐ無駄な時間を過ごす</a>
         </div>
     </div>
 
