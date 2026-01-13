@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Helper - テストエンジニアのための究極のフォーム入力補助</title>
+    <meta name="description" content="最大桁入力、SQL Injection/XSSテスト、高度な日付自動補完、HTML構造検証。テスト工程を90%削減する開発者向けChrome拡張機能。">
+    <meta name="keywords"
+        content="Input Helper, form filler, automation, testing, SQL injection, XSS, date filler, Chrome拡張機能, テスト効率化, 境界値テスト">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Input Helper - テストエンジニアのための究極のフォーム入力補助">
+    <meta property="og:description" content="境界値テストからセキュリティ診断まで。ワンクリックでフォームテストを完了させる最強の助手。">
+    <meta property="og:image" content="../public/icon128.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="store_assets/icon48.png">
+</head>
+
+<body class="lang-en">
+    <div class="background-mesh"></div>
+
+    <div class="container">
+        <nav>
+            <div class="nav-left">
+                <a href="../../index.html" class="back-home">← Home</a>
+                <div class="logo">
+                    <img src="store_assets/icon48.png" alt="Input Helper Icon" class="logo-img">
+                    <span>Input Helper</span>
+                </div>
+            </div>
+            <div class="lang-switch">
+                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <h1 lang="ja">テスト作業に、<br><span class="highlight">「インテリジェンス」</span>を。</h1>
+            <h1 lang="en">Bring <br><span class="highlight">"Intelligence"</span> to Your Testing.</h1>
+
+            <p lang="ja">
+                単なる自動入力ツールではありません。境界値テスト、セキュリティ診断、セマンティック検証まで。<br>
+                プロフェッショナルなテストエンジニアの思考を自動化し、作業時間を劇的に短縮します。
+            </p>
+            <p lang="en">
+                Not just an auto-fill tool. Boundary value testing, security diagnostics, semantic verification.<br>
+                Automate the thinking of professional test engineers and dramatically reduce work time.
+            </p>
+
+            <div class="hero-btns">
+                <a href="https://chromewebstore.google.com/detail/input-helper/gbfdnhbokckcnifbakmjpgaoapanbdnn"
+                    class="btn btn-primary" lang="ja">Chromeに追加する</a>
+                <a href="https://chromewebstore.google.com/detail/input-helper/gbfdnhbokckcnifbakmjpgaoapanbdnn"
+                    class="btn btn-primary" lang="en">Add to Chrome</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="icon-box">📏</div>
+                <h3 lang="ja">スマート最大桁入力</h3>
+                <h3 lang="en">Smart Max-Length Input</h3>
+                <p lang="ja">maxlengthを自動検知し、数値・英字・全角を判別。境界値テスト用の文字列を瞬時に埋め込みます。</p>
+                <p lang="en">Automatically detects maxlength and distinguishes number/alpha/full-width. Instantly embeds
+                    strings for boundary value testing.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box">📅</div>
+                <h3 lang="ja">高度な日付・時刻補完</h3>
+                <h3 lang="en">Advanced Date/Time Completion</h3>
+                <p lang="ja">date/time/week/month/datetime-localに対応。From/Toの範囲入力やオフセット入力も自由自在です。</p>
+                <p lang="en">Supports date/time/week/month/datetime-local. Flexible From/To range input and offset
+                    input.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box">💉</div>
+                <h3 lang="ja">セキュリティ診断支援</h3>
+                <h3 lang="en">Security Diagnostic Support</h3>
+                <p lang="ja">SQL InjectionやXSSのテストペイロードを標準搭載。エスケープ漏れや脆弱性の初期診断を加速させます。</p>
+                <p lang="en">Built-in SQL Injection and XSS test payloads. Accelerates initial diagnosis of escape leaks
+                    and vulnerabilities.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box">🔘</div>
+                <h3 lang="ja">インテリジェント選択</h3>
+                <h3 lang="en">Intelligent Selection</h3>
+                <p lang="ja">Select/Radio/Checkboxを戦略的に選択（先頭・末尾・中央・ランダム）。チェックボックスのグループ制御も完璧です。</p>
+                <p lang="en">Strategically select Select/Radio/Checkbox (First/Last/Middle/Random). Perfect control over
+                    checkbox groups.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box">🛡️</div>
+                <h3 lang="ja">セーフ・バイ・デザイン</h3>
+                <h3 lang="en">Safe by Design</h3>
+                <p lang="ja">Hidden項目やCSRFトークンを自動保護。フォームの送信機能を壊すことなく、安全にテストを継続できます。</p>
+                <p lang="en">Automatically protects Hidden fields and CSRF tokens. Continue testing safely without
+                    breaking form submission functions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box">🔍</div>
+                <h3 lang="ja">HTML構造クイック監査</h3>
+                <h3 lang="en">HTML Structure Quick Audit</h3>
+                <p lang="ja">type属性の指定漏れなど、HTML5のセマンティックな不備を視覚的にハイライトし、実装品質を向上させます。</p>
+                <p lang="en">Visually highlights HTML5 semantic flaws like missing type attributes to improve
+                    implementation quality.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box">🧪</div>
+                <h3 lang="ja">内蔵サンドボックス</h3>
+                <h3 lang="en">Built-in Sandbox</h3>
+                <p lang="ja">拡張機能に最適化された専用テストページを同梱。導入後すぐに全機能を安全な環境で試用可能です。</p>
+                <p lang="en">Includes a dedicated test page optimized for the extension. Try all features in a safe
+                    environment immediately after installation.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-box">⚙️</div>
+                <h3 lang="ja">自在なカスタマイズ</h3>
+                <h3 lang="en">Flexible Customization</h3>
+                <p lang="ja">入力文字の変更、非活性項目の扱い、パスワード項目の除外など、プロジェクトの要件に合わせた柔軟な設定。</p>
+                <p lang="en">Flexible settings to match project requirements, such as changing input characters,
+                    handling inactive items, and excluding password fields.</p>
+            </div>
+        </section>
+
+        <section class="how-to-use">
+            <h2>3-Step Workflow</h2>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-num">1</span>
+                    <h3 lang="ja">検体を開く</h3>
+                    <h3 lang="en">Open Specimen</h3>
+                    <p lang="ja">テスト対象のフォームがあるページを開きます。</p>
+                    <p lang="en">Open the page with the target form.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">2</span>
+                    <h3 lang="ja">プランを選択</h3>
+                    <h3 lang="en">Select Plan</h3>
+                    <p lang="ja">最大桁、日付、Injectionなど、目的のアクションを選びます。</p>
+                    <p lang="en">Choose action: Max length, Date, Injection, etc.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">3</span>
+                    <h3 lang="ja">一瞬で完了</h3>
+                    <h3 lang="en">Done in a Flash</h3>
+                    <p lang="ja">残りの時間は、より高度な探索的テストに充てましょう。</p>
+                    <p lang="en">Spend the remaining time on more advanced exploratory testing.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="design-preview">
+            <div class="preview-content">
+                <h2 lang="ja">開発者のための、美しいツール。</h2>
+                <h2 lang="en">Beautiful Tool for Developers.</h2>
+                <p lang="ja">
+                    毎日使うツールだからこそ、妥協のないデザインを。<br>
+                    最新のグラスモーフィズムを採用した直感的でプレミアムなインターフェースが、<br>
+                    あなたのデバッグ作業をより快適なものにします。
+                </p>
+                <p lang="en">
+                    Zero compromise design for a tool you use every day.<br>
+                    The intuitive and premium interface adopting the latest glassmorphism<br>
+                    makes your debugging work more comfortable.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Input Helper. Designed for Professionals.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        (function () {
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang) {
+                setLanguage(savedLang);
+                return;
+            }
+
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('ja')) {
+                setLanguage('ja');
+            } else {
+                setLanguage('en');
+            }
+        })();
+    </script>
+</body>
+
+</html>
