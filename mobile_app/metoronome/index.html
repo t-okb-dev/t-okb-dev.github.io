@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metronome - Professional Training Tools</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Language Switcher -->
+    <div style="position: absolute; top: 20px; right: 20px; z-index: 1000;">
+        <button onclick="setLanguage('en')"
+            style="background:none; border:none; color:white; cursor:pointer; font-weight:bold; font-size:1rem; margin-right:10px;">EN</button>
+        <button onclick="setLanguage('ja')"
+            style="background:none; border:none; color:white; cursor:pointer; font-weight:bold; font-size:1rem;">JP</button>
+    </div>
+
+    <!-- Header / Hero Section -->
+    <header>
+        <div class="container">
+            <h1>
+                <span class="lang-en">Rhythm Change Metronome</span>
+                <span class="lang-ja" style="display:none;">シンプルメトロノーム</span>
+                <br>
+                <span style="font-size: 0.6em; opacity: 0.9;" class="lang-en">Professional Training Tool</span>
+                <span style="font-size: 0.6em; opacity: 0.9;" class="lang-ja"
+                    style="display:none;">プロフェッショナル・トレーニングツール</span>
+            </h1>
+            <p class="subtitle">
+                <span class="lang-en">Precise Timing, Advanced Patterns, Train Like a Pro.</span>
+                <span class="lang-ja" style="display:none;">精密なタイミング、高度なパターントレーニング。<br>プロのためのメトロノーム。</span>
+            </p>
+            <a href="#" class="btn">
+                <span class="lang-en">Download on App Store</span>
+                <span class="lang-ja" style="display:none;">App Storeからダウンロード</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" style="background-color: #eef2f5; padding: 40px 0; text-align: center;">
+        <div class="container">
+            <div class="screenshots-wrapper">
+                <!-- English Screenshots -->
+                <div class="lang-en">
+                    <img src="HomeEng_trimmed.png" alt="Home Screen"
+                        style="height: 500px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); margin: 0 15px;">
+                    <img src="MetronomeEng_trimmed.png" alt="Metronome Screen"
+                        style="height: 500px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); margin: 0 15px;">
+                </div>
+                <!-- Japanese Screenshots -->
+                <div class="lang-ja" style="display: none;">
+                    <img src="HomeJP_trimmed.png" alt="ホーム画面"
+                        style="height: 500px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); margin: 0 15px;">
+                    <img src="MetronomeJP_trimmed.png" alt="メトロノーム画面"
+                        style="height: 500px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); margin: 0 15px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-en">Features</span>
+                <span class="lang-ja" style="display:none;">機能</span>
+            </h2>
+
+            <div class="feature-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>
+                        <span class="lang-en">Precise Logic</span>
+                        <span class="lang-ja" style="display:none;">高精度なロジック</span>
+                    </h3>
+                    <p class="lang-en">Uses high-precision WAV files for accurate, low-latency audio playback.</p>
+                    <p class="lang-ja" style="display:none;">WAVファイルを使用した低遅延・高精度のオーディオ再生エンジンを搭載。</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>
+                        <span class="lang-en">Advanced Patterns</span>
+                        <span class="lang-ja" style="display:none;">高度なパターン</span>
+                    </h3>
+                    <p class="lang-en">Includes Speed Down, Polyrhythms, Triplets, and Subdivision training.</p>
+                    <p class="lang-ja" style="display:none;">スピードダウン、ポリリズム、3連符、サブディビジョンなど、高度なトレーニングパターンを標準装備。</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>
+                        <span class="lang-en">Up to 250 BPM</span>
+                        <span class="lang-ja" style="display:none;">最大 250 BPM</span>
+                    </h3>
+                    <p class="lang-en">Support for ultra-fast tempos up to 250 BPM for extreme practice.</p>
+                    <p class="lang-ja" style="display:none;">最大250 BPMまで対応。限界スピードへの挑戦・トレーニングに最適です。</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🥁</div>
+                    <h3>
+                        <span class="lang-en">Custom Sounds</span>
+                        <span class="lang-ja" style="display:none;">サウンド切り替え</span>
+                    </h3>
+                    <p class="lang-en">Switch between standard clicks and realistic drum sounds.</p>
+                    <p class="lang-ja" style="display:none;">標準的なクリック音に加え、リアルなドラムサウンドへの切り替えが可能。</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>
+                        <span class="lang-en">Modern Design</span>
+                        <span class="lang-ja" style="display:none;">モダンなデザイン</span>
+                    </h3>
+                    <p class="lang-en">User-friendly interface with support for Dark Mode aesthetics.</p>
+                    <p class="lang-ja" style="display:none;">使いやすさを追求した、モダンで美しいインターフェース。</p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>
+                        <span class="lang-en">Dynamic Changes</span>
+                        <span class="lang-ja" style="display:none;">急激なテンポ変化</span>
+                    </h3>
+                    <p class="lang-en">Practice adjusting to sudden BPM shifts instantly. Perfect for adaptable
+                        musicians.</p>
+                    <p class="lang-ja" style="display:none;">曲中での急なテンポチェンジに対応するための、瞬時なBPM切り替え練習が可能。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container about-content">
+            <h2 class="section-title">
+                <span class="lang-en">About App</span>
+                <span class="lang-ja" style="display:none;">アプリ紹介</span>
+            </h2>
+            <p class="lang-en">
+                "Rhythm Change Metronome" is the ultimate tool for musicians who need more than just a ticking clock.
+                Whether you are practicing complex jazz rhythms, working on your speed, or just need a reliable beat,
+                this app delivers with professional-grade precision and versatility.
+            </p>
+            <p class="lang-ja" style="display:none;">
+                「シンプルメトロノーム」は、単なるリズムキープ以上の機能を求めるミュージシャンのための究極のツールです。
+                複雑なジャズのリズム練習、スピード、あるいは安定したビートが必要な時、
+                プロフェッショナルな精度と多様性であなたの練習をサポートします。
+            </p>
+            <br>
+            <a href="#" class="btn" style="background-color: #4A89A4; color: white;">
+                <span class="lang-en">Get Started Today</span>
+                <span class="lang-ja" style="display:none;">今すぐ始める</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Keywords -->
+    <section id="keywords">
+        <p class="lang-en">
+            Metronome, Music, Rhythm, Training, BPM, Tempo, Polyrhythm, Triplets, Speed, Practice, Musician
+        </p>
+        <p class="lang-ja" style="display:none;">
+            メトロノーム, 音楽, リズム, トレーニング, テンポ, ポリリズム, 3連符, 練習, 楽器, 演奏
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Advanced Metronome App. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? 'inline' : 'none');
+            document.querySelectorAll('.lang-ja').forEach(el => el.style.display = lang === 'ja' ? 'inline' : 'none');
+
+            // Block display for paragraphs to maintain layout
+            document.querySelectorAll('p.lang-en, div.feature-card p.lang-en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+            document.querySelectorAll('p.lang-ja, div.feature-card p.lang-ja').forEach(el => el.style.display = lang === 'ja' ? 'block' : 'none');
+
+            // Toggle Screenshots Container
+            document.querySelectorAll('div.lang-en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+            document.querySelectorAll('div.lang-ja').forEach(el => el.style.display = lang === 'ja' ? 'block' : 'none');
+        }
+
+        // Initialize (default English)
+        setLanguage('en');
+    </script>
+
+</body>
+
+</html>
