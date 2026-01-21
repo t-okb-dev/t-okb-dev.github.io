@@ -14,19 +14,74 @@
     <style>
         body {
             font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation styles */
+        .top-nav {
+            background: #3b82f6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+        }
+
+        .back-home {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9em;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .back-home:hover {
+            opacity: 1;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #fff;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+            border-color: #fff;
+        }
+
+        /* Language switching styles */
+        body.lang-en .lang-ja {
+            display: none !important;
+        }
+
+        body.lang-ja .lang-en {
+            display: none !important;
         }
     </style>
 </head>
 
-<body>
+<body class="lang-en">
 
-    <!-- Language Switcher -->
-    <div style="position: absolute; top: 20px; right: 20px; z-index: 1000;">
-        <button onclick="setLanguage('en')"
-            style="background:none; border:none; color:white; cursor:pointer; font-weight:bold; font-size:1rem; margin-right:10px;">EN</button>
-        <button onclick="setLanguage('ja')"
-            style="background:none; border:none; color:white; cursor:pointer; font-weight:bold; font-size:1rem;">JP</button>
-    </div>
+    <nav class="top-nav">
+        <a href="../../index.html" class="back-home">← Home</a>
+        <div class="lang-switch">
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+        </div>
+    </nav>
 
     <!-- Header / Hero Section -->
     <header>
@@ -43,7 +98,7 @@
                 <span class="lang-en">Precise Timing, Advanced Patterns, Train Like a Pro.</span>
                 <span class="lang-ja" style="display:none;">精密なタイミング、高度なパターントレーニング。<br>プロのためのメトロノーム。</span>
             </p>
-            <a href="#" class="btn">
+            <a href="#" class="btn download-link">
                 <span class="lang-en">Download on App Store</span>
                 <span class="lang-ja" style="display:none;">App Storeからダウンロード</span>
             </a>
@@ -168,7 +223,7 @@
                 プロフェッショナルな精度と多様性であなたの練習をサポートします。
             </p>
             <br>
-            <a href="#" class="btn" style="background-color: #4A89A4; color: white;">
+            <a href="#" class="btn download-link" style="background-color: #4A89A4; color: white;">
                 <span class="lang-en">Get Started Today</span>
                 <span class="lang-ja" style="display:none;">今すぐ始める</span>
             </a>
@@ -192,20 +247,49 @@
 
     <script>
         function setLanguage(lang) {
-            document.querySelectorAll('.lang-en').forEach(el => el.style.display = lang === 'en' ? 'inline' : 'none');
-            document.querySelectorAll('.lang-ja').forEach(el => el.style.display = lang === 'ja' ? 'inline' : 'none');
+            document.body.className = 'lang-' + lang;
 
-            // Block display for paragraphs to maintain layout
-            document.querySelectorAll('p.lang-en, div.feature-card p.lang-en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
-            document.querySelectorAll('p.lang-ja, div.feature-card p.lang-ja').forEach(el => el.style.display = lang === 'ja' ? 'block' : 'none');
+            // Update active button state
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.textContent.trim().toUpperCase() === (lang === 'en' ? 'EN' : 'JP')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
 
-            // Toggle Screenshots Container
-            document.querySelectorAll('div.lang-en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
-            document.querySelectorAll('div.lang-ja').forEach(el => el.style.display = lang === 'ja' ? 'block' : 'none');
+            // Clean up legacy inline styles so CSS classes can work for visibility
+            document.querySelectorAll('.lang-en, .lang-ja').forEach(el => {
+                el.style.display = '';
+            });
+
+            // Set Download Link Visuals and URLs
+            const downloadLinks = document.querySelectorAll('.download-link');
+            downloadLinks.forEach(link => {
+                if (lang === 'en') {
+                    link.href = "https://apps.apple.com/us/app/rhythm-change-metronome/id6754532327";
+                } else {
+                    link.href = "https://apps.apple.com/jp/app/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%83%A1%E3%83%88%E3%83%AD%E3%83%8E%E3%83%BC%E3%83%A0/id6754532327";
+                }
+            });
+
+            // Save preference
+            localStorage.setItem('preferred-language', lang);
         }
 
-        // Initialize (default English)
-        setLanguage('en');
+        // Auto-detect language on load
+        (function () {
+            const savedLang = localStorage.getItem('preferred-language');
+
+            // Determine language: Saved > Browser > Default(en)
+            let lang = savedLang;
+            if (!lang) {
+                const browserLang = navigator.language || navigator.userLanguage;
+                lang = browserLang.startsWith('ja') ? 'ja' : 'en';
+            }
+
+            setLanguage(lang);
+        })();
     </script>
 
 </body>
