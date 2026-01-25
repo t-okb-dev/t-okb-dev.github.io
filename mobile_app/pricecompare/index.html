@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Price Comparator - Marketing Page</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --accent-color: #2CB1E1;
+            --text-white: #ffffff;
+            --text-gray: #a0aec0;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow */
+        .glow {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100vh;
+            background: radial-gradient(circle at 50% 30%, rgba(44, 177, 225, 0.15), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+
+        .lang-switch {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            gap: 4rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--card-border);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 2.5rem;
+        }
+
+        .subtitle p {
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(44, 177, 225, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(44, 177, 225, 0.4);
+        }
+
+        .mockup-frame {
+            width: 300px;
+            height: 600px;
+            background: #1a1a1a;
+            border: 8px solid #333;
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .mockup-content {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .mockup-placeholder-text {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 2.5rem;
+            border-radius: 24px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card .jp {
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .feature-card .en {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            display: block;
+        }
+
+        /* Recommended Section */
+        .recommended {
+            padding: 6rem 0;
+            background: rgba(44, 177, 225, 0.03);
+            border-radius: 40px;
+        }
+
+        .recommended-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .recommended-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .recommended-item::before {
+            content: "●";
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        /* Keywords Section */
+        .keywords {
+            padding: 4rem 0 8rem;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--card-border);
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="glow"></div>
+
+    <header>
+        <a href="#" class="back-link">← Home</a>
+        <div class="lang-switch">JP / EN</div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-text">
+                <img src="app_icon.png" alt="App Icon" class="app-icon"
+                    onerror="this.src='https://via.placeholder.com/120?text=App+Icon'">
+                <h1>Unit Price Comparator</h1>
+                <div class="subtitle">
+                    <p class="jp">真の「最安」を見抜く力。あらゆる商品の単位あたり価格を瞬時に比較。</p>
+                    <p class="en">Empowering you to find the true best deal. Compare anything by unit price instantly.
+                    </p>
+                </div>
+                <a href="#about" class="cta-button">Learn More / 詳しく見る</a>
+            </div>
+            <div class="hero-visual">
+                <div class="mockup-frame">
+                    <img src="list_tissue.png" alt="App Screenshot"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </section>
+
+        <!-- The Problem & Solution Section -->
+        <section class="features" style="padding: 4rem 0;">
+            <h2 class="section-title">Analysis Paralysis? / 結局、どれが安いの？</h2>
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+                <div class="feature-card"
+                    style="background: rgba(255, 59, 48, 0.05); border-color: rgba(255, 59, 48, 0.2);">
+                    <h3 style="color: #FF3B30;">The Problem / 複雑すぎる価格設定</h3>
+                    <p class="jp">「320枚×24パックで2,343円」と「400枚×5箱×2セットで2,726円」。<br>どちらがお得か、暗算で瞬時に答えられますか？
+                        多くの店では内容量がバラバラで、直感的な判断を狂わせます。</p>
+                    <p class="en">"2,343 yen for 320 sheets x 24 packs" vs "2,726 yen for 400 sheets x 5 boxes x 2
+                        sets".<br>Can you tell which is better instantly? Different pack sizes and quantities in stores
+                        are designed to make direct comparison impossible.</p>
+                </div>
+
+                <div style="text-align: center; font-size: 2rem; color: var(--accent-color);">↓</div>
+
+                <div class="feature-card"
+                    style="background: rgba(44, 177, 225, 0.1); border-color: var(--accent-color);">
+                    <h3 style="color: var(--accent-color);">The Solution / 1秒で解決、真の最安値</h3>
+                    <p class="jp">アプリに入力するだけで、1枚あたりの価格を小数点まで計算。あらゆる複雑なセット商品を「共通の単位」で並べることで、迷わず最安値を手に取ることができます。</p>
+                    <p class="en">Just enter the numbers, and the app calculates the cost per sheet to the decimal
+                        point. By listing every complex bundle with a "common unit," you can grab the true best deal
+                        without a second thought.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <h2 class="section-title">Features / 主要機能</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📏</div>
+                    <h3>Multi-Unit Support</h3>
+                    <span class="jp">枚、m、g、個など、商品に合わせた共通単位で正確に比較。</span>
+                    <span class="en">Compare precisely using units like sheets, meters, grams, or pieces.</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Smart Input</h3>
+                    <span class="jp">「1つあたりの量 × 入数 × セット数」を賢くパースして自動入力。</span>
+                    <span class="en">Intelligently parse "Capacity × Count × Sets" for effortless data entry.</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Web Info Fetch</h3>
+                    <span class="jp">URLを貼るだけで、Amazon等のページから価格や商品名を自動取得。</span>
+                    <span class="en">Paste a URL to automatically fetch price and title from sites like Amazon.</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✂️</div>
+                    <h3>Image Tools</h3>
+                    <span class="jp">撮影した値札のトリミングや回転。表示位置の微調整も思いのまま。</span>
+                    <span class="en">Crop and rotate price tag photos. Fine-tune display alignment easily.</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Tax Calculator</h3>
+                    <span class="jp">ワンタップで+8%/+10%の税込み計算。税抜き表示も安心。</span>
+                    <span class="en">Quickly add 8% or 10% tax with a single tap. Handles any price format.</span>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Best Deal Highlight</h3>
+                    <span class="jp">カテゴリ内での最安商品を一瞬で特定。節約を強力にサポート。</span>
+                    <span class="en">Instantly identify the cheapest item in any category to maximize savings.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended For -->
+        <section class="recommended">
+            <div class="container">
+                <h2 class="section-title">Recommended For / こんな方におすすめ</h2>
+                <div class="recommended-list">
+                    <div class="recommended-item">
+                        <div>
+                            <p class="jp">スーパーやドラッグストアで、どのパックが得か迷う方</p>
+                            <p class="en">Shoppers wondering which pack is the best deal at supermarkets.</p>
+                        </div>
+                    </div>
+                    <div class="recommended-item">
+                        <div>
+                            <p class="jp">ネット通販と店頭価格を正確に比較したい方</p>
+                            <p class="en">Users who want to accurately compare online vs in-store prices.</p>
+                        </div>
+                    </div>
+                    <div class="recommended-item">
+                        <div>
+                            <p class="jp">複雑な入り数の商品を整理して管理したい方</p>
+                            <p class="en">Those managing products with complex quantities and set counts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Screens Gallery -->
+        <section class="features" style="padding-top: 0;">
+            <h2 class="section-title">App Screens / スクリーンショット</h2>
+            <div
+                style="display: flex; overflow-x: auto; gap: 1.5rem; padding-bottom: 2rem; scroll-snap-type: x mandatory;">
+                <img src="categories.png" alt="Categories"
+                    style="height: 500px; border-radius: 20px; border: 1px solid var(--card-border); scroll-snap-align: start;">
+                <img src="list_tp.png" alt="Toilet Paper List"
+                    style="height: 500px; border-radius: 20px; border: 1px solid var(--card-border); scroll-snap-align: start;">
+                <img src="edit.png" alt="Edit Screen"
+                    style="height: 500px; border-radius: 20px; border: 1px solid var(--card-border); scroll-snap-align: start;">
+                <img src="settings.png" alt="Settings"
+                    style="height: 500px; border-radius: 20px; border: 1px solid var(--card-border); scroll-snap-align: start;">
+            </div>
+        </section>
+
+        <!-- About App -->
+        <section class="features" id="about" style="padding-bottom: 0;">
+            <h2 class="section-title">About App / アプリについて</h2>
+            <div
+                style="background: var(--card-bg); border: 1px solid var(--card-border); padding: 3rem; border-radius: 32px; text-align: center;">
+                <div class="subtitle" style="max-width: 800px; margin: 0 auto;">
+                    <p class="jp" style="margin-bottom: 1.5rem;">「Unit Price
+                        Comparator」は、賢い買い物をサポートするための強力なツールです。1枚単位、1グラム単位での真の安さを瞬時に計算し、複雑なセット商品も正確に比較可能にします。</p>
+                    <p class="en">"Unit Price Comparator" is a powerful tool designed for smart shoppers. It calculates
+                        the true cost per sheet or gram instantly, allowing for accurate comparisons of even the most
+                        complex bundle products.</p>
+                </div>
+                <a href="#" class="cta-button" style="margin-top: 2rem;">Get it on App Store / ダウンロードはこちら</a>
+            </div>
+        </section>
+
+        <!-- Keywords -->
+        <footer class="keywords">
+            <p>Keywords: Price Comparison, Unit Price, Shopping, Grocery, Savings, Calculator, QR/Barcode, Amazon,
+                Product Info</p>
+            <p style="margin-top: 0.5rem;">キーワード: 価格比較, 単位あたり価格, 買い物, スーパー, 節約, 電卓, Amazon, 商品情報取得, 最安値</p>
+            <p style="margin-top: 3rem; font-size: 0.7rem; opacity: 0.5;">&copy; 2026 Unit Price Comparator. All rights
+                reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
