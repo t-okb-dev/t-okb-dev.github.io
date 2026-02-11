@@ -1,108 +1,236 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABCDE Theory Note | ABCDE理論ノート</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        /* Navigation styles */
+        .top-nav {
+            background: var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            position: relative;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+        }
+
+        .back-home {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9em;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .back-home:hover {
+            opacity: 1;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #fff;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+            border-color: #fff;
+        }
+
+        /* Language switching styles */
+        body.lang-en .lang-ja {
+            display: none !important;
+        }
+
+        body.lang-ja .lang-en {
+            display: none !important;
+        }
+    </style>
 </head>
-<body>
 
-<header>
+<body class="lang-ja">
+
+    <nav class="top-nav">
+        <a href="../../index.html" class="back-home">← Home</a>
+        <div class="lang-switch">
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <img src="icon.png" alt="App Icon" class="app-icon">
+            <h1>ABCDE Theory Note</h1>
+            <p class="subtitle">
+                <span class="lang-en">ABCDE Theory Note — Organize your thoughts, lighten your mind.</span>
+                <span class="lang-ja">ABCDE理論ノート — 思考を整理し、心を軽くするセルフケア</span>
+            </p>
+            <a href="https://apps.apple.com/jp/app/abcde%E7%90%86%E8%AB%96%E3%83%8E%E3%83%BC%E3%83%88/id6758457311"
+                class="btn-download">
+                <span class="lang-en">Download on the App Store</span>
+                <span class="lang-ja">App Storeでダウンロード</span>
+            </a>
+        </div>
+    </header>
+
     <div class="container">
-        <img src="icon.png" alt="App Icon" class="app-icon">
-        <h1>ABCDE Theory Note</h1>
-        <p class="subtitle">ABCDE理論ノート — 思考を整理し、心を軽くするセルフケア</p>
-        <a href="#" class="btn-download">Download on the App Store</a>
-    </div>
-</header>
 
-<div class="container">
-
-    <div class="section">
-        <h2>About App / アプリ紹介</h2>
-        <p>
-            <strong>ABCDE Theory Note</strong> is a self-care app based on the ABCDE model of Cognitive Behavioral Therapy (CBT).
-            By organizing your thoughts into A (Activating Event), B (Belief), C (Consequence), D (Disputation), and E (Effect), you can challenge negative thinking patterns and find new perspectives.
-        </p>
-        <p>
-            <strong>ABCDE理論ノート</strong>は、認知行動療法（CBT）のABCDEモデルに基づいたセルフケアアプリです。
-            出来事(A)、思考(B)、結果(C)、反論(D)、効果(E)のステップで思考を整理することで、否定的な思い込みに気づき、新しい視点を見つける手助けをします。
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>Features / 機能・特徴</h2>
-
-        <!-- Feature 1 -->
-        <div class="feature">
-            <div class="feature-text">
-                <h3>Understand the Theory</h3>
-                <h3>理論を基礎から理解</h3>
-                <p>
-                    Learn the basics of ABCDE theory with simple explanations. Understand how your beliefs (B) affect your emotions (C), not just the events (A) themselves.
-                </p>
-                <p>
-                    ガイド付きでABCDE理論の基礎を学べます。出来事(A)が直接感情(C)を生むのではなく、あなたの捉え方(B)が影響していることに気づきましょう。
-                </p>
-            </div>
-            <div class="feature-image">
-                <img src="screenshot_01.png" alt="About ABCDE Theory">
-            </div>
+        <div class="section">
+            <h2>
+                <span class="lang-en">About App</span>
+                <span class="lang-ja">アプリ紹介</span>
+            </h2>
+            <p class="lang-en">
+                <strong>ABCDE Theory Note</strong> is a self-care app based on the ABCDE model of Cognitive Behavioral
+                Therapy (CBT).
+                By organizing your thoughts into A (Activating Event), B (Belief), C (Consequence), D (Disputation), and
+                E (Effect), you can challenge negative thinking patterns and find new perspectives.
+            </p>
+            <p class="lang-ja">
+                <strong>ABCDE理論ノート</strong>は、認知行動療法（CBT）のABCDEモデルに基づいたセルフケアアプリです。
+                出来事(A)、思考(B)、結果(C)、反論(D)、効果(E)のステップで思考を整理することで、否定的な思い込みに気づき、新しい視点を見つける手助けをします。
+            </p>
         </div>
 
-        <!-- Feature 2 -->
-        <div class="feature">
-            <div class="feature-text">
-                <h3>Step-by-Step Journaling</h3>
-                <h3>ステップ式で簡単入力</h3>
-                <p>
-                    Write down your thoughts step by step. If you get stuck, helpful hints and examples are available for every step. E (Effect) helps you find a positive outlook.
-                </p>
-                <p>
-                    1ステップずつ順番に入力するだけで思考整理が完了します。書き方に迷ったときは、豊富なヒントと具体例がサポート。
-                </p>
+        <div class="section">
+            <h2>
+                <span class="lang-en">Features</span>
+                <span class="lang-ja">機能・特徴</span>
+            </h2>
+
+            <!-- Feature 1 -->
+            <div class="feature">
+                <div class="feature-text">
+                    <h3>
+                        <span class="lang-en">Understand the Theory</span>
+                        <span class="lang-ja">理論を基礎から理解</span>
+                    </h3>
+                    <p class="lang-en">
+                        Learn the basics of ABCDE theory with simple explanations. Understand how your beliefs (B)
+                        affect your emotions (C), not just the events (A) themselves.
+                    </p>
+                    <p class="lang-ja">
+                        ガイド付きでABCDE理論の基礎を学べます。出来事(A)が直接感情(C)を生むのではなく、あなたの捉え方(B)が影響していることに気づきましょう。
+                    </p>
+                </div>
+                <div class="feature-image">
+                    <img src="screenshot_01.png" alt="About ABCDE Theory">
+                </div>
             </div>
-            <div class="feature-image">
-                <img src="screenshot_02.png" alt="Step-by-Step Input">
+
+            <!-- Feature 2 -->
+            <div class="feature">
+                <div class="feature-text">
+                    <h3>
+                        <span class="lang-en">Step-by-Step Journaling</span>
+                        <span class="lang-ja">ステップ式で簡単入力</span>
+                    </h3>
+                    <p class="lang-en">
+                        Write down your thoughts step by step. If you get stuck, helpful hints and examples are
+                        available for every step. E (Effect) helps you find a positive outlook.
+                    </p>
+                    <p class="lang-ja">
+                        1ステップずつ順番に入力するだけで思考整理が完了します。書き方に迷ったときは、豊富なヒントと具体例がサポート。
+                    </p>
+                </div>
+                <div class="feature-image">
+                    <img src="screenshot_02.png" alt="Step-by-Step Input">
+                </div>
             </div>
+
+            <!-- Feature 3 -->
+            <div class="feature">
+                <div class="feature-text">
+                    <h3>
+                        <span class="lang-en">Habituate Positive Thinking</span>
+                        <span class="lang-ja">思考の習慣化をサポート</span>
+                    </h3>
+                    <p class="lang-en">
+                        Set reminders to check in with yourself. Periodic notifications help you make objective thinking
+                        a habit.
+                    </p>
+                    <p class="lang-ja">
+                        リマインダー設定で、定期的な振り返りをサポート。感情が揺れ動いた時だけでなく、落ち着いた時間に思考を見直す習慣が身につきます。
+                    </p>
+                </div>
+                <div class="feature-image">
+                    <img src="screenshot_03.png" alt="Settings and Reminders">
+                </div>
+            </div>
+
         </div>
 
-        <!-- Feature 3 -->
-        <div class="feature">
-            <div class="feature-text">
-                <h3>Habituate Positive Thinking</h3>
-                <h3>思考の習慣化をサポート</h3>
-                <p>
-                    Set reminders to check in with yourself. Periodic notifications help you make objective thinking a habit.
-                </p>
-                <p>
-                    リマインダー設定で、定期的な振り返りをサポート。感情が揺れ動いた時だけでなく、落ち着いた時間に思考を見直す習慣が身につきます。
-                </p>
-            </div>
-            <div class="feature-image">
-                <img src="screenshot_03.png" alt="Settings and Reminders">
-            </div>
+        <div class="section keywords">
+            <h3>
+                <span class="lang-en">Keywords</span>
+                <span class="lang-ja">キーワード</span>
+            </h3>
+            <p class="lang-en">
+                CBT, Cognitive Behavioral Therapy, ABCDE Model, Mental Health, Self Care, Journal, Diary, Mindfulness,
+                Stress Management, Positive Thinking
+            </p>
+            <p class="lang-ja">
+                認知行動療法, CBT, ABCDE理論, メンタルヘルス, セルフケア, ジャーナリング, 日記, マインドフルネス, ストレス解消, 思考整理, ポジティブシンキング, メンタルケア
+            </p>
         </div>
 
     </div>
 
-    <div class="section keywords">
-        <h3>Keywords / キーワード</h3>
-        <p>
-            CBT, Cognitive Behavioral Therapy, ABCDE Model, Mental Health, Self Care, Journal, Diary, Mindfulness, Stress Management, Positive Thinking
-        </p>
-        <p>
-            認知行動療法, CBT, ABCDE理論, メンタルヘルス, セルフケア, ジャーナリング, 日記, マインドフルネス, ストレス解消, 思考整理, ポジティブシンキング, メンタルケア
-        </p>
-    </div>
+    <footer>
+        <p>&copy; 2025 ABCDE Theory Note. All rights reserved.</p>
+    </footer>
 
-</div>
+    <script>
+        function setLanguage(lang) {
+            document.body.className = 'lang-' + lang;
 
-<footer>
-    <p>&copy; 2025 ABCDE Theory Note. All rights reserved.</p>
-</footer>
+            // Update active button state
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Save preference
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // Auto-detect language on load
+        (function () {
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang) {
+                setLanguage(savedLang);
+                return;
+            }
+
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('ja')) {
+                setLanguage('ja');
+            } else {
+                setLanguage('en');
+            }
+        })();
+    </script>
 
 </body>
+
 </html>
