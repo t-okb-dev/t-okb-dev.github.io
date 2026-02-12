@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bass Relative Pitch Trainer | Elevate Your Bass Ears</title>
+    <meta name="description"
+        content="Ear training designed specifically for bassists. Master relative pitch, intervals, and walking bass lines with real bass guitar sounds.">
+    <link rel="icon" type="image/png" href="../assets/images/app_icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0F172A;
+            --secondary-bg: #1E293B;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --text-main: #F8FAFC;
+            --text-dim: #94A3B8;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        header {
+            padding: 32px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .app-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            background: linear-gradient(to right, #FFFFFF, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto 48px;
+            font-weight: 400;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border-radius: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Screenshots Display */
+        .screenshots-container {
+            padding: 60px 0;
+        }
+
+        .screenshots {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding: 20px 40px 60px;
+            scrollbar-width: none;
+        }
+
+        .screenshots::-webkit-scrollbar {
+            display: none;
+        }
+
+        .screenshots img {
+            height: 520px;
+            border-radius: 32px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            border: 4px solid var(--glass-border);
+            transition: transform 0.5s;
+        }
+
+        .screenshots img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Features Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+            margin-bottom: 100px;
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            padding: 40px;
+            border-radius: 32px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-blue);
+            transform: translateY(-8px);
+        }
+
+        .icon-box {
+            width: 56px;
+            height: 56px;
+            background: var(--gradient);
+            border-radius: 16px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        /* Special Walking Bass Section */
+        .walking-bass {
+            background: var(--secondary-bg);
+            border-radius: 48px;
+            padding: 80px 60px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        .walking-bass-content {
+            flex: 1;
+        }
+
+        .walking-bass-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+        }
+
+        .walking-bass-content ul {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .walking-bass-content li {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-dim);
+        }
+
+        .walking-bass-content li::before {
+            content: '✓';
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            color: var(--text-dim);
+        }
+
+        .footer-logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .walking-bass {
+                flex-direction: column;
+                padding: 40px 24px;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <span style="font-weight: 800; font-size: 1.2rem; color: var(--accent-blue);">BASS EAR</span>
+            <a href="https://t-okb-dev.github.io/index.html" class="back-link">Developer Site</a>
+        </header>
+
+        <section class="hero">
+            <div class="app-badge">Ultimate Ear Training for Bassists</div>
+            <h1>Master Your Fretboard.<br>Elevate Your Play.</h1>
+            <p class="subtitle">
+                リアルなベース音源で相対音感を鍛える。ウォーキング・ベース・トレーニング機能を搭載した、ベーシストのための聴音アプリ。
+            </p>
+            <div class="cta-group">
+                <a href="#" class="btn btn-primary">Download App</a>
+            </div>
+        </section>
+
+        <section class="screenshots-container">
+            <div class="screenshots">
+                <img src="screenshot_home.png" alt="Home Screen">
+                <img src="screenshot_training.png" alt="Training Screen">
+                <img src="screenshot_walking_bass.png" alt="Walking Bass Mode">
+                <img src="screenshot_scale_ref.png" alt="Scale Reference Screen">
+                <img src="screenshot_settings.png" alt="Settings Screen">
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="section-title">
+                <h2>Powerful Tools for Your Ears</h2>
+                <p>ベーシストに必要な全ての機能をこの一つに。</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-box">🎸</div>
+                    <h3>Realistic Bass Samples</h3>
+                    <p>
+                        リアルな4弦ベース音源（E1〜G3）を使用。実際の楽器を想定した最適な音域で、プロの耳を養います。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">🎯</div>
+                    <h3>Precision Fretboard UI</h3>
+                    <p>
+                        ベースの指板を忠実に再現したインターフェース。音を聴くだけでなく、実際の運指と直結したトレーニングが可能です。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">📐</div>
+                    <h3>Scale & Chord Reference</h3>
+                    <p>
+                        メジャー/マイナースケールや各種コード（7th, m7b5等）の形を指板上で確認。ルートからの度数（1, 3, 5...）表示で音楽理論の理解も深まります。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">⚡</div>
+                    <h3>Adaptive Difficulty</h3>
+                    <p>
+                        初心者向けの単音当てから、中〜上級者向けの連続聴音まで。自分のレベルに合わせてステップアップ。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">📊</div>
+                    <h3>Progress Tracking</h3>
+                    <p>
+                        日々のトレーニング実績をカレンダーで管理。自分の成長を視覚化し、モチベーションを維持できます。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">🌏</div>
+                    <h3>Global Ready</h3>
+                    <p>
+                        CDE表記、ドレミ表記の両方に対応。日本語・英語・ベトナム語のマルチランゲージ・サポート。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">✨</div>
+                    <h3>Ad-Free Focus</h3>
+                    <p>
+                        トレーニングに集中できるよう、洗練されたデザイン。無料ですべての機能を利用可能。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="walking-bass" class="walking-bass">
+            <div class="walking-bass-content">
+                <h2>Master Walking Bass Lines</h2>
+                <p style="font-size: 1.1rem;">
+                    ジャズやブルースのラインを耳で覚え、指を動かす。コード進行に基づいた実践的なウォーキング・ベース・モードを搭載。
+                </p>
+                <ul>
+                    <li>12小節ブルース進行に基づいた実践ワーク</li>
+                    <li>Major / Minor / Dominant 7th 各種スタイル対応</li>
+                    <li>リアルタイムなコード・ディグリー（I, IV, V）表示</li>
+                    <li>クロマチック・アプローチを含む音楽的なライン生成</li>
+                </ul>
+            </div>
+            <div
+                style="flex: 0 0 300px; background: var(--glass-bg); padding: 40px; border-radius: 32px; border: 1px solid var(--accent-blue); text-align: center;">
+                <span style="font-size: 4rem;">🎼</span>
+                <h4 style="margin-top: 20px;">Jazz & Blues</h4>
+                <p style="color: var(--text-dim); margin-top: 10px;">Practice over real progressions.</p>
+            </div>
+        </section>
+
+        <section class="section-title" style="padding: 60px 0;">
+            <h2>Unlock Your Musical Potential</h2>
+            <p>相対音感は、より良いアンサンブルとソロプレイの鍵です。</p>
+            <div class="cta-group" style="margin-top: 40px;">
+                <a href="#" class="btn btn-primary">Start Training Free</a>
+            </div>
+        </section>
+
+        <footer>
+            <span class="footer-logo">Bass Relative Pitch Trainer</span>
+            <p>© 2026 Bass Relative Pitch Trainer. Created with Passion for Bassists.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
