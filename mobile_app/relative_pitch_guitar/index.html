@@ -44,8 +44,67 @@
             padding: 0 24px;
         }
 
+        /* Navigation styles */
+        .top-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+        }
+
+        .back-home {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9em;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .back-home:hover {
+            opacity: 1;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 4px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.85em;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        /* Language switching styles */
+        body.lang-en .lang-ja {
+            display: none !important;
+        }
+
+        body.lang-ja .lang-en {
+            display: none !important;
+        }
+
         header {
-            padding: 32px 0;
+            padding: 100px 32px 32px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -60,7 +119,7 @@
         }
 
         .hero {
-            padding: 100px 0 80px;
+            padding: 60px 0 80px;
             text-align: center;
             position: relative;
         }
@@ -117,7 +176,10 @@
         }
 
         .btn {
-            padding: 16px 36px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 36px;
             border-radius: 16px;
             font-weight: 700;
             text-decoration: none;
@@ -135,6 +197,16 @@
             box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
         }
 
+        .btn span {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+            margin-bottom: 2px;
+        }
+
+        /* Screenshots Display */
         .screenshots-container {
             padding: 60px 0;
         }
@@ -144,11 +216,23 @@
             gap: 24px;
             overflow-x: auto;
             padding: 20px 40px 60px;
-            scrollbar-width: none;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-blue) var(--secondary-bg);
         }
 
         .screenshots::-webkit-scrollbar {
-            display: none;
+            height: 8px;
+            display: block;
+        }
+
+        .screenshots::-webkit-scrollbar-track {
+            background: var(--secondary-bg);
+            border-radius: 10px;
+        }
+
+        .screenshots::-webkit-scrollbar-thumb {
+            background: var(--accent-blue);
+            border-radius: 10px;
         }
 
         .screenshots img {
@@ -163,6 +247,7 @@
             transform: scale(1.02);
         }
 
+        /* Features Section */
         .section-title {
             text-align: center;
             margin-bottom: 60px;
@@ -223,6 +308,7 @@
             font-size: 1rem;
         }
 
+        /* Special Sequence Section */
         .walking-bass {
             background: var(--secondary-bg);
             border-radius: 48px;
@@ -261,6 +347,7 @@
             font-weight: bold;
         }
 
+        /* Footer */
         footer {
             padding: 80px 0 40px;
             border-top: 1px solid var(--glass-border);
@@ -276,6 +363,7 @@
             display: block;
         }
 
+        /* Mobile Adjustments */
         @media (max-width: 900px) {
             .walking-bass {
                 flex-direction: column;
@@ -294,27 +382,52 @@
     </style>
 </head>
 
-<body>
+<body class="lang-ja">
+    <nav class="top-nav">
+        <a href="../../index.html" class="back-home">← Home</a>
+        <div class="lang-switch">
+            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+        </div>
+    </nav>
+
     <div class="container">
         <header>
             <span style="font-weight: 800; font-size: 1.2rem; color: var(--accent-blue);">GUITAR EAR</span>
-            <a href="https://t-okb-dev.github.io/index.html" class="back-link">Developer Site</a>
+            <a href="../../index.html" class="back-link">
+                <span class="lang-en">Developer Site</span>
+                <span class="lang-ja">開発者サイト</span>
+            </a>
         </header>
 
         <section class="hero">
-            <div class="app-badge">Ultimate Ear Training for Guitarists</div>
-            <h1>Master Your Fretboard.<br>Elevate Your Play.</h1>
+            <div class="app-badge">
+                <span class="lang-en">Ultimate Ear Training for Guitarists</span>
+                <span class="lang-ja">ギタリストのための聴音トレーニング</span>
+            </div>
+            <h1 class="lang-en">Master Your Fretboard.<br>Elevate Your Play.</h1>
+            <h1 class="lang-ja">指板をマスターし、<br>演奏レベルを引き上げる。</h1>
             <p class="subtitle">
-                リアルなギター音源で相対音感を鍛える。連続音当て機能を搭載した、ギタリストのための聴音アプリ。
+                <span class="lang-en">Master relative pitch with realistic guitar sounds. An ear training app for
+                    guitarists with sequence mode features.</span>
+                <span class="lang-ja">リアルなギター音源で相対音感を鍛える。連続音当て機能を搭載した、ギタリストのための聴音アプリ。</span>
             </p>
             <div class="cta-group">
-                <a href="#" class="btn btn-primary">Download App</a>
+                <a href="https://apps.apple.com/us/app/guitar-relative-pitch-trainer/id6759158639"
+                    class="btn btn-primary lang-en">
+                    <span>Download on</span>
+                    App Store
+                </a>
+                <a href="https://apps.apple.com/jp/app/guitar-relative-pitch-trainer/id6759158639"
+                    class="btn btn-primary lang-ja">
+                    <span>App Storeで</span>
+                    ダウンロード
+                </a>
             </div>
         </section>
 
         <section class="screenshots-container">
             <div class="screenshots">
-                <!-- Use placeholders or actual screenshots if available -->
                 <img src="screenshot_home.png" alt="Home Screen">
                 <img src="screenshot_training.png" alt="Training Screen">
                 <img src="screenshot_sequence_mode.png" alt="Sequence Mode">
@@ -325,73 +438,117 @@
 
         <section class="features">
             <div class="section-title">
-                <h2>Powerful Tools for Your Ears</h2>
-                <p>ギタリストに必要な全ての機能をこの一つに。</p>
+                <h2>
+                    <span class="lang-en">Powerful Tools for Your Ears</span>
+                    <span class="lang-ja">耳を鍛える強力なツール</span>
+                </h2>
+                <p>
+                    <span class="lang-en">Everything a guitarist needs in one app.</span>
+                    <span class="lang-ja">ギタリストに必要な全ての機能をこの一つに。</span>
+                </p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="icon-box">🎸</div>
-                    <h3>Realistic Guitar Samples</h3>
-                    <p>
-                        リアルなギターのサンプリング音源を使用。実際の楽器を想定した最適な音域で、プロの耳を養います。
-                    </p>
+                    <h3>
+                        <span class="lang-en">Realistic Guitar Samples</span>
+                        <span class="lang-ja">リアルなギター・サンプル</span>
+                    </h3>
+                    <p class="lang-en">Uses realistic guitar sampling sounds. Develop a professional ear with the
+                        optimal range for the instrument.</p>
+                    <p class="lang-ja">リアルなギターのサンプリング音源を使用。実際の楽器を想定した最適な音域で、プロの耳を養います。</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box">🎯</div>
-                    <h3>Precision Fretboard UI</h3>
-                    <p>
-                        ギターの指板（6弦）を忠実に再現したインターフェース。音を聴くだけでなく、実際の運指と直結したトレーニングが可能です。
-                    </p>
+                    <h3>
+                        <span class="lang-en">Precision Fretboard UI</span>
+                        <span class="lang-ja">精密な指板UI</span>
+                    </h3>
+                    <p class="lang-en">An interface that faithfully reproduces the guitar fretboard (6 strings). Train
+                        directly with actual fingerings.</p>
+                    <p class="lang-ja">ギターの指板（6弦）を忠実に再現したインターフェース。音を聴くだけでなく、実際の運指と直結したトレーニングが可能です。</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box">📐</div>
-                    <h3>Scale & Chord Reference</h3>
-                    <p>
-                        メジャー/マイナースケールや各種コード（7th, m7b5等）の形を指板上で確認。ルートからの度数（1, 3, 5...）表示で音楽理論の理解も深まります。
-                    </p>
+                    <h3>
+                        <span class="lang-en">Scale & Chord Reference</span>
+                        <span class="lang-ja">スケール＆コード・リファレンス</span>
+                    </h3>
+                    <p class="lang-en">Check major/minor scales and various chords (7th, m7b5, etc.) on the fretboard.
+                        Degree display deepens theory understanding.</p>
+                    <p class="lang-ja">メジャー/マイナースケールや各種コード（7th, m7b5等）の形を指板上で確認。ルートからの度数表示で音楽理論の理解も深まります。</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box">⚡</div>
-                    <h3>Adaptive Difficulty</h3>
-                    <p>
-                        初心者向けの単音当てから、中〜上級者向けの連続聴音まで。自分のレベルに合わせてステップアップ。
-                    </p>
+                    <h3>
+                        <span class="lang-en">Adaptive Difficulty</span>
+                        <span class="lang-ja">適応型難易度</span>
+                    </h3>
+                    <p class="lang-en">Step up from single-note identification for beginners to continuous listening for
+                        intermediate and advanced players.</p>
+                    <p class="lang-ja">初心者向けの単音当てから、中〜上級者向けの連続聴音まで。自分のレベルに合わせてステップアップ。</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box">📊</div>
-                    <h3>Progress Tracking</h3>
-                    <p>
-                        日々のトレーニング実績をカレンダーで管理。自分の成長を視覚化し、モチベーションを維持できます。
-                    </p>
+                    <h3>
+                        <span class="lang-en">Progress Tracking</span>
+                        <span class="lang-ja">進捗履歴管理</span>
+                    </h3>
+                    <p class="lang-en">Manage daily training with a calendar. Visualize your growth and maintain
+                        motivation.</p>
+                    <p class="lang-ja">日々のトレーニング実績をカレンダーで管理。自分の成長を視覚化し、モチベーションを維持できます。</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box">🌏</div>
-                    <h3>Global Ready</h3>
-                    <p>
-                        CDE表記、ドレミ表記の両方に対応. 日本語・英語・ベトナム語のマルチランゲージ・サポート.
-                    </p>
+                    <h3>
+                        <span class="lang-en">Global Ready</span>
+                        <span class="lang-ja">グローバル対応</span>
+                    </h3>
+                    <p class="lang-en">Supports both CDE and Do-Re-Mi notation. Multi-language support for Japanese,
+                        English, and Vietnamese.</p>
+                    <p class="lang-ja">CDE表記、ドレミ表記の両方に対応。日本語・英語・ベトナム語のマルチランゲージ・サポート。</p>
                 </div>
                 <div class="feature-card">
                     <div class="icon-box">✨</div>
-                    <h3>Ad-Free Focus</h3>
-                    <p>
-                        トレーニングに集中できるよう、洗練されたデザイン。無料ですべての機能を利用可能。
-                    </p>
+                    <h3>
+                        <span class="lang-en">Ad-Free Focus</span>
+                        <span class="lang-ja">広告なしで集中</span>
+                    </h3>
+                    <p class="lang-en">Sophisticated design to help you focus on training. All features available for
+                        free.</p>
+                    <p class="lang-ja">トレーニングに集中できるよう、洗練されたデザイン。無料ですべての機能を利用可能。</p>
                 </div>
             </div>
         </section>
 
         <section id="sequence-mode" class="walking-bass">
             <div class="walking-bass-content">
-                <h2>Sequence Mode Training</h2>
+                <h2>
+                    <span class="lang-en">Sequence Mode Training</span>
+                    <span class="lang-ja">シーケンス・モード・トレーニング</span>
+                </h2>
                 <p style="font-size: 1.1rem;">
-                    短いフレーズを耳で聴き取り、順番に再現する。連続した音程を聴き取る力を鍛え、ソロや耳コピの基礎を確立します。
+                    <span class="lang-en">Listen to short phrases by ear and reproduce them in order. Establish the
+                        basics for solos and transcribing.</span>
+                    <span class="lang-ja">短いフレーズを耳で聴き取り、順番に再現する。連続した音程を聴き取る力を鍛え、ソロや耳コピの基礎を確立します。</span>
                 </p>
                 <ul>
-                    <li>3〜5音の連続したフレーズを聴き取り</li>
-                    <li>順番に1音ずつ再現していくスタイル</li>
-                    <li>実践的なテンポ感でのトレーニング</li>
-                    <li>視覚的なフィードバックで直感的に学習</li>
+                    <li>
+                        <span class="lang-en">Listen to melodic sequences of 3 to 5 notes</span>
+                        <span class="lang-ja">3〜5音の連続したフレーズを聴き取り</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Reproduce each note in order</span>
+                        <span class="lang-ja">順番に1音ずつ再現していくスタイル</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Practice with realistic tempo and timing</span>
+                        <span class="lang-ja">実践的なテンポ感でのトレーニング</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Visual feedback for intuitive learning</span>
+                        <span class="lang-ja">視覚的なフィードバックで直感的に学習</span>
+                    </li>
                 </ul>
             </div>
             <div
@@ -403,18 +560,70 @@
         </section>
 
         <section class="section-title" style="padding: 60px 0;">
-            <h2>Unlock Your Musical Potential</h2>
-            <p>相対音感は、より良いアンサンブルとソロプレイの鍵です。</p>
+            <h2>
+                <span class="lang-en">Unlock Your Musical Potential</span>
+                <span class="lang-ja">音楽的な可能性を解き放つ</span>
+            </h2>
+            <p>
+                <span class="lang-en">Relative pitch is the key to better ensemble and solo play.</span>
+                <span class="lang-ja">相対音感は、より良いアンサンブルとソロプレイの鍵です。</span>
+            </p>
             <div class="cta-group" style="margin-top: 40px;">
-                <a href="#" class="btn btn-primary">Start Training Free</a>
+                <a href="https://apps.apple.com/us/app/guitar-relative-pitch-trainer/id6759158639"
+                    class="btn btn-primary lang-en">
+                    <span>Get Started</span>
+                    Start Training Free
+                </a>
+                <a href="https://apps.apple.com/jp/app/guitar-relative-pitch-trainer/id6759158639"
+                    class="btn btn-primary lang-ja">
+                    <span>今すぐ始める</span>
+                    無料でトレーニングを開始
+                </a>
             </div>
         </section>
 
         <footer>
             <span class="footer-logo">Guitar Relative Pitch Trainer</span>
-            <p>© 2026 Guitar Relative Pitch Trainer. Created with Passion for Guitarists.</p>
+            <p>
+                <span class="lang-en">© 2026 Guitar Relative Pitch Trainer. Created with Passion for Guitarists.</span>
+                <span class="lang-ja">© 2026 Guitar Relative Pitch Trainer. ギタリストへの情熱を込めて制作。</span>
+            </p>
         </footer>
     </div>
+
+    <script>
+        function setLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+
+            // Update active button state
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Save preference
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // Auto-detect language on load
+        (function () {
+            const savedLang = localStorage.getItem('preferred-language');
+            if (savedLang) {
+                setLanguage(savedLang);
+                return;
+            }
+
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('ja')) {
+                setLanguage('ja');
+            } else {
+                setLanguage('en');
+            }
+        })();
+    </script>
 </body>
 
 </html>
