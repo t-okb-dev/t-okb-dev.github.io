@@ -1,9 +1,11 @@
 :root {
-    --primary-color: #2D6A6A; /* AppTheme.primary based on context intuition or standard teal */
+    --primary-color: #2D6A6A;
+    /* AppTheme.primary based on context intuition or standard teal */
     --text-color: #333;
     --bg-color: #FDFDFD;
     --secondary-bg: #F5F7FA;
-    --accent-color: #FFB74D; /* Orange/Amber for accents like lightbulb */
+    --accent-color: #FFB74D;
+    /* Orange/Amber for accents like lightbulb */
 }
 
 body {
@@ -26,7 +28,7 @@ header img.app-icon {
     width: 120px;
     height: 120px;
     border-radius: 24px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     margin-bottom: 1rem;
 }
 
@@ -66,13 +68,13 @@ h2 {
     font-weight: bold;
     font-size: 1.1rem;
     margin-top: 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-download:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .section {
@@ -105,8 +107,8 @@ h2 {
 .feature-image img {
     max-width: 80%;
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .keywords {
@@ -130,11 +132,37 @@ footer {
         flex-direction: column !important;
         text-align: center;
     }
+
     .feature-text {
         padding: 0 0 2rem 0;
     }
+
     .feature-image img {
-        max-width: 100%; 
-        width: 280px; 
+        max-width: 100%;
+        width: 280px;
     }
+}
+
+/* ---------- Scroll Reveal (Gentle Effect) ---------- */
+.fade-in-gentle {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(8px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.8s ease-out;
+}
+
+.fade-in-gentle.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.feature-text.fade-in-gentle {
+    transition-delay: 0.05s;
+}
+
+.feature-image.fade-in-gentle {
+    transition-delay: 0.15s;
 }

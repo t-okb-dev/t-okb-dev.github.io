@@ -138,3 +138,27 @@ footer {
         width: 280px; 
     }
 }
+
+/* ---------- Scroll Reveal (Gentle Effect) ---------- */
+.fade-in-gentle {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(8px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.8s ease-out;
+}
+
+.fade-in-gentle.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.feature-text.fade-in-gentle {
+    transition-delay: 0.05s;
+}
+
+.feature-image.fade-in-gentle {
+    transition-delay: 0.15s;
+}

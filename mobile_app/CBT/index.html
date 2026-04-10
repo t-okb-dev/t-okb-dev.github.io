@@ -110,7 +110,7 @@
 
         <!-- Feature 1 -->
         <div class="feature">
-            <div class="feature-text">
+            <div class="feature-text fade-in-gentle">
                 <h3>
                     <span class="lang-en">Understand the Theory</span>
                     <span class="lang-ja">理論を基礎から理解</span>
@@ -122,14 +122,14 @@
                     ガイド付きでCBT理論の基礎を学べます。出来事が直接感情や行動を生むのではなく、あなたの「思考」が大きな影響を与えていることに気づきましょう。
                 </p>
             </div>
-            <div class="feature-image">
+            <div class="feature-image fade-in-gentle">
                 <img src="screenshot_01.png" alt="About CBT Theory">
             </div>
         </div>
 
         <!-- Feature 2 -->
         <div class="feature">
-            <div class="feature-text">
+            <div class="feature-text fade-in-gentle">
                 <h3>
                     <span class="lang-en">Step-by-Step Journaling</span>
                     <span class="lang-ja">ステップ式で簡単入力</span>
@@ -141,14 +141,14 @@
                     1ステップずつ順番に入力するだけで思考整理が完了します。書き方に迷ったときは、豊富なヒントと具体例がサポート。
                 </p>
             </div>
-            <div class="feature-image">
+            <div class="feature-image fade-in-gentle">
                 <img src="screenshot_02.png" alt="Step-by-Step Input">
             </div>
         </div>
 
         <!-- Feature 3 -->
         <div class="feature">
-            <div class="feature-text">
+            <div class="feature-text fade-in-gentle">
                 <h3>
                     <span class="lang-en">Habituate Positive Thinking</span>
                     <span class="lang-ja">思考の習慣化をサポート</span>
@@ -160,7 +160,7 @@
                     リマインダー設定で、定期的な振り返りをサポート。感情が揺れ動いた時だけでなく、落ち着いた時間に思考を見直す習慣が身につきます。
                 </p>
             </div>
-            <div class="feature-image">
+            <div class="feature-image fade-in-gentle">
                 <img src="screenshot_03.png" alt="Settings and Reminders">
             </div>
         </div>
@@ -218,6 +218,27 @@
             setLanguage('en');
         }
     })();
+</script>
+
+<script>
+    // Intersection Observer for gentle fade-in effect
+    document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        document.querySelectorAll('.fade-in-gentle').forEach(el => {
+            observer.observe(el);
+        });
+    });
 </script>
 
 </body>
