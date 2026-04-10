@@ -6,44 +6,119 @@
     <title>CBT Note | CBTノート</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        /* Navigation styles */
+        .top-nav {
+            background: var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            position: relative;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+        }
+
+        .back-home {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9em;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .back-home:hover {
+            opacity: 1;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #fff;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+            border-color: #fff;
+        }
+
+        /* Language switching styles */
+        body.lang-en .lang-ja {
+            display: none !important;
+        }
+
+        body.lang-ja .lang-en {
+            display: none !important;
+        }
+    </style>
 </head>
-<body>
+<body class="lang-ja">
+
+<nav class="top-nav">
+    <a href="../../index.html" class="back-home">← Home</a>
+    <div class="lang-switch">
+        <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+    </div>
+</nav>
 
 <header>
     <div class="container">
         <img src="icon.png" alt="App Icon" class="app-icon">
         <h1>CBT Note</h1>
-        <p class="subtitle">CBTノート — 思考を整理し、心を軽くするセルフケア</p>
-        <a href="#" class="btn-download">Download on the App Store</a>
+        <p class="subtitle">
+            <span class="lang-en">CBT Note — Organize your thoughts, lighten your mind.</span>
+            <span class="lang-ja">CBTノート — 思考を整理し、心を軽くするセルフケア</span>
+        </p>
+        <a href="https://apps.apple.com/us/app/cbt-note/id6761826627" class="btn-download lang-en" target="_blank">Download on the App Store</a>
+        <a href="https://apps.apple.com/jp/app/cbt%E3%83%8E%E3%83%BC%E3%83%88/id6761826627" class="btn-download lang-ja" target="_blank">App Storeでダウンロード</a>
     </div>
 </header>
 
 <div class="container">
 
     <div class="section">
-        <h2>About App / アプリ紹介</h2>
-        <p>
+        <h2>
+            <span class="lang-en">About App</span>
+            <span class="lang-ja">アプリ紹介</span>
+        </h2>
+        <p class="lang-en">
             <strong>CBT Note</strong> is a self-care app based on Cognitive Behavioral Therapy (CBT).
             By organizing your thoughts into Event, Thought, Emotion, Behavior, and Alternative Thought, you can challenge negative thinking patterns and realistic perspectives.
         </p>
-        <p>
+        <p class="lang-ja">
             <strong>CBTノート</strong>は、認知行動療法（CBT）に基づいたセルフケアアプリです。
             「出来事」「思考」「感情」「行動」「見直し」のステップで思考を整理することで、否定的な思い込みに気づき、より現実的な視点を見つける手助けをします。
         </p>
     </div>
 
     <div class="section">
-        <h2>Features / 機能・特徴</h2>
+        <h2>
+            <span class="lang-en">Features</span>
+            <span class="lang-ja">機能・特徴</span>
+        </h2>
 
         <!-- Feature 1 -->
         <div class="feature">
             <div class="feature-text">
-                <h3>Understand the Theory</h3>
-                <h3>理論を基礎から理解</h3>
-                <p>
+                <h3>
+                    <span class="lang-en">Understand the Theory</span>
+                    <span class="lang-ja">理論を基礎から理解</span>
+                </h3>
+                <p class="lang-en">
                     Learn the basics of CBT theory with simple explanations. Understand how your thoughts affect your emotions and behaviors, not just the events themselves.
                 </p>
-                <p>
+                <p class="lang-ja">
                     ガイド付きでCBT理論の基礎を学べます。出来事が直接感情や行動を生むのではなく、あなたの「思考」が大きな影響を与えていることに気づきましょう。
                 </p>
             </div>
@@ -55,12 +130,14 @@
         <!-- Feature 2 -->
         <div class="feature">
             <div class="feature-text">
-                <h3>Step-by-Step Journaling</h3>
-                <h3>ステップ式で簡単入力</h3>
-                <p>
+                <h3>
+                    <span class="lang-en">Step-by-Step Journaling</span>
+                    <span class="lang-ja">ステップ式で簡単入力</span>
+                </h3>
+                <p class="lang-en">
                     Write down your experience step by step. If you get stuck, helpful hints and examples are available for every step. The final step helps you find a realistic outlook and decide your next behavior.
                 </p>
-                <p>
+                <p class="lang-ja">
                     1ステップずつ順番に入力するだけで思考整理が完了します。書き方に迷ったときは、豊富なヒントと具体例がサポート。
                 </p>
             </div>
@@ -72,12 +149,14 @@
         <!-- Feature 3 -->
         <div class="feature">
             <div class="feature-text">
-                <h3>Habituate Positive Thinking</h3>
-                <h3>思考の習慣化をサポート</h3>
-                <p>
+                <h3>
+                    <span class="lang-en">Habituate Positive Thinking</span>
+                    <span class="lang-ja">思考の習慣化をサポート</span>
+                </h3>
+                <p class="lang-en">
                     Set reminders to check in with yourself. Periodic notifications help you make objective thinking a habit.
                 </p>
-                <p>
+                <p class="lang-ja">
                     リマインダー設定で、定期的な振り返りをサポート。感情が揺れ動いた時だけでなく、落ち着いた時間に思考を見直す習慣が身につきます。
                 </p>
             </div>
@@ -89,11 +168,14 @@
     </div>
 
     <div class="section keywords">
-        <h3>Keywords / キーワード</h3>
-        <p>
+        <h3>
+            <span class="lang-en">Keywords</span>
+            <span class="lang-ja">キーワード</span>
+        </h3>
+        <p class="lang-en">
             CBT, Cognitive Behavioral Therapy, Mental Health, Self Care, Journal, Diary, Mindfulness, Stress Management, Realistic Thinking, Behavioral Activation
         </p>
-        <p>
+        <p class="lang-ja">
             認知行動療法, CBT, メンタルヘルス, セルフケア, ジャーナリング, 日記, マインドフルネス, ストレス解消, 思考整理, 認知再構成法
         </p>
     </div>
@@ -103,6 +185,40 @@
 <footer>
     <p>&copy; 2026 CBT Note. All rights reserved.</p>
 </footer>
+
+<script>
+    function setLanguage(lang) {
+        document.body.className = 'lang-' + lang;
+
+        // Update active button state
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // Save preference
+        localStorage.setItem('preferred-language', lang);
+    }
+
+    // Auto-detect language on load
+    (function () {
+        const savedLang = localStorage.getItem('preferred-language');
+        if (savedLang) {
+            setLanguage(savedLang);
+            return;
+        }
+
+        const browserLang = navigator.language || navigator.userLanguage;
+        if (browserLang.startsWith('ja')) {
+            setLanguage('ja');
+        } else {
+            setLanguage('en');
+        }
+    })();
+</script>
 
 </body>
 </html>
