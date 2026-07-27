@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflex Training | 瞬発力トレーニング</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        /* Navigation styles */
+        .top-nav {
+            background: var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            position: relative;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+        }
+
+        .back-home {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9em;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .back-home:hover {
+            opacity: 1;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #fff;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+            border-color: #fff;
+        }
+
+        /* Language switching styles */
+        body.lang-en .lang-ja {
+            display: none !important;
+        }
+
+        body.lang-ja .lang-en {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="lang-ja">
+
+<nav class="top-nav">
+    <a href="../../index.html" class="back-home">← Home</a>
+    <div class="lang-switch">
+        <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+    </div>
+</nav>
+
+<header>
+    <div class="container">
+        <!-- Replace icon.png with your actual app icon file -->
+        <img src="icon.png" alt="App Icon" class="app-icon" onerror="this.src='https://via.placeholder.com/120'">
+        <h1>Reflex Training</h1>
+        <p class="subtitle">
+            <span class="lang-en">Push your brain and reflexes to the limit in just a few minutes a day</span>
+            <span class="lang-ja">1日わずか数分で、脳と反射神経を限界まで鍛える</span>
+        </p>
+        <a href="#" class="btn-download lang-en">Download on the App Store</a>
+        <a href="#" class="btn-download lang-ja">App Storeでダウンロード</a>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="section">
+        <h2>
+            <span class="lang-en">About App</span>
+            <span class="lang-ja">アプリ紹介</span>
+        </h2>
+        <p class="lang-en">
+            <strong>Reflex Training</strong> is a brain and action game designed to sharpen your cognitive functions and reaction speed in just a few minutes a day. 
+            Test your pure, raw reaction time and decision-making skills!
+        </p>
+        <p class="lang-ja">
+            <strong>瞬発力トレーニング (Reflex Training)</strong>は、1日わずか数分のプレイで、脳の認知機能や反応速度を鍛えることができる脳トレ・アクションアプリです。
+            eスポーツや実際のスポーツ前のウォームアップ、あるいは日々のスキマ時間の暇つぶしにも最適です。昨日より速い自分を手に入れましょう！
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>
+            <span class="lang-en">Features</span>
+            <span class="lang-ja">機能・特徴</span>
+        </h2>
+
+        <!-- Feature 1 -->
+        <div class="feature">
+            <div class="feature-text fade-in-gentle">
+                <h3>
+                    <span class="lang-en">6 Exciting Mini-Games</span>
+                    <span class="lang-ja">6つのエキサイティングなミニゲーム</span>
+                </h3>
+                <p class="lang-en">
+                    Challenge your limits with 6 highly intuitive games including Color Tap, GO/STOP, Number Tap, Arrow Swipe, Peripheral Vision, and Sound Reaction. From visual search to auditory reflexes, train every aspect of your reaction speed.
+                </p>
+                <p class="lang-ja">
+                    「カラータップ」「GO / STOP」「ナンバータップ」「アロースワイプ」「周辺視野」「音反応」の6種類のミニゲームを収録。視覚、聴覚、空間認識、認知の柔軟性など、あらゆる反射神経を極限まで引き出します。
+                </p>
+            </div>
+            <div class="feature-image fade-in-gentle">
+                <img src="screenshot_01.png" alt="6 Mini Games" onerror="this.style.display='none'">
+            </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature">
+            <div class="feature-text fade-in-gentle">
+                <h3>
+                    <span class="lang-en">Track Your Progress</span>
+                    <span class="lang-ja">詳細な統計とグラフで成長を実感</span>
+                </h3>
+                <p class="lang-en">
+                    Keep track of your past scores and average reaction times in milliseconds. Beautifully visualized charts allow you to monitor your improvement over time at a glance.
+                </p>
+                <p class="lang-ja">
+                    過去のスコアや平均反応速度（ミリ秒単位）の推移を美しいグラフで視覚化。プレイごとの成績が自動で記録されるため、日々の成長がひと目で分かり、モチベーションの維持に繋がります。
+                </p>
+            </div>
+            <div class="feature-image fade-in-gentle">
+                <img src="screenshot_02.png" alt="Statistics and Graphs" onerror="this.style.display='none'">
+            </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature">
+            <div class="feature-text fade-in-gentle">
+                <h3>
+                    <span class="lang-en">Build a Daily Habit</span>
+                    <span class="lang-ja">デイリーチャレンジで毎日の習慣に</span>
+                </h3>
+                <p class="lang-en">
+                    Complete daily tasks to build your streak. With 3 difficulty levels (Easy, Normal, Hard) and a sleek dark mode design, the app offers an immersive and distraction-free experience for everyone from beginners to superhuman players.
+                </p>
+                <p class="lang-ja">
+                    毎日提示されるデイリー課題をクリアして、連続達成日数（ストリーク）を伸ばしましょう！目に優しいダークモードの洗練されたUIと、初心者から超人レベルまで選べる3つの難易度で、毎日のトレーニングをサポートします。
+                </p>
+            </div>
+            <div class="feature-image fade-in-gentle">
+                <img src="screenshot_03.png" alt="Daily Challenges" onerror="this.style.display='none'">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section keywords fade-in-gentle">
+        <h3>
+            <span class="lang-en">Keywords</span>
+            <span class="lang-ja">キーワード</span>
+        </h3>
+        <p class="lang-en">
+            reflex, brain training, reaction, esports, focus, mini games, cognitive, speed, sports, peripheral vision
+        </p>
+        <p class="lang-ja">
+            反射神経, 脳トレ, 動体視力, eスポーツ, トレーニング, ミニゲーム, 反応速度, 周辺視野, 集中力, スポーツ, 判断力, 認知機能, 瞬発力
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Reflex Training. All rights reserved.</p>
+</footer>
+
+<script>
+    function setLanguage(lang) {
+        document.body.className = 'lang-' + lang;
+
+        // Update active button state
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // Save preference
+        localStorage.setItem('preferred-language', lang);
+    }
+
+    // Auto-detect language on load
+    (function () {
+        const savedLang = localStorage.getItem('preferred-language');
+        if (savedLang) {
+            setLanguage(savedLang);
+            return;
+        }
+
+        const browserLang = navigator.language || navigator.userLanguage;
+        if (browserLang.startsWith('ja')) {
+            setLanguage('ja');
+        } else {
+            setLanguage('en');
+        }
+    })();
+</script>
+
+<script>
+    // Intersection Observer for gentle fade-in effect
+    document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        document.querySelectorAll('.fade-in-gentle').forEach(el => {
+            observer.observe(el);
+        });
+    });
+</script>
+
+</body>
+</html>

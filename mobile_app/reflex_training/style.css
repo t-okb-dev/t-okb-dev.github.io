@@ -1,0 +1,164 @@
+:root {
+    --primary-color: #0ea5e9; /* Energetic blue for Reflex Training */
+    --text-color: #f1f5f9;
+    --bg-color: #0f172a; /* Dark theme background */
+    --secondary-bg: #1e293b;
+    --accent-color: #f59e0b; /* Amber accent */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+header img.app-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    margin: 0.5rem 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.btn-download {
+    display: inline-block;
+    background-color: white;
+    color: var(--primary-color);
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.section {
+    padding: 2rem 0;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+}
+
+.feature:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.feature-text {
+    flex: 1;
+    padding: 0 2rem;
+    min-width: 300px;
+}
+
+.feature-image {
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+.feature-image img {
+    max-width: 80%;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.keywords {
+    background-color: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid #334155;
+    color: #64748b;
+}
+
+@media (max-width: 768px) {
+    .feature {
+        flex-direction: column !important;
+        text-align: center;
+    }
+    .feature-text {
+        padding: 0 0 2rem 0;
+    }
+    .feature-image img {
+        max-width: 100%; 
+        width: 280px; 
+    }
+}
+
+/* ---------- Scroll Reveal (Gentle Effect) ---------- */
+.fade-in-gentle {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(8px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.8s ease-out;
+}
+
+.fade-in-gentle.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.feature-text.fade-in-gentle {
+    transition-delay: 0.05s;
+}
+
+.feature-image.fade-in-gentle {
+    transition-delay: 0.15s;
+}
