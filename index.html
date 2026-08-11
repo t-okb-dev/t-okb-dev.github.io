@@ -1,31 +1,40 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>t-okb-dev Portfolio</title>
+
+  <title>t-okb-dev | iOS Apps, Browser Extensions & Developer Projects</title>
+
   <meta name="description"
-    content="Personal developer portfolio of t-okb-dev. Showcasing Browser Extensions and iOS Apps for productivity and fitness.">
-  <meta name="keywords" content="developer, portfolio, iOS apps, Chrome extensions, productivity, fitness, t-okb-dev">
+    content="t-okb-dev is a personal developer site featuring iOS apps, Chrome extensions, productivity tools, fitness apps, music training tools, and practical software projects.">
+
+  <meta name="keywords"
+    content="t-okb-dev, iOS apps, Flutter, Chrome extensions, browser extensions, productivity, fitness, music, developer, software projects">
+
+  <meta name="author" content="t-okb-dev">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://t-okb-dev.github.io/">
 
   <!-- OGP -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="t-okb-dev Portfolio">
+  <meta property="og:url" content="https://t-okb-dev.github.io/">
+  <meta property="og:title" content="t-okb-dev | Apps, Extensions & Developer Projects">
   <meta property="og:description"
-    content="Personal developer portfolio of t-okb-dev. Exploring tools for productivity and health.">
+    content="Explore iOS apps, browser extensions, and practical software projects created by t-okb-dev.">
+  <meta property="og:site_name" content="t-okb-dev">
+
   <link rel="icon" type="image/png" href="favicon.png">
-  <!-- <meta property="og:image" content="og-image.png"> -->
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
     rel="stylesheet">
-
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3732541936670276" crossorigin="anonymous"></script>
 
   <style>
     :root {
@@ -36,6 +45,8 @@
       --accent-hover: #2563eb;
       --subtext-color: #64748b;
       --border-color: #e2e8f0;
+      --soft-bg: #eff6ff;
+      --max-width: 1080px;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -44,10 +55,19 @@
         --text-color: #f1f5f9;
         --card-bg: #1e293b;
         --accent-color: #60a5fa;
-        --accent-hover: #3b82f6;
+        --accent-hover: #93c5fd;
         --subtext-color: #94a3b8;
         --border-color: #334155;
+        --soft-bg: #172554;
       }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -56,33 +76,78 @@
       padding: 0;
       background-color: var(--bg-color);
       color: var(--text-color);
-      line-height: 1.6;
+      line-height: 1.75;
     }
 
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    /* =========================
+       Language switching
+    ========================= */
+
+    body.lang-en [lang="ja"] {
+      display: none !important;
+    }
+
+    body.lang-ja [lang="en"] {
+      display: none !important;
+    }
+
+    /* =========================
+       Header
+    ========================= */
+
     header {
-      padding: 4rem 1rem;
-      text-align: center;
-      background: linear-gradient(135deg, var(--bg-color) 0%, var(--card-bg) 100%);
       border-bottom: 1px solid var(--border-color);
-      position: relative;
+      background:
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.10), transparent 35%),
+        linear-gradient(135deg, var(--bg-color) 0%, var(--card-bg) 100%);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-decoration: none;
+      letter-spacing: -0.02em;
     }
 
     .lang-switch {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
       display: flex;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
 
     .lang-btn {
       background: transparent;
       border: 1px solid var(--border-color);
       color: var(--subtext-color);
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
       cursor: pointer;
       font-size: 0.8rem;
+    }
+
+    .lang-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
     }
 
     .lang-btn.active {
@@ -91,67 +156,237 @@
       border-color: var(--accent-color);
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 800;
-      letter-spacing: -0.025em;
+    /* =========================
+       Navigation
+    ========================= */
+
+    nav {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
     }
 
-    header p {
-      color: var(--subtext-color);
-      font-size: 1.125rem;
-      max-width: 600px;
-      margin: 0 auto;
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
+
+    .nav-list a {
+      color: var(--subtext-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .nav-list a:hover {
+      color: var(--accent-color);
+    }
+
+    /* =========================
+       Hero
+    ========================= */
+
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 1rem 5.5rem;
+      text-align: center;
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: var(--soft-bg);
+      color: var(--accent-color);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: var(--accent-color);
+    }
+
+    .hero-lead {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--subtext-color);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .hero-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .hero-button {
+      display: inline-block;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .hero-button.primary {
+      background: var(--accent-color);
+      color: #fff;
+      border-color: var(--accent-color);
+    }
+
+    .hero-button.primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .hero-button.secondary:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    /* =========================
+       Main
+    ========================= */
 
     main {
-      max-width: 1000px;
+      max-width: var(--max-width);
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem 5rem;
     }
 
     section {
-      margin-bottom: 4rem;
+      margin-bottom: 5rem;
+      scroll-margin-top: 2rem;
     }
 
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-left: 4px solid var(--accent-color);
-      padding-left: 1rem;
+    .section-heading {
+      margin-bottom: 2rem;
     }
+
+    .section-heading h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.8rem;
+      line-height: 1.3;
+      letter-spacing: -0.025em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      max-width: 760px;
+      color: var(--subtext-color);
+    }
+
+    /* =========================
+       About
+    ========================= */
+
+    .about-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .about-box p {
+      margin: 0 0 1rem;
+      color: var(--subtext-color);
+    }
+
+    .about-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* =========================
+       Focus cards
+    ========================= */
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .focus-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.5rem;
+    }
+
+    .focus-card-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      background: var(--soft-bg);
+      color: var(--accent-color);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .focus-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .focus-card p {
+      margin: 0;
+      color: var(--subtext-color);
+      font-size: 0.92rem;
+    }
+
+    /* =========================
+       Apps
+    ========================= */
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
     }
 
     .card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
       display: flex;
       flex-direction: column;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.5rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
       border-color: var(--accent-color);
     }
 
     .card h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      font-size: 1.25rem;
+      margin: 0 0 0.75rem;
+      font-size: 1.2rem;
+      line-height: 1.4;
     }
 
     .card h3 a {
-      color: var(--text-color);
       text-decoration: none;
     }
 
@@ -159,471 +394,1572 @@
       color: var(--accent-color);
     }
 
-    .card p {
-      color: var(--subtext-color);
-      font-size: 0.95rem;
-      flex-grow: 1;
-      margin-bottom: 1rem;
-    }
-
-    .tags {
+    .app-title {
       display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 9999px;
-      background-color: var(--bg-color);
-      border: 1px solid var(--border-color);
-      color: var(--subtext-color);
-    }
-
-    .link {
-      display: inline-block;
-      color: var(--accent-color);
-      font-weight: 600;
-      text-decoration: none;
-      margin-top: auto;
-    }
-
-    .link:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      color: var(--subtext-color);
-      font-size: 0.875rem;
-      border-top: 1px solid var(--border-color);
-    }
-
-    footer a {
-      color: var(--subtext-color);
-      text-decoration: none;
-      margin: 0 0.5rem;
-    }
-
-    footer a:hover {
-      color: var(--accent-color);
-    }
-
-    .bmc-button {
-      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background-color: #FFDD00;
-      color: #000000 !important;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-weight: 600;
-      margin-top: 10px;
-      transition: opacity 0.2s;
-    }
-
-    .bmc-button:hover {
-      opacity: 0.9;
-      color: #000000 !important;
-      text-decoration: none;
-    }
-
-    .emoji-icon {
-      display: none;
-      /* Hide old emoji class just in case */
+      gap: 0.75rem;
     }
 
     .app-icon {
       width: 48px;
       height: 48px;
-      vertical-align: middle;
-      margin-right: 12px;
+      flex: 0 0 48px;
       border-radius: 10px;
       object-fit: cover;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      background-color: #fff;
-      /* Fallback */
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
     }
 
-    /* Language switching styles */
-    body.lang-en [lang="ja"] {
-      display: none !important;
+    .tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
     }
 
-    body.lang-ja [lang="en"] {
-      display: none !important;
+    .tag {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      color: var(--subtext-color);
+      font-size: 0.72rem;
+      line-height: 1.4;
+    }
+
+    .card p {
+      margin: 0 0 1rem;
+      color: var(--subtext-color);
+      font-size: 0.92rem;
+    }
+
+    .card .link {
+      margin-top: auto;
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .card .link:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       Development / Ideas
+    ========================= */
+
+    .development-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .development-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.75rem;
+    }
+
+    .development-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.15rem;
+    }
+
+    .development-card p {
+      margin: 0;
+      color: var(--subtext-color);
+      font-size: 0.92rem;
+    }
+
+    .development-list {
+      margin: 1rem 0 0;
+      padding-left: 1.2rem;
+      color: var(--subtext-color);
+      font-size: 0.9rem;
+    }
+
+    .development-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* =========================
+       Site guide
+    ========================= */
+
+    .guide {
+      background: var(--soft-bg);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .guide h2 {
+      margin-top: 0;
+    }
+
+    .guide p {
+      margin-bottom: 0;
+      color: var(--subtext-color);
+    }
+
+    /* =========================
+       Footer
+    ========================= */
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 1rem;
+      text-align: center;
+      color: var(--subtext-color);
+      font-size: 0.85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: var(--subtext-color);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-color);
+    }
+
+    footer p {
+      margin: 0.35rem 0;
+    }
+
+    /* =========================
+       Responsive
+    ========================= */
+
+    @media (max-width: 800px) {
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .development-box {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .top-bar {
+        align-items: flex-start;
+      }
+
+      .nav-list {
+        gap: 0.75rem 1rem;
+      }
+
+      .nav-list a {
+        font-size: 0.82rem;
+      }
+
+      main {
+        padding-top: 2rem;
+      }
+
+      section {
+        margin-bottom: 4rem;
+      }
+
+      .about-box,
+      .development-card,
+      .guide {
+        padding: 1.35rem;
+      }
+
+      .hero-links {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-button {
+        text-align: center;
+      }
     }
   </style>
 </head>
 
-<body class="lang-en"> <!-- Default to English, script will update -->
+<body class="lang-en">
+
+  <!-- =========================
+       Header
+  ========================== -->
 
   <header>
-    <div class="lang-switch">
-      <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-      <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
-    </div>
+    <div class="header-inner">
 
-    <h1>Portfolio</h1>
+      <div class="top-bar">
+
+        <a href="index.html" class="brand">t-okb-dev</a>
+
+        <div class="lang-switch">
+          <button class="lang-btn" id="lang-en-btn" onclick="setLanguage('en')">
+            EN
+          </button>
+
+          <button class="lang-btn" id="lang-ja-btn" onclick="setLanguage('ja')">
+            JP
+          </button>
+        </div>
+
+      </div>
+
+      <nav aria-label="Main navigation">
+
+        <ul class="nav-list">
+
+          <li>
+            <a href="#about">
+              <span lang="en">About</span>
+              <span lang="ja">このサイトについて</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#apps">
+              <span lang="en">iOS Apps</span>
+              <span lang="ja">iOSアプリ</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#extensions">
+              <span lang="en">Browser Extensions</span>
+              <span lang="ja">ブラウザ拡張機能</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#development">
+              <span lang="en">Development</span>
+              <span lang="ja">開発について</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="support.html">
+              <span lang="en">Support & Privacy</span>
+              <span lang="ja">サポート・プライバシー</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
   </header>
 
+
+  <!-- =========================
+       Hero
+  ========================== -->
+
+  <header class="hero">
+
+    <div class="hero-label">
+      <span lang="en">Independent Software Projects</span>
+      <span lang="ja">個人開発によるソフトウェアプロジェクト</span>
+    </div>
+
+    <h1>
+      <span>t-okb-dev</span>
+    </h1>
+
+    <p class="hero-lead" lang="en">
+      Building small and practical software tools for everyday problems.
+      Explore iOS apps, browser extensions, and development projects created
+      through hands-on experimentation and continuous improvement.
+    </p>
+
+    <p class="hero-lead" lang="ja">
+      日常の中にある「もう少し便利になったらいい」という課題を、
+      小さなソフトウェアとして形にしています。
+      iOSアプリ、ブラウザ拡張機能、さまざまな開発プロジェクトを紹介しています。
+    </p>
+
+    <div class="hero-links">
+
+      <a href="#apps" class="hero-button primary">
+        <span lang="en">Explore Apps</span>
+        <span lang="ja">アプリを見る</span>
+      </a>
+
+      <a href="#extensions" class="hero-button secondary">
+        <span lang="en">Browser Extensions</span>
+        <span lang="ja">拡張機能を見る</span>
+      </a>
+
+      <a href="#about" class="hero-button secondary">
+        <span lang="en">About This Site</span>
+        <span lang="ja">サイトについて</span>
+      </a>
+
+    </div>
+
+  </header>
+
+
   <main>
+
+    <!-- =========================
+         About
+    ========================== -->
+
+    <section id="about">
+
+      <div class="section-heading">
+
+        <h2 lang="en">About t-okb-dev</h2>
+        <h2 lang="ja">t-okb-devについて</h2>
+
+      </div>
+
+      <div class="about-box">
+
+        <p lang="en">
+          t-okb-dev is a personal software development project focused on
+          creating practical applications and browser extensions.
+          The projects cover several areas including fitness, music,
+          productivity, shopping, testing, and everyday utilities.
+        </p>
+
+        <p lang="en">
+          The goal is not simply to create another application,
+          but to turn small ideas and everyday problems into tools that
+          can actually be used. Each project starts with a specific use case
+          and is developed by considering how the tool can be made simple,
+          useful, and easy to understand.
+        </p>
+
+        <p lang="en">
+          This website documents the applications and browser extensions
+          created through these projects. Individual project pages provide
+          additional information about what each tool is designed to do,
+          who it is intended for, and how it can be used.
+        </p>
+
+
+        <p lang="ja">
+          t-okb-devでは、日常生活や仕事の中で感じた小さな課題を解決するために、
+          iOSアプリやブラウザ拡張機能などのソフトウェアを個人開発しています。
+          フィットネス、音楽、生産性向上、買い物、テスト、日常的なユーティリティなど、
+          実際の利用シーンを意識したさまざまなツールを制作しています。
+        </p>
+
+        <p lang="ja">
+          目標としているのは、単にアプリの数を増やすことではありません。
+          「こういう機能があったら便利」という具体的なアイデアを、
+          実際に使えるシンプルなツールとして形にすることを大切にしています。
+          それぞれのプロジェクトでは、利用する場面や操作の分かりやすさを考えながら開発しています。
+        </p>
+
+        <p lang="ja">
+          このサイトでは、開発したアプリやブラウザ拡張機能を紹介しています。
+          各プロジェクトの詳細ページでは、どのような目的で作られたツールなのか、
+          どのようなユーザーを想定しているのか、どのように利用できるのかを確認できます。
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         What I build
+    ========================== -->
+
     <section>
-      <h2 lang="en">iOS Apps</h2>
-      <h2 lang="ja">iOS アプリ</h2>
+
+      <div class="section-heading">
+
+        <h2 lang="en">What I Build</h2>
+        <h2 lang="ja">開発しているもの</h2>
+
+        <p lang="en">
+          The projects on this site can be broadly grouped into three areas.
+        </p>
+
+        <p lang="ja">
+          このサイトで紹介しているプロジェクトは、大きく3つの分野に分けられます。
+        </p>
+
+      </div>
+
+      <div class="focus-grid">
+
+        <article class="focus-card">
+
+          <div class="focus-card-icon">APP</div>
+
+          <h3 lang="en">iOS Applications</h3>
+          <h3 lang="ja">iOSアプリ</h3>
+
+          <p lang="en">
+            Small applications designed for specific activities such as
+            training, music practice, shopping, games, and everyday utilities.
+          </p>
+
+          <p lang="ja">
+            トレーニング、音楽練習、買い物、ゲーム、日常の便利ツールなど、
+            特定の用途に特化した小さなiOSアプリを開発しています。
+          </p>
+
+        </article>
+
+
+        <article class="focus-card">
+
+          <div class="focus-card-icon">WEB</div>
+
+          <h3 lang="en">Browser Extensions</h3>
+          <h3 lang="ja">ブラウザ拡張機能</h3>
+
+          <p lang="en">
+            Browser-based tools that make repetitive tasks, testing,
+            time management, and everyday development work more convenient.
+          </p>
+
+          <p lang="ja">
+            繰り返し作業、テスト、時間管理、開発作業などを
+            ブラウザ上で効率化するための拡張機能を開発しています。
+          </p>
+
+        </article>
+
+
+        <article class="focus-card">
+
+          <div class="focus-card-icon">IDEA</div>
+
+          <h3 lang="en">Practical Experiments</h3>
+          <h3 lang="ja">実用的なアイデア</h3>
+
+          <p lang="en">
+            Small software experiments that start from a simple question:
+            "Could this everyday problem be solved with a small tool?"
+          </p>
+
+          <p lang="ja">
+            「この日常的な問題を、小さなツールで解決できないか？」
+            という身近な疑問から始まるソフトウェアプロジェクトです。
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         iOS Apps
+    ========================== -->
+
+    <section id="apps">
+
+      <div class="section-heading">
+
+        <h2 lang="en">iOS Apps</h2>
+        <h2 lang="ja">iOSアプリ</h2>
+
+        <p lang="en">
+          A collection of iOS applications developed for specific,
+          practical use cases. Each project focuses on keeping the
+          core experience simple while providing useful features.
+        </p>
+
+        <p lang="ja">
+          特定の用途にフォーカスして開発したiOSアプリです。
+          必要な機能を分かりやすくまとめ、できるだけシンプルに使えることを重視しています。
+        </p>
+
+      </div>
+
+
       <div class="grid">
+
         <!-- Training Timer -->
+
         <article class="card">
-          <h3><a href="TrainingTimer.marketing.html"><img src="images/TrainingTimer.app_icon.png" alt="Icon"
-                class="app-icon"><span lang="en">Simple
-                Training Timer</span><span lang="ja">シンプル トレーニング タイマー</span></a></h3>
+
+          <h3>
+            <a href="TrainingTimer.marketing.html">
+              <span class="app-title">
+
+                <img
+                  src="images/TrainingTimer.app_icon.png"
+                  alt="Simple Training Timer app icon"
+                  class="app-icon">
+
+                <span>
+                  <span lang="en">Simple Training Timer</span>
+                  <span lang="ja">シンプル トレーニング タイマー</span>
+                </span>
+
+              </span>
+            </a>
+          </h3>
+
           <div class="tags">
             <span class="tag">iOS App</span>
-            <span class="tag" lang="en">Fitness</span><span class="tag" lang="ja">フィットネス</span>
+            <span class="tag" lang="en">Fitness</span>
+            <span class="tag" lang="ja">フィットネス</span>
           </div>
-          <p lang="en">A simple yet powerful timer for round-based training like Boxing, HIIT, and Tabata. Fully
-            customizable intervals.</p>
-          <p lang="ja">ボクシング、HIIT、タバタなどのラウンド制トレーニングに最適なシンプルで強力なタイマー。インターバルもフルカスタマイズ可能。</p>
-          <a href="TrainingTimer.marketing.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="TrainingTimer.marketing.html" class="link" lang="ja">詳細を見る &rarr;</a>
+
+          <p lang="en">
+            A simple timer for round-based training such as Boxing,
+            HIIT, and Tabata. Training intervals can be customized
+            according to the user's workout.
+          </p>
+
+          <p lang="ja">
+            ボクシング、HIIT、タバタなどのラウンド制トレーニングに
+            利用できるシンプルなタイマーです。
+            トレーニング内容に合わせてインターバルをカスタマイズできます。
+          </p>
+
+          <a href="TrainingTimer.marketing.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
         </article>
+
 
         <!-- Trump Training -->
+
         <article class="card">
-          <h3><a href="TrumpTraining.marketing.html"><img src="images/TrumpTraining.app_icon.png" alt="Icon"
-                class="app-icon"><span lang="en">Trump
-                Training</span><span lang="ja">トランプでトレーニング</span></a></h3>
+
+          <h3>
+            <a href="TrumpTraining.marketing.html">
+              <span class="app-title">
+
+                <img
+                  src="images/TrumpTraining.app_icon.png"
+                  alt="Trump Training app icon"
+                  class="app-icon">
+
+                <span>
+                  <span lang="en">Trump Training</span>
+                  <span lang="ja">トランプでトレーニング</span>
+                </span>
+
+              </span>
+            </a>
+          </h3>
+
           <div class="tags">
             <span class="tag">iOS App</span>
-            <span class="tag" lang="en">Fitness</span><span class="tag" lang="ja">フィットネス</span>
-            <span class="tag" lang="en">Game</span><span class="tag" lang="ja">ゲーム</span>
+            <span class="tag" lang="en">Fitness</span>
+            <span class="tag" lang="ja">フィットネス</span>
+            <span class="tag" lang="en">Game</span>
+            <span class="tag" lang="ja">ゲーム</span>
           </div>
-          <p lang="en">Turn fitness into a game using cards. Draw a card to determine your exercise repetition. Fun and
-            random workout routine.</p>
-          <p lang="ja">カールゴッチ直伝のゴッチ式トレーニングをアプリで再現。トランプを引いてメニューが決まる、楽しく強くなれるワークアウトルーチン。</p>
-          <a href="TrumpTraining.marketing.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="TrumpTraining.marketing.html" class="link" lang="ja">詳細を見る &rarr;</a>
+
+          <p lang="en">
+            A workout application that uses playing cards to determine
+            exercise repetitions. The random card-based approach adds
+            variety to each training session.
+          </p>
+
+          <p lang="ja">
+            トランプを引くことでトレーニング内容や回数を決める
+            ワークアウトアプリです。
+            ランダム性を取り入れることで、毎回違ったトレーニングを楽しめます。
+          </p>
+
+          <a href="TrumpTraining.marketing.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
         </article>
 
-        <!-- Sudoku Scan & Solve -->
+
+        <!-- Sudoku -->
+
         <article class="card">
-          <h3><a href="sudoku-scansolver.marketing.html"><img src="images/sudoku-scansolver.app_icon.png" alt="Icon"
-                class="app-icon">Sudoku Scan &
-              Solve</a></h3>
+
+          <h3>
+            <a href="sudoku-scansolver.marketing.html">
+              <span class="app-title">
+
+                <img
+                  src="images/sudoku-scansolver.app_icon.png"
+                  alt="Sudoku Scan and Solve app icon"
+                  class="app-icon">
+
+                <span>
+                  Sudoku Scan &amp; Solve
+                </span>
+
+              </span>
+            </a>
+          </h3>
+
           <div class="tags">
             <span class="tag">iOS App</span>
-            <span class="tag" lang="en">Utility</span><span class="tag" lang="ja">ユーティリティ</span>
+            <span class="tag" lang="en">Utility</span>
+            <span class="tag" lang="ja">ユーティリティ</span>
             <span class="tag">AI</span>
           </div>
-          <p lang="en">Instantly scan and solve Sudoku puzzles using your camera. Great for checking answers or getting
-            hints on difficult puzzles.</p>
-          <p lang="ja">カメラで数独パズルを瞬時にスキャンして解答。答え合わせや、難しいパズルのヒントを得るのに最適です。</p>
-          <a href="sudoku-scansolver.marketing.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="sudoku-scansolver.marketing.html" class="link" lang="ja">詳細を見る &rarr;</a>
-        </article>
 
-        <!-- Rhythm Change Metronome -->
-        <article class="card">
-          <h3><a href="mobile_app/metoronome/index.html"><img src="mobile_app/metoronome/favicon.png" alt="Icon"
-                class="app-icon"><span lang="en">Rhythm Change
-                Metronome</span><span lang="ja">シンプルメトロノーム</span></a></h3>
-          <div class="tags">
-            <span class="tag">iOS App</span>
-            <span class="tag" lang="en">Music</span><span class="tag" lang="ja">音楽</span>
-            <span class="tag" lang="en">Utility</span><span class="tag" lang="ja">ユーティリティ</span>
-          </div>
-          <p lang="en">Precise Timing, Advanced Patterns, Train Like a Pro. The ultimate metronome for serious
-            musicians.</p>
-          <p lang="ja">精密なタイミング、高度なパターントレーニング。プロのためのメトロノーム。</p>
-          <a href="mobile_app/metoronome/index.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="mobile_app/metoronome/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
-        </article>
-
-        <!-- Unit Price Comparator -->
-        <article class="card">
-          <h3><a href="mobile_app/pricecompare/index.html"><img src="mobile_app/pricecompare/app_icon.png" alt="Icon"
-                class="app-icon"><span lang="en">Unit Price
-                Comparator</span><span lang="ja">単価比較計算機</span></a></h3>
-          <div class="tags">
-            <span class="tag">iOS App</span>
-            <span class="tag" lang="en">Shopping</span><span class="tag" lang="ja">買い物</span>
-            <span class="tag" lang="en">Utility</span><span class="tag" lang="ja">ユーティリティ</span>
-          </div>
-          <p lang="en">Compare items by unit price instantly. Find the true best deal across different pack sizes and
-            quantities.</p>
-          <p lang="ja">あらゆる商品の単位あたり価格を瞬時に比較。異なるセット内容や容量の中でも、真の最安値を一目で見極められます。</p>
-          <a href="mobile_app/pricecompare/index.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="mobile_app/pricecompare/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
-        </article>
-
-        <!-- ABCDE Theory Note -->
-        <article class="card">
-          <h3><a href="mobile_app/ABCDE/index.html"><img src="mobile_app/ABCDE/icon.png" alt="Icon"
-                class="app-icon"><span lang="en">ABCDE Theory Note</span><span lang="ja">ABCDE理論ノート</span></a></h3>
-          <div class="tags">
-            <span class="tag">iOS App</span>
-            <span class="tag" lang="en">Self Care</span><span class="tag" lang="ja">セルフケア</span>
-            <span class="tag" lang="en">CBT</span><span class="tag" lang="ja">認知行動療法</span>
-          </div>
-          <p lang="en">A self-care app based on the ABCDE model of Cognitive Behavioral Therapy (CBT). Organize your
-            thoughts and find new perspectives.</p>
-          <p lang="ja">認知行動療法（CBT）のABCDEモデルに基づいたセルフケアアプリ。思考を整理し、否定的な思い込みに気づく手助けをします。</p>
-          <a href="mobile_app/ABCDE/index.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="mobile_app/ABCDE/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
-        </article>
-
-        <!-- CBT Note -->
-        <article class="card">
-          <h3><a href="mobile_app/CBT/index.html"><img src="mobile_app/CBT/icon.png" alt="Icon"
-                class="app-icon"><span lang="en">CBT Note</span><span lang="ja">CBTノート</span></a></h3>
-          <div class="tags">
-            <span class="tag">iOS App</span>
-            <span class="tag" lang="en">Self Care</span><span class="tag" lang="ja">セルフケア</span>
-            <span class="tag" lang="en">CBT</span><span class="tag" lang="ja">認知行動療法</span>
-          </div>
-          <p lang="en">A self-care app based on Cognitive Behavioral Therapy (CBT). Organize your thoughts and find realistic perspectives.</p>
-          <p lang="ja">認知行動療法（CBT）に基づいたセルフケアアプリ。思考を整理し、より現実的な視点を見つける手助けをします。</p>
-          <a href="mobile_app/CBT/index.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="mobile_app/CBT/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
-        </article>
-
-        <!-- Relative Pitch Trainer -->
-        <article class="card">
-          <h3><a href="mobile_app/relative_pitch/index.html"><img src="mobile_app/relative_pitch/favicon.png" alt="Icon"
-                class="app-icon"><span lang="en">Relative Pitch Trainer</span><span lang="ja">耳を鍛える -
-                相対音感トレーニング</span></a></h3>
-          <div class="tags">
-            <span class="tag">iOS App</span>
-            <span class="tag" lang="en">Music</span><span class="tag" lang="ja">音楽</span>
-            <span class="tag" lang="en">Utility</span><span class="tag" lang="ja">ユーティリティ</span>
-          </div>
-          <p lang="en">Scientific ear training for musicians. Practice identifying intervals with real piano samples.
+          <p lang="en">
+            A Sudoku utility that uses the device camera to scan a puzzle
+            and provide a solution. It is designed to help users check
+            answers or get hints when working on difficult puzzles.
           </p>
-          <p lang="ja">音楽理論に基づいた科学的な聴音トレーニング。本物のピアノ音源で、相対音感を効果的に鍛えられます。</p>
-          <a href="mobile_app/relative_pitch/index.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="mobile_app/relative_pitch/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
+
+          <p lang="ja">
+            カメラを使って数独パズルを読み取り、解答を確認できるユーティリティです。
+            難しい問題の答え合わせや、解答のヒントを確認したいときに利用できます。
+          </p>
+
+          <a href="sudoku-scansolver.marketing.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
         </article>
 
-        <!-- Bass Relative Pitch Trainer -->
+
+        <!-- Metronome -->
+
         <article class="card">
-          <h3><a href="mobile_app/relative_pitch_bass/index.html"><img src="mobile_app/relative_pitch_bass/favicon.png"
-                alt="Icon" class="app-icon"><span lang="en">Bass Relative Pitch Trainer</span><span
-                lang="ja">ベースのための相対音感トレーニング</span></a></h3>
+
+          <h3>
+            <a href="mobile_app/metoronome/index.html">
+              <span class="app-title">
+
+                <img
+                  src="mobile_app/metoronome/favicon.png"
+                  alt="Rhythm Change Metronome app icon"
+                  class="app-icon">
+
+                <span>
+                  <span lang="en">Rhythm Change Metronome</span>
+                  <span lang="ja">シンプルメトロノーム</span>
+                </span>
+
+              </span>
+            </a>
+          </h3>
+
           <div class="tags">
             <span class="tag">iOS App</span>
-            <span class="tag" lang="en">Music</span><span class="tag" lang="ja">音楽</span>
+            <span class="tag" lang="en">Music</span>
+            <span class="tag" lang="ja">音楽</span>
+            <span class="tag" lang="en">Utility</span>
+            <span class="tag" lang="ja">ユーティリティ</span>
           </div>
-          <p lang="en">Master your fretboard with realistic bass sounds. Includes a specialized walking bass training
-            mode.</p>
-          <p lang="ja">リアルなベース音源で指板をマスター。ジャズやブルースに最適なウォーキング・ベース・トレーニング機能を搭載。</p>
-          <a href="mobile_app/relative_pitch_bass/index.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="mobile_app/relative_pitch_bass/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
+
+          <p lang="en">
+            A metronome designed for musicians who want precise timing
+            and structured rhythm practice.
+          </p>
+
+          <p lang="ja">
+            正確なタイミングとリズム練習を重視するミュージシャン向けの
+            メトロノームアプリです。
+          </p>
+
+          <a href="mobile_app/metoronome/index.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
         </article>
 
-        <!-- Guitar Relative Pitch Trainer -->
+
+        <!-- Price Comparator -->
+
         <article class="card">
-          <h3><a href="mobile_app/relative_pitch_guitar/index.html"><img
-                src="mobile_app/relative_pitch_guitar/favicon.png" alt="Icon" class="app-icon"><span lang="en">Guitar
-                Relative Pitch Trainer</span><span lang="ja">ギタリストのための相対音感トレーニング</span></a></h3>
+
+          <h3>
+            <a href="mobile_app/pricecompare/index.html">
+              <span class="app-title">
+
+                <img
+                  src="mobile_app/pricecompare/app_icon.png"
+                  alt="Unit Price Comparator app icon"
+                  class="app-icon">
+
+                <span>
+                  <span lang="en">Unit Price Comparator</span>
+                  <span lang="ja">単価比較計算機</span>
+                </span>
+
+              </span>
+            </a>
+          </h3>
+
           <div class="tags">
             <span class="tag">iOS App</span>
-            <span class="tag" lang="en">Music</span><span class="tag" lang="ja">音楽</span>
+            <span class="tag" lang="en">Shopping</span>
+            <span class="tag" lang="ja">買い物</span>
+            <span class="tag" lang="en">Utility</span>
+            <span class="tag" lang="ja">ユーティリティ</span>
           </div>
-          <p lang="en">Unlock your guitar potential. Train your ears with realistic guitar samples and melodic sequence
-            mode.</p>
-          <p lang="ja">ギタリストのための聴音アプリ。リアルなギター音源とシーケンス・モードで、メロディを聴き取る力を鍛えます。</p>
-          <a href="mobile_app/relative_pitch_guitar/index.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="mobile_app/relative_pitch_guitar/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
+
+          <p lang="en">
+            A calculator for comparing products based on their unit price.
+            It helps users compare different package sizes and quantities
+            using the same measurement.
+          </p>
+
+          <p lang="ja">
+            商品の容量や数量が異なる場合でも、単位あたりの価格を計算して
+            比較できるユーティリティアプリです。
+            買い物をするときの価格比較をシンプルにします。
+          </p>
+
+          <a href="mobile_app/pricecompare/index.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
         </article>
+
+
+        <!-- ABCDE -->
+
+        <article class="card">
+
+          <h3>
+            <a href="mobile_app/ABCDE/index.html">
+              <span class="app-title">
+
+                <img
+                  src="mobile_app/ABCDE/icon.png"
+                  alt="ABCDE Theory Note app icon"
+                  class="app-icon">
+
+                <span>
+                  <span lang="en">ABCDE Theory Note</span>
+                  <span lang="ja">ABCDE理論ノート</span>
+                </span>
+
+              </span>
+            </a>
+          </h3>
+
+          <div class="tags">
+            <span class="tag">iOS App</span>
+            <span class="tag" lang="en">Self Care</span>
+            <span class="tag" lang="ja">セルフケア</span>
+            <span class="tag" lang="en">CBT</span>
+            <span class="tag" lang="ja">認知行動療法</span>
+          </div>
+
+          <p lang="en">
+            A self-care note application based on the ABCDE model of
+            Cognitive Behavioral Therapy. It provides a structured way
+            to organize thoughts and consider different perspectives.
+          </p>
+
+          <p lang="ja">
+            認知行動療法（CBT）のABCDEモデルをベースに、
+            自分の考えを整理したり、別の視点から状況を考えたりするための
+            セルフケアノートアプリです。
+          </p>
+
+          <a href="mobile_app/ABCDE/index.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
+        </article>
+
+
+        <!-- CBT -->
+
+        <article class="card">
+
+          <h3>
+            <a href="mobile_app/CBT/index.html">
+              <span class="app-title">
+
+                <img
+                  src="mobile_app/CBT/icon.png"
+                  alt="CBT Note app icon"
+                  class="app-icon">
+
+                <span>
+                  <span lang="en">CBT Note</span>
+                  <span lang="ja">CBTノート</span>
+                </span>
+
+              </span>
+            </a>
+          </h3>
+
+          <div class="tags">
+            <span class="tag">iOS App</span>
+            <span class="tag" lang="en">Self Care</span>
+            <span class="tag" lang="ja">セルフケア</span>
+            <span class="tag" lang="en">CBT</span>
+            <span class="tag" lang="ja">認知行動療法</span>
+          </div>
+
+          <p lang="en">
+            A structured note application based on Cognitive Behavioral
+            Therapy concepts. It helps users organize their thoughts
+            and consider more realistic perspectives.
+          </p>
+
+          <p lang="ja">
+            認知行動療法（CBT）の考え方をもとに、
+            自分の考えを整理し、より現実的な視点を考えるための
+            ノートアプリです。
+          </p>
+
+          <a href="mobile_app/CBT/index.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
+        </article>
+
+
+        <!-- Relative Pitch -->
+
+        <article class="card">
+
+          <h3>
+            <a href="mobile_app/relative_pitch/index.html">
+              <span class="app-title">
+
+                <img
+                  src="mobile_app/relative_pitch/favicon.png"
+                  alt="Relative Pitch Trainer app icon"
+                  class="app-icon">
+
+                <span>
+                  <span lang="en">Relative Pitch Trainer</span>
+                  <span lang="ja">耳を鍛える - 相対音感トレーニング</span>
+                </span>
+
+              </span>
+            </a>
+          </h3>
+
+          <div class="tags">
+            <span class="tag">iOS App</span>
+            <span class="tag" lang="en">Music</span>
+            <span class="tag" lang="ja">音楽</span>
+            <span class="tag" lang="en">Ear Training</span>
+            <span class="tag" lang="ja">聴音</span>
+          </div>
+
+          <p lang="en">
+            An ear-training application for practicing interval recognition
+            using realistic piano sounds.
+          </p>
+
+          <p lang="ja">
+            実際のピアノ音源を使って、音程を聞き分ける練習ができる
+            相対音感トレーニングアプリです。
+          </p>
+
+          <a href="mobile_app/relative_pitch/index.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
+        </article>
+
+
+        <!-- Bass -->
+
+        <article class="card">
+
+          <h3>
+            <a href="mobile_app/relative_pitch_bass/index.html">
+              <span class="app-title">
+
+                <img
+                  src="mobile_app/relative_pitch_bass/favicon.png"
+                  alt="Bass Relative Pitch Trainer app icon"
+                  class="app-icon">
+
+                <span>
+                  <span lang="en">Bass Relative Pitch Trainer</span>
+                  <span lang="ja">ベースのための相対音感トレーニング</span>
+                </span>
+
+              </span>
+            </a>
+          </h3>
+
+          <div class="tags">
+            <span class="tag">iOS App</span>
+            <span class="tag" lang="en">Music</span>
+            <span class="tag" lang="ja">音楽</span>
+            <span class="tag" lang="en">Bass</span>
+            <span class="tag" lang="ja">ベース</span>
+          </div>
+
+          <p lang="en">
+            Ear training designed for bass players, including realistic
+            bass sounds and a specialized walking-bass practice mode.
+          </p>
+
+          <p lang="ja">
+            ベース演奏者向けの聴音トレーニングアプリです。
+            リアルなベース音源を使い、ウォーキング・ベースの練習にも対応しています。
+          </p>
+
+          <a href="mobile_app/relative_pitch_bass/index.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
+        </article>
+
+
+        <!-- Guitar -->
+
+        <article class="card">
+
+          <h3>
+            <a href="mobile_app/relative_pitch_guitar/index.html">
+              <span class="app-title">
+
+                <img
+                  src="mobile_app/relative_pitch_guitar/favicon.png"
+                  alt="Guitar Relative Pitch Trainer app icon"
+                  class="app-icon">
+
+                <span>
+                  <span lang="en">Guitar Relative Pitch Trainer</span>
+                  <span lang="ja">ギタリストのための相対音感トレーニング</span>
+                </span>
+
+              </span>
+            </a>
+          </h3>
+
+          <div class="tags">
+            <span class="tag">iOS App</span>
+            <span class="tag" lang="en">Music</span>
+            <span class="tag" lang="ja">音楽</span>
+            <span class="tag" lang="en">Guitar</span>
+            <span class="tag" lang="ja">ギター</span>
+          </div>
+
+          <p lang="en">
+            An ear-training application for guitar players using realistic
+            guitar sounds and melodic sequence exercises.
+          </p>
+
+          <p lang="ja">
+            リアルなギター音源を使い、音程やメロディを聞き取る力を
+            トレーニングできるギタリスト向けの聴音アプリです。
+          </p>
+
+          <a href="mobile_app/relative_pitch_guitar/index.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
+        </article>
+
 
         <!-- Infinite Cracker -->
+
         <article class="card">
-          <h3><a href="mobile_app/infinitive_bone_cracker/index.html"><img
-                src="mobile_app/infinitive_bone_cracker/app_icon.png" alt="Icon" class="app-icon"><span lang="en">Infinite
-                Cracker</span><span lang="ja">無限ぼきぼき</span></a></h3>
+
+          <h3>
+            <a href="mobile_app/infinitive_bone_cracker/index.html">
+              <span class="app-title">
+
+                <img
+                  src="mobile_app/infinitive_bone_cracker/app_icon.png"
+                  alt="Infinite Cracker app icon"
+                  class="app-icon">
+
+                <span>
+                  <span lang="en">Infinite Cracker</span>
+                  <span lang="ja">無限ぼきぼき</span>
+                </span>
+
+              </span>
+            </a>
+          </h3>
+
           <div class="tags">
             <span class="tag">iOS App</span>
-            <span class="tag" lang="en">Joke</span><span class="tag" lang="ja">ジョーク</span>
-            <span class="tag" lang="en">Relaxation</span><span class="tag" lang="ja">リラクゼーション</span>
+            <span class="tag" lang="en">Joke</span>
+            <span class="tag" lang="ja">ジョーク</span>
+            <span class="tag" lang="en">Relaxation</span>
+            <span class="tag" lang="ja">リラクゼーション</span>
           </div>
-          <p lang="en">An ultimate relaxation app that lets you enjoy satisfying bone-cracking sounds with a simple flick. Great for stress relief.</p>
-          <p lang="ja">フリックひとつで爽快な骨鳴り音を楽しめる究極のリラクゼーションアプリ。日常のストレス解消や暇つぶしに最適です。</p>
-          <a href="mobile_app/infinitive_bone_cracker/index.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="mobile_app/infinitive_bone_cracker/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
+
+          <p lang="en">
+            A simple entertainment application that lets users enjoy
+            satisfying bone-cracking sounds with a flick gesture.
+          </p>
+
+          <p lang="ja">
+            フリック操作で骨が鳴る音を楽しめる、
+            シンプルなジョーク・リラクゼーションアプリです。
+          </p>
+
+          <a href="mobile_app/infinitive_bone_cracker/index.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
         </article>
 
-        <!-- Advertisement Card -->
-        <article class="card ad-card" style="justify-content: center; align-items: center; text-align: center;">
-          <div style="width: 100%; overflow: hidden;">
-            <span lang="en" style="font-size: 0.8rem; display: block; margin-bottom: 0.5rem; color: var(--subtext-color);">Advertisement</span>
-            <span lang="ja" style="font-size: 0.8rem; display: block; margin-bottom: 0.5rem; color: var(--subtext-color);">広告</span>
-            <!-- Google AdSense Ins Tag -->
-            <ins class="adsbygoogle"
-                 style="display:block; max-height:250px;"
-                 data-ad-client="ca-pub-3732541936670276"
-                 data-ad-format="rectangle"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-          </div>
-        </article>
       </div>
+
     </section>
 
-    <section>
-      <h2 lang="en">Browser Extensions</h2>
-      <h2 lang="ja">ブラウザ拡張機能</h2>
+
+    <!-- =========================
+         Browser Extensions
+    ========================== -->
+
+    <section id="extensions">
+
+      <div class="section-heading">
+
+        <h2 lang="en">Browser Extensions</h2>
+        <h2 lang="ja">ブラウザ拡張機能</h2>
+
+        <p lang="en">
+          Browser extensions created to simplify development work,
+          testing, task management, and other repetitive activities.
+        </p>
+
+        <p lang="ja">
+          開発作業、テスト、タスク管理など、
+          ブラウザ上で行う作業を少し便利にするための拡張機能です。
+        </p>
+
+      </div>
+
+
       <div class="grid">
+
         <!-- Input Helper -->
+
         <article class="card">
-          <h3><a href="browser_extension/input_helper/index.html"><img
-                src="browser_extension/input_helper/store_assets/icon48.png" alt="Icon" class="app-icon">Input
-              Helper</a></h3>
+
+          <h3>
+            <a href="browser_extension/input_helper/index.html">
+
+              <span class="app-title">
+
+                <img
+                  src="browser_extension/input_helper/store_assets/icon48.png"
+                  alt="Input Helper extension icon"
+                  class="app-icon">
+
+                <span>Input Helper</span>
+
+              </span>
+
+            </a>
+          </h3>
+
           <div class="tags">
             <span class="tag">Chrome Extension</span>
-            <span class="tag" lang="en">Testing</span><span class="tag" lang="ja">テスト</span>
-            <span class="tag" lang="en">Productivity</span><span class="tag" lang="ja">生産性</span>
+            <span class="tag" lang="en">Testing</span>
+            <span class="tag" lang="ja">テスト</span>
+            <span class="tag" lang="en">Productivity</span>
+            <span class="tag" lang="ja">生産性</span>
           </div>
-          <p lang="en">The ultimate form input assistant for test engineers. Automate boundary value testing and
-            security
-            diagnostics.</p>
-          <p lang="ja">テストエンジニアのための究極のフォーム入力補助。境界値テストやセキュリティ診断を自動化します。</p>
-          <a href="browser_extension/input_helper/index.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="browser_extension/input_helper/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
+
+          <p lang="en">
+            A form input assistant for software testing.
+            It helps test engineers work with boundary values and
+            other input scenarios more efficiently.
+          </p>
+
+          <p lang="ja">
+            ソフトウェアテストで利用するフォーム入力を補助する拡張機能です。
+            境界値など、さまざまな入力パターンを効率よく確認するために利用できます。
+          </p>
+
+          <a href="browser_extension/input_helper/index.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
         </article>
+
 
         <!-- Infinity Loader -->
+
         <article class="card">
-          <h3><a href="browser_extension/Infinity_loader/index.html"><img
-                src="browser_extension/Infinity_loader/favicon.png" alt="Icon" class="app-icon">Infinity Loader</a></h3>
+
+          <h3>
+            <a href="browser_extension/Infinity_loader/index.html">
+
+              <span class="app-title">
+
+                <img
+                  src="browser_extension/Infinity_loader/favicon.png"
+                  alt="Infinity Loader extension icon"
+                  class="app-icon">
+
+                <span>Infinity Loader</span>
+
+              </span>
+
+            </a>
+          </h3>
+
           <div class="tags">
             <span class="tag">Chrome Extension</span>
-            <span class="tag" lang="en">Joke</span><span class="tag" lang="ja">ジョーク</span>
+            <span class="tag" lang="en">Joke</span>
+            <span class="tag" lang="ja">ジョーク</span>
           </div>
-          <p lang="en">A joke extension that simulates an infinite fake installation screen. Perfect for pretending to
-            work.</p>
-          <p lang="ja">仕事をしているフリをするための究極のジョーク拡張機能。無限に続くフェイクのインストール画面を表示します。</p>
-          <a href="browser_extension/Infinity_loader/index.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="browser_extension/Infinity_loader/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
-        </article>
-        <!-- IDE Shortcut Cheatsheet -->
-        <article class="card">
-          <h3><a href="browser_extension/IDE_cheatsheet/index.html"><img src="browser_extension/IDE_cheatsheet/icon.png"
-                alt="Icon" class="app-icon">IDE Shortcut
-              Cheatsheet</a></h3>
-          <div class="tags">
-            <span class="tag">Chrome Extension</span>
-            <span class="tag" lang="en">Productivity</span><span class="tag" lang="ja">生産性</span>
-          </div>
-          <p lang="en">Quickly search and reference shortcuts for major IDEs like VSCode, IntelliJ, Android Studio, and
-            Xcode directly from your browser.</p>
-          <p lang="ja">VSCode、IntelliJ、Android Studio、Xcodeなど主要IDEのショートカットをブラウザから素早く検索・参照できます。</p>
-          <a href="browser_extension/IDE_cheatsheet/index.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="browser_extension/IDE_cheatsheet/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
+
+          <p lang="en">
+            A playful extension that simulates an endless installation
+            screen. It is designed as a simple joke and entertainment tool.
+          </p>
+
+          <p lang="ja">
+            無限に続くフェイクのインストール画面を表示する
+            ジョーク系のブラウザ拡張機能です。
+            シンプルな遊びとして利用できます。
+          </p>
+
+          <a href="browser_extension/Infinity_loader/index.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
         </article>
 
-        <!-- TODO List with Stopwatch -->
+
+        <!-- IDE Shortcut Cheatsheet -->
+
         <article class="card">
-          <h3><a href="browser_extension/StopwatchTODO/index.html"><img
-                src="browser_extension/StopwatchTODO/images/icon48.png" alt="Icon" class="app-icon">TODO List with
-              Stopwatch</a></h3>
+
+          <h3>
+            <a href="browser_extension/IDE_cheatsheet/index.html">
+
+              <span class="app-title">
+
+                <img
+                  src="browser_extension/IDE_cheatsheet/icon.png"
+                  alt="IDE Shortcut Cheatsheet extension icon"
+                  class="app-icon">
+
+                <span>IDE Shortcut Cheatsheet</span>
+
+              </span>
+
+            </a>
+          </h3>
+
           <div class="tags">
             <span class="tag">Chrome Extension</span>
-            <span class="tag" lang="en">Task Management</span><span class="tag" lang="ja">タスク管理</span>
+            <span class="tag" lang="en">Productivity</span>
+            <span class="tag" lang="ja">生産性</span>
           </div>
-          <p lang="en">Manage tasks and track time simultaneously. Features color-coded tags, memos, and CSV export for
-            productivity analysis.</p>
-          <p lang="ja">タスク管理と時間計測を同時に。色分けタグ、メモ機能、CSVエクスポート機能を備え、生産性向上を支援します。</p>
-          <a href="browser_extension/StopwatchTODO/index.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="browser_extension/StopwatchTODO/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
+
+          <p lang="en">
+            A quick reference tool for keyboard shortcuts used in
+            development environments such as VSCode, IntelliJ,
+            Android Studio, and Xcode.
+          </p>
+
+          <p lang="ja">
+            VSCode、IntelliJ、Android Studio、Xcodeなど、
+            開発環境で利用するショートカットをブラウザから
+            素早く確認できるリファレンスツールです。
+          </p>
+
+          <a href="browser_extension/IDE_cheatsheet/index.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
         </article>
+
+
+        <!-- TODO Stopwatch -->
+
+        <article class="card">
+
+          <h3>
+            <a href="browser_extension/StopwatchTODO/index.html">
+
+              <span class="app-title">
+
+                <img
+                  src="browser_extension/StopwatchTODO/images/icon48.png"
+                  alt="TODO List with Stopwatch extension icon"
+                  class="app-icon">
+
+                <span>TODO List with Stopwatch</span>
+
+              </span>
+
+            </a>
+          </h3>
+
+          <div class="tags">
+            <span class="tag">Chrome Extension</span>
+            <span class="tag" lang="en">Task Management</span>
+            <span class="tag" lang="ja">タスク管理</span>
+          </div>
+
+          <p lang="en">
+            A task management tool that combines TODO items with
+            time tracking. It includes tags, memos, and CSV export
+            for reviewing work time.
+          </p>
+
+          <p lang="ja">
+            TODO管理と時間計測を組み合わせたブラウザ拡張機能です。
+            タグ、メモ、CSVエクスポートなどの機能を利用して、
+            作業内容と時間を記録できます。
+          </p>
+
+          <a href="browser_extension/StopwatchTODO/index.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
+        </article>
+
 
         <!-- Timezone Check -->
+
         <article class="card">
-          <h3><a href="browser_extension/check_timezone/index.html"><img src="browser_extension/check_timezone/icon.png"
-                alt="Icon" class="app-icon">Timezone Check</a></h3>
+
+          <h3>
+            <a href="browser_extension/check_timezone/index.html">
+
+              <span class="app-title">
+
+                <img
+                  src="browser_extension/check_timezone/icon.png"
+                  alt="Timezone Check extension icon"
+                  class="app-icon">
+
+                <span>Timezone Check</span>
+
+              </span>
+
+            </a>
+          </h3>
+
           <div class="tags">
             <span class="tag">Chrome Extension</span>
-            <span class="tag" lang="en">Utility</span><span class="tag" lang="ja">ユーティリティ</span>
+            <span class="tag" lang="en">Utility</span>
+            <span class="tag" lang="ja">ユーティリティ</span>
           </div>
-          <p lang="en">Instantly search and convert timezones worldwide. Features a modern UI with search filtering for
-            easy communication with global teams.</p>
-          <p lang="ja">世界中のタイムゾーンを瞬時に検索・変換。検索機能付きのモダンなUIで、海外チームとのコミュニケーションをスムーズにします。</p>
-          <a href="browser_extension/check_timezone/index.html" class="link" lang="en">View Details &rarr;</a>
-          <a href="browser_extension/check_timezone/index.html" class="link" lang="ja">詳細を見る &rarr;</a>
+
+          <p lang="en">
+            A timezone lookup and conversion tool for people who work
+            with teams or contacts in different parts of the world.
+          </p>
+
+          <p lang="ja">
+            世界中のタイムゾーンを検索・確認できるユーティリティです。
+            海外のチームやユーザーとやり取りするときの
+            時差確認をシンプルにします。
+          </p>
+
+          <a href="browser_extension/check_timezone/index.html" class="link">
+            <span lang="en">View project details →</span>
+            <span lang="ja">プロジェクトの詳細を見る →</span>
+          </a>
+
         </article>
 
-        <!-- Advertisement Card -->
-        <article class="card ad-card" style="justify-content: center; align-items: center; text-align: center;">
-          <div style="width: 100%; overflow: hidden;">
-            <span lang="en" style="font-size: 0.8rem; display: block; margin-bottom: 0.5rem; color: var(--subtext-color);">Advertisement</span>
-            <span lang="ja" style="font-size: 0.8rem; display: block; margin-bottom: 0.5rem; color: var(--subtext-color);">広告</span>
-            <!-- Google AdSense Ins Tag -->
-            <ins class="adsbygoogle"
-                 style="display:block; max-height:250px;"
-                 data-ad-client="ca-pub-3732541936670276"
-                 data-ad-format="rectangle"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-          </div>
-        </article>
       </div>
+
     </section>
+
+
+    <!-- =========================
+         Development
+    ========================== -->
+
+    <section id="development">
+
+      <div class="section-heading">
+
+        <h2 lang="en">Development &amp; Ideas</h2>
+        <h2 lang="ja">開発について</h2>
+
+        <p lang="en">
+          The projects on this site are built around a simple development
+          process: identify a practical problem, create a small solution,
+          test it through actual use, and improve it over time.
+        </p>
+
+        <p lang="ja">
+          このサイトで紹介しているプロジェクトでは、
+          「実際に困っていること」を出発点として、
+          小さな解決策を作り、実際に使いながら改善していくことを大切にしています。
+        </p>
+
+      </div>
+
+
+      <div class="development-box">
+
+        <article class="development-card">
+
+          <h3 lang="en">Start with a Specific Problem</h3>
+          <h3 lang="ja">具体的な問題から始める</h3>
+
+          <p lang="en">
+            Many projects begin with a small inconvenience:
+            measuring training intervals, comparing prices,
+            checking timezones, remembering development shortcuts,
+            or practicing musical intervals.
+          </p>
+
+          <p lang="ja">
+            トレーニングの時間を測る、商品の価格を比較する、
+            海外との時差を確認する、開発用ショートカットを調べる、
+            音程を練習するなど、身近な不便を出発点にしています。
+          </p>
+
+        </article>
+
+
+        <article class="development-card">
+
+          <h3 lang="en">Keep the Core Experience Simple</h3>
+          <h3 lang="ja">中心となる機能をシンプルにする</h3>
+
+          <p lang="en">
+            Small tools are most useful when the user can understand
+            what they do quickly. The projects therefore focus on
+            a clear purpose and a straightforward user experience.
+          </p>
+
+          <p lang="ja">
+            小さなツールは、何ができるのかをすぐに理解できることが重要です。
+            そのため、それぞれのプロジェクトでは目的を明確にし、
+            できるだけ分かりやすい操作性を意識しています。
+          </p>
+
+        </article>
+
+
+        <article class="development-card">
+
+          <h3 lang="en">Learn Through Building</h3>
+          <h3 lang="ja">作りながら学ぶ</h3>
+
+          <p lang="en">
+            Building different types of software provides opportunities
+            to experiment with different interfaces, workflows,
+            and technical approaches.
+          </p>
+
+          <p lang="ja">
+            異なる種類のソフトウェアを実際に作ることで、
+            UI、操作フロー、データ管理、さまざまな技術的アプローチを
+            試しながら学んでいます。
+          </p>
+
+        </article>
+
+
+        <article class="development-card">
+
+          <h3 lang="en">Projects Continue to Evolve</h3>
+          <h3 lang="ja">継続的に改善する</h3>
+
+          <p lang="en">
+            A project does not necessarily end when the first version
+            is released. Feedback, testing, and actual usage can reveal
+            new problems and opportunities for improvement.
+          </p>
+
+          <p lang="ja">
+            アプリや拡張機能は、最初のバージョンを公開して終わりではありません。
+            実際の利用やテストを通して新しい課題を見つけ、
+            必要に応じて改善していくことを大切にしています。
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Site Guide
+    ========================== -->
+
+    <section>
+
+      <div class="guide">
+
+        <h2 lang="en">How to Use This Site</h2>
+        <h2 lang="ja">このサイトの使い方</h2>
+
+        <p lang="en">
+          If you are looking for a specific tool, start with the
+          iOS Apps or Browser Extensions sections above.
+          Each project has its own detail page with additional
+          information and links related to that project.
+          For support and privacy information, please visit the
+          Support &amp; Privacy page.
+        </p>
+
+        <p lang="ja">
+          特定のツールを探している場合は、上の「iOSアプリ」または
+          「ブラウザ拡張機能」から目的に合ったプロジェクトを探してください。
+          各プロジェクトには詳細ページがあり、さらに詳しい情報を確認できます。
+          アプリのサポートやプライバシーに関する情報については、
+          「サポート・プライバシー」ページをご確認ください。
+        </p>
+
+      </div>
+
+    </section>
+
   </main>
 
+
+  <!-- =========================
+       Footer
+  ========================== -->
+
   <footer>
-    <p>
-      <a href="support.html" lang="en">App Support & Privacy Policy</a>
-      <a href="support.html" lang="ja">アプリサポート & プライバシーポリシー</a>
-    </p>
-    <p>
-      <a href="https://buymeacoffee.com/tokb" target="_blank" class="bmc-button">
-        <span>☕</span> Buy me a coffee
+
+    <div class="footer-links">
+
+      <a href="index.html">
+        <span lang="en">Home</span>
+        <span lang="ja">ホーム</span>
       </a>
+
+      <a href="#apps">
+        <span lang="en">iOS Apps</span>
+        <span lang="ja">iOSアプリ</span>
+      </a>
+
+      <a href="#extensions">
+        <span lang="en">Browser Extensions</span>
+        <span lang="ja">ブラウザ拡張機能</span>
+      </a>
+
+      <a href="support.html">
+        <span lang="en">Support &amp; Privacy Policy</span>
+        <span lang="ja">サポート・プライバシーポリシー</span>
+      </a>
+
+    </div>
+
+    <p>
+      <span lang="en">
+        t-okb-dev — Personal software projects and applications
+      </span>
+
+      <span lang="ja">
+        t-okb-dev — 個人開発によるソフトウェアプロジェクト
+      </span>
     </p>
-    <p>&copy; 2025 t-okb-dev. All rights reserved.</p>
+
+    <p>
+      &copy; 2026 t-okb-dev. All rights reserved.
+    </p>
+
   </footer>
 
+
+  <!-- =========================
+       Language Script
+  ========================== -->
+
   <script>
-    function setLanguage(lang) {
-      document.body.className = 'lang-' + lang;
 
-      // Update active button state
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
-      });
+    function updateLanguageButtons(lang) {
 
-      // Save preference (optional, using localStorage for persistence)
-      localStorage.setItem('preferred-language', lang);
+      const enButton = document.getElementById('lang-en-btn');
+      const jaButton = document.getElementById('lang-ja-btn');
+
+      if (lang === 'en') {
+        enButton.classList.add('active');
+        jaButton.classList.remove('active');
+      } else {
+        enButton.classList.remove('active');
+        jaButton.classList.add('active');
+      }
+
     }
 
-    // Auto-detect language on load
+
+    function setLanguage(lang) {
+
+      document.body.className = 'lang-' + lang;
+
+      updateLanguageButtons(lang);
+
+      localStorage.setItem('preferred-language', lang);
+
+      document.documentElement.lang = lang === 'ja' ? 'ja' : 'en';
+
+    }
+
+
     (function () {
-      // 1. Check saved preference
+
       const savedLang = localStorage.getItem('preferred-language');
-      if (savedLang) {
+
+      if (savedLang === 'ja' || savedLang === 'en') {
+
         setLanguage(savedLang);
+
         return;
+
       }
 
-      // 2. Check browser language
-      const browserLang = navigator.language || navigator.userLanguage;
-      if (browserLang.startsWith('ja')) {
+
+      const browserLang =
+        navigator.language || navigator.userLanguage || 'en';
+
+      if (browserLang.toLowerCase().startsWith('ja')) {
+
         setLanguage('ja');
+
       } else {
+
         setLanguage('en');
+
       }
+
     })();
+
   </script>
 
 </body>
