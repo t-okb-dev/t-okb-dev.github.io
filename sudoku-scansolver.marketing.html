@@ -1,243 +1,2155 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!doctype html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sudoku Scan & Solve - Solve Sudoku Instantly</title>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Sudoku Scan & Solve｜Scan and Solve Sudoku Instantly</title>
+
+  <meta name="description"
+    content="Sudoku Scan & Solve is a simple iPhone app that scans Sudoku puzzles from photos, recognizes the board, solves puzzles instantly, checks answers, and lets you edit the board." />
+
+  <meta name="keywords"
+    content="Sudoku solver,Sudoku scanner,Sudoku scan,Sudoku puzzle solver,Sudoku app,Sudoku camera,Sudoku answer,Sudoku checker,数独,数独アプリ,数独ソルバー,数独スキャン,数独解答,ナンプレ,ナンプレアプリ" />
+
+  <meta name="author" content="t-okb-dev" />
+
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  <!-- Canonical -->
+  <link rel="canonical"
+    href="https://t-okb-dev.github.io/sudoku-scansolver.marketing.html" />
+
+  <!-- Language alternatives -->
+  <link rel="alternate"
+    hreflang="en"
+    href="https://t-okb-dev.github.io/sudoku-scansolver.marketing.html?lang=en" />
+
+  <link rel="alternate"
+    hreflang="ja"
+    href="https://t-okb-dev.github.io/sudoku-scansolver.marketing.html?lang=ja" />
+
+  <link rel="alternate"
+    hreflang="x-default"
+    href="https://t-okb-dev.github.io/sudoku-scansolver.marketing.html" />
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#0b0c10" />
+
+  <!-- App Store Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=6749896084" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sudoku Scan & Solve" />
+  <meta property="og:title"
+    content="Sudoku Scan & Solve｜Scan and Solve Sudoku Instantly" />
+
+  <meta property="og:description"
+    content="Scan Sudoku puzzles from photos, solve them instantly, check answers, and edit the puzzle board." />
+
+  <meta property="og:url"
+    content="https://t-okb-dev.github.io/sudoku-scansolver.marketing.html" />
+
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ja_JP" />
+
+  <!--
+  If you have an OGP image, enable the following.
+
+  <meta property="og:image"
+    content="https://t-okb-dev.github.io/images/sudoku-scan-solver-ogp.jpg" />
+
+  <meta property="og:image:alt"
+    content="Sudoku Scan & Solve app screenshot" />
+  -->
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="twitter:title"
+    content="Sudoku Scan & Solve｜Scan and Solve Sudoku Instantly" />
+
+  <meta name="twitter:description"
+    content="Scan Sudoku puzzles from photos and solve them instantly with a simple iPhone app." />
+
+
+  <!-- =========================
+       Structured Data
+       ========================= -->
+
+  <!-- WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Sudoku Scan & Solve",
+    "url": "https://t-okb-dev.github.io/",
+    "description": "Official website for Sudoku Scan & Solve."
+  }
+  </script>
+
+
+  <!-- SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Sudoku Scan & Solve",
+    "operatingSystem": "iOS",
+    "applicationCategory": "GameApplication",
+    "description": "An iPhone Sudoku app that scans Sudoku puzzles from photos, recognizes the board, solves puzzles, checks answers, and allows board editing.",
+    "url": "https://t-okb-dev.github.io/sudoku-scansolver.marketing.html",
+    "downloadUrl": "https://apps.apple.com/us/app/sudoku-scan-solver/id6749896084",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+
+  <!-- FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Sudoku Scan & Solve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sudoku Scan & Solve is an iPhone app that scans Sudoku puzzles from photos, recognizes the puzzle board, and provides a solution."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I scan a Sudoku puzzle from a photo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can take a photo of a Sudoku puzzle from a newspaper, magazine, book, or other printed source and scan it with the app."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I edit the Sudoku board after scanning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can edit the recognized numbers after scanning and correct the board if necessary."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I check my Sudoku answer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can use the app to check whether your entered Sudoku solution is correct."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Sudoku Scan & Solve free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Sudoku Scan & Solve is available as a free iOS application."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Sudoku Scan & Solveとはどのようなアプリですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sudoku Scan & Solveは、写真から数独・ナンプレの盤面をスキャンして認識し、解答を確認できるiPhone向けアプリです。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "写真から数独をスキャンできますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。新聞、雑誌、本などに掲載された数独を写真で撮影して、盤面をスキャンできます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "スキャンした盤面を編集できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。スキャン後に認識された数字を編集・修正できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "数独の答え合わせはできますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。入力した数独の答えが正しいかを確認できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "無料で利用できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。Sudoku Scan & Solveは無料のiOSアプリとして提供しています。"
+        }
+      }
+    ]
+  }
+  </script>
+
+
   <style>
+
+    /* =========================
+       Theme
+       TrainingTimer.marketing.html
+       ========================= */
+
+    :root {
+      --bg: #0b0c10;
+      --bg-soft: #101218;
+
+      --card: #15171d;
+      --card-hover: #191c23;
+
+      --text: #f4f6f8;
+      --muted: #b9c2cc;
+      --muted-dark: #8e99a8;
+
+      --acc: #38bdf8;
+      --acc-dark: #0ea5e9;
+
+      --chip: #20242c;
+
+      --border: #262b34;
+
+      --ok: #22c55e;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
     body {
-      font-family: "Helvetica Neue", Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
+
+      background: var(--bg);
+      color: var(--text);
+
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Inter,
+        "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans",
+        "Noto Sans JP",
+        sans-serif;
+
+      line-height: 1.75;
     }
 
-    header {
-      background: #3b82f6;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-      position: relative;
-    }
 
-    header h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      font-size: 1.1rem;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    .feature {
-      background: white;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .feature h3 {
-      margin-top: 0;
-      color: #2563eb;
-    }
-
-    .screenshots {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-      justify-content: center;
-    }
-
-    .screenshots img {
-      width: 280px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .download {
-      text-align: center;
-      margin: 3rem 0;
-    }
-
-    .download a {
-      background: #3b82f6;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 8px;
+    a {
+      color: var(--acc);
       text-decoration: none;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #f1f1f1;
-      color: #555;
-      font-size: 0.9rem;
+
+    a:hover {
+      text-decoration: underline;
     }
 
-    /* Language switching styles */
-    body.lang-en [lang="ja"] {
-      display: none !important;
+
+    .wrap {
+      max-width: 1100px;
+
+      margin: 0 auto;
+
+      padding-left: 24px;
+      padding-right: 24px;
     }
 
-    body.lang-ja [lang="en"] {
-      display: none !important;
-    }
 
-    /* Navigation styles */
+    /* =========================
+       Navigation
+       ========================= */
+
     .top-nav {
-      background: #3b82f6;
       display: flex;
+
       justify-content: space-between;
       align-items: center;
-      padding: 12px 24px;
-      position: relative;
-      z-index: 10;
+
+      padding-top: 16px;
+      padding-bottom: 16px;
+
+      border-bottom: 1px solid var(--border);
     }
 
-    .lang-switch {
-      display: flex;
-      gap: 8px;
-    }
 
     .back-home {
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.9em;
+      color: var(--text);
+
       opacity: 0.8;
-      transition: opacity 0.2s;
     }
+
 
     .back-home:hover {
       opacity: 1;
+
+      text-decoration: none;
     }
+
+
+    .lang-switch {
+      display: flex;
+
+      gap: 6px;
+    }
+
 
     .lang-btn {
       background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      color: #fff;
-      padding: 5px 10px;
+
+      border: 1px solid var(--border);
+
+      color: var(--text);
+
+      padding: 6px 12px;
+
       cursor: pointer;
-      border-radius: 3px;
-      font-size: 0.9em;
+
+      border-radius: 6px;
+
+      font-size: 14px;
     }
 
+
+    .lang-btn:hover,
     .lang-btn.active {
-      background: rgba(255, 255, 255, 0.2);
-      font-weight: bold;
-      border-color: #fff;
+      background: rgba(255, 255, 255, 0.1);
     }
+
+
+    /* =========================
+       Hero
+       ========================= */
+
+    .hero {
+      display: grid;
+
+      grid-template-columns: 1.15fr 0.85fr;
+
+      gap: 40px;
+
+      align-items: center;
+
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+
+    .eyebrow {
+      color: var(--acc);
+
+      font-size: 14px;
+
+      font-weight: 700;
+
+      margin-bottom: 10px;
+
+      letter-spacing: 0.04em;
+    }
+
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 48px);
+
+      line-height: 1.2;
+
+      margin: 0 0 20px;
+
+      letter-spacing: -0.02em;
+    }
+
+
+    .lead {
+      color: var(--muted);
+
+      font-size: 18px;
+
+      margin: 0;
+    }
+
+
+    .cta {
+      display: flex;
+
+      gap: 12px;
+
+      margin-top: 24px;
+
+      flex-wrap: wrap;
+    }
+
+
+    .btn {
+      display: inline-block;
+
+      background: var(--acc);
+
+      color: #001b2b;
+
+      border-radius: 10px;
+
+      padding: 12px 20px;
+
+      font-weight: 700;
+
+      transition: transform 0.15s ease;
+    }
+
+
+    .btn:hover {
+      text-decoration: none;
+
+      transform: translateY(-1px);
+
+      background: var(--acc-dark);
+    }
+
+
+    .btn.ghost {
+      background: transparent;
+
+      border: 1px solid var(--acc);
+
+      color: var(--acc);
+    }
+
+
+    .card {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 16px;
+
+      padding: 24px;
+    }
+
+
+    .hero-image {
+      padding: 12px;
+    }
+
+
+    img.sshot {
+      display: block;
+
+      width: 100%;
+
+      height: auto;
+
+      border-radius: 12px;
+
+      border: 1px solid var(--border);
+
+      background: #0f1216;
+    }
+
+
+    .chiprow {
+      display: flex;
+
+      gap: 8px;
+
+      flex-wrap: wrap;
+
+      margin-top: 18px;
+    }
+
+
+    .chip {
+      background: var(--chip);
+
+      border: 1px solid var(--border);
+
+      border-radius: 999px;
+
+      padding: 5px 10px;
+
+      font-size: 13px;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================
+       Main sections
+       ========================= */
+
+    main {
+      padding-bottom: 40px;
+    }
+
+
+    .section {
+      margin-top: 44px;
+    }
+
+
+    .section-title {
+      font-size: 30px;
+
+      line-height: 1.3;
+
+      margin: 0 0 12px;
+    }
+
+
+    .section-lead {
+      color: var(--muted);
+
+      max-width: 800px;
+
+      margin: 0 0 24px;
+    }
+
+
+    /* =========================
+       Features
+       ========================= */
+
+    .grid {
+      display: grid;
+
+      gap: 16px;
+    }
+
+
+    .features {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+    .feature-card h3 {
+      margin-top: 0;
+
+      margin-bottom: 10px;
+
+      font-size: 19px;
+    }
+
+
+    .feature-card p {
+      color: var(--muted);
+
+      margin-bottom: 0;
+    }
+
+
+    /* =========================
+       Screenshots
+       ========================= */
+
+    .screenshots {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 16px;
+
+      margin-top: 20px;
+    }
+
+
+    .screenshot-card {
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 16px;
+
+      padding: 12px;
+    }
+
+
+    .screenshot-card img {
+      display: block;
+
+      width: 100%;
+
+      height: auto;
+
+      border-radius: 12px;
+
+      border: 1px solid var(--border);
+    }
+
+
+    /* =========================
+       How to use
+       ========================= */
+
+    .steps {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 16px;
+    }
+
+
+    .step-number {
+      display: inline-flex;
+
+      width: 36px;
+      height: 36px;
+
+      border-radius: 50%;
+
+      align-items: center;
+      justify-content: center;
+
+      background: var(--acc);
+
+      color: #001b2b;
+
+      font-weight: 800;
+
+      margin-bottom: 12px;
+    }
+
+
+    .step h3 {
+      margin: 0 0 8px;
+    }
+
+
+    .step p {
+      color: var(--muted);
+
+      margin: 0;
+    }
+
+
+    /* =========================
+       FAQ
+       ========================= */
+
+    .faq-list {
+      display: grid;
+
+      gap: 10px;
+
+      /*
+       * TrainingTimerと同じコンテンツ幅
+       */
+      width: 100%;
+
+      max-width: none;
+    }
+
+
+    .faq-list > div {
+      display: grid;
+
+      gap: 10px;
+
+      width: 100%;
+    }
+
+
+    details {
+      width: 100%;
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+
+      overflow: hidden;
+    }
+
+
+    summary {
+      cursor: pointer;
+
+      padding: 18px 20px;
+
+      font-weight: 700;
+
+      list-style: none;
+
+      position: relative;
+
+      padding-right: 50px;
+    }
+
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+
+    summary::after {
+      content: "+";
+
+      position: absolute;
+
+      right: 20px;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      color: var(--acc);
+
+      font-size: 22px;
+    }
+
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+
+    .faq-answer {
+      padding: 0 20px 20px;
+
+      color: var(--muted);
+
+      border-top: 1px solid var(--border);
+    }
+
+
+    /* =========================
+       Download
+       ========================= */
+
+    .download-card {
+      text-align: center;
+    }
+
+
+    .download-card p {
+      color: var(--muted);
+    }
+
+
+    /* =========================
+       Notice
+       ========================= */
+
+    .notice {
+      background: var(--bg-soft);
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+
+      padding: 20px;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================
+       Language
+       ========================= */
+
+    /*
+     * Hide every language-specific element by default.
+     */
+    [data-lang] {
+      display: none !important;
+    }
+
+    /*
+     * Show only the selected language.
+     *
+     * "revert" restores the element's normal display type:
+     * div / p / h1 / h2 -> block
+     * span -> inline
+     */
+    body.lang-en [data-lang="en"],
+    body.lang-ja [data-lang="ja"] {
+      display: revert !important;
+    }
+
+    /* =========================
+       Footer
+       ========================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+
+      margin-top: 50px;
+
+      padding-top: 28px;
+
+      padding-bottom: 40px;
+
+      color: var(--muted-dark);
+
+      font-size: 13px;
+
+      text-align: center;
+    }
+
+
+    footer p {
+      margin: 5px 0;
+    }
+
+
+    /* =========================
+       Responsive
+       ========================= */
+
+    @media (max-width: 900px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 40px;
+      }
+
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+
+      .screenshots {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 680px) {
+
+      .wrap {
+        padding-left: 16px;
+
+        padding-right: 16px;
+      }
+
+
+      .top-nav {
+        padding-top: 12px;
+
+        padding-bottom: 12px;
+      }
+
+
+      .hero {
+        padding-top: 30px;
+
+        padding-bottom: 30px;
+      }
+
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+
+      .lead {
+        font-size: 16px;
+      }
+
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+
+      .card {
+        padding: 20px;
+      }
+
+
+      .section {
+        margin-top: 34px;
+      }
+
+
+      summary {
+        padding: 16px 18px;
+
+        padding-right: 45px;
+      }
+
+
+      .faq-answer {
+        padding-left: 18px;
+
+        padding-right: 18px;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body class="lang-en">
-  <nav class="top-nav">
-    <a href="index.html" class="back-home">← Home</a>
-    <div class="lang-switch">
-      <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-      <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+
+
+  <!-- =========================
+       Navigation
+       ========================= -->
+
+  <nav class="top-nav wrap" aria-label="Main navigation">
+
+    <a href="index.html" class="back-home">
+
+      ←
+
+      <span data-lang="ja" class="inline-lang">
+        ホーム
+      </span>
+
+      <span data-lang="en" class="inline-lang">
+        Home
+      </span>
+
+    </a>
+
+
+    <div class="lang-switch" aria-label="Language selection">
+
+      <button
+        type="button"
+        class="lang-btn"
+        data-set-lang="en"
+        aria-label="English">
+
+        EN
+
+      </button>
+
+
+      <button
+        type="button"
+        class="lang-btn"
+        data-set-lang="ja"
+        aria-label="日本語">
+
+        JP
+
+      </button>
+
     </div>
+
   </nav>
 
-  <header>
-    <h1>Sudoku Scan & Solve</h1>
-    <p lang="en">Scan and solve Sudoku instantly! Free app for beginners to experts.</p>
-    <p lang="ja">数独を一瞬でスキャンして解答！初心者から上級者まで楽しめる無料アプリ</p>
+
+  <!-- =========================
+       Hero
+       ========================= -->
+
+  <header class="wrap hero">
+
+    <div>
+
+      <div class="eyebrow">
+
+        <span data-lang="en" class="inline-lang">
+          Sudoku Solver for iPhone
+        </span>
+
+        <span data-lang="ja" class="inline-lang">
+          iPhone向け数独・ナンプレアプリ
+        </span>
+
+      </div>
+
+
+      <h1 data-lang="en">
+
+        Sudoku Scan & Solve<br>
+        — Scan and solve Sudoku instantly
+
+      </h1>
+
+
+      <h1 data-lang="ja">
+
+        Sudoku Scan & Solve<br>
+        — 数独をスキャンしてすぐに解答
+
+      </h1>
+
+
+      <p class="lead" data-lang="en">
+
+        Scan Sudoku puzzles from photos, recognize the board,
+        solve puzzles instantly, check your answers,
+        and edit the board when necessary.
+
+      </p>
+
+
+      <p class="lead" data-lang="ja">
+
+        数独・ナンプレを写真からスキャンして盤面を認識。
+        解答の確認や答え合わせ、盤面の編集まで簡単に行えるiPhone向けアプリです。
+
+      </p>
+
+
+      <div class="cta">
+
+        <a
+          class="btn"
+          href="https://apps.apple.com/us/app/sudoku-scan-solver/id6749896084"
+          target="_blank"
+          rel="noopener"
+          aria-label="Download Sudoku Scan & Solve from the App Store">
+
+          <span data-lang="en" class="inline-lang">
+            Get on App Store
+          </span>
+
+          <span data-lang="ja" class="inline-lang">
+            App Storeで入手
+          </span>
+
+        </a>
+
+
+        <a
+          class="btn ghost"
+          href="#features">
+
+          <span data-lang="en" class="inline-lang">
+            See Features
+          </span>
+
+          <span data-lang="ja" class="inline-lang">
+            機能を見る
+          </span>
+
+        </a>
+
+      </div>
+
+
+      <div class="chiprow">
+
+        <span class="chip">
+
+          <span data-lang="en" class="inline-lang">
+            Free
+          </span>
+
+          <span data-lang="ja" class="inline-lang">
+            無料
+          </span>
+
+        </span>
+
+
+        <span class="chip">
+
+          <span data-lang="en" class="inline-lang">
+            Sudoku Scanner
+          </span>
+
+          <span data-lang="ja" class="inline-lang">
+            数独スキャン
+          </span>
+
+        </span>
+
+
+        <span class="chip">
+
+          <span data-lang="en" class="inline-lang">
+            Sudoku Solver
+          </span>
+
+          <span data-lang="ja" class="inline-lang">
+            数独解答
+          </span>
+
+        </span>
+
+
+        <span class="chip">
+
+          <span data-lang="en" class="inline-lang">
+            Japanese / English
+          </span>
+
+          <span data-lang="ja" class="inline-lang">
+            日本語 / 英語
+          </span>
+
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="card hero-image">
+
+      <img
+        class="sshot"
+        src="images/screenshot1.png"
+        alt="Sudoku Scan & Solve app screen showing Sudoku scanning"
+        width="800"
+        height="1200"
+        fetchpriority="high" />
+
+    </div>
+
   </header>
 
-  <div class="container">
-    <section class="features">
-      <div class="feature">
-        <h3 lang="en">📷 Scan from Photo</h3>
-        <h3 lang="ja">📷 写真からスキャン</h3>
-        <p lang="en">Just take a picture of Sudoku from newspaper/magazine. Instantly recognizes board.</p>
-        <p lang="ja">新聞・雑誌・本の数独をカメラで撮影するだけ。瞬時に盤面を認識します。</p>
+
+  <main class="wrap">
+
+
+    <!-- =========================
+         Introduction
+         ========================= -->
+
+    <section class="section card">
+
+      <div data-lang="en">
+
+        <h2 class="section-title">
+          Solve Sudoku without entering every number manually
+        </h2>
+
+        <p>
+          Sudoku puzzles are often found in newspapers, magazines,
+          books and puzzle collections.
+        </p>
+
+        <p>
+          Sudoku Scan & Solve lets you scan a Sudoku puzzle using your iPhone camera,
+          recognize the board, and quickly check the solution.
+        </p>
+
+        <p>
+          You can also edit the recognized board manually,
+          making it possible to correct recognition results before solving.
+        </p>
+
       </div>
-      <div class="feature">
-        <h3 lang="en">⚡ High Speed Solve</h3>
-        <h3 lang="ja">⚡ 高速解答</h3>
-        <p lang="en">Complete solution in seconds. Good for checking answers.</p>
-        <p lang="ja">わずか数秒で完全解答を表示。懸賞応募の答え合わせにも便利です。</p>
+
+
+      <div data-lang="ja">
+
+        <h2 class="section-title">
+          数字を一つずつ入力せずに数独を解答
+        </h2>
+
+        <p>
+          数独・ナンプレは、新聞、雑誌、本などさまざまな場所に掲載されています。
+        </p>
+
+        <p>
+          Sudoku Scan & Solveなら、iPhoneのカメラで数独を撮影して盤面をスキャンし、
+          解答を簡単に確認できます。
+        </p>
+
+        <p>
+          スキャン後の盤面は手動で編集できるため、
+          認識結果を修正してから解答することもできます。
+        </p>
+
       </div>
-      <div class="feature">
-        <h3 lang="en">✅ Mistake Check</h3>
-        <h3 lang="ja">✅ 間違いチェック</h3>
-        <p lang="en">Check if your answer is correct. Good for practice.</p>
-        <p lang="ja">入力した答えが正しいかすぐに確認可能。学習や練習にも役立ちます。</p>
-      </div>
-      <div class="feature">
-        <h3 lang="en">✏️ Edit Board</h3>
-        <h3 lang="ja">✏️ 盤面編集</h3>
-        <p lang="en">Fix numbers after scan. Create your own board.</p>
-        <p lang="ja">スキャン後に数字を自由に修正。自分だけの盤面を作ることもできます。</p>
-      </div>
+
     </section>
 
-    <section class="screenshots">
-      <img src="images/screenshot1.png" alt="Scan Screen">
-      <img src="images/screenshot2.png" alt="Solve Screen">
-      <img src="images/screenshot3.png" alt="Mistake Check">
+
+    <!-- =========================
+         Features
+         ========================= -->
+
+    <section id="features" class="section">
+
+      <h2 class="section-title">
+
+        <span data-lang="en" class="inline-lang">
+          Main Features
+        </span>
+
+        <span data-lang="ja" class="inline-lang">
+          主な機能
+        </span>
+
+      </h2>
+
+
+      <p class="section-lead">
+
+        <span data-lang="en">
+
+          Scan, solve, check and edit Sudoku puzzles
+          with a simple interface.
+
+        </span>
+
+        <span data-lang="ja">
+
+          数独のスキャン、解答、答え合わせ、盤面編集を
+          シンプルな操作で行えます。
+
+        </span>
+
+      </p>
+
+
+      <div class="grid features">
+
+
+        <article class="card feature-card">
+
+          <h3>
+
+            <span data-lang="en">
+              📷 Scan from Photo
+            </span>
+
+            <span data-lang="ja">
+              📷 写真からスキャン
+            </span>
+
+          </h3>
+
+
+          <p>
+
+            <span data-lang="en">
+
+              Take a photo of a Sudoku puzzle from a newspaper,
+              magazine or book and scan the board.
+
+            </span>
+
+            <span data-lang="ja">
+
+              新聞、雑誌、本などに掲載された数独を
+              カメラで撮影して盤面をスキャンできます。
+
+            </span>
+
+          </p>
+
+        </article>
+
+
+        <article class="card feature-card">
+
+          <h3>
+
+            <span data-lang="en">
+              ⚡ Fast Solve
+            </span>
+
+            <span data-lang="ja">
+              ⚡ 高速解答
+            </span>
+
+          </h3>
+
+
+          <p>
+
+            <span data-lang="en">
+
+              Quickly generate a complete Sudoku solution
+              after the puzzle has been recognized.
+
+            </span>
+
+            <span data-lang="ja">
+
+              盤面を認識した後、
+              数独の完全な解答をすばやく確認できます。
+
+            </span>
+
+          </p>
+
+        </article>
+
+
+        <article class="card feature-card">
+
+          <h3>
+
+            <span data-lang="en">
+              ✅ Answer Check
+            </span>
+
+            <span data-lang="ja">
+              ✅ 答え合わせ
+            </span>
+
+          </h3>
+
+
+          <p>
+
+            <span data-lang="en">
+
+              Check whether your Sudoku answer is correct.
+              Useful for practice and puzzle solving.
+
+            </span>
+
+            <span data-lang="ja">
+
+              入力した数独の答えが正しいか確認できます。
+              数独の練習や答え合わせにも利用できます。
+
+            </span>
+
+          </p>
+
+        </article>
+
+
+        <article class="card feature-card">
+
+          <h3>
+
+            <span data-lang="en">
+              ✏️ Edit the Board
+            </span>
+
+            <span data-lang="ja">
+              ✏️ 盤面編集
+            </span>
+
+          </h3>
+
+
+          <p>
+
+            <span data-lang="en">
+
+              Edit numbers after scanning to correct
+              recognition results or create your own board.
+
+            </span>
+
+            <span data-lang="ja">
+
+              スキャン後の数字を自由に編集できます。
+              認識結果の修正や盤面の作成にも利用できます。
+
+            </span>
+
+          </p>
+
+        </article>
+
+
+      </div>
+
     </section>
 
-    <div class="download">
-      <a href="https://apps.apple.com/us/app/sudoku-scan-solver/id6749896084" target="_blank" lang="en">Download on App
-        Store</a>
-      <a href="https://apps.apple.com/us/app/sudoku-scan-solver/id6749896084" target="_blank" lang="ja">App
-        Storeでダウンロード</a>
-    </div>
-  </div>
 
-  <footer>
-    <p>&copy; 2025 Sudoku Scan & Solve</p>
+    <!-- =========================
+         How to Use
+         ========================= -->
+
+    <section class="section">
+
+      <h2 class="section-title">
+
+        <span data-lang="en" class="inline-lang">
+          How to Use
+        </span>
+
+        <span data-lang="ja" class="inline-lang">
+          使い方
+        </span>
+
+      </h2>
+
+
+      <div class="steps">
+
+
+        <article class="card step">
+
+          <span class="step-number">
+            1
+          </span>
+
+
+          <h3>
+
+            <span data-lang="en">
+              Scan the Puzzle
+            </span>
+
+            <span data-lang="ja">
+              数独をスキャン
+            </span>
+
+          </h3>
+
+
+          <p>
+
+            <span data-lang="en">
+
+              Take a photo of the Sudoku puzzle
+              and scan the board.
+
+            </span>
+
+            <span data-lang="ja">
+
+              数独をカメラで撮影して
+              盤面をスキャンします。
+
+            </span>
+
+          </p>
+
+        </article>
+
+
+        <article class="card step">
+
+          <span class="step-number">
+            2
+          </span>
+
+
+          <h3>
+
+            <span data-lang="en">
+              Check the Board
+            </span>
+
+            <span data-lang="ja">
+              盤面を確認
+            </span>
+
+          </h3>
+
+
+          <p>
+
+            <span data-lang="en">
+
+              Check the recognized numbers
+              and edit them if necessary.
+
+            </span>
+
+            <span data-lang="ja">
+
+              認識された数字を確認し、
+              必要に応じて修正します。
+
+            </span>
+
+          </p>
+
+        </article>
+
+
+        <article class="card step">
+
+          <span class="step-number">
+            3
+          </span>
+
+
+          <h3>
+
+            <span data-lang="en">
+              Solve the Puzzle
+            </span>
+
+            <span data-lang="ja">
+              解答を確認
+            </span>
+
+          </h3>
+
+
+          <p>
+
+            <span data-lang="en">
+
+              Solve the Sudoku and check the complete solution.
+
+            </span>
+
+            <span data-lang="ja">
+
+              数独を解いて、
+              完全な解答を確認します。
+
+            </span>
+
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Screenshots
+         ========================= -->
+
+    <section class="section">
+
+      <h2 class="section-title">
+
+        <span data-lang="en" class="inline-lang">
+          App Screenshots
+        </span>
+
+        <span data-lang="ja" class="inline-lang">
+          アプリ画面
+        </span>
+
+      </h2>
+
+
+      <div class="screenshots">
+
+
+        <div class="screenshot-card">
+
+          <img
+            src="images/screenshot1.png"
+            alt="Sudoku Scan & Solve scan screen"
+            loading="lazy">
+
+        </div>
+
+
+        <div class="screenshot-card">
+
+          <img
+            src="images/screenshot2.png"
+            alt="Sudoku Scan & Solve solve screen"
+            loading="lazy">
+
+        </div>
+
+
+        <div class="screenshot-card">
+
+          <img
+            src="images/screenshot3.png"
+            alt="Sudoku Scan & Solve answer check screen"
+            loading="lazy">
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAQ
+         ========================= -->
+
+    <section id="faq" class="section">
+
+      <h2 class="section-title">
+
+        <span data-lang="en" class="inline-lang">
+          Frequently Asked Questions
+        </span>
+
+        <span data-lang="ja" class="inline-lang">
+          よくある質問
+        </span>
+
+      </h2>
+
+
+      <div class="faq-list">
+
+
+        <!-- English -->
+
+        <div data-lang="en">
+
+
+          <details>
+
+            <summary>
+              What is Sudoku Scan & Solve?
+            </summary>
+
+            <div class="faq-answer">
+
+              <p>
+                Sudoku Scan & Solve is an iPhone app that scans
+                Sudoku puzzles from photos, recognizes the puzzle board,
+                and provides a solution.
+              </p>
+
+            </div>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              Can I scan a Sudoku puzzle from a photo?
+            </summary>
+
+            <div class="faq-answer">
+
+              <p>
+                Yes. You can take a photo of a Sudoku puzzle
+                from a newspaper, magazine, book or other printed source
+                and scan it with the app.
+              </p>
+
+            </div>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              Can I edit the Sudoku board after scanning?
+            </summary>
+
+            <div class="faq-answer">
+
+              <p>
+                Yes. You can edit the recognized numbers
+                after scanning and correct the board if necessary.
+              </p>
+
+            </div>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              Can I check my Sudoku answer?
+            </summary>
+
+            <div class="faq-answer">
+
+              <p>
+                Yes. You can use the app to check
+                whether your entered Sudoku solution is correct.
+              </p>
+
+            </div>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              Is Sudoku Scan & Solve free?
+            </summary>
+
+            <div class="faq-answer">
+
+              <p>
+                Yes. Sudoku Scan & Solve is available
+                as a free iOS application.
+              </p>
+
+            </div>
+
+          </details>
+
+
+        </div>
+
+
+        <!-- Japanese -->
+
+        <div data-lang="ja">
+
+
+          <details>
+
+            <summary>
+              Sudoku Scan & Solveとはどのようなアプリですか？
+            </summary>
+
+            <div class="faq-answer">
+
+              <p>
+                Sudoku Scan & Solveは、写真から数独・ナンプレの盤面をスキャンして認識し、
+                解答を確認できるiPhone向けアプリです。
+              </p>
+
+            </div>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              写真から数独をスキャンできますか？
+            </summary>
+
+            <div class="faq-answer">
+
+              <p>
+                はい。新聞、雑誌、本などに掲載された数独を
+                写真で撮影して盤面をスキャンできます。
+              </p>
+
+            </div>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              スキャンした盤面を編集できますか？
+            </summary>
+
+            <div class="faq-answer">
+
+              <p>
+                はい。スキャン後に認識された数字を
+                編集・修正できます。
+              </p>
+
+            </div>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              数独の答え合わせはできますか？
+            </summary>
+
+            <div class="faq-answer">
+
+              <p>
+                はい。入力した数独の答えが正しいかを
+                確認できます。
+              </p>
+
+            </div>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              無料で利用できますか？
+            </summary>
+
+            <div class="faq-answer">
+
+              <p>
+                はい。Sudoku Scan & Solveは
+                無料のiOSアプリとして提供しています。
+              </p>
+
+            </div>
+
+          </details>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Download
+         ========================= -->
+
+    <section class="section card download-card">
+
+      <div data-lang="en">
+
+        <h2 class="section-title">
+          Ready to solve Sudoku?
+        </h2>
+
+        <p>
+          Download Sudoku Scan & Solve and try scanning
+          your next Sudoku puzzle.
+        </p>
+
+      </div>
+
+
+      <div data-lang="ja">
+
+        <h2 class="section-title">
+          数独をもっと簡単に解いてみませんか？
+        </h2>
+
+        <p>
+          Sudoku Scan & Solveをダウンロードして、
+          次の数独をスキャンしてみてください。
+        </p>
+
+      </div>
+
+
+      <div class="cta">
+
+        <a
+          class="btn"
+          href="https://apps.apple.com/us/app/sudoku-scan-solver/id6749896084"
+          target="_blank"
+          rel="noopener">
+
+          <span data-lang="en" class="inline-lang">
+            Download on the App Store
+          </span>
+
+          <span data-lang="ja" class="inline-lang">
+            App Storeでダウンロード
+          </span>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Notice
+         ========================= -->
+
+    <section class="section">
+
+      <div class="notice">
+
+        <p data-lang="en">
+
+          <strong>Note:</strong>
+          Sudoku Scan & Solve is designed to assist with
+          Sudoku puzzle scanning and solving.
+          Recognition results may vary depending on image quality,
+          lighting and the puzzle layout.
+
+        </p>
+
+
+        <p data-lang="ja">
+
+          <strong>ご注意：</strong>
+          Sudoku Scan & Solveは数独のスキャンや解答を
+          サポートするためのアプリです。
+          画像の品質、明るさ、数独の掲載状態などによって
+          認識結果が異なる場合があります。
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================
+       Footer
+       ========================= -->
+
+  <footer class="wrap">
+
+    <p>
+      © <span id="current-year"></span> Sudoku Scan & Solve
+    </p>
+
+
+    <p>
+
+      <span data-lang="en">
+        Sudoku Scan & Solve is an independently developed iOS application.
+      </span>
+
+      <span data-lang="ja">
+        Sudoku Scan & Solveは個人開発のiOSアプリです。
+      </span>
+
+    </p>
+
+
+    <p>
+
+      <a href="index.html">
+
+        <span data-lang="en" class="inline-lang">
+          Home
+        </span>
+
+        <span data-lang="ja" class="inline-lang">
+          ホーム
+        </span>
+
+      </a>
+
+    </p>
+
   </footer>
 
+
+  <!-- =========================
+       JavaScript
+       ========================= -->
+
   <script>
+
     function setLanguage(lang) {
-      document.body.className = 'lang-' + lang;
 
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
-      });
+      if (lang !== "ja" && lang !== "en") {
+        lang = "en";
+      }
 
-      localStorage.setItem('preferred-language', lang);
+
+      document.body.classList.remove(
+        "lang-ja",
+        "lang-en"
+      );
+
+
+      document.body.classList.add(
+        "lang-" + lang
+      );
+
+
+      document.documentElement.lang = lang;
+
+
+      document
+        .querySelectorAll("[data-set-lang]")
+        .forEach(function (button) {
+
+          const isActive =
+            button.dataset.setLang === lang;
+
+
+          button.classList.toggle(
+            "active",
+            isActive
+          );
+
+
+          button.setAttribute(
+            "aria-pressed",
+            isActive ? "true" : "false"
+          );
+
+        });
+
+
+      localStorage.setItem(
+        "preferred-language",
+        lang
+      );
+
+
+      /*
+       * SEO metadata
+       */
+
+      const description =
+        document.querySelector(
+          'meta[name="description"]'
+        );
+
+
+      const ogTitle =
+        document.querySelector(
+          'meta[property="og:title"]'
+        );
+
+
+      const ogDescription =
+        document.querySelector(
+          'meta[property="og:description"]'
+        );
+
+
+      if (lang === "ja") {
+
+        document.title =
+          "Sudoku Scan & Solve｜数独・ナンプレをスキャンして解答";
+
+
+        description.setAttribute(
+          "content",
+          "Sudoku Scan & Solveは、写真から数独・ナンプレの盤面をスキャンして認識し、解答や答え合わせができるiPhone向け無料アプリです。"
+        );
+
+
+        ogTitle.setAttribute(
+          "content",
+          "Sudoku Scan & Solve｜数独・ナンプレをスキャンして解答"
+        );
+
+
+        ogDescription.setAttribute(
+          "content",
+          "写真から数独・ナンプレをスキャンして盤面を認識。解答や答え合わせ、盤面編集ができるiPhone向けアプリです。"
+        );
+
+      } else {
+
+        document.title =
+          "Sudoku Scan & Solve｜Scan and Solve Sudoku Instantly";
+
+
+        description.setAttribute(
+          "content",
+          "Sudoku Scan & Solve is a free iPhone app that scans Sudoku puzzles from photos, recognizes the board, solves puzzles, checks answers, and lets you edit the board."
+        );
+
+
+        ogTitle.setAttribute(
+          "content",
+          "Sudoku Scan & Solve｜Scan and Solve Sudoku Instantly"
+        );
+
+
+        ogDescription.setAttribute(
+          "content",
+          "Scan Sudoku puzzles from photos, recognize the board, solve puzzles, check answers, and edit the puzzle board."
+        );
+
+      }
+
     }
 
+
+    /*
+     * Language buttons
+     */
+
+    document
+      .querySelectorAll("[data-set-lang]")
+      .forEach(function (button) {
+
+        button.addEventListener(
+          "click",
+          function () {
+
+            setLanguage(
+              button.dataset.setLang
+            );
+
+          }
+        );
+
+      });
+
+
+    /*
+     * Initial language
+     */
+
     (function () {
-      const savedLang = localStorage.getItem('preferred-language');
-      if (savedLang) {
+
+      const savedLang =
+        localStorage.getItem(
+          "preferred-language"
+        );
+
+
+      if (
+        savedLang === "ja" ||
+        savedLang === "en"
+      ) {
+
         setLanguage(savedLang);
+
         return;
+
       }
 
-      const browserLang = navigator.language || navigator.userLanguage;
-      if (browserLang.startsWith('ja')) {
-        setLanguage('ja');
-      } else {
-        setLanguage('en');
-      }
+
+      const browserLang =
+        navigator.language ||
+        navigator.userLanguage ||
+        "en";
+
+
+      setLanguage(
+        browserLang
+          .toLowerCase()
+          .startsWith("ja")
+          ? "ja"
+          : "en"
+      );
+
     })();
+
+
+    /*
+     * Current year
+     */
+
+    document.getElementById(
+      "current-year"
+    ).textContent =
+      new Date().getFullYear();
+
   </script>
 
 </body>
