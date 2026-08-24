@@ -1,296 +1,2200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metronome - Professional Training Tools</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>シンプルメトロノーム | リズム・テンポ練習をサポートするメトロノームアプリ</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
-        rel="stylesheet">
+
+    <meta name="description"
+        content="シンプルメトロノームは、BPM設定、テンポ変化、ポリリズム、3連符、サブディビジョンなどの練習に対応したiOSメトロノームアプリです。楽器練習やリズムトレーニングをシンプルな操作でサポートします。">
+
+    <meta name="keywords"
+        content="メトロノーム, メトロノームアプリ, 音楽練習, リズム練習, BPM, テンポ, ポリリズム, 3連符, サブディビジョン, 楽器練習, ドラム, ギター, ピアノ, ベース">
+
+    <link rel="canonical"
+        href="https://t-okb-dev.github.io/mobile_app/metoronome/index.html">
+
+    <link rel="alternate"
+        hreflang="ja"
+        href="https://t-okb-dev.github.io/mobile_app/metoronome/index.html?lang=ja">
+
+    <link rel="alternate"
+        hreflang="en"
+        href="https://t-okb-dev.github.io/mobile_app/metoronome/index.html?lang=en">
+
+    <link rel="alternate"
+        hreflang="x-default"
+        href="https://t-okb-dev.github.io/mobile_app/metoronome/index.html">
+
+    <meta name="theme-color" content="#3b82f6">
+
+    <!-- App Store Smart App Banner -->
+    <meta name="apple-itunes-app"
+        content="app-id=6754532327">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+
+    <meta property="og:site_name"
+        content="シンプルメトロノーム">
+
+    <meta property="og:title"
+        content="シンプルメトロノーム | リズム・テンポ練習をサポート">
+
+    <meta property="og:description"
+        content="BPM、テンポ変化、ポリリズム、3連符などの練習に対応したiOSメトロノームアプリ。">
+
+    <meta property="og:url"
+        content="https://t-okb-dev.github.io/mobile_app/metoronome/index.html">
+
+    <meta property="og:locale"
+        content="ja_JP">
+
+    <meta property="og:locale:alternate"
+        content="en_US">
+
+
+    <!-- Twitter / X -->
+
+    <meta name="twitter:card"
+        content="summary_large_image">
+
+    <meta name="twitter:title"
+        content="シンプルメトロノーム | リズム・テンポ練習をサポート">
+
+    <meta name="twitter:description"
+        content="楽器練習やリズムトレーニングに使えるシンプルなiOSメトロノームアプリ。">
+
+
+    <!-- Structured Data -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "シンプルメトロノーム",
+        "alternateName": "Rhythm Change Metronome",
+        "operatingSystem": "iOS",
+        "applicationCategory": "https://schema.org/MusicApplication",
+        "description": "BPM設定、テンポ変化、ポリリズム、3連符、サブディビジョンなどの練習に対応したメトロノームアプリ。",
+        "url": "https://t-okb-dev.github.io/mobile_app/metoronome/index.html",
+        "downloadUrl": "https://apps.apple.com/jp/app/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%83%A1%E3%83%88%E3%83%AD%E3%83%8E%E3%83%BC%E3%83%A0/id6754532327",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        }
+    }
+    </script>
+
+
     <style>
-        body {
-            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
-            margin: 0;
-            padding: 0;
+
+        :root {
+            --bg: #f5f7fa;
+            --surface: #ffffff;
+            --surface-alt: #eef2f5;
+            --text: #1f2937;
+            --muted: #64748b;
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --border: #dbe2ea;
+            --max-width: 1100px;
         }
 
-        /* Navigation styles */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+
+            background: var(--bg);
+            color: var(--text);
+
+            font-family:
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                "Noto Sans JP",
+                sans-serif;
+
+            line-height: 1.8;
+        }
+
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+
+        .container {
+            width: min(
+                calc(100% - 32px),
+                var(--max-width)
+            );
+
+            margin: 0 auto;
+        }
+
+
+        /* =========================
+           Language
+           ========================= */
+
+        [data-lang] {
+            display: none !important;
+        }
+
+
+        body.lang-ja [data-lang="ja"] {
+            display: block !important;
+        }
+
+
+        body.lang-en [data-lang="en"] {
+            display: block !important;
+        }
+
+
+        body.lang-ja .inline-lang[data-lang="ja"] {
+            display: inline !important;
+        }
+
+
+        body.lang-en .inline-lang[data-lang="en"] {
+            display: inline !important;
+        }
+
+
+        /* =========================
+           Navigation
+           ========================= */
+
         .top-nav {
             background: #3b82f6;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
             padding: 12px 24px;
+
             position: relative;
+
             z-index: 1000;
         }
 
-        .lang-switch {
-            display: flex;
-            gap: 8px;
-        }
 
         .back-home {
             color: #fff;
-            text-decoration: none;
-            font-size: 0.9em;
-            opacity: 0.8;
-            transition: opacity 0.2s;
+
+            opacity: .9;
+
+            font-size: .9rem;
         }
+
 
         .back-home:hover {
             opacity: 1;
+
+            text-decoration: none;
         }
+
+
+        .lang-switch {
+            display: flex;
+
+            gap: 8px;
+        }
+
 
         .lang-btn {
             background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+
+            border: 1px solid rgba(255,255,255,.45);
+
             color: #fff;
-            padding: 5px 10px;
+
+            padding: 5px 11px;
+
             cursor: pointer;
-            border-radius: 3px;
-            font-size: 0.9em;
+
+            border-radius: 5px;
+
+            font-size: .9rem;
         }
+
 
         .lang-btn.active {
-            background: rgba(255, 255, 255, 0.2);
-            font-weight: bold;
+            background: rgba(255,255,255,.2);
+
             border-color: #fff;
+
+            font-weight: 700;
         }
 
-        /* Language switching styles */
-        body.lang-en .lang-ja {
-            display: none !important;
+
+        /* =========================
+           Hero
+           ========================= */
+
+        .hero {
+            background:
+                linear-gradient(
+                    180deg,
+                    #3b82f6 0%,
+                    #2563eb 100%
+                );
+
+            color: #fff;
+
+            padding: 70px 0 75px;
+
+            text-align: center;
         }
 
-        body.lang-ja .lang-en {
-            display: none !important;
-        }
-    </style>
-</head>
 
-<body class="lang-en">
+        .hero h1 {
+            margin: 0;
 
-    <nav class="top-nav">
-        <a href="../../index.html" class="back-home">← Home</a>
-        <div class="lang-switch">
-            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-            <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
-        </div>
-    </nav>
+            font-size:
+                clamp(32px, 6vw, 56px);
 
-    <!-- Header / Hero Section -->
-    <header>
-        <div class="container">
-            <h1>
-                <span class="lang-en">Rhythm Change Metronome</span>
-                <span class="lang-ja" style="display:none;">シンプルメトロノーム</span>
-                <br>
-                <span style="font-size: 0.6em; opacity: 0.9;" class="lang-en">Professional Training Tool</span>
-                <span style="font-size: 0.6em; opacity: 0.9;" class="lang-ja"
-                    style="display:none;">プロフェッショナル・トレーニングツール</span>
-            </h1>
-            <p class="subtitle">
-                <span class="lang-en">Precise Timing, Advanced Patterns, Train Like a Pro.</span>
-                <span class="lang-ja" style="display:none;">精密なタイミング、高度なパターントレーニング。<br>プロのためのメトロノーム。</span>
-            </p>
-            <a href="#" class="btn download-link">
-                <span class="lang-en">Download on App Store</span>
-                <span class="lang-ja" style="display:none;">App Storeからダウンロード</span>
-            </a>
-        </div>
-    </header>
-
-    <!-- Screenshots Section -->
-    <section id="screenshots" style="background-color: #eef2f5; padding: 40px 0; text-align: center;">
-        <div class="container">
-            <div class="screenshots-wrapper">
-                <!-- English Screenshots -->
-                <div class="lang-en">
-                    <img src="HomeEng_trimmed.png" alt="Home Screen"
-                        style="height: 500px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); margin: 0 15px;">
-                    <img src="MetronomeEng_trimmed.png" alt="Metronome Screen"
-                        style="height: 500px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); margin: 0 15px;">
-                </div>
-                <!-- Japanese Screenshots -->
-                <div class="lang-ja" style="display: none;">
-                    <img src="HomeJP_trimmed.png" alt="ホーム画面"
-                        style="height: 500px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); margin: 0 15px;">
-                    <img src="MetronomeJP_trimmed.png" alt="メトロノーム画面"
-                        style="height: 500px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); margin: 0 15px;">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="lang-en">Features</span>
-                <span class="lang-ja" style="display:none;">機能</span>
-            </h2>
-
-            <div class="feature-grid">
-                <!-- Feature 1 -->
-                <div class="feature-card">
-                    <div class="feature-icon">⏱️</div>
-                    <h3>
-                        <span class="lang-en">Precise Logic</span>
-                        <span class="lang-ja" style="display:none;">高精度なロジック</span>
-                    </h3>
-                    <p class="lang-en">Uses high-precision WAV files for accurate, low-latency audio playback.</p>
-                    <p class="lang-ja" style="display:none;">WAVファイルを使用した低遅延・高精度のオーディオ再生エンジンを搭載。</p>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>
-                        <span class="lang-en">Advanced Patterns</span>
-                        <span class="lang-ja" style="display:none;">高度なパターン</span>
-                    </h3>
-                    <p class="lang-en">Includes Speed Down, Polyrhythms, Triplets, and Subdivision training.</p>
-                    <p class="lang-ja" style="display:none;">スピードダウン、ポリリズム、3連符、サブディビジョンなど、高度なトレーニングパターンを標準装備。</p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>
-                        <span class="lang-en">Up to 250 BPM</span>
-                        <span class="lang-ja" style="display:none;">最大 250 BPM</span>
-                    </h3>
-                    <p class="lang-en">Support for ultra-fast tempos up to 250 BPM for extreme practice.</p>
-                    <p class="lang-ja" style="display:none;">最大250 BPMまで対応。限界スピードへの挑戦・トレーニングに最適です。</p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="feature-card">
-                    <div class="feature-icon">🥁</div>
-                    <h3>
-                        <span class="lang-en">Custom Sounds</span>
-                        <span class="lang-ja" style="display:none;">サウンド切り替え</span>
-                    </h3>
-                    <p class="lang-en">Switch between standard clicks and realistic drum sounds.</p>
-                    <p class="lang-ja" style="display:none;">標準的なクリック音に加え、リアルなドラムサウンドへの切り替えが可能。</p>
-                </div>
-
-                <!-- Feature 5 -->
-                <div class="feature-card">
-                    <div class="feature-icon">✨</div>
-                    <h3>
-                        <span class="lang-en">Modern Design</span>
-                        <span class="lang-ja" style="display:none;">モダンなデザイン</span>
-                    </h3>
-                    <p class="lang-en">User-friendly interface with support for Dark Mode aesthetics.</p>
-                    <p class="lang-ja" style="display:none;">使いやすさを追求した、モダンで美しいインターフェース。</p>
-                </div>
-                <!-- Feature 6 -->
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>
-                        <span class="lang-en">Dynamic Changes</span>
-                        <span class="lang-ja" style="display:none;">急激なテンポ変化</span>
-                    </h3>
-                    <p class="lang-en">Practice adjusting to sudden BPM shifts instantly. Perfect for adaptable
-                        musicians.</p>
-                    <p class="lang-ja" style="display:none;">曲中での急なテンポチェンジに対応するための、瞬時なBPM切り替え練習が可能。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container about-content">
-            <h2 class="section-title">
-                <span class="lang-en">About App</span>
-                <span class="lang-ja" style="display:none;">アプリ紹介</span>
-            </h2>
-            <p class="lang-en">
-                "Rhythm Change Metronome" is the ultimate tool for musicians who need more than just a ticking clock.
-                Whether you are practicing complex jazz rhythms, working on your speed, or just need a reliable beat,
-                this app delivers with professional-grade precision and versatility.
-            </p>
-            <p class="lang-ja" style="display:none;">
-                「シンプルメトロノーム」は、単なるリズムキープ以上の機能を求めるミュージシャンのための究極のツールです。
-                複雑なジャズのリズム練習、スピード、あるいは安定したビートが必要な時、
-                プロフェッショナルな精度と多様性であなたの練習をサポートします。
-            </p>
-            <br>
-            <a href="#" class="btn download-link" style="background-color: #4A89A4; color: white;">
-                <span class="lang-en">Get Started Today</span>
-                <span class="lang-ja" style="display:none;">今すぐ始める</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Keywords -->
-    <section id="keywords">
-        <p class="lang-en">
-            Metronome, Music, Rhythm, Training, BPM, Tempo, Polyrhythm, Triplets, Speed, Practice, Musician
-        </p>
-        <p class="lang-ja" style="display:none;">
-            メトロノーム, 音楽, リズム, トレーニング, テンポ, ポリリズム, 3連符, 練習, 楽器, 演奏
-        </p>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Advanced Metronome App. All rights reserved.</p>
-    </footer>
-
-    <script>
-        function setLanguage(lang) {
-            document.body.className = 'lang-' + lang;
-
-            // Update active button state
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                if (btn.textContent.trim().toUpperCase() === (lang === 'en' ? 'EN' : 'JP')) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-
-            // Clean up legacy inline styles so CSS classes can work for visibility
-            document.querySelectorAll('.lang-en, .lang-ja').forEach(el => {
-                el.style.display = '';
-            });
-
-            // Set Download Link Visuals and URLs
-            const downloadLinks = document.querySelectorAll('.download-link');
-            downloadLinks.forEach(link => {
-                if (lang === 'en') {
-                    link.href = "https://apps.apple.com/us/app/rhythm-change-metronome/id6754532327";
-                } else {
-                    link.href = "https://apps.apple.com/jp/app/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%83%A1%E3%83%88%E3%83%AD%E3%83%8E%E3%83%BC%E3%83%A0/id6754532327";
-                }
-            });
-
-            // Save preference
-            localStorage.setItem('preferred-language', lang);
+            line-height: 1.2;
         }
 
-        // Auto-detect language on load
-        (function () {
-            const savedLang = localStorage.getItem('preferred-language');
 
-            // Determine language: Saved > Browser > Default(en)
-            let lang = savedLang;
-            if (!lang) {
-                const browserLang = navigator.language || navigator.userLanguage;
-                lang = browserLang.startsWith('ja') ? 'ja' : 'en';
+        .hero .tagline {
+            margin: 18px auto 0;
+
+            max-width: 760px;
+
+            font-size:
+                clamp(17px, 2.5vw, 21px);
+
+            opacity: .95;
+        }
+
+
+        .hero .description {
+            margin: 20px auto 0;
+
+            max-width: 760px;
+
+            opacity: .9;
+        }
+
+
+        .cta {
+            margin-top: 28px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+            display: inline-block;
+
+            padding: 13px 22px;
+
+            border-radius: 9px;
+
+            background: #fff;
+
+            color: #1d4ed8;
+
+            font-weight: 700;
+
+            transition: .2s;
+        }
+
+
+        .btn:hover {
+            text-decoration: none;
+
+            transform: translateY(-1px);
+        }
+
+
+        .btn.secondary {
+            background: transparent;
+
+            color: #fff;
+
+            border: 1px solid rgba(255,255,255,.65);
+        }
+
+
+        /* =========================
+           Main sections
+           ========================= */
+
+        main {
+            padding-bottom: 50px;
+        }
+
+
+        .section {
+            margin-top: 55px;
+        }
+
+
+        .section-title {
+            margin: 0 0 22px;
+
+            font-size: 30px;
+
+            line-height: 1.3;
+        }
+
+
+        .section-intro {
+            color: var(--muted);
+
+            max-width: 800px;
+        }
+
+
+        .card {
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 26px;
+
+            box-shadow:
+                0 4px 14px rgba(15,23,42,.04);
+        }
+
+
+        /* =========================
+           Screenshots
+           ========================= */
+
+        .screenshots {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 24px;
+
+            align-items: start;
+        }
+
+
+        .screenshot-card {
+            text-align: center;
+        }
+
+
+        .screenshot-card img {
+            width: 100%;
+
+            max-height: 560px;
+
+            object-fit: contain;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 10px 28px rgba(15,23,42,.14);
+
+            background: #fff;
+        }
+
+
+        .screenshot-caption {
+            margin-top: 12px;
+
+            color: var(--muted);
+
+            font-size: .95rem;
+        }
+
+
+        /* =========================
+           Features
+           ========================= */
+
+        .feature-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 18px;
+        }
+
+
+        .feature-card h3 {
+            margin-top: 0;
+
+            margin-bottom: 8px;
+
+            font-size: 19px;
+        }
+
+
+        .feature-card p {
+            margin: 0;
+
+            color: var(--muted);
+        }
+
+
+        .feature-number {
+            width: 34px;
+
+            height: 34px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 14px;
+
+            border-radius: 50%;
+
+            background: #dbeafe;
+
+            color: #2563eb;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           How to use
+           ========================= */
+
+        .steps {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 18px;
+        }
+
+
+        .step {
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 24px;
+        }
+
+
+        .step h3 {
+            margin-top: 0;
+        }
+
+
+        .step p {
+            color: var(--muted);
+
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           Recommended
+           ========================= */
+
+        .recommend-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 18px;
+        }
+
+
+        .recommend-card {
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 22px;
+        }
+
+
+        .recommend-card h3 {
+            margin-top: 0;
+        }
+
+
+        /* =========================
+           FAQ
+           ========================= */
+
+        .faq {
+            display: grid;
+
+            gap: 12px;
+        }
+
+
+        .faq-item {
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            padding: 20px 22px;
+        }
+
+
+        .faq-item h3 {
+            margin: 0 0 8px;
+
+            font-size: 17px;
+        }
+
+
+        .faq-item p {
+            margin: 0;
+
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           App Store CTA
+           ========================= */
+
+        .final-cta {
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 38px 26px;
+
+            text-align: center;
+        }
+
+
+        .final-cta h2 {
+            margin-top: 0;
+        }
+
+
+        .final-cta p {
+            max-width: 720px;
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+            color: var(--muted);
+        }
+
+
+        .final-cta .btn {
+            background: var(--primary);
+
+            color: #fff;
+        }
+
+
+        /* =========================
+           Keywords
+           ========================= */
+
+        .keywords {
+            color: var(--muted);
+
+            font-size: .9rem;
+        }
+
+
+        /* =========================
+           Footer
+           ========================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+
+            padding: 32px 0 45px;
+
+            color: var(--muted);
+
+            font-size: .85rem;
+
+            text-align: center;
+
+            background: #fff;
+        }
+
+
+        /* =========================
+           Responsive
+           ========================= */
+
+        @media (max-width: 800px) {
+
+            .feature-grid,
+            .steps {
+                grid-template-columns: 1fr 1fr;
             }
 
-            setLanguage(lang);
+            .screenshots {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .top-nav {
+                padding: 12px 16px;
+            }
+
+            .hero {
+                padding: 55px 0 60px;
+            }
+
+            .feature-grid,
+            .steps,
+            .recommend-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                margin-top: 42px;
+            }
+
+            .card,
+            .step,
+            .recommend-card {
+                padding: 20px;
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body class="lang-ja">
+
+
+    <!-- =========================
+         Navigation
+         ========================= -->
+
+    <nav class="top-nav">
+
+        <a href="../../index.html"
+            class="back-home">
+
+            ←
+            <span class="inline-lang"
+                data-lang="ja">
+                ホーム
+            </span>
+
+            <span class="inline-lang"
+                data-lang="en">
+                Home
+            </span>
+
+        </a>
+
+
+        <div class="lang-switch">
+
+            <button
+                type="button"
+                class="lang-btn"
+                data-set-lang="en">
+                EN
+            </button>
+
+            <button
+                type="button"
+                class="lang-btn"
+                data-set-lang="ja">
+                JP
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         Hero
+         ========================= -->
+
+    <header class="hero">
+
+        <div class="container">
+
+            <h1 data-lang="ja">
+                シンプルメトロノーム
+            </h1>
+
+            <h1 data-lang="en">
+                Rhythm Change Metronome
+            </h1>
+
+
+            <p class="tagline"
+                data-lang="ja">
+
+                リズムとテンポの練習を、
+                シンプルに、もっと自由に。
+
+            </p>
+
+
+            <p class="tagline"
+                data-lang="en">
+
+                Practice rhythm and tempo
+                with a simple and flexible metronome.
+
+            </p>
+
+
+            <p class="description"
+                data-lang="ja">
+
+                基本的なメトロノーム機能に加えて、
+                テンポ変化、ポリリズム、3連符、
+                サブディビジョンなどの練習に対応。
+                楽器演奏やリズムトレーニングを
+                日々の練習に取り入れたい方をサポートします。
+
+            </p>
+
+
+            <p class="description"
+                data-lang="en">
+
+                In addition to basic metronome functions,
+                the app supports tempo changes,
+                polyrhythms, triplets and subdivision practice.
+                It is designed to support everyday music
+                and rhythm training.
+
+            </p>
+
+
+            <div class="cta">
+
+                <a class="btn download-link"
+                    target="_blank"
+                    rel="noopener"
+                    href="https://apps.apple.com/jp/app/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%83%A1%E3%83%88%E3%83%AD%E3%83%8E%E3%83%BC%E3%83%A0/id6754532327">
+
+                    <span data-lang="ja">
+                        App Storeで見る
+                    </span>
+
+                    <span data-lang="en">
+                        View on the App Store
+                    </span>
+
+                </a>
+
+
+                <a class="btn secondary"
+                    href="#features">
+
+                    <span data-lang="ja">
+                        機能を見る
+                    </span>
+
+                    <span data-lang="en">
+                        Explore Features
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =========================
+             About
+             ========================= -->
+
+        <section class="section">
+
+            <div class="container card">
+
+                <h2 class="section-title"
+                    data-lang="ja">
+                    シンプルメトロノームとは
+                </h2>
+
+                <h2 class="section-title"
+                    data-lang="en">
+                    About Rhythm Change Metronome
+                </h2>
+
+
+                <p data-lang="ja">
+
+                    「シンプルメトロノーム」は、
+                    楽器の練習やリズムトレーニングで使える
+                    iOS向けのメトロノームアプリです。
+
+                    基本的なテンポ確認だけでなく、
+                    一定のテンポを維持する練習、
+                    徐々にスピードを変える練習、
+                    ポリリズムや3連符など、
+                    より複雑なリズムを練習できるように
+                    機能を構成しています。
+
+                    操作を複雑にしすぎず、
+                    「今の練習に必要なリズムをすぐ鳴らす」
+                    ことを重視しています。
+
+                </p>
+
+
+                <p data-lang="en">
+
+                    Rhythm Change Metronome is an iOS
+                    metronome app designed for music practice
+                    and rhythm training.
+
+                    Along with basic tempo practice,
+                    it supports exercises involving tempo changes,
+                    polyrhythms, triplets and subdivisions.
+
+                    The interface focuses on making it easy
+                    to start the rhythm you need for your
+                    current practice without unnecessary complexity.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Screenshots
+             ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <h2 class="section-title"
+                    data-lang="ja">
+                    アプリ画面
+                </h2>
+
+                <h2 class="section-title"
+                    data-lang="en">
+                    App Screens
+                </h2>
+
+
+                <p class="section-intro"
+                    data-lang="ja">
+
+                    実際のアプリ画面を確認できます。
+                    メトロノームの設定やトレーニング機能を
+                    シンプルな画面から操作できます。
+
+                </p>
+
+
+                <p class="section-intro"
+                    data-lang="en">
+
+                    Take a look at the actual app screens
+                    and see how the metronome and training
+                    controls are organized.
+
+                </p>
+
+
+                <div class="screenshots"
+                    style="margin-top:24px;">
+
+
+                    <div class="screenshot-card"
+                        data-lang="ja">
+
+                        <img
+                            src="HomeJP_trimmed.png"
+                            alt="シンプルメトロノームのホーム画面">
+
+                        <p class="screenshot-caption">
+                            ホーム画面
+                        </p>
+
+                    </div>
+
+
+                    <div class="screenshot-card"
+                        data-lang="ja">
+
+                        <img
+                            src="MetronomeJP_trimmed.png"
+                            alt="シンプルメトロノームのメトロノーム画面">
+
+                        <p class="screenshot-caption">
+                            メトロノーム画面
+                        </p>
+
+                    </div>
+
+
+                    <div class="screenshot-card"
+                        data-lang="en">
+
+                        <img
+                            src="HomeEng_trimmed.png"
+                            alt="Rhythm Change Metronome home screen">
+
+                        <p class="screenshot-caption">
+                            Home screen
+                        </p>
+
+                    </div>
+
+
+                    <div class="screenshot-card"
+                        data-lang="en">
+
+                        <img
+                            src="MetronomeEng_trimmed.png"
+                            alt="Rhythm Change Metronome metronome screen">
+
+                        <p class="screenshot-caption">
+                            Metronome screen
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Features
+             ========================= -->
+
+        <section id="features"
+            class="section">
+
+            <div class="container">
+
+                <h2 class="section-title"
+                    data-lang="ja">
+                    主な機能
+                </h2>
+
+                <h2 class="section-title"
+                    data-lang="en">
+                    Main Features
+                </h2>
+
+
+                <p class="section-intro"
+                    data-lang="ja">
+
+                    通常のメトロノームとしての使いやすさを
+                    保ちながら、さまざまな練習方法に
+                    対応できる機能を用意しています。
+
+                </p>
+
+
+                <p class="section-intro"
+                    data-lang="en">
+
+                    The app keeps the simplicity of a
+                    traditional metronome while providing
+                    additional tools for different practice styles.
+
+                </p>
+
+
+                <div class="feature-grid"
+                    style="margin-top:24px;">
+
+
+                    <article class="feature-card card">
+
+                        <div class="feature-number">
+                            1
+                        </div>
+
+                        <h3 data-lang="ja">
+                            正確なテンポ再生
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Precise Tempo Playback
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            WAV音源を利用した低遅延の
+                            オーディオ再生により、
+                            楽器練習でテンポを確認するための
+                            安定したクリック音を提供します。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            The app uses WAV-based audio
+                            playback to provide stable,
+                            low-latency click sounds for practice.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card card">
+
+                        <div class="feature-number">
+                            2
+                        </div>
+
+                        <h3 data-lang="ja">
+                            テンポ変化トレーニング
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Tempo Change Training
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            一定のテンポだけでなく、
+                            スピードを変化させながら
+                            演奏する練習にも利用できます。
+
+                            テンポ変化への対応力を
+                            身につけたい場合に便利です。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Practice with changing tempos
+                            instead of staying at one fixed BPM.
+                            This can help develop the ability
+                            to adapt to tempo changes.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card card">
+
+                        <div class="feature-number">
+                            3
+                        </div>
+
+                        <h3 data-lang="ja">
+                            ポリリズム・3連符
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Polyrhythms & Triplets
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            ポリリズム、3連符、
+                            サブディビジョンなど、
+                            基本的な4分音符以外の
+                            リズム練習にも対応しています。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Practice polyrhythms, triplets
+                            and subdivisions for more
+                            advanced rhythm exercises.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card card">
+
+                        <div class="feature-number">
+                            4
+                        </div>
+
+                        <h3 data-lang="ja">
+                            最大250 BPM
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Up to 250 BPM
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            最大250 BPMまで設定できるため、
+                            高速フレーズやスピード練習にも
+                            利用できます。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Tempo can be set up to 250 BPM,
+                            making the app suitable for
+                            fast-paced practice.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card card">
+
+                        <div class="feature-number">
+                            5
+                        </div>
+
+                        <h3 data-lang="ja">
+                            サウンド切り替え
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Sound Options
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            標準的なクリック音だけでなく、
+                            ドラム系のサウンドも選択できます。
+
+                            練習する楽器や好みに合わせて
+                            音を変更できます。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Choose between standard click sounds
+                            and drum-style sounds according
+                            to your practice and preference.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card card">
+
+                        <div class="feature-number">
+                            6
+                        </div>
+
+                        <h3 data-lang="ja">
+                            シンプルな操作画面
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Simple Interface
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            練習中に迷わず操作できるよう、
+                            必要な機能を分かりやすく配置しています。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Controls are arranged to keep
+                            the interface easy to understand
+                            while practicing.
+
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             How to use
+             ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <h2 class="section-title"
+                    data-lang="ja">
+                    基本的な使い方
+                </h2>
+
+                <h2 class="section-title"
+                    data-lang="en">
+                    How to Use
+                </h2>
+
+
+                <div class="steps">
+
+
+                    <article class="step">
+
+                        <h3 data-lang="ja">
+                            1. BPMを設定する
+                        </h3>
+
+                        <h3 data-lang="en">
+                            1. Set the BPM
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            練習したい曲やフレーズに
+                            合わせてテンポを設定します。
+                            最初は無理のない速度から
+                            始めるのがおすすめです。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Set a tempo that matches
+                            the piece or phrase you want
+                            to practice.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="step">
+
+                        <h3 data-lang="ja">
+                            2. メトロノームを鳴らす
+                        </h3>
+
+                        <h3 data-lang="en">
+                            2. Start the Metronome
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            クリック音を聞きながら、
+                            音符やフレーズをテンポに
+                            合わせて演奏します。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Play your instrument while
+                            listening to the click and
+                            keeping your performance in time.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="step">
+
+                        <h3 data-lang="ja">
+                            3. 少しずつ練習方法を変える
+                        </h3>
+
+                        <h3 data-lang="en">
+                            3. Increase the Challenge
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            慣れてきたらテンポを上げたり、
+                            3連符やポリリズム、
+                            テンポ変化などを取り入れて、
+                            徐々に練習の難易度を上げられます。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Once comfortable,
+                            increase the tempo or try
+                            triplets, polyrhythms and
+                            tempo changes.
+
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Recommended
+             ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <h2 class="section-title"
+                    data-lang="ja">
+                    こんな方におすすめ
+                </h2>
+
+                <h2 class="section-title"
+                    data-lang="en">
+                    Who Is It For?
+                </h2>
+
+
+                <div class="recommend-grid">
+
+
+                    <article class="recommend-card">
+
+                        <h3 data-lang="ja">
+                            🎸 楽器を練習している方
+                        </h3>
+
+                        <h3 data-lang="en">
+                            🎸 Instrument Players
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            ギター、ベース、ピアノ、
+                            ドラムなど、テンポを意識して
+                            練習したい方に適しています。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Useful for guitar, bass,
+                            piano, drums and other
+                            instruments where timing matters.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="recommend-card">
+
+                        <h3 data-lang="ja">
+                            🥁 リズムを鍛えたい方
+                        </h3>
+
+                        <h3 data-lang="en">
+                            🥁 Rhythm Practice
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            クリックに合わせて演奏するだけでなく、
+                            3連符やポリリズムなど、
+                            より複雑なリズムにも挑戦できます。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Practice basic timing as well as
+                            more complex rhythms such as
+                            triplets and polyrhythms.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="recommend-card">
+
+                        <h3 data-lang="ja">
+                            🎵 テンポ感を身につけたい方
+                        </h3>
+
+                        <h3 data-lang="en">
+                            🎵 Tempo Training
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            一定のテンポを維持する練習や、
+                            徐々にテンポを変える練習を
+                            日々のトレーニングに取り入れたい方に
+                            おすすめです。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Suitable for musicians who want
+                            to develop steady timing and
+                            practice changing tempos.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="recommend-card">
+
+                        <h3 data-lang="ja">
+                            🎧 シンプルな操作を好む方
+                        </h3>
+
+                        <h3 data-lang="en">
+                            🎧 Simple Tool Users
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            複雑な音楽制作機能ではなく、
+                            練習に必要なメトロノーム機能を
+                            手軽に使いたい方に向いています。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            A good choice if you want
+                            practical metronome tools
+                            without unnecessary complexity.
+
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FAQ
+             ========================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <h2 class="section-title"
+                    data-lang="ja">
+                    よくある質問
+                </h2>
+
+                <h2 class="section-title"
+                    data-lang="en">
+                    Frequently Asked Questions
+                </h2>
+
+
+                <div class="faq">
+
+
+                    <article class="faq-item">
+
+                        <h3 data-lang="ja">
+                            Q. 無料で利用できますか？
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Q. Is the app free?
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                           はい。Rhythm Change Metronomeは無料で利用できます。
+                           テンポ設定やリズムパターンなど、基本的なメトロノーム機能を
+                           サブスクリプション料金なしで利用できます。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Yes. Rhythm Change Metronome is available to use for free.
+                            You can use the core metronome features, including tempo control,
+                            rhythm patterns, and practice functions, without paying a subscription fee.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="faq-item">
+
+                        <h3 data-lang="ja">
+                            Q. どのような楽器の練習に使えますか？
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Q. Which instruments can I practice with?
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            特定の楽器に限定されません。
+                            ギター、ベース、ピアノ、ドラム、
+                            管楽器など、テンポやリズムを
+                            意識するさまざまな楽器の練習に利用できます。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            The app is not limited to a specific
+                            instrument. It can be used for guitar,
+                            bass, piano, drums, wind instruments
+                            and many other types of practice.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="faq-item">
+
+                        <h3 data-lang="ja">
+                            Q. BPMはどこまで設定できますか？
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Q. What is the supported BPM range?
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            最大250 BPMまで対応しています。
+                            実際の練習では、演奏する内容に合わせて
+                            無理のないテンポから始めることをおすすめします。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            The app supports tempos up to 250 BPM.
+                            For practice, starting at a comfortable
+                            tempo is generally recommended.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="faq-item">
+
+                        <h3 data-lang="ja">
+                            Q. 普通のメトロノームとして使えますか？
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Q. Can I use it as a standard metronome?
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            はい。基本的なテンポ練習に加えて、
+                            テンポ変化や複雑なリズムの練習にも
+                            利用できるよう設計されています。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Yes. It can be used for basic tempo practice
+                            as well as exercises involving tempo changes
+                            and more complex rhythms.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="faq-item">
+
+                        <h3 data-lang="ja">
+                            Q. アプリの対応言語は何ですか？
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Q. Which languages are supported?
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            日本語と英語に対応しています。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            The app supports Japanese and English.
+
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Final CTA
+             ========================= -->
+
+        <section class="section">
+
+            <div class="container final-cta">
+
+                <h2 data-lang="ja">
+                    毎日の練習にメトロノームを
+                </h2>
+
+                <h2 data-lang="en">
+                    Add a Metronome to Your Practice
+                </h2>
+
+
+                <p data-lang="ja">
+
+                    基本的なテンポ練習から、
+                    3連符、ポリリズム、テンポ変化まで。
+                    自分のレベルに合わせたリズム練習を
+                    日々の演奏に取り入れてみてください。
+
+                </p>
+
+
+                <p data-lang="en">
+
+                    From basic tempo practice to triplets,
+                    polyrhythms and tempo changes,
+                    use the app to add structured rhythm
+                    practice to your everyday routine.
+
+                </p>
+
+
+                <a class="btn download-link"
+                    target="_blank"
+                    rel="noopener"
+                    href="https://apps.apple.com/jp/app/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%83%A1%E3%83%88%E3%83%AD%E3%83%8E%E3%83%BC%E3%83%A0/id6754532327">
+
+                    <span data-lang="ja">
+                        App Storeでアプリを見る
+                    </span>
+
+                    <span data-lang="en">
+                        View on the App Store
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Keywords
+             ========================= -->
+
+        <section class="section">
+
+            <div class="container card keywords">
+
+                <h2 data-lang="ja">
+                    関連キーワード
+                </h2>
+
+                <h2 data-lang="en">
+                    Related Topics
+                </h2>
+
+
+                <p data-lang="ja">
+
+                    メトロノーム、音楽練習、リズム練習、
+                    BPM、テンポ、ポリリズム、3連符、
+                    サブディビジョン、楽器練習、
+                    ドラム、ギター、ピアノ、ベース、
+                    リズムトレーニング
+
+                </p>
+
+
+                <p data-lang="en">
+
+                    Metronome, music practice, rhythm practice,
+                    BPM, tempo, polyrhythm, triplets,
+                    subdivision, instrument practice,
+                    drums, guitar, piano, bass
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         Footer
+         ========================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © <span id="current-year"></span>
+                Rhythm Change Metronome
+            </p>
+
+
+            <p data-lang="ja">
+
+                シンプルメトロノームは、
+                個人開発のiOSアプリです。
+
+            </p>
+
+
+            <p data-lang="en">
+
+                Rhythm Change Metronome is an
+                independently developed iOS application.
+
+            </p>
+
+
+            <p>
+
+                <a href="../../index.html">
+
+                    <span data-lang="ja"
+                        class="inline-lang">
+                        ホーム
+                    </span>
+
+                    <span data-lang="en"
+                        class="inline-lang">
+                        Home
+                    </span>
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JavaScript
+         ========================= -->
+
+    <script>
+
+        function setLanguage(lang) {
+
+            if (lang !== "ja" && lang !== "en") {
+                lang = "ja";
+            }
+
+
+            /*
+             * Preserve body classes.
+             */
+
+            document.body.classList.remove(
+                "lang-ja",
+                "lang-en"
+            );
+
+            document.body.classList.add(
+                "lang-" + lang
+            );
+
+
+            /*
+             * Update HTML language.
+             */
+
+            document.documentElement.lang = lang;
+
+
+            /*
+             * Update language buttons.
+             */
+
+            document
+                .querySelectorAll("[data-set-lang]")
+                .forEach(function (button) {
+
+                    const active =
+                        button.dataset.setLang === lang;
+
+                    button.classList.toggle(
+                        "active",
+                        active
+                    );
+
+                    button.setAttribute(
+                        "aria-pressed",
+                        active ? "true" : "false"
+                    );
+
+                });
+
+
+            /*
+             * Update title.
+             */
+
+            if (lang === "ja") {
+
+                document.title =
+                    "シンプルメトロノーム | リズム・テンポ練習をサポートするメトロノームアプリ";
+
+            } else {
+
+                document.title =
+                    "Rhythm Change Metronome | Metronome for Music Practice";
+
+            }
+
+
+            /*
+             * Update description.
+             */
+
+            const description =
+                document.querySelector(
+                    'meta[name="description"]'
+                );
+
+
+            if (description) {
+
+                description.setAttribute(
+                    "content",
+                    lang === "ja"
+                        ? "シンプルメトロノームは、BPM設定、テンポ変化、ポリリズム、3連符、サブディビジョンなどの練習に対応したiOSメトロノームアプリです。楽器練習やリズムトレーニングをシンプルな操作でサポートします。"
+                        : "Rhythm Change Metronome is an iOS metronome app for music practice, supporting BPM settings, tempo changes, polyrhythms, triplets and subdivisions."
+                );
+
+            }
+
+
+            /*
+             * Update OG metadata.
+             */
+
+            const ogTitle =
+                document.querySelector(
+                    'meta[property="og:title"]'
+                );
+
+            const ogDescription =
+                document.querySelector(
+                    'meta[property="og:description"]'
+                );
+
+
+            if (ogTitle) {
+
+                ogTitle.setAttribute(
+                    "content",
+                    lang === "ja"
+                        ? "シンプルメトロノーム | リズム・テンポ練習をサポート"
+                        : "Rhythm Change Metronome | Metronome for Music Practice"
+                );
+
+            }
+
+
+            if (ogDescription) {
+
+                ogDescription.setAttribute(
+                    "content",
+                    lang === "ja"
+                        ? "BPM、テンポ変化、ポリリズム、3連符などの練習に対応したiOSメトロノームアプリ。"
+                        : "An iOS metronome app for BPM, tempo changes, polyrhythms, triplets and rhythm practice."
+                );
+
+            }
+
+
+            /*
+             * App Store URL.
+             */
+
+            document
+                .querySelectorAll(".download-link")
+                .forEach(function (link) {
+
+                    if (lang === "ja") {
+
+                        link.href =
+                            "https://apps.apple.com/jp/app/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%83%A1%E3%83%88%E3%83%8E%E3%83%BC%E3%83%A0/id6754532327";
+
+                    } else {
+
+                        link.href =
+                            "https://apps.apple.com/us/app/rhythm-change-metronome/id6754532327";
+
+                    }
+
+                });
+
+
+            /*
+             * Save preference.
+             */
+
+            localStorage.setItem(
+                "preferred-language",
+                lang
+            );
+
+        }
+
+
+        /*
+         * Language buttons
+         */
+
+        document
+            .querySelectorAll("[data-set-lang]")
+            .forEach(function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        setLanguage(
+                            button.dataset.setLang
+                        );
+
+                    }
+                );
+
+            });
+
+
+        /*
+         * Initial language
+         *
+         * Priority:
+         *
+         * 1. URL parameter
+         * 2. localStorage
+         * 3. Browser language
+         * 4. Japanese
+         */
+
+        (function () {
+
+            const params =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+
+            const urlLang =
+                params.get("lang");
+
+
+            if (
+                urlLang === "ja" ||
+                urlLang === "en"
+            ) {
+
+                setLanguage(urlLang);
+
+                return;
+
+            }
+
+
+            const savedLang =
+                localStorage.getItem(
+                    "preferred-language"
+                );
+
+
+            if (
+                savedLang === "ja" ||
+                savedLang === "en"
+            ) {
+
+                setLanguage(savedLang);
+
+                return;
+
+            }
+
+
+            const browserLang =
+                navigator.language ||
+                navigator.userLanguage ||
+                "ja";
+
+
+            setLanguage(
+                browserLang
+                    .toLowerCase()
+                    .startsWith("ja")
+                    ? "ja"
+                    : "en"
+            );
+
         })();
+
+
+        /*
+         * Current year
+         */
+
+        document.getElementById(
+            "current-year"
+        ).textContent =
+            new Date().getFullYear();
+
     </script>
+
 
 </body>
 

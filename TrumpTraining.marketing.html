@@ -6,13 +6,11 @@
 
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Trump Training | Fun Fitness Habit</title>
+  <title>Trump Training | Card-Based Workout for a Fun Fitness Habit</title>
+  <link rel="icon" type="image/png" href="favicon.png">
 
   <meta name="description"
-    content="Trump Training is a fitness app where your workout menu is decided by drawing cards. Enjoy squats, push-ups, abs, burpees and more with a fun random workout experience." />
-
-  <meta name="keywords"
-    content="Trump Training, card training, Gutch Training, Karl Gotch, fitness, workout, muscle training, wrestling, martial arts, squat, push-up, abs, burpee, bodyweight training" />
+    content="Learn how card-based workouts work, how to create simple bodyweight training routines, and how Trump Training turns random cards into a fun daily fitness habit." />
 
   <!-- Canonical -->
   <link rel="canonical"
@@ -42,10 +40,10 @@
   <meta property="og:site_name" content="Trump Training" />
 
   <meta property="og:title"
-    content="Trump Training | Fun Fitness Habit" />
+    content="Trump Training | Card-Based Workout for a Fun Fitness Habit" />
 
   <meta property="og:description"
-    content="A new workout starts every time you flip a card! Make exercise a habit with randomness and customization." />
+    content="Learn about card-based workouts and discover a simple way to make bodyweight exercise more varied and enjoyable." />
 
   <meta property="og:url"
     content="https://t-okb-dev.github.io/TrumpTraining.marketing.html" />
@@ -57,15 +55,15 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <meta name="twitter:title"
-    content="Trump Training | Fun Fitness Habit" />
+    content="Trump Training | Card-Based Workout for a Fun Fitness Habit" />
 
   <meta name="twitter:description"
-    content="A new workout starts every time you flip a card! Make exercise a habit with randomness and customization." />
+    content="A practical introduction to card-based workouts, bodyweight exercises and building a simple fitness habit." />
 
 
-  <!-- =========================
+  <!-- =====================================================
        Structured Data
-       ========================= -->
+       ===================================================== -->
 
   <script type="application/ld+json">
   {
@@ -73,15 +71,103 @@
     "@type": "MobileApplication",
     "name": "Trump Training",
     "operatingSystem": "iOS",
-    "applicationCategory": "https://schema.org/SportsApplication",
+    "applicationCategory": "SportsApplication",
+    "isAccessibleForFree": true,
     "offers": {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "JPY"
     },
-    "description": "A fitness app where the workout menu is decided by drawing cards. Includes squats, push-ups, abs and burpees, with customizable workout menus.",
+    "description": "A card-based fitness application that uses playing cards to create randomized bodyweight workout routines.",
     "url": "https://t-okb-dev.github.io/TrumpTraining.marketing.html",
     "downloadUrl": "https://apps.apple.com/jp/app/training-with-cards/id6751717549"
+  }
+  </script>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Start a Card-Based Workout",
+    "description": "A simple guide to using playing cards to create a randomized bodyweight workout.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Choose your exercises",
+        "text": "Choose several bodyweight exercises such as squats, push-ups, abdominal exercises and burpees."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Assign exercises to cards",
+        "text": "Assign one exercise or exercise category to each suit or card group."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Draw a card",
+        "text": "Draw a card and use the card value to determine the number of repetitions."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Perform the exercise",
+        "text": "Perform the selected exercise with controlled form and an appropriate number of repetitions."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Record your workout",
+        "text": "Keep a simple record of your completed sessions so that you can monitor your consistency."
+      }
+    ]
+  }
+  </script>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a card-based workout?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A card-based workout uses playing cards to randomly determine exercises, repetitions or workout combinations. The randomness can make a simple bodyweight routine more varied."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Trump Training suitable for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Beginners can start with a small number of exercises and adjust repetitions or exercise difficulty to their current fitness level."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I customize the exercises?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Trump Training allows users to customize the exercises used in the workout."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What exercises are included?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The default exercise selection includes squats, push-ups, abdominal exercises and burpees."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Trump Training free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Trump Training is available as a free iOS application."
+        }
+      }
+    ]
   }
   </script>
 
@@ -91,16 +177,23 @@
     :root {
       --bg: #0b0c10;
       --card: #121317;
+      --card-soft: #171a20;
       --text: #f4f6f8;
       --muted: #b9c2cc;
       --acc: #38bdf8;
       --chip: #1f232b;
       --ok: #22c55e;
+      --border: #1d222a;
     }
 
 
     * {
       box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
     }
 
 
@@ -120,7 +213,7 @@
         "Noto Sans JP",
         sans-serif;
 
-      line-height: 1.6;
+      line-height: 1.75;
     }
 
 
@@ -137,45 +230,159 @@
 
     .wrap {
       max-width: 1100px;
-
       margin: 0 auto;
-
       padding: 24px;
     }
 
 
-    /* =========================
+    /* =====================================================
+       Language Switching
+       ===================================================== */
+
+    [data-lang] {
+      display: none !important;
+    }
+
+
+    body.lang-en [data-lang="en"]:not(.inline-lang) {
+      display: block !important;
+    }
+
+
+    body.lang-ja [data-lang="ja"]:not(.inline-lang) {
+      display: block !important;
+    }
+
+
+    body.lang-en .inline-lang[data-lang="en"] {
+      display: inline !important;
+    }
+
+
+    body.lang-ja .inline-lang[data-lang="ja"] {
+      display: inline !important;
+    }
+
+
+    body.lang-en .inline-block-lang[data-lang="en"] {
+      display: inline-block !important;
+    }
+
+
+    body.lang-ja .inline-block-lang[data-lang="ja"] {
+      display: inline-block !important;
+    }
+
+
+    /* =====================================================
+       Navigation
+       ===================================================== */
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-top: 16px;
+      padding-bottom: 16px;
+
+      position: relative;
+      z-index: 10;
+    }
+
+
+    .lang-switch {
+      display: flex;
+      gap: 8px;
+    }
+
+
+    .back-home {
+      color: #fff;
+      text-decoration: none;
+
+      font-size: 0.9em;
+      opacity: 0.7;
+
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      transition: opacity 0.2s;
+    }
+
+
+    .back-home:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+
+    .lang-btn {
+      background: transparent;
+
+      border: 1px solid rgba(255,255,255,0.2);
+
+      color: #fff;
+
+      padding: 5px 10px;
+
+      cursor: pointer;
+
+      border-radius: 6px;
+
+      font-size: 0.9em;
+    }
+
+
+    .lang-btn.active {
+      background: rgba(255,255,255,0.2);
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
        Hero
-       ========================= */
+       ===================================================== */
 
     .hero {
       display: grid;
 
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1.15fr 0.85fr;
 
-      gap: 28px;
+      gap: 36px;
 
       align-items: center;
 
-      padding: 24px;
-
-      position: relative;
+      padding-top: 34px;
+      padding-bottom: 46px;
     }
 
 
     .hero h1 {
-      font-size: clamp(28px, 4.4vw, 44px);
+      font-size: clamp(30px, 4.5vw, 48px);
 
       line-height: 1.15;
 
-      margin: 0 0 12px;
+      margin: 0 0 18px;
     }
 
 
     .lead {
       color: var(--muted);
 
-      font-size: clamp(16px, 2.2vw, 18px);
+      font-size: clamp(16px, 2.2vw, 19px);
+
+      margin: 0;
+    }
+
+
+    .hero-note {
+      color: #8e99a8;
+
+      font-size: 13px;
+
+      margin-top: 14px;
     }
 
 
@@ -184,7 +391,7 @@
 
       gap: 12px;
 
-      margin-top: 18px;
+      margin-top: 22px;
 
       flex-wrap: wrap;
     }
@@ -211,6 +418,7 @@
 
     .btn:hover {
       text-decoration: none;
+      opacity: 0.92;
     }
 
 
@@ -226,17 +434,68 @@
     .card {
       background: var(--card);
 
-      border: 1px solid #1d222a;
+      border: 1px solid var(--border);
 
       border-radius: 16px;
 
-      padding: 20px;
+      padding: 24px;
+    }
+
+
+    .hero-image {
+      padding: 16px;
+    }
+
+
+    img.sshot {
+      display: block;
+
+      width: 100%;
+
+      height: auto;
+
+      border-radius: 14px;
+
+      border: 1px solid var(--border);
+
+      background: #0f1216;
+    }
+
+
+    /* =====================================================
+       General Sections
+       ===================================================== */
+
+    .section {
+      margin-top: 34px;
+    }
+
+
+    .section-intro {
+      color: var(--muted);
+
+      max-width: 800px;
+
+      margin-top: 0;
+    }
+
+
+    .section h2 {
+      line-height: 1.3;
+
+      margin-top: 0;
+
+      margin-bottom: 12px;
+    }
+
+
+    .section h3 {
+      line-height: 1.35;
     }
 
 
     .grid {
       display: grid;
-
       gap: 16px;
     }
 
@@ -247,11 +506,22 @@
     }
 
 
+    .grid.two {
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    }
+
+
+    .icon {
+      font-weight: 900;
+      color: var(--ok);
+      margin-right: 6px;
+    }
+
+
     .chiprow {
       display: flex;
-
       gap: 8px;
-
       flex-wrap: wrap;
     }
 
@@ -271,186 +541,141 @@
     }
 
 
-    .section {
-      margin-top: 28px;
+    .number {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 34px;
+      height: 34px;
+
+      border-radius: 50%;
+
+      background: var(--acc);
+
+      color: #001b2b;
+
+      font-weight: 800;
+
+      margin-bottom: 8px;
     }
 
 
-    .icon {
-      font-weight: 900;
-
-      color: var(--ok);
-
-      margin-right: 6px;
+    .muted {
+      color: var(--muted);
     }
 
 
-    img.sshot {
-      display: block;
+    .small {
+      font-size: 14px;
+    }
 
+
+    /* =====================================================
+       Table
+       ===================================================== */
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+
+    table {
       width: 100%;
 
-      height: auto;
+      border-collapse: collapse;
 
-      border-radius: 16px;
-
-      border: 1px solid #1d222a;
-
-      background: #0f1216;
+      margin-top: 12px;
     }
 
 
-    /* =========================
+    th,
+    td {
+      text-align: left;
+
+      padding: 12px;
+
+      border-bottom: 1px solid var(--border);
+
+      vertical-align: top;
+    }
+
+
+    th {
+      color: #fff;
+    }
+
+
+    td {
+      color: var(--muted);
+    }
+
+
+    /* =====================================================
+       FAQ
+       ===================================================== */
+
+    details {
+      background: var(--card-soft);
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+
+      padding: 14px 16px;
+
+      margin-top: 10px;
+    }
+
+
+    summary {
+      cursor: pointer;
+
+      font-weight: 700;
+    }
+
+
+    details p {
+      color: var(--muted);
+
+      margin-bottom: 0;
+    }
+
+
+    /* =====================================================
+       Notice
+       ===================================================== */
+
+    .notice {
+      background: #141820;
+
+      border-left: 4px solid var(--acc);
+
+      padding: 16px 18px;
+
+      border-radius: 8px;
+    }
+
+
+    /* =====================================================
        Footer
-       ========================= */
+       ===================================================== */
 
     footer {
       color: #8e99a8;
 
       font-size: 13px;
 
-      padding: 28px 0;
+      padding: 42px 0;
 
       text-align: center;
     }
 
 
-    /* =========================
-       Language Switching
-       ========================= */
-
-    /*
-     * IMPORTANT:
-     * Hide every language-specific element by default.
-     *
-     * This prevents Japanese and English from being
-     * displayed simultaneously before JavaScript runs.
-     */
-
-    [data-lang] {
-      display: none !important;
-    }
-
-
-    /*
-     * Block elements
-     */
-
-    body.lang-en [data-lang="en"]:not(.inline-lang) {
-      display: block !important;
-    }
-
-
-    body.lang-ja [data-lang="ja"]:not(.inline-lang) {
-      display: block !important;
-    }
-
-
-    /*
-     * Inline elements
-     */
-
-    body.lang-en .inline-lang[data-lang="en"] {
-      display: inline !important;
-    }
-
-
-    body.lang-ja .inline-lang[data-lang="ja"] {
-      display: inline !important;
-    }
-
-
-    /*
-     * Inline-block elements
-     */
-
-    body.lang-en .inline-block-lang[data-lang="en"] {
-      display: inline-block !important;
-    }
-
-
-    body.lang-ja .inline-block-lang[data-lang="ja"] {
-      display: inline-block !important;
-    }
-
-
-    /* =========================
-       Navigation
-       ========================= */
-
-    .top-nav {
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      padding: 16px 24px;
-
-      position: relative;
-
-      z-index: 10;
-    }
-
-
-    .lang-switch {
-      display: flex;
-
-      gap: 8px;
-    }
-
-
-    .back-home {
-      color: #fff;
-
-      text-decoration: none;
-
-      font-size: 0.9em;
-
-      opacity: 0.7;
-
-      transition: opacity 0.2s;
-
-      display: flex;
-
-      align-items: center;
-    }
-
-
-    .back-home:hover {
-      opacity: 1;
-
-      text-decoration: none;
-    }
-
-
-    .lang-btn {
-      background: transparent;
-
-      border: 1px solid rgba(255, 255, 255, 0.2);
-
-      color: #fff;
-
-      padding: 5px 10px;
-
-      cursor: pointer;
-
-      border-radius: 3px;
-
-      font-size: 0.9em;
-    }
-
-
-    .lang-btn.active {
-      background: rgba(255, 255, 255, 0.2);
-
-      font-weight: bold;
-    }
-
-
-    /* =========================
+    /* =====================================================
        Responsive
-       ========================= */
+       ===================================================== */
 
     @media (max-width: 900px) {
 
@@ -458,13 +683,36 @@
         grid-template-columns: 1fr;
       }
 
+      .grid.features,
+      .grid.two {
+        grid-template-columns: 1fr 1fr;
+      }
+
     }
 
 
     @media (max-width: 680px) {
 
-      .grid.features {
+      .wrap {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+
+      .hero {
+        padding-top: 22px;
+        padding-bottom: 30px;
+      }
+
+
+      .grid.features,
+      .grid.two {
         grid-template-columns: 1fr;
+      }
+
+
+      .card {
+        padding: 20px;
       }
 
     }
@@ -476,9 +724,9 @@
 <body class="lang-en">
 
 
-  <!-- =========================
+  <!-- =====================================================
        Navigation
-       ========================= -->
+       ===================================================== -->
 
   <nav class="top-nav wrap">
 
@@ -525,46 +773,53 @@
   </nav>
 
 
-  <!-- =========================
+  <!-- =====================================================
        Hero
-       ========================= -->
+       ===================================================== -->
 
   <header class="wrap hero">
 
-    <div style="padding-top: 0;">
+    <div>
 
       <h1 data-lang="en">
-
         Trump Training<br>
-        — New sensation fitness to keep you going
-
+        A Different Way to Make Exercise a Habit
       </h1>
 
 
       <h1 data-lang="ja">
-
         トランプでトレーニング<br>
-        — 楽しく続けられる新感覚フィットネス
-
+        運動を楽しく続ける、ちょっと違う方法
       </h1>
 
 
       <p class="lead" data-lang="en">
 
-        A new workout starts every time you flip a card!<br>
-        Squats, Push-ups, Abs, Burpees as the base.
-        Customize freely.<br>
-        Make daily exercise a habit like a game.
+        What if you did not have to decide your workout
+        before every training session?
+
+        Trump Training uses playing cards to create
+        a simple and unpredictable bodyweight workout.
+
+        Draw a card, perform the exercise,
+        and keep moving.
 
       </p>
 
 
       <p class="lead" data-lang="ja">
 
-        カードをめくるたびに新しいトレーニングが始まる！<br>
-        スクワット、プッシュアップ、腹筋、バーピーをベースに、
-        自由にカスタマイズして楽しめます。<br>
-        遊び感覚で、毎日の運動を習慣化しましょう。
+        毎回トレーニングを始める前に、
+        「今日は何をしよう？」と考える必要がなかったら？
+
+        「トランプでトレーニング」は、
+        トランプのカードを使って
+        シンプルな自重トレーニングを組み立てるアプリです。
+
+        カードを引いて、運動する。
+
+        そのシンプルな仕組みで、
+        毎日の運動を少し楽しくします。
 
       </p>
 
@@ -578,7 +833,7 @@
           rel="noopener"
           data-lang="en">
 
-          Get on App Store
+          Get on the App Store
 
         </a>
 
@@ -597,20 +852,20 @@
 
         <a
           class="btn ghost"
-          href="#details"
+          href="#how-it-works"
           data-lang="en">
 
-          See Features
+          How It Works
 
         </a>
 
 
         <a
           class="btn ghost"
-          href="#details"
+          href="#how-it-works"
           data-lang="ja">
 
-          機能を見る
+          使い方を見る
 
         </a>
 
@@ -619,55 +874,70 @@
 
       <div
         class="chiprow"
-        style="margin-top:12px">
-
+        style="margin-top:14px">
 
         <span class="chip" data-lang="en">
-          Free
+          Free iOS App
         </span>
 
         <span class="chip" data-lang="ja">
-          無料
+          無料iOSアプリ
         </span>
 
 
         <span class="chip" data-lang="en">
-          Random Menu
+          Bodyweight Training
         </span>
 
         <span class="chip" data-lang="ja">
-          ランダムメニュー
+          自重トレーニング
         </span>
 
 
         <span class="chip" data-lang="en">
-          JP / EN Support
+          Customizable
+        </span>
+
+        <span class="chip" data-lang="ja">
+          カスタマイズ可能
+        </span>
+
+
+        <span class="chip" data-lang="en">
+          Japanese / English
         </span>
 
         <span class="chip" data-lang="ja">
           日本語 / 英語対応
         </span>
 
-
-        <span class="chip" data-lang="en">
-          Calendar History
-        </span>
-
-        <span class="chip" data-lang="ja">
-          カレンダー履歴
-        </span>
-
       </div>
+
+
+      <p class="hero-note" data-lang="en">
+
+        Designed for people who want a simple way
+        to add movement to their daily routine.
+
+      </p>
+
+
+      <p class="hero-note" data-lang="ja">
+
+        毎日の生活に、無理なく運動を取り入れたい人のための
+        シンプルなトレーニングアプリです。
+
+      </p>
 
     </div>
 
 
-    <div class="card">
+    <div class="card hero-image">
 
       <img
         class="sshot"
         src="images/trump-training01.jpg"
-        alt="Trump Training app screenshot"
+        alt="Trump Training iOS app workout screen"
         width="800"
         height="1200"
         fetchpriority="high" />
@@ -680,166 +950,150 @@
   <main class="wrap">
 
 
-    <!-- =========================
-         Features
-         ========================= -->
+    <!-- =====================================================
+         Introduction
+         ===================================================== -->
 
-    <section
-      id="details"
-      class="section grid features">
+    <section class="section card">
 
+      <h2 data-lang="en">
+        What Is a Card-Based Workout?
+      </h2>
 
-      <div class="card">
-
-        <h3 data-lang="en">
-          Decided by Cards
-        </h3>
-
-        <h3 data-lang="ja">
-          カードで決まるトレーニング
-        </h3>
+      <h2 data-lang="ja">
+        カードを使ったトレーニングとは？
+      </h2>
 
 
-        <p data-lang="en">
-          <span class="icon">●</span>
-          Exercise and reps are decided by drawing cards.
-          Never get bored.
-        </p>
+      <p data-lang="en">
 
-        <p data-lang="ja">
-          <span class="icon">●</span>
-          トランプを引くだけで回数と種目が決まる。
-          毎回違うメニューで飽きない！
-        </p>
+        A card-based workout is a simple training method
+        that uses playing cards to introduce randomness
+        into a workout routine.
 
-      </div>
+        Instead of deciding every exercise and repetition
+        in advance, the cards can determine what you do next.
 
+        For example, different suits can represent different
+        exercises, while the card value can represent the
+        number of repetitions.
 
-      <div class="card">
-
-        <h3 data-lang="en">
-          Fully Customizable
-        </h3>
-
-        <h3 data-lang="ja">
-          カスタマイズ自由
-        </h3>
+      </p>
 
 
-        <p data-lang="en">
-          <span class="icon">●</span>
-          Default exercises include Squats, Push-ups,
-          Abs and Burpees. Replace them with your favorites.
-        </p>
+      <p data-lang="ja">
 
-        <p data-lang="ja">
-          <span class="icon">●</span>
-          デフォルトはスクワット・プッシュアップ・腹筋・
-          バーピー。自分の好きな運動に置き換え可能。
-        </p>
+        カードを使ったトレーニングは、
+        トランプなどのカードを利用して、
+        トレーニングメニューにランダム性を取り入れる方法です。
 
-      </div>
+        あらかじめすべての種目や回数を決めておくのではなく、
+        カードを引くことで次に行う運動を決めていきます。
 
+        例えば、カードのマークごとに種目を割り当て、
+        カードの数字を回数として利用することができます。
 
-      <div class="card">
-
-        <h3 data-lang="en">
-          Calendar History
-        </h3>
-
-        <h3 data-lang="ja">
-          履歴をカレンダーで管理
-        </h3>
+      </p>
 
 
-        <p data-lang="en">
-          <span class="icon">●</span>
-          Check past workouts on the calendar.
-          Great for motivation.
-        </p>
+      <p data-lang="en">
 
-        <p data-lang="ja">
-          <span class="icon">●</span>
-          過去のトレーニングをカレンダーで確認。
-          モチベーション維持に最適。
-        </p>
+        This approach can be useful when a person wants
+        a workout that feels less repetitive.
 
-      </div>
+        It does not require complicated equipment,
+        and a basic routine can be performed with
+        bodyweight exercises.
+
+      </p>
 
 
-      <div class="card">
+      <p data-lang="ja">
 
-        <h3 data-lang="en">
-          Multilingual
-        </h3>
+        この方法の特徴は、
+        毎回同じ順番で運動するのではなく、
+        カードによって内容が変化することです。
 
-        <h3 data-lang="ja">
-          多言語対応
-        </h3>
+        特別な器具を必要とせず、
+        スクワットやプッシュアップなどの
+        自重運動を組み合わせることもできます。
 
+      </p>
 
-        <p data-lang="en">
-          <span class="icon">●</span>
-          Supports Japanese and English.
-          Enjoy the same rules worldwide.
-        </p>
-
-        <p data-lang="ja">
-          <span class="icon">●</span>
-          日本語／英語に対応。
-          誰でも世界中で同じルールで楽しめます。
-        </p>
-
-      </div>
+    </section>
 
 
-      <div class="card">
+    <!-- =====================================================
+         Historical / Concept
+         ===================================================== -->
 
-        <h3 data-lang="en">
-          Simple UI
-        </h3>
+    <section class="section card">
 
-        <h3 data-lang="ja">
-          シンプルUI
-        </h3>
+      <h2 data-lang="en">
+        Card Training and the Gotch-Style Training Tradition
+      </h2>
 
-
-        <p data-lang="en">
-          <span class="icon">●</span>
-          Lightweight design without clutter.
-          Workout like a game.
-        </p>
-
-        <p data-lang="ja">
-          <span class="icon">●</span>
-          余計な機能を省いた軽快設計。
-          ゲーム感覚でサクサク運動できます。
-        </p>
-
-      </div>
+      <h2 data-lang="ja">
+        カードトレーニングとゴッチ式トレーニング
+      </h2>
 
 
-      <div class="card">
+      <p data-lang="en">
 
-        <h3 data-lang="en">
-          Recommended For
-        </h3>
+        Trump Training was inspired by the idea of using
+        playing cards as a simple way to organize exercise.
 
-        <h3 data-lang="ja">
-          おすすめの方
-        </h3>
+        The concept is also associated with the training
+        tradition surrounding professional wrestler and
+        wrestling trainer Karl Gotch.
 
+        Different athletes and training communities have
+        used variations of card-based conditioning over time,
+        so the exact rules can differ.
+
+      </p>
+
+
+      <p data-lang="ja">
+
+        「トランプでトレーニング」は、
+        トランプを使って運動内容を決めるという
+        シンプルなアイデアから着想を得て開発しています。
+
+        また、このようなトランプを利用したトレーニングは、
+        プロレスラー・トレーナーとして知られる
+        カール・ゴッチに関連する
+        「ゴッチ式トレーニング」の文脈でも知られています。
+
+        ただし、実際のトレーニング方法やルールには
+        様々なバリエーションがあります。
+
+      </p>
+
+
+      <div class="notice">
 
         <p data-lang="en">
-          <span class="icon">●</span>
-          Fighting fans / Muscle lovers /
-          Fun habit seekers / Gamers.
+
+          <strong>About the historical reference:</strong><br>
+          Trump Training is an independently developed app
+          inspired by the general concept of card-based training.
+          It is not an official Karl Gotch product and is not
+          affiliated with Karl Gotch, his estate, or any wrestling organization.
+
         </p>
 
+
         <p data-lang="ja">
-          <span class="icon">●</span>
-          格闘技ファン／筋トレ好き／
-          楽しく習慣化したい人／ゲーム感覚で運動したい人。
+
+          <strong>歴史的な名称について：</strong><br>
+          「トランプでトレーニング」は、
+          カードを利用したトレーニングという考え方から
+          独自に開発したアプリです。
+
+          カール・ゴッチ本人、関係者、団体などの
+          公式製品・公式サービスではありません。
+
         </p>
 
       </div>
@@ -847,58 +1101,1661 @@
     </section>
 
 
-    <!-- =========================
-         About App
-         ========================= -->
+    <!-- =====================================================
+         How It Works
+         ===================================================== -->
+
+    <section
+      id="how-it-works"
+      class="section">
+
+      <h2 data-lang="en">
+        How Card-Based Training Works
+      </h2>
+
+      <h2 data-lang="ja">
+        カードトレーニングの基本的な流れ
+      </h2>
+
+
+      <p
+        class="section-intro"
+        data-lang="en">
+
+        The basic idea is simple.
+        You decide the exercises first,
+        then let the cards decide the order or amount.
+
+      </p>
+
+
+      <p
+        class="section-intro"
+        data-lang="ja">
+
+        基本的な考え方はシンプルです。
+        最初に運動の種類を決め、
+        その後の内容をカードによって決めていきます。
+
+      </p>
+
+
+      <div class="grid features">
+
+
+        <div class="card">
+
+          <span class="number">
+            1
+          </span>
+
+          <h3 data-lang="en">
+            Choose Exercises
+          </h3>
+
+          <h3 data-lang="ja">
+            種目を決める
+          </h3>
+
+
+          <p data-lang="en">
+
+            Start with simple exercises such as
+            squats, push-ups, abdominal exercises
+            and burpees.
+
+          </p>
+
+
+          <p data-lang="ja">
+
+            スクワット、プッシュアップ、
+            腹筋、バーピーなど、
+            自分ができる運動を選びます。
+
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <span class="number">
+            2
+          </span>
+
+          <h3 data-lang="en">
+            Draw a Card
+          </h3>
+
+          <h3 data-lang="ja">
+            カードを引く
+          </h3>
+
+
+          <p data-lang="en">
+
+            Draw a card and let the card
+            determine the next part of your workout.
+
+          </p>
+
+
+          <p data-lang="ja">
+
+            カードを引いて、
+            次に行うトレーニング内容を決めます。
+
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <span class="number">
+            3
+          </span>
+
+          <h3 data-lang="en">
+            Perform the Exercise
+          </h3>
+
+          <h3 data-lang="ja">
+            トレーニングする
+          </h3>
+
+
+          <p data-lang="en">
+
+            Perform the selected exercise
+            using a level of difficulty appropriate
+            for your current fitness level.
+
+          </p>
+
+
+          <p data-lang="ja">
+
+            その日に決まった運動を、
+            自分の体力に合った強度で行います。
+
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <span class="number">
+            4
+          </span>
+
+          <h3 data-lang="en">
+            Draw Again
+          </h3>
+
+          <h3 data-lang="ja">
+            もう一度カードを引く
+          </h3>
+
+
+          <p data-lang="en">
+
+            Continue drawing cards until
+            you reach the amount of training
+            you planned for the session.
+
+          </p>
+
+
+          <p data-lang="ja">
+
+            自分で決めた時間や回数を目安に、
+            カードを引きながらトレーニングを続けます。
+
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <span class="number">
+            5
+          </span>
+
+          <h3 data-lang="en">
+            Record Your Session
+          </h3>
+
+          <h3 data-lang="ja">
+            記録する
+          </h3>
+
+
+          <p data-lang="en">
+
+            Keeping track of completed sessions
+            can make your progress easier to see.
+
+          </p>
+
+
+          <p data-lang="ja">
+
+            トレーニングした日を記録しておくと、
+            継続できているかを振り返りやすくなります。
+
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <span class="number">
+            6
+          </span>
+
+          <h3 data-lang="en">
+            Adjust as Needed
+          </h3>
+
+          <h3 data-lang="ja">
+            自分に合わせて調整する
+          </h3>
+
+
+          <p data-lang="en">
+
+            Reduce repetitions, change exercises
+            or stop when necessary.
+            The goal is consistent, sustainable exercise.
+
+          </p>
+
+
+          <p data-lang="ja">
+
+            回数を減らしたり、
+            種目を変更したり、
+            必要に応じて休憩してください。
+
+            無理なく継続できることを重視します。
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         Why Randomness
+         ===================================================== -->
 
     <section class="section card">
 
       <h2 data-lang="en">
-        About App
+        Why Add Randomness to a Workout?
       </h2>
 
       <h2 data-lang="ja">
-        アプリ紹介
+        なぜトレーニングにランダム性を取り入れるのか？
       </h2>
 
 
       <p data-lang="en">
 
-        "Trump Training" is a new fitness app where
-        the menu for the day is decided just by flipping a card.
-        Squats, Push-ups, Abs and Burpees are included by default.
-        You can customize the exercises to your liking.
-        Calendar history helps you keep track of your workouts
-        and stay motivated.
+        A structured training program is useful,
+        but not everyone enjoys following the same routine
+        every day.
+
+        Random selection creates a small element of surprise.
+        You may know the exercises available,
+        but you do not necessarily know which one will come next.
 
       </p>
 
 
       <p data-lang="ja">
 
-        「トランプでトレーニング」は、伝説のプロレスラー、
-        カールゴッチが提唱した「ゴッチ式トレーニング
-        （トランプトレーニング）」をスマートフォンで
-        手軽に実践できる新感覚フィットネスアプリです。
+        計画的なトレーニングには大きなメリットがありますが、
+        毎回同じメニューを繰り返すことが
+        苦手な人もいます。
 
-        カードをめくるだけでその日のメニューが決まるため、
-        飽きずに続けられます。
+        ランダム方式では、
+        「次に何が出るか分からない」という
+        小さな変化を取り入れることができます。
 
-        デフォルトでスクワット・プッシュアップ・腹筋・
-        バーピーを収録し、自分好みにアレンジも可能。
-
-        カレンダー履歴でモチベーションを維持し、
-        強靭な体を目指しましょう。
-
-        格闘技ファンから筋トレ初心者まで幅広くおすすめです。
+        使用する種目は分かっていても、
+        次にどの種目が出るかはカードを引くまで分かりません。
 
       </p>
 
 
-      <div
-        class="cta"
-        style="margin-top:6px">
+      <div class="grid two">
 
+        <div>
+
+          <h3 data-lang="en">
+            Less Decision-Making
+          </h3>
+
+          <h3 data-lang="ja">
+            「何をするか」を考える時間を減らす
+          </h3>
+
+
+          <p class="muted" data-lang="en">
+
+            One reason people skip exercise is that
+            starting can feel like work itself.
+
+            A card provides a simple next step.
+
+          </p>
+
+
+          <p class="muted" data-lang="ja">
+
+            運動を始める前に、
+            「今日は何をしよう？」と考えること自体が
+            面倒になる場合があります。
+
+            カードを使えば、
+            次にやることをシンプルに決められます。
+
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 data-lang="en">
+            A Small Element of Play
+          </h3>
+
+          <h3 data-lang="ja">
+            遊びの要素を取り入れる
+          </h3>
+
+
+          <p class="muted" data-lang="en">
+
+            Drawing a card introduces an element
+            that feels different from a conventional
+            fixed workout list.
+
+          </p>
+
+
+          <p class="muted" data-lang="ja">
+
+            カードを引くという行為によって、
+            一般的な固定メニューとは少し違った
+            「遊び」の要素を取り入れられます。
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         Exercise Examples
+         ===================================================== -->
+
+    <section class="section card">
+
+      <h2 data-lang="en">
+        Example Bodyweight Exercises
+      </h2>
+
+      <h2 data-lang="ja">
+        カードトレーニングに使える自重運動
+      </h2>
+
+
+      <p class="section-intro" data-lang="en">
+
+        You do not need a gym or complicated equipment
+        to create a simple card-based workout.
+        Here are examples of exercises that can be adapted
+        to different fitness levels.
+
+      </p>
+
+
+      <p class="section-intro" data-lang="ja">
+
+        シンプルなカードトレーニングであれば、
+        ジムや複雑な器具を必ずしも必要としません。
+
+        以下のような自重運動を、
+        自分の体力に合わせて取り入れることができます。
+
+      </p>
+
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr data-lang="en">
+              <th>Exercise</th>
+              <th>Basic movement</th>
+              <th>Beginner adjustment</th>
+            </tr>
+
+            <tr data-lang="ja">
+              <th>種目</th>
+              <th>基本動作</th>
+              <th>初心者向けの調整例</th>
+            </tr>
+
+          </thead>
+
+
+          <tbody>
+
+            <tr data-lang="en">
+
+              <td>Squat</td>
+
+              <td>
+                Bend the knees and hips while keeping
+                the torso controlled, then return to standing.
+              </td>
+
+              <td>
+                Reduce repetitions or use a chair
+                for additional support.
+              </td>
+
+            </tr>
+
+
+            <tr data-lang="ja">
+
+              <td>スクワット</td>
+
+              <td>
+                膝と股関節を曲げながら腰を落とし、
+                安定した姿勢から立ち上がります。
+              </td>
+
+              <td>
+                回数を減らしたり、
+                椅子などを補助として利用します。
+              </td>
+
+            </tr>
+
+
+            <tr data-lang="en">
+
+              <td>Push-up</td>
+
+              <td>
+                Lower and raise the body while maintaining
+                a controlled position.
+              </td>
+
+              <td>
+                Perform the movement against a wall
+                or elevated surface if necessary.
+              </td>
+
+            </tr>
+
+
+            <tr data-lang="ja">
+
+              <td>プッシュアップ</td>
+
+              <td>
+                体を安定させながら、
+                腕を曲げて体を下げ、押し戻します。
+              </td>
+
+              <td>
+                難しい場合は、
+                壁や高い台を使って負荷を下げます。
+              </td>
+
+            </tr>
+
+
+            <tr data-lang="en">
+
+              <td>Abdominal exercise</td>
+
+              <td>
+                Use a controlled movement to train
+                the abdominal area.
+              </td>
+
+              <td>
+                Start with a smaller range of motion
+                and fewer repetitions.
+              </td>
+
+            </tr>
+
+
+            <tr data-lang="ja">
+
+              <td>腹筋運動</td>
+
+              <td>
+                反動を使いすぎず、
+                腹部を意識しながら体を動かします。
+              </td>
+
+              <td>
+                動作範囲を小さくしたり、
+                回数を減らして始めます。
+              </td>
+
+            </tr>
+
+
+            <tr data-lang="en">
+
+              <td>Burpee</td>
+
+              <td>
+                Combine several bodyweight movements
+                into a continuous exercise.
+              </td>
+
+              <td>
+                Remove the jump or slow down the movement
+                to reduce intensity.
+              </td>
+
+            </tr>
+
+
+            <tr data-lang="ja">
+
+              <td>バーピー</td>
+
+              <td>
+                複数の自重動作を連続して行う
+                比較的強度の高い運動です。
+              </td>
+
+              <td>
+                ジャンプを省略したり、
+                動作をゆっくり行うことで調整できます。
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         Beginner Guide
+         ===================================================== -->
+
+    <section class="section card">
+
+      <h2 data-lang="en">
+        A Simple Way for Beginners to Start
+      </h2>
+
+      <h2 data-lang="ja">
+        初心者が始めるときのポイント
+      </h2>
+
+
+      <p data-lang="en">
+
+        If you are new to exercise,
+        you do not need to complete a demanding workout
+        on your first day.
+
+        Start with a small amount of exercise
+        and learn how your body responds.
+
+      </p>
+
+
+      <p data-lang="ja">
+
+        運動習慣がない場合、
+        最初から負荷の高いトレーニングを
+        完璧にこなす必要はありません。
+
+        まずは少ない回数から始めて、
+        自分の体がどのように反応するかを確認しましょう。
+
+      </p>
+
+
+      <div class="grid two">
+
+
+        <div>
+
+          <h3 data-lang="en">
+            Start Small
+          </h3>
+
+          <h3 data-lang="ja">
+            少ない量から始める
+          </h3>
+
+
+          <p class="muted" data-lang="en">
+
+            A short workout that you actually complete
+            is more useful for building a routine
+            than a difficult workout you repeatedly avoid.
+
+          </p>
+
+
+          <p class="muted" data-lang="ja">
+
+            実際に続けられる短いトレーニングから
+            始めることをおすすめします。
+
+            毎回避けてしまうほど難しいメニューより、
+            無理なく実行できる運動の方が
+            習慣づくりには向いています。
+
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 data-lang="en">
+            Adjust the Difficulty
+          </h3>
+
+          <h3 data-lang="ja">
+            強度を調整する
+          </h3>
+
+
+          <p class="muted" data-lang="en">
+
+            Change repetitions, movement range
+            or exercise variations to match your ability.
+
+          </p>
+
+
+          <p class="muted" data-lang="ja">
+
+            回数、動作範囲、種目のバリエーションなどを
+            自分の体力に合わせて調整してください。
+
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 data-lang="en">
+            Take Rest Days
+          </h3>
+
+          <h3 data-lang="ja">
+            休むこともトレーニング
+          </h3>
+
+
+          <p class="muted" data-lang="en">
+
+            Recovery is part of a sustainable exercise routine.
+            You do not need to train hard every day.
+
+          </p>
+
+
+          <p class="muted" data-lang="ja">
+
+            継続的な運動には休養も重要です。
+
+            毎日強い負荷をかける必要はありません。
+
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 data-lang="en">
+            Focus on Consistency
+          </h3>
+
+          <h3 data-lang="ja">
+            継続を重視する
+          </h3>
+
+
+          <p class="muted" data-lang="en">
+
+            The goal is not to finish the hardest workout.
+            The goal is to create a routine you can maintain.
+
+          </p>
+
+
+          <p class="muted" data-lang="ja">
+
+            重要なのは、
+            一番きついメニューをこなすことではありません。
+
+            自分が継続できる運動習慣を作ることを
+            目標にしましょう。
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         App Features
+         ===================================================== -->
+
+    <section
+      id="features"
+      class="section">
+
+      <h2 data-lang="en">
+        What Trump Training Adds to the Idea
+      </h2>
+
+      <h2 data-lang="ja">
+        「トランプでトレーニング」でできること
+      </h2>
+
+
+      <p
+        class="section-intro"
+        data-lang="en">
+
+        The app turns the basic idea of card-based workouts
+        into a simple digital experience.
+
+      </p>
+
+
+      <p
+        class="section-intro"
+        data-lang="ja">
+
+        アプリでは、
+        カードトレーニングの基本的な考え方を
+        スマートフォンで手軽に実践できます。
+
+      </p>
+
+
+      <div class="grid features">
+
+
+        <div class="card">
+
+          <h3 data-lang="en">
+            Card-Based Selection
+          </h3>
+
+          <h3 data-lang="ja">
+            カードでメニューを決定
+          </h3>
+
+
+          <p data-lang="en">
+
+            Exercise selection and repetitions
+            are generated through the card-based system,
+            giving each session some variation.
+
+          </p>
+
+
+          <p data-lang="ja">
+
+            カードを利用して種目や回数を決めることで、
+            毎回少し違ったトレーニングを楽しめます。
+
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3 data-lang="en">
+            Custom Exercises
+          </h3>
+
+          <h3 data-lang="ja">
+            種目をカスタマイズ
+          </h3>
+
+
+          <p data-lang="en">
+
+            The default exercises include
+            squats, push-ups, abdominal exercises
+            and burpees.
+
+            You can customize the exercise selection
+            to fit your preferences.
+
+          </p>
+
+
+          <p data-lang="ja">
+
+            デフォルトでは、
+            スクワット、プッシュアップ、
+            腹筋、バーピーなどを用意しています。
+
+            自分の好みに合わせて
+            トレーニング内容を変更できます。
+
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3 data-lang="en">
+            Workout History
+          </h3>
+
+          <h3 data-lang="ja">
+            トレーニング履歴
+          </h3>
+
+
+          <p data-lang="en">
+
+            Calendar history lets you look back
+            at the days on which you trained.
+
+            Seeing your consistency can provide
+            a simple source of motivation.
+
+          </p>
+
+
+          <p data-lang="ja">
+
+            カレンダーで過去のトレーニング日を確認できます。
+
+            自分がどのくらい継続できているかを
+            振り返るきっかけになります。
+
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3 data-lang="en">
+            Simple Interface
+          </h3>
+
+          <h3 data-lang="ja">
+            シンプルな操作
+          </h3>
+
+
+          <p data-lang="en">
+
+            The app focuses on the basic workout experience
+            rather than filling the screen with complicated features.
+
+          </p>
+
+
+          <p data-lang="ja">
+
+            複雑な機能を増やすのではなく、
+            トレーニングを始めるまでの
+            シンプルさを重視しています。
+
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3 data-lang="en">
+            Japanese and English
+          </h3>
+
+          <h3 data-lang="ja">
+            日本語・英語対応
+          </h3>
+
+
+          <p data-lang="en">
+
+            The application supports both
+            Japanese and English.
+
+          </p>
+
+
+          <p data-lang="ja">
+
+            日本語と英語の両方に対応しています。
+
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3 data-lang="en">
+            Free to Start
+          </h3>
+
+          <h3 data-lang="ja">
+            無料で利用可能
+          </h3>
+
+
+          <p data-lang="en">
+
+            Trump Training is available as a free
+            iOS application.
+
+          </p>
+
+
+          <p data-lang="ja">
+
+            「トランプでトレーニング」は
+            無料で利用できるiOSアプリです。
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         Example Routine
+         ===================================================== -->
+
+    <section class="section card">
+
+      <h2 data-lang="en">
+        Example of a Simple Session
+      </h2>
+
+      <h2 data-lang="ja">
+        シンプルなトレーニング例
+      </h2>
+
+
+      <p data-lang="en">
+
+        A card-based workout does not have to be complicated.
+
+        For example, you could prepare four exercises:
+        squats, push-ups, abdominal exercises and burpees.
+
+        Assign one exercise to each suit,
+        then draw cards and perform the corresponding movement.
+
+      </p>
+
+
+      <p data-lang="ja">
+
+        カードトレーニングは、
+        複雑なメニューを作る必要はありません。
+
+        例えば、
+        スクワット、プッシュアップ、腹筋、バーピーの
+        4種類を用意します。
+
+        それぞれの種目をカードのマークに割り当て、
+        カードを引いて対応する運動を行います。
+
+      </p>
+
+
+      <div class="notice">
+
+        <p data-lang="en">
+
+          <strong>Example:</strong><br>
+          If hearts represent squats and you draw a
+          5 of hearts, your rule could be to perform
+          5 squats.
+
+          The exact rules are flexible and can be adjusted
+          to your fitness level.
+
+        </p>
+
+
+        <p data-lang="ja">
+
+          <strong>例：</strong><br>
+          ハートをスクワットに割り当て、
+          「5」のカードを引いた場合、
+          スクワットを5回行う、といったルールにできます。
+
+          実際の回数やルールは、
+          自分の体力や目的に合わせて調整してください。
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         Habit Building
+         ===================================================== -->
+
+    <section class="section card">
+
+      <h2 data-lang="en">
+        Turning Exercise into a Habit
+      </h2>
+
+      <h2 data-lang="ja">
+        運動を習慣にするために
+      </h2>
+
+
+      <p data-lang="en">
+
+        Building an exercise habit is not only about
+        choosing the right exercises.
+
+        The environment, the amount of effort required
+        to start, and whether the activity is enjoyable
+        can all affect whether you continue.
+
+      </p>
+
+
+      <p data-lang="ja">
+
+        運動を習慣化するために重要なのは、
+        種目そのものだけではありません。
+
+        始めるまでの手間、
+        その日に必要な運動量、
+        そして「楽しい」と感じられるかどうかも、
+        継続しやすさに関係します。
+
+      </p>
+
+
+      <div class="grid two">
+
+
+        <div>
+
+          <h3 data-lang="en">
+            Reduce the Barrier to Starting
+          </h3>
+
+          <h3 data-lang="ja">
+            始めるまでのハードルを下げる
+          </h3>
+
+
+          <p class="muted" data-lang="en">
+
+            Prepare a small workout routine
+            that you can begin immediately.
+
+          </p>
+
+
+          <p class="muted" data-lang="ja">
+
+            すぐに始められる
+            小さなトレーニングを用意しておくと、
+            運動開始までのハードルを下げられます。
+
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 data-lang="en">
+            Make It Enjoyable
+          </h3>
+
+          <h3 data-lang="ja">
+            楽しめる仕組みを作る
+          </h3>
+
+
+          <p class="muted" data-lang="en">
+
+            Adding a simple game-like element
+            can make a routine feel less repetitive.
+
+          </p>
+
+
+          <p class="muted" data-lang="ja">
+
+            ゲームのような簡単な要素を加えることで、
+            同じ運動の繰り返しに変化をつけられます。
+
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3 data-lang="en">
+            Keep a Record
+          </h3>
+
+          <h3 data-lang="ja">
+            記録を残す
+          </h3>
+
+
+          <p class="muted" data-lang="en">
+
+            Looking back at your completed sessions
+            can make your consistency visible.
+
+          </p>
+
+
+          <p class="muted" data-lang="ja">
+
+            トレーニングの記録を残すことで、
+            自分の継続状況を振り返りやすくなります。
+
+          </p>
+
+
+        </div>
+
+
+        <div>
+
+          <h3 data-lang="en">
+            Keep Expectations Realistic
+          </h3>
+
+          <h3 data-lang="ja">
+            無理のない目標を設定する
+          </h3>
+
+
+          <p class="muted" data-lang="en">
+
+            A sustainable routine is usually easier
+            to maintain than an extremely demanding one.
+
+          </p>
+
+
+          <p class="muted" data-lang="ja">
+
+            最初から非常に厳しい目標を設定するよりも、
+            無理なく続けられる運動量から始めることが大切です。
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         Safety
+         ===================================================== -->
+
+    <section class="section card">
+
+      <h2 data-lang="en">
+        Exercise Safety
+      </h2>
+
+      <h2 data-lang="ja">
+        トレーニング時の注意事項
+      </h2>
+
+
+      <p data-lang="en">
+
+        Trump Training is intended to support
+        general fitness activities.
+
+        It is not a medical device and does not provide
+        medical or individualized professional advice.
+
+      </p>
+
+
+      <p data-lang="ja">
+
+        「トランプでトレーニング」は、
+        一般的なフィットネス活動をサポートするためのアプリです。
+
+        医療機器ではなく、
+        医療上の判断や個別の専門的な運動指導を
+        行うものではありません。
+
+      </p>
+
+
+      <ul>
+
+        <li data-lang="en">
+          Choose exercises appropriate for your fitness level.
+        </li>
+
+        <li data-lang="ja">
+          自分の体力に合った種目を選んでください。
+        </li>
+
+
+        <li data-lang="en">
+          Stop exercising if you experience pain,
+          dizziness or unusual discomfort.
+        </li>
+
+        <li data-lang="ja">
+          痛み、めまい、強い違和感などを感じた場合は
+          運動を中止してください。
+        </li>
+
+
+        <li data-lang="en">
+          Warm up and allow sufficient recovery when necessary.
+        </li>
+
+        <li data-lang="ja">
+          必要に応じてウォームアップを行い、
+          十分な休養を取ってください。
+        </li>
+
+
+        <li data-lang="en">
+          If you have a medical condition or concerns
+          about exercise, consult an appropriate healthcare professional.
+        </li>
+
+        <li data-lang="ja">
+          持病がある場合や運動について不安がある場合は、
+          適切な医療専門家に相談してください。
+        </li>
+
+      </ul>
+
+    </section>
+
+
+```html
+<!-- =====================================================
+     FAQ
+     ===================================================== -->
+
+<section class="section">
+
+  <h2 data-lang="en">
+    Frequently Asked Questions
+  </h2>
+
+  <h2 data-lang="ja">
+    よくある質問
+  </h2>
+
+
+  <details>
+
+    <summary>
+
+      <span
+        data-lang="en"
+        class="inline-lang">
+        What is a card-based workout?
+      </span>
+
+      <span
+        data-lang="ja"
+        class="inline-lang">
+        カードトレーニングとは何ですか？
+      </span>
+
+    </summary>
+
+
+    <p data-lang="en">
+
+      It is a workout method that uses playing cards
+      to randomly determine exercises, repetitions
+      or combinations.
+
+    </p>
+
+
+    <p data-lang="ja">
+
+      トランプなどのカードを利用して、
+      種目や回数などをランダムに決める
+      トレーニング方法です。
+
+    </p>
+
+  </details>
+
+
+  <details>
+
+    <summary>
+
+      <span
+        data-lang="en"
+        class="inline-lang">
+        Is Trump Training suitable for beginners?
+      </span>
+
+      <span
+        data-lang="ja"
+        class="inline-lang">
+        初心者でも利用できますか？
+      </span>
+
+    </summary>
+
+
+    <p data-lang="en">
+
+      Yes.
+
+      Beginners can reduce repetitions,
+      modify exercises and take longer rest periods
+      according to their current fitness level.
+
+    </p>
+
+
+    <p data-lang="ja">
+
+      はい。
+
+      回数を減らしたり、
+      種目を変更したり、
+      休憩を長く取るなど、
+      自分の体力に合わせて調整できます。
+
+    </p>
+
+  </details>
+
+
+  <details>
+
+    <summary>
+
+      <span
+        data-lang="en"
+        class="inline-lang">
+        Can I customize the exercises?
+      </span>
+
+      <span
+        data-lang="ja"
+        class="inline-lang">
+        トレーニング種目は変更できますか？
+      </span>
+
+    </summary>
+
+
+    <p data-lang="en">
+
+      Yes.
+
+      The application allows you to customize
+      the exercise selection.
+
+    </p>
+
+
+    <p data-lang="ja">
+
+      はい。
+
+      自分の好みや目的に合わせて
+      トレーニング種目をカスタマイズできます。
+
+    </p>
+
+  </details>
+
+
+  <details>
+
+    <summary>
+
+      <span
+        data-lang="en"
+        class="inline-lang">
+        What exercises are included by default?
+      </span>
+
+      <span
+        data-lang="ja"
+        class="inline-lang">
+        最初から入っている種目は何ですか？
+      </span>
+
+    </summary>
+
+
+    <p data-lang="en">
+
+      The default selection includes squats,
+      push-ups, abdominal exercises and burpees.
+
+    </p>
+
+
+    <p data-lang="ja">
+
+      デフォルトでは、
+      スクワット、プッシュアップ、
+      腹筋、バーピーなどを収録しています。
+
+    </p>
+
+  </details>
+
+
+  <details>
+
+    <summary>
+
+      <span
+        data-lang="en"
+        class="inline-lang">
+        Do I need gym equipment?
+      </span>
+
+      <span
+        data-lang="ja"
+        class="inline-lang">
+        ジムや器具は必要ですか？
+      </span>
+
+    </summary>
+
+
+    <p data-lang="en">
+
+      The basic exercises are bodyweight movements,
+      so many sessions can be performed without
+      specialized gym equipment.
+
+    </p>
+
+
+    <p data-lang="ja">
+
+      基本となる種目は自重運動なので、
+      特別なジム器具を使わずに
+      行えるトレーニングが中心です。
+
+    </p>
+
+  </details>
+
+
+  <details>
+
+    <summary>
+
+      <span
+        data-lang="en"
+        class="inline-lang">
+        Is Trump Training free?
+      </span>
+
+      <span
+        data-lang="ja"
+        class="inline-lang">
+        無料で利用できますか？
+      </span>
+
+    </summary>
+
+
+    <p data-lang="en">
+
+      Yes.
+
+      Trump Training is available as a free
+      iOS application.
+
+    </p>
+
+
+    <p data-lang="ja">
+
+      はい。
+
+      「トランプでトレーニング」は
+      無料で利用できるiOSアプリです。
+
+    </p>
+
+  </details>
+
+
+  <details>
+
+    <summary>
+
+      <span
+        data-lang="en"
+        class="inline-lang">
+        Is this an official Karl Gotch application?
+      </span>
+
+      <span
+        data-lang="ja"
+        class="inline-lang">
+        カール・ゴッチ公式のアプリですか？
+      </span>
+
+    </summary>
+
+
+    <p data-lang="en">
+
+      No.
+
+      Trump Training is an independently developed
+      application inspired by the general concept
+      of card-based training.
+
+    </p>
+
+
+    <p data-lang="ja">
+
+      いいえ。
+
+      「トランプでトレーニング」は、
+      カードを使ったトレーニングという
+      一般的な考え方から着想を得た
+      個人開発のアプリです。
+
+    </p>
+
+  </details>
+
+</section>
+
+
+
+    <!-- =====================================================
+         App Introduction / CTA
+         ===================================================== -->
+
+    <section class="section card">
+
+      <h2 data-lang="en">
+        Try a Different Kind of Workout
+      </h2>
+
+      <h2 data-lang="ja">
+        いつもと少し違うトレーニングを始めよう
+      </h2>
+
+
+      <p data-lang="en">
+
+        If you enjoy simple workouts but want
+        a little more variety, Trump Training
+        offers an easy way to experiment with
+        card-based exercise.
+
+        Choose your exercises,
+        draw your cards,
+        and see where the workout takes you.
+
+      </p>
+
+
+      <p data-lang="ja">
+
+        シンプルなトレーニングが好きだけれど、
+        毎回同じメニューでは少し物足りない。
+
+        そんな人に、
+        カードを使ったトレーニングという
+        新しい選択肢を提案します。
+
+        種目を選び、
+        カードを引いて、
+        その日のトレーニングを始めてみてください。
+
+      </p>
+
+
+      <div class="cta">
 
         <a
           class="btn"
@@ -907,7 +2764,7 @@
           rel="noopener"
           data-lang="en">
 
-          Download Now
+          Download Trump Training
 
         </a>
 
@@ -919,7 +2776,7 @@
           rel="noopener"
           data-lang="ja">
 
-          今すぐダウンロード
+          アプリをダウンロード
 
         </a>
 
@@ -928,54 +2785,12 @@
     </section>
 
 
-    <!-- =========================
-         Keywords
-         ========================= -->
-
-    <section class="section card">
-
-      <h2 data-lang="en">
-        Keywords
-      </h2>
-
-      <h2 data-lang="ja">
-        キーワード
-      </h2>
-
-
-      <p
-        style="color:var(--muted)"
-        data-lang="en">
-
-        Training, Fitness, Muscle, Gutch Training,
-        Wrestling, Martial Arts, Squat, Push-up, Abs,
-        Burpee, Bodyweight, Random, Cards, Habit, Workout
-
-      </p>
-
-
-      <p
-        style="color:var(--muted)"
-        data-lang="ja">
-
-        ゴッチ式トレーニング, カールゴッチ,
-        トレーニング, フィットネス, 筋トレ,
-        ゴッチトレーニング, プロレス, 格闘技,
-        スクワット, 腕立て, 腹筋, バーピー,
-        自重トレーニング, 運動, ランダム,
-        トランプ, カード, 習慣, ワークアウト
-
-      </p>
-
-    </section>
-
-
   </main>
 
 
-  <!-- =========================
+  <!-- =====================================================
        Footer
-       ========================= -->
+       ===================================================== -->
 
   <footer class="wrap">
 
@@ -985,12 +2800,18 @@
 
 
     <p data-lang="en">
-      Trump Training is an independently developed iOS application.
+
+      Trump Training is an independently developed
+      iOS application.
+
     </p>
 
 
     <p data-lang="ja">
-      Trump Trainingは個人開発のiOSアプリです。
+
+      「トランプでトレーニング」は
+      個人開発のiOSアプリです。
+
     </p>
 
 
@@ -1013,31 +2834,18 @@
   </footer>
 
 
-  <!-- =========================
+  <!-- =====================================================
        JavaScript
-       ========================= -->
+       ===================================================== -->
 
   <script>
 
     function setLanguage(lang) {
 
-      /*
-       * Only Japanese and English are allowed.
-       */
-
       if (lang !== "ja" && lang !== "en") {
         lang = "en";
       }
 
-
-      /*
-       * Change body language class.
-       *
-       * Do not use:
-       * document.body.className = ...
-       *
-       * because it removes all other body classes.
-       */
 
       document.body.classList.remove(
         "lang-ja",
@@ -1050,16 +2858,8 @@
       );
 
 
-      /*
-       * Update HTML language attribute.
-       */
-
       document.documentElement.lang = lang;
 
-
-      /*
-       * Update language button state.
-       */
 
       document
         .querySelectorAll("[data-set-lang]")
@@ -1085,19 +2885,11 @@
         });
 
 
-      /*
-       * Save preferred language.
-       */
-
       localStorage.setItem(
         "preferred-language",
         lang
       );
 
-
-      /*
-       * Update page title and metadata.
-       */
 
       const description =
         document.querySelector(
@@ -1120,47 +2912,47 @@
       if (lang === "ja") {
 
         document.title =
-          "トランプでトレーニング | 楽しく続けられる新感覚フィットネス";
+          "トランプでトレーニング | 楽しく続けるカード式トレーニング";
 
 
         description.setAttribute(
           "content",
-          "カールゴッチが提唱したゴッチ式トレーニング（トランプトレーニング）をアプリで手軽に実践。カードを引いてメニューが決まる、楽しく続けられるフィットネスアプリです。"
+          "トランプを使ったカード式トレーニングの考え方、使い方、初心者向けのポイント、自重運動の例を紹介。「トランプでトレーニング」で楽しく運動習慣を始められます。"
         );
 
 
         ogTitle.setAttribute(
           "content",
-          "トランプでトレーニング | 楽しく続けられる新感覚フィットネス"
+          "トランプでトレーニング | 楽しく続けるカード式トレーニング"
         );
 
 
         ogDescription.setAttribute(
           "content",
-          "カードを引くだけでトレーニングメニューが決まる。スクワット、プッシュアップ、腹筋、バーピーなどを楽しく続けられるフィットネスアプリ。"
+          "カードを引いてトレーニング内容を決める。カード式トレーニングの基本から初心者向けの使い方まで紹介する無料iOSアプリです。"
         );
 
       } else {
 
         document.title =
-          "Trump Training | Fun Fitness Habit";
+          "Trump Training | Card-Based Workout for a Fun Fitness Habit";
 
 
         description.setAttribute(
           "content",
-          "Trump Training is a fitness app where your workout menu is decided by drawing cards. Enjoy squats, push-ups, abs, burpees and more with a fun random workout experience."
+          "Learn how card-based workouts work, how to create simple bodyweight training routines, and how Trump Training turns random cards into a fun daily fitness habit."
         );
 
 
         ogTitle.setAttribute(
           "content",
-          "Trump Training | Fun Fitness Habit"
+          "Trump Training | Card-Based Workout for a Fun Fitness Habit"
         );
 
 
         ogDescription.setAttribute(
           "content",
-          "A new workout starts every time you flip a card! Make exercise a habit with randomness and customization."
+          "Learn about card-based workouts, bodyweight exercises and simple ways to make exercise more varied and enjoyable."
         );
 
       }
@@ -1273,3 +3065,4 @@
 </body>
 
 </html>
+```

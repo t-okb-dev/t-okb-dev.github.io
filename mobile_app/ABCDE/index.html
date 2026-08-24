@@ -3,254 +3,2569 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABCDE Theory Note | ABCDE理論ノート</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="favicon.png">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>ABCDE理論ノート | ABCDE Theory Note - 思考を整理するセルフケアアプリ</title>
+
+    <meta name="description"
+        content="ABCDE理論ノートは、ABCDEモデルを使って出来事・考え方・感情を整理し、新しい視点を考えるためのセルフケアアプリです。ABCDE理論の基本から使い方、具体例までわかりやすく紹介します。">
+
+    <meta name="keywords"
+        content="ABCDE理論, ABCDEモデル, ABCDE理論ノート, 認知行動療法, CBT, セルフケア, ジャーナリング, 思考整理, ストレス, 感情, メンタルケア, 日記">
+
+    <link rel="canonical"
+        href="https://t-okb-dev.github.io/mobile_app/ABCDE/index.html">
+
+    <link rel="alternate"
+        hreflang="ja"
+        href="https://t-okb-dev.github.io/mobile_app/ABCDE/index.html?lang=ja">
+
+    <link rel="alternate"
+        hreflang="en"
+        href="https://t-okb-dev.github.io/mobile_app/ABCDE/index.html?lang=en">
+
+    <link rel="alternate"
+        hreflang="x-default"
+        href="https://t-okb-dev.github.io/mobile_app/ABCDE/index.html">
+
+    <meta name="theme-color" content="#4f46e5">
+
+    <!-- App Store Smart App Banner -->
+    <meta name="apple-itunes-app"
+        content="app-id=6758457311">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+
+    <meta property="og:site_name"
+        content="ABCDE Theory Note">
+
+    <meta property="og:title"
+        content="ABCDE理論ノート | 思考を整理するセルフケアアプリ">
+
+    <meta property="og:description"
+        content="ABCDEモデルを使って、出来事・考え方・感情を整理し、新しい視点を考えるためのセルフケアアプリです。">
+
+    <meta property="og:url"
+        content="https://t-okb-dev.github.io/mobile_app/ABCDE/index.html">
+
+    <meta property="og:locale"
+        content="ja_JP">
+
+    <meta property="og:locale:alternate"
+        content="en_US">
+
+
+    <!-- Structured Data -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "ABCDE理論ノート",
+        "alternateName": "ABCDE Theory Note",
+        "operatingSystem": "iOS",
+        "applicationCategory": "HealthApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY"
+        },
+        "description": "ABCDEモデルを使って出来事、考え方、結果、反論、効果を整理し、新しい視点を考えるためのセルフケアアプリ。",
+        "url": "https://t-okb-dev.github.io/mobile_app/ABCDE/index.html",
+        "downloadUrl": "https://apps.apple.com/jp/app/abcde%E7%90%86%E8%AB%96%E3%83%8E%E3%83%BC%E3%83%88/id6758457311"
+    }
+    </script>
+
+
     <style>
-        /* Navigation styles */
-        .top-nav {
-            background: var(--primary-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 24px;
-            position: relative;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        :root {
+            --bg: #f7f8fc;
+            --surface: #ffffff;
+            --surface-soft: #f1f3f9;
+
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+
+            --text: #1f2937;
+            --muted: #667085;
+
+            --border: #e5e7eb;
+
+            --success: #16a34a;
+
+            --max-width: 1100px;
         }
 
-        .lang-switch {
-            display: flex;
-            gap: 8px;
+
+        * {
+            box-sizing: border-box;
         }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+
+            background: var(--bg);
+
+            color: var(--text);
+
+            font-family:
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Inter,
+                "Hiragino Kaku Gothic ProN",
+                "Noto Sans JP",
+                sans-serif;
+
+            line-height: 1.8;
+        }
+
+
+        a {
+            color: var(--primary);
+
+            text-decoration: none;
+        }
+
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        .container {
+            width: min(
+                calc(100% - 40px),
+                var(--max-width)
+            );
+
+            margin: 0 auto;
+        }
+
+
+        /* =========================
+           Language
+           ========================= */
+
+        [data-lang] {
+            display: none !important;
+        }
+
+
+        body.lang-ja [data-lang="ja"]:not(.inline-lang) {
+            display: block !important;
+        }
+
+
+        body.lang-en [data-lang="en"]:not(.inline-lang) {
+            display: block !important;
+        }
+
+
+        body.lang-ja .inline-lang[data-lang="ja"] {
+            display: inline !important;
+        }
+
+
+        body.lang-en .inline-lang[data-lang="en"] {
+            display: inline !important;
+        }
+
+
+        /* =========================
+           Navigation
+           ========================= */
+
+        .top-nav {
+            background: var(--primary);
+
+            color: #fff;
+
+            min-height: 58px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 10px 24px;
+        }
+
+
+        .top-nav-inner {
+            width: min(
+                100%,
+                var(--max-width)
+            );
+
+            margin: 0 auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
 
         .back-home {
             color: #fff;
-            text-decoration: none;
-            font-size: 0.9em;
-            opacity: 0.8;
-            transition: opacity 0.2s;
+
+            font-size: 0.9rem;
+
+            opacity: 0.9;
         }
+
 
         .back-home:hover {
             opacity: 1;
+
+            text-decoration: none;
         }
+
+
+        .lang-switch {
+            display: flex;
+
+            gap: 8px;
+        }
+
 
         .lang-btn {
             background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+
             color: #fff;
+
+            border: 1px solid rgba(255,255,255,0.45);
+
+            border-radius: 6px;
+
             padding: 5px 10px;
+
             cursor: pointer;
-            border-radius: 3px;
-            font-size: 0.9em;
         }
+
 
         .lang-btn.active {
-            background: rgba(255, 255, 255, 0.2);
-            font-weight: bold;
+            background: rgba(255,255,255,0.2);
+
             border-color: #fff;
+
+            font-weight: 700;
         }
 
-        /* Language switching styles */
-        body.lang-en .lang-ja {
-            display: none !important;
+
+        /* =========================
+           Hero
+           ========================= */
+
+        .hero {
+            padding: 64px 0 48px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #eef0ff 0%,
+                    var(--bg) 100%
+                );
         }
 
-        body.lang-ja .lang-en {
-            display: none !important;
+
+        .hero-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.15fr
+                0.85fr;
+
+            gap: 48px;
+
+            align-items: center;
         }
+
+
+        .app-icon {
+            width: 96px;
+
+            height: 96px;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.12);
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero h1 {
+            font-size:
+                clamp(32px, 5vw, 52px);
+
+            line-height: 1.2;
+
+            margin:
+                0 0 16px;
+        }
+
+
+        .hero-lead {
+            color: var(--muted);
+
+            font-size:
+                clamp(17px, 2.2vw, 20px);
+
+            margin-bottom: 24px;
+        }
+
+
+        .hero-note {
+            color: var(--muted);
+
+            font-size: 0.9rem;
+
+            margin-top: 14px;
+        }
+
+
+        .hero-image {
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 18px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(31,41,55,0.08);
+        }
+
+
+        .hero-image img {
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+
+            border-radius: 14px;
+        }
+
+
+        /* =========================
+           Buttons
+           ========================= */
+
+        .cta {
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+            display: inline-block;
+
+            background: var(--primary);
+
+            color: #fff;
+
+            border-radius: 9px;
+
+            padding:
+                12px 20px;
+
+            font-weight: 700;
+        }
+
+
+        .btn:hover {
+            background:
+                var(--primary-dark);
+
+            text-decoration: none;
+        }
+
+
+        .btn.secondary {
+            background: var(--surface);
+
+            color: var(--primary);
+
+            border: 1px solid
+                var(--primary);
+        }
+
+
+        /* =========================
+           Sections
+           ========================= */
+
+        section {
+            margin-top: 56px;
+        }
+
+
+        .section-title {
+            margin-bottom: 24px;
+        }
+
+
+        .section-title h2 {
+            font-size: 30px;
+
+            line-height: 1.3;
+
+            margin: 0 0 8px;
+        }
+
+
+        .section-title p {
+            color: var(--muted);
+
+            margin: 0;
+        }
+
+
+        .card {
+            background: var(--surface);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 28px;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================
+           Introduction
+           ========================= */
+
+        .intro {
+            font-size: 1.05rem;
+        }
+
+
+        /* =========================
+           ABCDE explanation
+           ========================= */
+
+        .abcde-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .abcde-item {
+            background: var(--surface);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 20px;
+
+            text-align: center;
+        }
+
+
+        .abcde-letter {
+            width: 46px;
+
+            height: 46px;
+
+            margin:
+                0 auto 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                #eef0ff;
+
+            color: var(--primary);
+
+            font-size: 1.3rem;
+
+            font-weight: 800;
+        }
+
+
+        .abcde-item h3 {
+            margin:
+                0 0 8px;
+
+            font-size: 1.05rem;
+        }
+
+
+        .abcde-item p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================
+           Example
+           ========================= */
+
+        .example {
+            border-left:
+                4px solid var(--primary);
+
+            background:
+                #f5f6ff;
+        }
+
+
+        .example dl {
+            margin: 0;
+        }
+
+
+        .example dt {
+            font-weight: 700;
+
+            color: var(--primary);
+
+            margin-top: 14px;
+        }
+
+
+        .example dd {
+            margin:
+                3px 0 0 0;
+        }
+
+
+        /* =========================
+           Features
+           ========================= */
+
+        .feature {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 32px;
+
+            align-items: center;
+
+            padding: 28px 0;
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+
+        .feature:last-child {
+            border-bottom: none;
+        }
+
+
+        .feature:nth-child(even) .feature-image {
+            order: -1;
+        }
+
+
+        .feature h3 {
+            font-size: 22px;
+
+            margin-top: 0;
+        }
+
+
+        .feature p {
+            color: var(--muted);
+        }
+
+
+        .feature-image img {
+            width: 100%;
+
+            max-width: 380px;
+
+            display: block;
+
+            margin: 0 auto;
+
+            border-radius: 16px;
+
+            border:
+                1px solid var(--border);
+        }
+
+
+        /* =========================
+           How to use
+           ========================= */
+
+        .steps {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .step {
+            background: var(--surface);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 20px;
+        }
+
+
+        .step-number {
+            color: var(--primary);
+
+            font-weight: 800;
+
+            font-size: 0.85rem;
+        }
+
+
+        .step h3 {
+            margin:
+                6px 0 8px;
+
+            font-size: 1.05rem;
+        }
+
+
+        .step p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================
+           FAQ
+           ========================= */
+
+        .faq-item {
+            background: var(--surface);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 12px;
+
+            margin-bottom: 12px;
+
+            overflow: hidden;
+        }
+
+
+        .faq-item summary {
+            cursor: pointer;
+
+            padding: 18px 20px;
+
+            font-weight: 700;
+
+            list-style: none;
+
+            position: relative;
+
+            padding-right: 45px;
+        }
+
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+
+        .faq-item summary::after {
+            content: "+";
+
+            position: absolute;
+
+            right: 20px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            color: var(--primary);
+
+            font-size: 20px;
+        }
+
+
+        .faq-item[open]
+        summary::after {
+            content: "−";
+        }
+
+
+        .faq-answer {
+            padding:
+                0 20px 20px;
+
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           Notice
+           ========================= */
+
+        .notice {
+            background:
+                #fffaf0;
+
+            border:
+                1px solid #f2dfb0;
+
+            border-radius: 14px;
+
+            padding: 24px;
+
+            color: #5f4b1f;
+        }
+
+
+        /* =========================
+           Keywords
+           ========================= */
+
+        .keywords {
+            color: var(--muted);
+
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================
+           Footer
+           ========================= */
+
+        footer {
+            margin-top: 64px;
+
+            padding:
+                36px 0;
+
+            border-top:
+                1px solid var(--border);
+
+            color: var(--muted);
+
+            font-size: 0.85rem;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           Responsive
+           ========================= */
+
+        @media (max-width: 900px) {
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .abcde-grid,
+            .steps {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .feature {
+                grid-template-columns: 1fr;
+            }
+
+
+            .feature:nth-child(even)
+            .feature-image {
+                order: 0;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .container {
+                width:
+                    min(
+                        calc(100% - 28px),
+                        var(--max-width)
+                    );
+            }
+
+
+            .hero {
+                padding-top: 40px;
+            }
+
+
+            .abcde-grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+
+            .card {
+                padding: 20px;
+            }
+
+
+            .top-nav {
+                padding:
+                    10px 14px;
+            }
+
+        }
+
+
+        /* =========================
+           Reduced Motion
+           ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+        }
+
     </style>
 </head>
 
+
 <body class="lang-ja">
 
+
+    <!-- =========================
+         Navigation
+         ========================= -->
+
     <nav class="top-nav">
-        <a href="../../index.html" class="back-home">← Home</a>
-        <div class="lang-switch">
-            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-            <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+
+        <div class="top-nav-inner">
+
+            <a
+                href="../../index.html"
+                class="back-home">
+
+                ←
+                <span
+                    data-lang="ja"
+                    class="inline-lang">
+                    ホーム
+                </span>
+
+                <span
+                    data-lang="en"
+                    class="inline-lang">
+                    Home
+                </span>
+
+            </a>
+
+
+            <div class="lang-switch">
+
+                <button
+                    type="button"
+                    class="lang-btn"
+                    data-set-lang="en"
+                    aria-label="English">
+
+                    EN
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="lang-btn"
+                    data-set-lang="ja"
+                    aria-label="日本語">
+
+                    JP
+
+                </button>
+
+            </div>
+
         </div>
+
     </nav>
 
-    <header>
-        <div class="container">
-            <img src="icon.png" alt="App Icon" class="app-icon">
-            <h1>ABCDE Theory Note</h1>
-            <p class="subtitle">
-                <span class="lang-en">ABCDE Theory Note — Organize your thoughts, lighten your mind.</span>
-                <span class="lang-ja">ABCDE理論ノート — 思考を整理し、心を軽くするセルフケア</span>
-            </p>
-            <a href="https://apps.apple.com/jp/app/abcde%E7%90%86%E8%AB%96%E3%83%8E%E3%83%BC%E3%83%88/id6758457311"
-                class="btn-download">
-                <span class="lang-en">Download on the App Store</span>
-                <span class="lang-ja">App Storeでダウンロード</span>
-            </a>
+
+    <!-- =========================
+         Hero
+         ========================= -->
+
+    <header class="hero">
+
+        <div class="container hero-grid">
+
+            <div>
+
+                <img
+                    src="icon.png"
+                    alt="ABCDE Theory Note app icon"
+                    class="app-icon"
+                    width="96"
+                    height="96">
+
+
+                <h1 data-lang="ja">
+
+                    ABCDE理論ノート<br>
+                    <span style="color:var(--primary);">
+                        思考を整理し、新しい視点を考える
+                    </span>
+
+                </h1>
+
+
+                <h1 data-lang="en">
+
+                    ABCDE Theory Note<br>
+                    <span style="color:var(--primary);">
+                        Organize your thoughts and explore new perspectives
+                    </span>
+
+                </h1>
+
+
+                <p
+                    class="hero-lead"
+                    data-lang="ja">
+
+                    出来事・考え方・感情をABCDEのステップに分けて
+                    書き出し、自分の考えを整理するセルフケアアプリです。
+                    ガイドや具体例を見ながら、1ステップずつ記録できます。
+
+                </p>
+
+
+                <p
+                    class="hero-lead"
+                    data-lang="en">
+
+                    A self-care journaling app that helps you
+                    organize events, thoughts and emotional
+                    responses using the ABCDE framework.
+                    Work through each step with simple guidance
+                    and examples.
+
+                </p>
+
+
+                <div class="cta">
+
+                    <a
+                        class="btn"
+                        href="https://apps.apple.com/jp/app/abcde%E7%90%86%E8%AB%96%E3%83%8E%E3%83%BC%E3%83%88/id6758457311"
+                        target="_blank"
+                        rel="noopener"
+                        data-lang="ja">
+
+                        App Storeで見る
+
+                    </a>
+
+
+                    <a
+                        class="btn"
+                        href="https://apps.apple.com/jp/app/abcde%E7%90%90%E7%90%86%E8%AB%96%E3%83%8E%E3%83%BC%E3%83%88/id6758457311"
+                        target="_blank"
+                        rel="noopener"
+                        data-lang="en">
+
+                        View on the App Store
+
+                    </a>
+
+
+                    <a
+                        href="#what-is-abcde"
+                        class="btn secondary">
+
+                        <span
+                            data-lang="ja"
+                            class="inline-lang">
+
+                            ABCDE理論とは？
+
+                        </span>
+
+                        <span
+                            data-lang="en"
+                            class="inline-lang">
+
+                            What is ABCDE?
+
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <p
+                    class="hero-note"
+                    data-lang="ja">
+
+                    無料で利用できるiOSアプリです。
+
+                </p>
+
+
+                <p
+                    class="hero-note"
+                    data-lang="en">
+
+                    Available as a free iOS app.
+
+                </p>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <img
+                    src="screenshot_01.png"
+                    alt="ABCDE Theory Note app screenshot showing the ABCDE theory"
+                    width="800"
+                    height="1200"
+                    fetchpriority="high">
+
+            </div>
+
         </div>
+
     </header>
 
-    <div class="container">
 
-        <div class="section">
-            <h2>
-                <span class="lang-en">About App</span>
-                <span class="lang-ja">アプリ紹介</span>
-            </h2>
-            <p class="lang-en">
-                <strong>ABCDE Theory Note</strong> is a self-care app based on the ABCDE model of Cognitive Behavioral
-                Therapy (CBT).
-                By organizing your thoughts into A (Activating Event), B (Belief), C (Consequence), D (Disputation), and
-                E (Effect), you can challenge negative thinking patterns and find new perspectives.
-            </p>
-            <p class="lang-ja">
-                <strong>ABCDE理論ノート</strong>は、認知行動療法（CBT）のABCDEモデルに基づいたセルフケアアプリです。
-                出来事(A)、思考(B)、結果(C)、反論(D)、効果(E)のステップで思考を整理することで、否定的な思い込みに気づき、新しい視点を見つける手助けをします。
-            </p>
-        </div>
+    <main class="container">
 
-        <div class="section">
-            <h2>
-                <span class="lang-en">Features</span>
-                <span class="lang-ja">機能・特徴</span>
-            </h2>
 
-            <!-- Feature 1 -->
-            <div class="feature">
-                <div class="feature-text fade-in-gentle">
-                    <h3>
-                        <span class="lang-en">Understand the Theory</span>
-                        <span class="lang-ja">理論を基礎から理解</span>
-                    </h3>
-                    <p class="lang-en">
-                        Learn the basics of ABCDE theory with simple explanations. Understand how your beliefs (B)
-                        affect your emotions (C), not just the events (A) themselves.
-                    </p>
-                    <p class="lang-ja">
-                        ガイド付きでABCDE理論の基礎を学べます。出来事(A)が直接感情(C)を生むのではなく、あなたの捉え方(B)が影響していることに気づきましょう。
-                    </p>
-                </div>
-                <div class="feature-image fade-in-gentle">
-                    <img src="screenshot_01.png" alt="About ABCDE Theory">
-                </div>
+        <!-- =========================
+             About
+             ========================= -->
+
+        <section>
+
+            <div class="section-title">
+
+                <h2 data-lang="ja">
+                    ABCDE理論ノートとは？
+                </h2>
+
+                <h2 data-lang="en">
+                    About ABCDE Theory Note
+                </h2>
+
             </div>
 
-            <!-- Feature 2 -->
-            <div class="feature">
-                <div class="feature-text fade-in-gentle">
-                    <h3>
-                        <span class="lang-en">Step-by-Step Journaling</span>
-                        <span class="lang-ja">ステップ式で簡単入力</span>
-                    </h3>
-                    <p class="lang-en">
-                        Write down your thoughts step by step. If you get stuck, helpful hints and examples are
-                        available for every step. E (Effect) helps you find a positive outlook.
-                    </p>
-                    <p class="lang-ja">
-                        1ステップずつ順番に入力するだけで思考整理が完了します。書き方に迷ったときは、豊富なヒントと具体例がサポート。
-                    </p>
-                </div>
-                <div class="feature-image fade-in-gentle">
-                    <img src="screenshot_02.png" alt="Step-by-Step Input">
-                </div>
+
+            <div class="card intro">
+
+                <p data-lang="ja">
+
+                    <strong>ABCDE理論ノート</strong>は、
+                    ABCDEモデルを使って、自分の考えや感情を
+                    整理するためのセルフケア・ジャーナリングアプリです。
+
+                </p>
+
+
+                <p data-lang="ja">
+
+                    何か嫌な出来事があったとき、
+                    「何が起きたのか」だけでなく、
+                    「その出来事を自分はどう受け止めたのか」
+                    「その結果、どのような感情や行動につながったのか」
+                    を順番に書き出していきます。
+
+                </p>
+
+
+                <p data-lang="ja">
+
+                    頭の中だけで考え続けるのではなく、
+                    文章として書き出すことで、
+                    自分の考え方を少し離れた視点から
+                    見直すきっかけを作ります。
+
+                </p>
+
+
+                <p data-lang="en">
+
+                    <strong>ABCDE Theory Note</strong>
+                    is a self-care journaling app that helps you
+                    organize your thoughts and emotional responses
+                    using the ABCDE framework.
+
+                </p>
+
+
+                <p data-lang="en">
+
+                    Instead of focusing only on what happened,
+                    the framework encourages you to examine the
+                    event, your interpretation of it,
+                    the resulting response, and possible
+                    alternative perspectives.
+
+                </p>
+
             </div>
 
-            <!-- Feature 3 -->
-            <div class="feature">
-                <div class="feature-text fade-in-gentle">
-                    <h3>
-                        <span class="lang-en">Habituate Positive Thinking</span>
-                        <span class="lang-ja">思考の習慣化をサポート</span>
-                    </h3>
-                    <p class="lang-en">
-                        Set reminders to check in with yourself. Periodic notifications help you make objective thinking
-                        a habit.
-                    </p>
-                    <p class="lang-ja">
-                        リマインダー設定で、定期的な振り返りをサポート。感情が揺れ動いた時だけでなく、落ち着いた時間に思考を見直す習慣が身につきます。
-                    </p>
-                </div>
-                <div class="feature-image fade-in-gentle">
-                    <img src="screenshot_03.png" alt="Settings and Reminders">
-                </div>
+        </section>
+
+
+        <!-- =========================
+             What is ABCDE
+             ========================= -->
+
+        <section id="what-is-abcde">
+
+            <div class="section-title">
+
+                <h2 data-lang="ja">
+                    ABCDE理論とは？
+                </h2>
+
+                <h2 data-lang="en">
+                    What is the ABCDE Framework?
+                </h2>
+
+
+                <p data-lang="ja">
+
+                    ABCDEモデルでは、出来事と、その出来事に対する
+                    自分の捉え方や反応を分けて考えます。
+
+                </p>
+
+
+                <p data-lang="en">
+
+                    The ABCDE framework separates an event
+                    from the way we interpret and respond to it.
+
+                </p>
+
             </div>
 
-        </div>
 
-        <div class="section keywords">
-            <h3>
-                <span class="lang-en">Keywords</span>
-                <span class="lang-ja">キーワード</span>
-            </h3>
-            <p class="lang-en">
-                CBT, Cognitive Behavioral Therapy, ABCDE Model, Mental Health, Self Care, Journal, Diary, Mindfulness,
-                Stress Management, Positive Thinking
-            </p>
-            <p class="lang-ja">
-                認知行動療法, CBT, ABCDE理論, メンタルヘルス, セルフケア, ジャーナリング, 日記, マインドフルネス, ストレス解消, 思考整理, ポジティブシンキング, メンタルケア
-            </p>
-        </div>
+            <div class="abcde-grid">
 
-    </div>
+
+                <div class="abcde-item">
+
+                    <div class="abcde-letter">
+                        A
+                    </div>
+
+                    <h3 data-lang="ja">
+                        出来事
+                    </h3>
+
+                    <h3 data-lang="en">
+                        Activating Event
+                    </h3>
+
+                    <p data-lang="ja">
+                        何が起きたのかを整理します。
+                    </p>
+
+                    <p data-lang="en">
+                        What happened?
+                    </p>
+
+                </div>
+
+
+                <div class="abcde-item">
+
+                    <div class="abcde-letter">
+                        B
+                    </div>
+
+                    <h3 data-lang="ja">
+                        思い込み・考え
+                    </h3>
+
+                    <h3 data-lang="en">
+                        Belief
+                    </h3>
+
+                    <p data-lang="ja">
+                        出来事をどう受け止めたかを整理します。
+                    </p>
+
+                    <p data-lang="en">
+                        How did you interpret the event?
+                    </p>
+
+                </div>
+
+
+                <div class="abcde-item">
+
+                    <div class="abcde-letter">
+                        C
+                    </div>
+
+                    <h3 data-lang="ja">
+                        結果・反応
+                    </h3>
+
+                    <h3 data-lang="en">
+                        Consequence
+                    </h3>
+
+                    <p data-lang="ja">
+                        感情や行動などの反応を整理します。
+                    </p>
+
+                    <p data-lang="en">
+                        What emotions or actions followed?
+                    </p>
+
+                </div>
+
+
+                <div class="abcde-item">
+
+                    <div class="abcde-letter">
+                        D
+                    </div>
+
+                    <h3 data-lang="ja">
+                        反論・再検討
+                    </h3>
+
+                    <h3 data-lang="en">
+                        Disputation
+                    </h3>
+
+                    <p data-lang="ja">
+                        考え方を別の角度から見直します。
+                    </p>
+
+                    <p data-lang="en">
+                        Examine the belief from another perspective.
+                    </p>
+
+                </div>
+
+
+                <div class="abcde-item">
+
+                    <div class="abcde-letter">
+                        E
+                    </div>
+
+                    <h3 data-lang="ja">
+                        効果・変化
+                    </h3>
+
+                    <h3 data-lang="en">
+                        Effect
+                    </h3>
+
+                    <p data-lang="ja">
+                        新しい捉え方や変化を記録します。
+                    </p>
+
+                    <p data-lang="en">
+                        Record the new perspective or resulting change.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Example
+             ========================= -->
+
+        <section>
+
+            <div class="section-title">
+
+                <h2 data-lang="ja">
+                    ABCDE理論の具体例
+                </h2>
+
+                <h2 data-lang="en">
+                    A Simple ABCDE Example
+                </h2>
+
+            </div>
+
+
+            <div class="card example">
+
+
+                <p data-lang="ja">
+
+                    例えば、「仕事で提出した資料について、
+                    上司から修正を求められた」という場面を考えてみます。
+
+                </p>
+
+
+                <dl data-lang="ja">
+
+                    <dt>A：出来事</dt>
+
+                    <dd>
+                        上司から資料の修正を求められた。
+                    </dd>
+
+
+                    <dt>B：考え</dt>
+
+                    <dd>
+                        「自分は仕事ができないと思われているのではないか」
+                        と考えた。
+                    </dd>
+
+
+                    <dt>C：結果・反応</dt>
+
+                    <dd>
+                        不安になり、その後の仕事にも自信が持てなくなった。
+                    </dd>
+
+
+                    <dt>D：反論・再検討</dt>
+
+                    <dd>
+                        「修正依頼は資料をより良くするためのものかもしれない。
+                        すべての修正依頼が能力の否定というわけではない」
+                        と考え直してみる。
+                    </dd>
+
+
+                    <dt>E：効果・変化</dt>
+
+                    <dd>
+                        修正点を具体的に確認し、
+                        次回に活かそうという考え方ができるようになった。
+                    </dd>
+
+                </dl>
+
+
+                <p data-lang="en">
+
+                    Imagine that your manager asks you to revise
+                    a document you submitted.
+
+                </p>
+
+
+                <dl data-lang="en">
+
+                    <dt>A: Activating Event</dt>
+
+                    <dd>
+                        Your manager asks you to revise a document.
+                    </dd>
+
+
+                    <dt>B: Belief</dt>
+
+                    <dd>
+                        You think, "Maybe they think I am not good
+                        at my job."
+                    </dd>
+
+
+                    <dt>C: Consequence</dt>
+
+                    <dd>
+                        You feel anxious and lose confidence.
+                    </dd>
+
+
+                    <dt>D: Disputation</dt>
+
+                    <dd>
+                        You reconsider the thought:
+                        "The feedback may simply be intended
+                        to improve the document."
+                    </dd>
+
+
+                    <dt>E: Effect</dt>
+
+                    <dd>
+                        You can focus on the specific feedback
+                        and think about how to use it next time.
+                    </dd>
+
+                </dl>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             How to use
+             ========================= -->
+
+        <section>
+
+            <div class="section-title">
+
+                <h2 data-lang="ja">
+                    ABCDE理論ノートの使い方
+                </h2>
+
+                <h2 data-lang="en">
+                    How to Use the App
+                </h2>
+
+            </div>
+
+
+            <div class="steps">
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        STEP 1
+                    </div>
+
+                    <h3 data-lang="ja">
+                        出来事を書く
+                    </h3>
+
+                    <h3 data-lang="en">
+                        Describe the event
+                    </h3>
+
+                    <p data-lang="ja">
+                        何が起きたのかを、できるだけ具体的に記録します。
+                    </p>
+
+                    <p data-lang="en">
+                        Describe what happened as specifically as possible.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        STEP 2
+                    </div>
+
+                    <h3 data-lang="ja">
+                        考えを書く
+                    </h3>
+
+                    <h3 data-lang="en">
+                        Identify your belief
+                    </h3>
+
+                    <p data-lang="ja">
+                        その出来事をどう受け止めたのかを振り返ります。
+                    </p>
+
+                    <p data-lang="en">
+                        Write down how you interpreted the event.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        STEP 3
+                    </div>
+
+                    <h3 data-lang="ja">
+                        反応を書く
+                    </h3>
+
+                    <h3 data-lang="en">
+                        Record the consequence
+                    </h3>
+
+                    <p data-lang="ja">
+                        感情や行動など、自分に起きた反応を整理します。
+                    </p>
+
+                    <p data-lang="en">
+                        Record your emotional or behavioral response.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        STEP 4
+                    </div>
+
+                    <h3 data-lang="ja">
+                        考え直す
+                    </h3>
+
+                    <h3 data-lang="en">
+                        Reconsider
+                    </h3>
+
+                    <p data-lang="ja">
+                        別の可能性や視点がないか考えてみます。
+                    </p>
+
+                    <p data-lang="en">
+                        Consider alternative explanations or perspectives.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        STEP 5
+                    </div>
+
+                    <h3 data-lang="ja">
+                        変化を記録
+                    </h3>
+
+                    <h3 data-lang="en">
+                        Record the effect
+                    </h3>
+
+                    <p data-lang="ja">
+                        新しく気づいたことや考え方の変化を記録します。
+                    </p>
+
+                    <p data-lang="en">
+                        Record what you noticed or how your perspective changed.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Features
+             ========================= -->
+
+        <section>
+
+            <div class="section-title">
+
+                <h2 data-lang="ja">
+                    アプリの主な機能
+                </h2>
+
+                <h2 data-lang="en">
+                    Main Features
+                </h2>
+
+            </div>
+
+
+            <div class="card">
+
+
+                <div class="feature">
+
+                    <div class="feature-text">
+
+                        <h3 data-lang="ja">
+                            ABCDE理論を基礎から学べる
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Learn the ABCDE framework
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            ABCDEの各ステップについて、
+                            簡単な説明や考え方を確認できます。
+
+                            初めてABCDEモデルを使う場合でも、
+                            各項目の意味を確認しながら
+                            自分の状況を整理できます。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Learn the basic concepts behind each
+                            step of the ABCDE framework with
+                            simple explanations and guidance.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-image">
+
+                        <img
+                            src="screenshot_01.png"
+                            alt="ABCDE Theory explanation screen">
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-text">
+
+                        <h3 data-lang="ja">
+                            1ステップずつ入力できる
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Step-by-step journaling
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            AからEまでを一度に考える必要はありません。
+
+                            1つずつ順番に入力することで、
+                            頭の中にある考えを整理しながら
+                            記録できます。
+
+                            入力に迷ったときのヒントや例も用意しています。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            You do not need to organize everything
+                            at once. Work through each step
+                            individually and use hints and examples
+                            when you need help.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-image">
+
+                        <img
+                            src="screenshot_02.png"
+                            alt="ABCDE Theory Note step by step journaling screen">
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-text">
+
+                        <h3 data-lang="ja">
+                            リマインダーで振り返りをサポート
+                        </h3>
+
+                        <h3 data-lang="en">
+                            Reflection reminders
+                        </h3>
+
+
+                        <p data-lang="ja">
+
+                            リマインダーを設定して、
+                            定期的に自分の考えを振り返る時間を
+                            作ることができます。
+
+                            忙しい日常の中でも、
+                            自分自身を振り返るきっかけとして利用できます。
+
+                        </p>
+
+
+                        <p data-lang="en">
+
+                            Set reminders to create regular opportunities
+                            to reflect on your thoughts and experiences.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-image">
+
+                        <img
+                            src="screenshot_03.png"
+                            alt="ABCDE Theory Note reminder settings screen">
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             When to use
+             ========================= -->
+
+        <section>
+
+            <div class="section-title">
+
+                <h2 data-lang="ja">
+                    こんなときに活用できます
+                </h2>
+
+                <h2 data-lang="en">
+                    When Can You Use It?
+                </h2>
+
+            </div>
+
+
+            <div class="card">
+
+                <ul data-lang="ja">
+
+                    <li>
+                        仕事や学校で嫌なことがあったとき
+                    </li>
+
+                    <li>
+                        人間関係について考えを整理したいとき
+                    </li>
+
+                    <li>
+                        失敗したことを何度も考えてしまうとき
+                    </li>
+
+                    <li>
+                        自分の考え方を客観的に振り返りたいとき
+                    </li>
+
+                    <li>
+                        日記やジャーナリングを習慣にしたいとき
+                    </li>
+
+                    <li>
+                        定期的に自分自身を振り返る時間を作りたいとき
+                    </li>
+
+                </ul>
+
+
+                <ul data-lang="en">
+
+                    <li>
+                        After a difficult experience at work or school
+                    </li>
+
+                    <li>
+                        When you want to organize your thoughts about relationships
+                    </li>
+
+                    <li>
+                        When you keep thinking about a mistake
+                    </li>
+
+                    <li>
+                        When you want to look at your thoughts from another perspective
+                    </li>
+
+                    <li>
+                        When you want to build a journaling habit
+                    </li>
+
+                    <li>
+                        When you want regular time for self-reflection
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FAQ
+             ========================= -->
+
+        <section id="faq">
+
+            <div class="section-title">
+
+                <h2 data-lang="ja">
+                    よくある質問
+                </h2>
+
+                <h2 data-lang="en">
+                    Frequently Asked Questions
+                </h2>
+
+            </div>
+
+
+            <!-- JA FAQ -->
+
+            <div data-lang="ja">
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        ABCDE理論とは何ですか？
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        ABCDEモデルは、出来事だけではなく、
+                        その出来事に対する自分の考え方や受け止め方、
+                        そして感情や行動などの反応を整理するための
+                        フレームワークです。
+
+                        本アプリではA（出来事）、B（考え・信念）、
+                        C（結果・反応）、D（反論・再検討）、
+                        E（効果・変化）の5段階で記録します。
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        認知行動療法そのものを受けられるアプリですか？
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        いいえ。本アプリは認知行動療法の診察や治療を
+                        提供するものではありません。
+
+                        ABCDEモデルを使って、自分自身の考えや経験を
+                        整理するためのセルフケア・ジャーナリングツールです。
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        どのような人におすすめですか？
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        自分の考えを整理したい方、
+                        ジャーナリングを始めたい方、
+                        日常の出来事を振り返る習慣を作りたい方などに
+                        ご利用いただけます。
+
+                        特定の病気や症状を治療することを目的とした
+                        アプリではありません。
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        書く内容が思いつかない場合はどうすればよいですか？
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        各ステップの説明やヒントを確認しながら
+                        少しずつ入力できます。
+
+                        最初から完璧な文章を書く必要はありません。
+                        そのとき考えていることを、できる範囲で
+                        書き出してみてください。
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        リマインダーは利用できますか？
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        はい。リマインダーを設定することで、
+                        定期的に振り返る時間を作ることができます。
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        無料で利用できますか？
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        App Storeからアプリを確認できます。
+                        最新の料金や提供条件については、
+                        App Storeの掲載情報をご確認ください。
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+
+            <!-- EN FAQ -->
+
+            <div data-lang="en">
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        What is the ABCDE framework?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        The ABCDE framework is a way to examine
+                        an event, your interpretation of it,
+                        and your emotional or behavioral response.
+
+                        This app uses five steps:
+                        Activating Event, Belief, Consequence,
+                        Disputation, and Effect.
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Does the app provide cognitive behavioral therapy?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        No. The app does not provide medical diagnosis,
+                        therapy, or treatment.
+
+                        It is a self-care and journaling tool designed
+                        to help users organize their thoughts using
+                        the ABCDE framework.
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Who is the app for?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        It can be useful for people who want to organize
+                        their thoughts, practice journaling, or build
+                        a regular self-reflection habit.
+
+                        It is not intended to treat a specific medical
+                        condition or symptom.
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        What if I don't know what to write?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        The app provides explanations, hints,
+                        and examples to help you work through
+                        each step.
+
+                        You do not need to write perfect sentences.
+                        Start with whatever comes to mind.
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Does the app support reminders?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        Yes. You can use reminders to create
+                        regular opportunities for self-reflection.
+
+                    </div>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Is the app free?
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        You can check the latest pricing and availability
+                        on the App Store.
+
+                    </div>
+
+                </details>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Important Notice
+             ========================= -->
+
+        <section>
+
+            <div class="section-title">
+
+                <h2 data-lang="ja">
+                    ご利用にあたって
+                </h2>
+
+                <h2 data-lang="en">
+                    Important Information
+                </h2>
+
+            </div>
+
+
+            <div class="notice">
+
+                <p data-lang="ja">
+
+                    <strong>医療・治療を目的としたアプリではありません。</strong>
+
+                </p>
+
+
+                <p data-lang="ja">
+
+                    ABCDE理論ノートは、日常生活における
+                    思考の整理やセルフリフレクションを
+                    サポートすることを目的としています。
+
+                    医療上の診断、治療、カウンセリング、
+                    緊急時の支援などを提供するものではありません。
+
+                    心身の不調が続いている場合や、
+                    強い苦痛を感じている場合は、
+                    自己判断だけで対処せず、
+                    医療機関や専門家への相談をご検討ください。
+
+                </p>
+
+
+                <p data-lang="en">
+
+                    <strong>
+                        This app is not intended to provide
+                        medical diagnosis or treatment.
+                    </strong>
+
+                </p>
+
+
+                <p data-lang="en">
+
+                    ABCDE Theory Note is designed to support
+                    everyday self-reflection and thought organization.
+
+                    It does not provide medical diagnosis,
+                    therapy, counseling, or emergency support.
+
+                    If you are experiencing significant or
+                    persistent distress, consider seeking help
+                    from an appropriate healthcare professional.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             Keywords
+             ========================= -->
+
+        <section>
+
+            <div class="card keywords">
+
+                <h2 data-lang="ja">
+                    関連キーワード
+                </h2>
+
+                <h2 data-lang="en">
+                    Related Topics
+                </h2>
+
+
+                <p data-lang="ja">
+
+                    ABCDE理論、ABCDEモデル、認知行動療法、
+                    CBT、セルフケア、ジャーナリング、
+                    思考整理、感情、ストレス管理、
+                    自己理解、日記、マインドフルネス、
+                    セルフリフレクション
+
+                </p>
+
+
+                <p data-lang="en">
+
+                    ABCDE framework, ABCDE model,
+                    cognitive behavioral therapy, CBT,
+                    self-care, journaling, thought organization,
+                    emotions, stress management,
+                    self-reflection, mindfulness
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         Footer
+         ========================= -->
 
     <footer>
-        <p>&copy; 2025 ABCDE Theory Note. All rights reserved.</p>
+
+        <div class="container">
+
+            <p>
+                © <span id="current-year"></span>
+                ABCDE Theory Note
+            </p>
+
+
+            <p data-lang="ja">
+                ABCDE理論ノートは個人開発のiOSアプリです。
+            </p>
+
+
+            <p data-lang="en">
+                ABCDE Theory Note is an independently developed iOS application.
+            </p>
+
+
+            <p>
+
+                <a href="../../index.html">
+
+                    <span
+                        data-lang="ja"
+                        class="inline-lang">
+                        ホーム
+                    </span>
+
+                    <span
+                        data-lang="en"
+                        class="inline-lang">
+                        Home
+                    </span>
+
+                </a>
+
+            </p>
+
+        </div>
+
     </footer>
 
+
+    <!-- =========================
+         JavaScript
+         ========================= -->
+
     <script>
+
         function setLanguage(lang) {
-            document.body.className = 'lang-' + lang;
 
-            // Update active button state
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
+            /*
+             * Only Japanese and English are supported.
+             */
 
-            // Save preference
-            localStorage.setItem('preferred-language', lang);
+            if (
+                lang !== "ja" &&
+                lang !== "en"
+            ) {
+
+                lang = "ja";
+
+            }
+
+
+            /*
+             * Keep body classes predictable.
+             */
+
+            document.body.classList.remove(
+                "lang-ja",
+                "lang-en"
+            );
+
+
+            document.body.classList.add(
+                "lang-" + lang
+            );
+
+
+            /*
+             * Update HTML language.
+             */
+
+            document.documentElement.lang = lang;
+
+
+            /*
+             * Update language buttons.
+             */
+
+            document
+                .querySelectorAll("[data-set-lang]")
+                .forEach(function (button) {
+
+                    const active =
+                        button.dataset.setLang === lang;
+
+                    button.classList.toggle(
+                        "active",
+                        active
+                    );
+
+                    button.setAttribute(
+                        "aria-pressed",
+                        active
+                            ? "true"
+                            : "false"
+                    );
+
+                });
+
+
+            /*
+             * Save language preference.
+             */
+
+            localStorage.setItem(
+                "preferred-language",
+                lang
+            );
+
+
+            /*
+             * Update title and description.
+             */
+
+            const description =
+                document.querySelector(
+                    'meta[name="description"]'
+                );
+
+
+            const ogTitle =
+                document.querySelector(
+                    'meta[property="og:title"]'
+                );
+
+
+            const ogDescription =
+                document.querySelector(
+                    'meta[property="og:description"]'
+                );
+
+
+            if (lang === "ja") {
+
+                document.title =
+                    "ABCDE理論ノート | 思考を整理するセルフケアアプリ";
+
+
+                description.setAttribute(
+                    "content",
+                    "ABCDE理論ノートは、ABCDEモデルを使って出来事・考え方・感情を整理し、新しい視点を考えるためのセルフケアアプリです。ABCDE理論の基本から使い方、具体例までわかりやすく紹介します。"
+                );
+
+
+                ogTitle.setAttribute(
+                    "content",
+                    "ABCDE理論ノート | 思考を整理するセルフケアアプリ"
+                );
+
+
+                ogDescription.setAttribute(
+                    "content",
+                    "ABCDEモデルを使って、出来事・考え方・感情を整理し、新しい視点を考えるためのセルフケアアプリです。"
+                );
+
+            } else {
+
+                document.title =
+                    "ABCDE Theory Note | Organize Your Thoughts";
+
+
+                description.setAttribute(
+                    "content",
+                    "ABCDE Theory Note is a self-care journaling app that helps you organize events, beliefs and responses using the ABCDE framework."
+                );
+
+
+                ogTitle.setAttribute(
+                    "content",
+                    "ABCDE Theory Note | Organize Your Thoughts"
+                );
+
+
+                ogDescription.setAttribute(
+                    "content",
+                    "A self-care journaling app for organizing thoughts and exploring new perspectives using the ABCDE framework."
+                );
+
+            }
+
         }
 
-        // Auto-detect language on load
-        (function () {
-            const savedLang = localStorage.getItem('preferred-language');
-            if (savedLang) {
-                setLanguage(savedLang);
-                return;
-            }
 
-            const browserLang = navigator.language || navigator.userLanguage;
-            if (browserLang.startsWith('ja')) {
-                setLanguage('ja');
-            } else {
-                setLanguage('en');
-            }
-        })();
-    </script>
+        /*
+         * Language buttons
+         */
 
-    <script>
-        // Intersection Observer for gentle fade-in effect
-        document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Animate only once
+        document
+            .querySelectorAll("[data-set-lang]")
+            .forEach(function (button) {
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+                        setLanguage(
+                            button.dataset.setLang
+                        );
+
                     }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
+                );
+
             });
 
-            document.querySelectorAll('.fade-in-gentle').forEach(el => {
-                observer.observe(el);
-            });
-        });
+
+        /*
+         * Initial language
+         *
+         * Priority:
+         *
+         * 1. URL ?lang=ja / ?lang=en
+         * 2. localStorage
+         * 3. Browser language
+         * 4. Japanese
+         */
+
+        (function () {
+
+            const params =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+
+            const urlLang =
+                params.get("lang");
+
+
+            if (
+                urlLang === "ja" ||
+                urlLang === "en"
+            ) {
+
+                setLanguage(urlLang);
+
+                return;
+
+            }
+
+
+            const savedLang =
+                localStorage.getItem(
+                    "preferred-language"
+                );
+
+
+            if (
+                savedLang === "ja" ||
+                savedLang === "en"
+            ) {
+
+                setLanguage(savedLang);
+
+                return;
+
+            }
+
+
+            const browserLang =
+                navigator.language ||
+                navigator.userLanguage ||
+                "ja";
+
+
+            setLanguage(
+                browserLang
+                    .toLowerCase()
+                    .startsWith("en")
+                    ? "en"
+                    : "ja"
+            );
+
+        })();
+
+
+        /*
+         * Current year
+         */
+
+        document.getElementById(
+            "current-year"
+        ).textContent =
+            new Date().getFullYear();
+
     </script>
+
 
 </body>
 
