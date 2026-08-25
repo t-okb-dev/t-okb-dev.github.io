@@ -4,90 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relative Pitch Trainer - Ear Training for Musicians</title>
+
+    <title>Relative Pitch Trainer | 相対音感・聴音トレーニング</title>
+
+    <meta name="description"
+        content="Relative Pitch Trainerは、音程を聞き分ける力を身につけるための相対音感・聴音トレーニングアプリです。初心者から上級者まで、毎日の耳トレーニングに無料で利用できます。">
+
+    <meta name="keywords"
+        content="相対音感, 聴音, 音感, 音程, 耳トレ, 音楽トレーニング, ピアノ, Relative Pitch, Ear Training, Music Training">
+
     <link rel="icon" type="image/png" href="favicon.png">
+
     <style>
         :root {
             --primary-bg: #0F172A;
             --secondary-bg: #1E293B;
             --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
             --text-main: #FFFFFF;
             --text-dim: #94a3b8;
             --card-bg: rgba(255, 255, 255, 0.05);
-            --gradient: linear-gradient(135deg, #6A11CB 0%, #2575FC 100%);
+            --border-color: rgba(255, 255, 255, 0.08);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--primary-bg);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                "Noto Sans JP",
+                sans-serif;
+        }
+
+        a {
+            color: inherit;
         }
 
         .container {
-            max-width: 1000px;
+            width: min(1000px, calc(100% - 40px));
             margin: 0 auto;
-            padding: 0 20px;
         }
 
-        /* Navigation styles */
-        .top-nav {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(8px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 24px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
+        /* =========================
+           Language
+        ========================= */
 
-        .lang-switch {
-            display: flex;
-            gap: 8px;
-        }
-
-        .back-home {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.9em;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
-
-        .back-home:hover {
-            opacity: 1;
-        }
-
-        .lang-btn {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-            padding: 4px 10px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 0.85em;
-            transition: all 0.2s;
-        }
-
-        .lang-btn.active {
-            background: var(--accent-color);
-            border-color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        /* Language switching styles */
         body.lang-en .lang-ja {
             display: none !important;
         }
@@ -96,45 +72,137 @@
             display: none !important;
         }
 
-        header {
-            padding: 100px 0 40px 0;
+        /* =========================
+           Navigation
+        ========================= */
+
+        .top-nav {
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 12px 24px;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            z-index: 1000;
+
+            border-bottom: 1px solid var(--border-color);
         }
 
+        .back-home {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .back-home:hover {
+            opacity: 1;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+
+            padding: 5px 11px;
+
+            cursor: pointer;
+            border-radius: 5px;
+
+            font-size: 0.85rem;
+
+            transition:
+                background 0.2s,
+                border-color 0.2s;
+        }
+
+        .lang-btn:hover {
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .lang-btn.active {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* =========================
+           Hero
+        ========================= */
+
         .hero {
-            padding: 40px 0 60px 0;
             text-align: center;
+            padding: 140px 0 70px;
+        }
+
+        .app-icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 22px;
+            margin-bottom: 24px;
+
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.35);
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
             font-weight: 900;
             letter-spacing: -1px;
-            margin-bottom: 8px;
-            background: linear-gradient(to right, #fff, #94a3b8);
+            line-height: 1.2;
+            margin-bottom: 18px;
+
+            background: linear-gradient(
+                to right,
+                #ffffff,
+                #94a3b8
+            );
+
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .subtitle {
-            font-size: 1.25rem;
+            font-size: clamp(1rem, 3vw, 1.25rem);
             color: var(--text-dim);
             font-weight: 500;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
 
         .download-btn {
             display: inline-flex;
             flex-direction: column;
             align-items: center;
-            background: var(--text-main);
+
+            background: #fff;
             color: var(--primary-bg);
-            padding: 12px 32px;
+
+            padding: 13px 30px;
+
             border-radius: 12px;
             text-decoration: none;
+
             font-weight: 700;
-            transition: transform 0.2s, background 0.2s;
+
+            transition:
+                transform 0.2s,
+                background 0.2s;
         }
 
         .download-btn:hover {
@@ -142,24 +210,38 @@
             background: #f1f5f9;
         }
 
-        .download-btn span {
-            display: block;
-            font-size: 11px;
+        .download-btn small {
+            font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            opacity: 0.7;
+            opacity: 0.65;
             margin-bottom: 2px;
         }
 
-        /* Screenshots */
+        .download-btn strong {
+            font-size: 1rem;
+        }
+
+        /* =========================
+           Screenshots
+        ========================= */
+
+        .screenshots-section {
+            padding: 30px 0 80px;
+        }
+
         .screenshots {
-            padding: 40px 0;
             display: flex;
-            gap: 20px;
+            gap: 24px;
+
             overflow-x: auto;
-            padding-bottom: 40px;
+
+            padding: 20px 10px 30px;
+
             scrollbar-width: thin;
-            scrollbar-color: var(--accent-color) var(--secondary-bg);
+            scrollbar-color:
+                var(--accent-color)
+                var(--secondary-bg);
         }
 
         .screenshots::-webkit-scrollbar {
@@ -168,6 +250,7 @@
 
         .screenshots::-webkit-scrollbar-track {
             background: var(--secondary-bg);
+            border-radius: 10px;
         }
 
         .screenshots::-webkit-scrollbar-thumb {
@@ -175,238 +258,1029 @@
             border-radius: 10px;
         }
 
-        .screenshots img {
-            height: 500px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .screenshot {
+            flex: 0 0 auto;
+
+            width: auto;
+            height: 520px;
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, 0.45);
+
+            border: 1px solid var(--border-color);
+
+            object-fit: contain;
         }
 
-        /* Features */
+        /* =========================
+           Section
+        ========================= */
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.3rem);
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        /* =========================
+           Features
+        ========================= */
+
         .features {
             padding: 80px 0;
         }
 
-        h2 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 24px;
         }
 
         .feature-card {
             background: var(--card-bg);
-            padding: 30px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: border-color 0.3s;
+
+            padding: 28px;
+
+            border-radius: 20px;
+
+            border: 1px solid var(--border-color);
+
+            transition:
+                transform 0.2s,
+                border-color 0.2s,
+                background 0.2s;
         }
 
         .feature-card:hover {
-            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-3px);
+            border-color: rgba(59, 130, 246, 0.35);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+            margin-bottom: 14px;
         }
 
         .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #60a5fa;
         }
 
         .feature-card p {
             color: var(--text-dim);
             font-size: 0.95rem;
-            line-height: 1.6;
         }
 
-        /* About */
+        /* =========================
+           About
+        ========================= */
+
         .about {
             padding: 80px 0;
+
+            max-width: 800px;
+            margin: 0 auto;
+
             text-align: center;
+        }
+
+        .about p {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+        }
+
+        /* =========================
+           FAQ
+        ========================= */
+
+        .faq {
+            padding: 80px 0;
+        }
+
+        .faq-list {
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .about p {
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            margin-bottom: 40px;
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
         }
+
+        .faq-item:first-child {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            width: 100%;
+
+            background: none;
+            border: none;
+
+            color: #fff;
+
+            text-align: left;
+
+            padding: 22px 45px 22px 0;
+
+            font-size: 1rem;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            position: relative;
+        }
+
+        .faq-question::after {
+            content: "+";
+
+            position: absolute;
+            right: 8px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: var(--accent-color);
+
+            font-size: 1.5rem;
+            font-weight: 400;
+
+            transition: transform 0.2s;
+        }
+
+        .faq-item.open .faq-question::after {
+            content: "−";
+        }
+
+        .faq-answer {
+            display: none;
+
+            color: var(--text-dim);
+
+            padding: 0 20px 22px 0;
+
+            font-size: 0.95rem;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        /* =========================
+           Keywords
+        ========================= */
+
+        .keywords {
+            padding: 50px 0;
+
+            text-align: center;
+
+            color: var(--text-dim);
+
+            font-size: 0.85rem;
+        }
+
+        /* =========================
+           Footer
+        ========================= */
 
         footer {
             padding: 60px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+            border-top: 1px solid var(--border-color);
+
             text-align: center;
+
             color: var(--text-dim);
+
             font-size: 14px;
         }
 
-        /* Responsive */
+        /* =========================
+           Responsive
+        ========================= */
+
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
+
+            .container {
+                width: min(100% - 28px, 1000px);
             }
 
-            .subtitle {
-                font-size: 1.1rem;
+            .top-nav {
+                padding: 10px 14px;
             }
 
-            .screenshots img {
-                height: 400px;
+            .hero {
+                padding-top: 120px;
+                padding-bottom: 50px;
+            }
+
+            .app-icon {
+                width: 82px;
+                height: 82px;
+                border-radius: 18px;
+            }
+
+            .screenshots-section {
+                padding-bottom: 50px;
+            }
+
+            .screenshot {
+                height: 430px;
+                border-radius: 20px;
+            }
+
+            .features,
+            .faq,
+            .about {
+                padding: 60px 0;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-card {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .screenshot {
+                height: 390px;
+            }
+
+            .download-btn {
+                padding: 12px 24px;
+            }
+
+            .faq-question {
+                font-size: 0.95rem;
             }
         }
     </style>
 </head>
 
 <body class="lang-ja">
+
+    <!-- Navigation -->
     <nav class="top-nav">
         <a href="../../index.html" class="back-home">← Home</a>
+
         <div class="lang-switch">
-            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-            <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+            <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">
+                EN
+            </button>
+
+            <button class="lang-btn" data-lang="ja" onclick="setLanguage('ja')">
+                JP
+            </button>
         </div>
     </nav>
 
-    <div class="container">
+
+    <main>
+
+        <!-- Hero -->
         <section class="hero">
-            <h1>Relative Pitch Trainer</h1>
-            <p class="subtitle">
-                <span class="lang-en">Ear Training for Musicians</span>
-                <span class="lang-ja">相対音感・聴音トレーニング</span>
-            </p>
-            <a href="https://apps.apple.com/jp/app/piano-relative-pitch-trainer/id6758669715" class="download-btn">
-                <span class="lang-en">Download on App Store</span>
-                <span class="lang-ja">App Storeでダウンロード</span>
-            </a>
-        </section>
+            <div class="container">
 
-        <section class="screenshots">
-            <img src="screenshot_home_en.png" alt="Home Screen English">
-            <img src="screenshot_home_ja.png" alt="Home Screen Japanese">
-            <img src="screenshot_training_simple.png" alt="Training Screen">
-            <img src="screenshot_training_advanced.png" alt="Advanced Training">
-            <img src="screenshot_settings.png" alt="Settings Screen">
-        </section>
+                <img
+                    src="favicon.png"
+                    alt="Relative Pitch Trainer App Icon"
+                    class="app-icon"
+                >
 
-        <section class="features">
-            <h2>
-                <span class="lang-en">Features</span>
-                <span class="lang-ja">機能</span>
-            </h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>
-                        <span class="lang-en">Scientific Training</span>
-                        <span class="lang-ja">科学的なトレーニング</span>
-                    </h3>
-                    <p class="lang-en">Based on music theory, practice identifying intervals effectively.</p>
-                    <p class="lang-ja">音楽理論に基づき、インターバル（音程）を正確に聞き取るトレーニングが可能です。</p>
-                </div>
-                <div class="feature-card">
-                    <h3>
-                        <span class="lang-en">Multi-Level Support</span>
-                        <span class="lang-ja">マルチレベル対応</span>
-                    </h3>
-                    <p class="lang-en">Choose from Easy (1 or 2 notes) to Normal modes according to your skill.</p>
-                    <p class="lang-ja">初心者向けの1音モードから、上級者向けの2音連続再生モードまで、スキルに合わせて選択できます。</p>
-                </div>
-                <div class="feature-card">
-                    <h3>
-                        <span class="lang-en">Flexible Notation</span>
-                        <span class="lang-ja">音名表記の切り替え</span>
-                    </h3>
-                    <p class="lang-en">Support for both CDE and Do-Re-Mi notation in multiple languages.</p>
-                    <p class="lang-ja">CDE表記とドレミ表記をワンタップで切り替え。英語、日本語、ベトナム語に対応しています。</p>
-                </div>
-                <div class="feature-card">
-                    <h3>
-                        <span class="lang-en">Progress Tracking</span>
-                        <span class="lang-ja">履歴管理</span>
-                    </h3>
-                    <p class="lang-en">Visualize your daily practice with an integrated calendar view.</p>
-                    <p class="lang-ja">カレンダー形式の履歴管理機能で、日々の練習成果をひと目で確認できます。</p>
-                </div>
-                <div class="feature-card">
-                    <h3>
-                        <span class="lang-en">Premium Sounds</span>
-                        <span class="lang-ja">高品位なサウンド</span>
-                    </h3>
-                    <p class="lang-en">Real piano samples help you develop a "musician's ear" naturally.</p>
-                    <p class="lang-ja">本物のピアノサンプリング音源を使用。自然な響きで耳を鍛えることができます。</p>
-                </div>
-                <div class="feature-card">
-                    <h3>
-                        <span class="lang-en">Completely Free</span>
-                        <span class="lang-ja">完全無料</span>
-                    </h3>
-                    <p class="lang-en">All training features are available for free to support your musical journey.</p>
-                    <p class="lang-ja">すべてのトレーニング機能を無料で利用でき、あなたの音楽活動をサポートします。</p>
-                </div>
+                <h1>Relative Pitch Trainer</h1>
+
+                <p class="subtitle">
+                    <span class="lang-en">
+                        Ear Training for Musicians
+                    </span>
+
+                    <span class="lang-ja">
+                        相対音感・聴音トレーニング
+                    </span>
+                </p>
+
+                <a
+                    href="https://apps.apple.com/jp/app/piano-relative-pitch-trainer/id6758669715"
+                    class="download-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <small>
+                        <span class="lang-en">Download on the</span>
+                        <span class="lang-ja">App Storeから</span>
+                    </small>
+
+                    <strong>
+                        <span class="lang-en">App Store</span>
+                        <span class="lang-ja">ダウンロード</span>
+                    </strong>
+                </a>
+
             </div>
         </section>
 
-        <section class="about">
-            <h2>
-                <span class="lang-en">About App</span>
-                <span class="lang-ja">アプリ紹介</span>
-            </h2>
-            <p class="lang-en">
-                "Relative Pitch Trainer" is a professional tool designed for musicians who want to sharpen their
-                hearing. Whether you are a singer, a producer, or an instrumentalist, mastering relative pitch is the
-                key to transcribing, composing, and performing better.
-            </p>
-            <p class="lang-ja">
-                「相対音感」は、耳を鍛えたいすべてのミュージシャンのためのプロフェッショナルなツールです。
-                歌手、プロデューサー、奏者、どなたにとっても、相対音感をマスターすることは、耳コピ、作曲、そしてより良い演奏のための鍵となります。
-            </p>
-            <a href="https://apps.apple.com/jp/app/piano-relative-pitch-trainer/id6758669715" class="download-btn">
-                <span class="lang-en">Get Started Today</span>
-                <span class="lang-ja">今すぐ始める</span>
-            </a>
+
+        <!-- Screenshots -->
+        <section class="screenshots-section">
+            <div class="container">
+
+                <!-- Japanese -->
+                <div class="screenshots lang-ja">
+
+                    <img
+                        src="screenshot_home_ja.png"
+                        alt="相対音感トレーナー ホーム画面"
+                        class="screenshot"
+                    >
+
+                    <img
+                        src="screenshot_training_simple.png"
+                        alt="相対音感トレーニング画面"
+                        class="screenshot"
+                    >
+
+                    <img
+                        src="screenshot_training_advanced.png"
+                        alt="高度な相対音感トレーニング画面"
+                        class="screenshot"
+                    >
+
+                    <img
+                        src="screenshot_settings.png"
+                        alt="設定画面"
+                        class="screenshot"
+                    >
+
+                </div>
+
+
+                <!-- English -->
+                <div class="screenshots lang-en">
+
+                    <img
+                        src="screenshot_home_en.png"
+                        alt="Relative Pitch Trainer Home Screen"
+                        class="screenshot"
+                    >
+
+                    <img
+                        src="screenshot_training_simple.png"
+                        alt="Relative Pitch Training"
+                        class="screenshot"
+                    >
+
+                    <img
+                        src="screenshot_training_advanced.png"
+                        alt="Advanced Relative Pitch Training"
+                        class="screenshot"
+                    >
+
+                    <img
+                        src="screenshot_settings.png"
+                        alt="Settings Screen"
+                        class="screenshot"
+                    >
+
+                </div>
+
+            </div>
         </section>
 
-        <footer>
-            <p>© 2026 Relative Pitch Trainer. All rights reserved.</p>
-        </footer>
-    </div>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+
+                <h2 class="section-title">
+                    <span class="lang-en">Features</span>
+                    <span class="lang-ja">主な機能</span>
+                </h2>
+
+
+                <div class="features-grid">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">🎧</div>
+
+                        <h3>
+                            <span class="lang-en">
+                                Interval Ear Training
+                            </span>
+
+                            <span class="lang-ja">
+                                音程を聞き分けるトレーニング
+                            </span>
+                        </h3>
+
+                        <p class="lang-en">
+                            Practice identifying musical intervals by listening to piano sounds.
+                            Build your ability to recognize the distance between notes.
+                        </p>
+
+                        <p class="lang-ja">
+                            ピアノの音を聴きながら、音と音の距離である「音程」を聞き分ける練習ができます。
+                            繰り返し練習することで、音の関係を聴き取る力を養います。
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">🎯</div>
+
+                        <h3>
+                            <span class="lang-en">
+                                Multiple Difficulty Levels
+                            </span>
+
+                            <span class="lang-ja">
+                                レベルに合わせた練習
+                            </span>
+                        </h3>
+
+                        <p class="lang-en">
+                            Start with simple exercises and gradually move to more challenging
+                            two-note training as your skills improve.
+                        </p>
+
+                        <p class="lang-ja">
+                            初心者でも取り組みやすいシンプルな練習から、
+                            2音を連続して聞き分ける練習まで、レベルに合わせて取り組めます。
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">🎼</div>
+
+                        <h3>
+                            <span class="lang-en">
+                                CDE & Do-Re-Mi Notation
+                            </span>
+
+                            <span class="lang-ja">
+                                音名表記を選択
+                            </span>
+                        </h3>
+
+                        <p class="lang-en">
+                            Choose between CDE notation and Do-Re-Mi notation.
+                            The app supports English, Japanese, and Vietnamese.
+                        </p>
+
+                        <p class="lang-ja">
+                            CDE表記とドレミ表記を切り替えて利用できます。
+                            英語・日本語・ベトナム語にも対応しています。
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">📅</div>
+
+                        <h3>
+                            <span class="lang-en">
+                                Practice History
+                            </span>
+
+                            <span class="lang-ja">
+                                練習履歴を確認
+                            </span>
+                        </h3>
+
+                        <p class="lang-en">
+                            Use the calendar view to look back at your practice activity
+                            and keep track of your daily training.
+                        </p>
+
+                        <p class="lang-ja">
+                            カレンダー形式の履歴から、これまでの練習状況を確認できます。
+                            毎日の耳トレーニングを続けるための記録として活用できます。
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">🎹</div>
+
+                        <h3>
+                            <span class="lang-en">
+                                Piano Sounds
+                            </span>
+
+                            <span class="lang-ja">
+                                ピアノ音源を使用
+                            </span>
+                        </h3>
+
+                        <p class="lang-en">
+                            Practice with piano sounds designed to make interval training
+                            easy to listen to and repeat.
+                        </p>
+
+                        <p class="lang-ja">
+                            ピアノ音源を使って、実際の音を聴きながら音程を練習できます。
+                            繰り返し聴いて、音の関係を身につけることを目指します。
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">✨</div>
+
+                        <h3>
+                            <span class="lang-en">
+                                Completely Free
+                            </span>
+
+                            <span class="lang-ja">
+                                完全無料
+                            </span>
+                        </h3>
+
+                        <p class="lang-en">
+                            All training features are available for free.
+                            There is no subscription required.
+                        </p>
+
+                        <p class="lang-ja">
+                            すべてのトレーニング機能を無料で利用できます。
+                            サブスクリプションへの登録は必要ありません。
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- About -->
+        <section class="about">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    <span class="lang-en">About Relative Pitch Training</span>
+                    <span class="lang-ja">相対音感トレーニングとは</span>
+                </h2>
+
+                <p class="lang-en">
+                    Relative Pitch Trainer is an ear-training app designed for musicians,
+                    singers, producers, and anyone who wants to improve their ability
+                    to recognize musical intervals.
+                </p>
+
+                <p class="lang-en">
+                    Practice by listening to piano sounds and identifying the relationship
+                    between notes. Short training sessions can be incorporated into
+                    your daily music practice.
+                </p>
+
+                <p class="lang-ja">
+                    Relative Pitch Trainerは、音程を聞き分ける力を身につけたい
+                    ミュージシャン、歌手、音楽制作者、楽器演奏者などのための
+                    聴音トレーニングアプリです。
+                </p>
+
+                <p class="lang-ja">
+                    ピアノの音を実際に聴き、音と音の関係を答えることで、
+                    相対音感のトレーニングに取り組めます。
+                    毎日の音楽練習の中に、短時間の耳トレーニングを取り入れることができます。
+                </p>
+
+                <a
+                    href="https://apps.apple.com/jp/app/piano-relative-pitch-trainer/id6758669715"
+                    class="download-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <small>
+                        <span class="lang-en">Start training on the</span>
+                        <span class="lang-ja">App Storeから</span>
+                    </small>
+
+                    <strong>
+                        <span class="lang-en">App Store</span>
+                        <span class="lang-ja">今すぐ始める</span>
+                    </strong>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- FAQ -->
+        <section class="faq">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    <span class="lang-en">Frequently Asked Questions</span>
+                    <span class="lang-ja">よくある質問</span>
+                </h2>
+
+
+                <div class="faq-list">
+
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+
+                        <button class="faq-question" type="button">
+
+                            <span class="lang-en">
+                                Is Relative Pitch Trainer free?
+                            </span>
+
+                            <span class="lang-ja">
+                                アプリは無料で利用できますか？
+                            </span>
+
+                        </button>
+
+                        <div class="faq-answer">
+
+                            <p class="lang-en">
+                                Yes. Relative Pitch Trainer is completely free to use.
+                                All training features are available without a subscription.
+                            </p>
+
+                            <p class="lang-ja">
+                                はい。Relative Pitch Trainerは完全無料で利用できます。
+                                すべてのトレーニング機能を無料で利用でき、
+                                サブスクリプションへの登録も必要ありません。
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+
+                        <button class="faq-question" type="button">
+
+                            <span class="lang-en">
+                                Who is this app for?
+                            </span>
+
+                            <span class="lang-ja">
+                                どのような人におすすめですか？
+                            </span>
+
+                        </button>
+
+                        <div class="faq-answer">
+
+                            <p class="lang-en">
+                                It is suitable for beginners, singers, instrumentalists,
+                                composers, producers, and anyone interested in improving
+                                their musical hearing.
+                            </p>
+
+                            <p class="lang-ja">
+                                音楽初心者から、歌手、楽器演奏者、作曲家、音楽制作者まで、
+                                音を聞き分ける力を鍛えたい方におすすめです。
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+
+                        <button class="faq-question" type="button">
+
+                            <span class="lang-en">
+                                What can I practice?
+                            </span>
+
+                            <span class="lang-ja">
+                                何を練習できますか？
+                            </span>
+
+                        </button>
+
+                        <div class="faq-answer">
+
+                            <p class="lang-en">
+                                You can practice identifying musical intervals
+                                by listening to piano sounds and answering the
+                                corresponding note relationship.
+                            </p>
+
+                            <p class="lang-ja">
+                                ピアノの音を聴いて、音と音の間隔である「音程」を
+                                聞き分けるトレーニングができます。
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+
+                        <button class="faq-question" type="button">
+
+                            <span class="lang-en">
+                                Can beginners use the app?
+                            </span>
+
+                            <span class="lang-ja">
+                                音楽初心者でも使えますか？
+                            </span>
+
+                        </button>
+
+                        <div class="faq-answer">
+
+                            <p class="lang-en">
+                                Yes. You can start with simple training and gradually
+                                increase the difficulty as you become more comfortable.
+                            </p>
+
+                            <p class="lang-ja">
+                                はい。初心者でも取り組みやすい練習から始められます。
+                                慣れてきたら、より難しいトレーニングに進むことができます。
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item">
+
+                        <button class="faq-question" type="button">
+
+                            <span class="lang-en">
+                                Does the app require an account?
+                            </span>
+
+                            <span class="lang-ja">
+                                アカウント登録は必要ですか？
+                            </span>
+
+                        </button>
+
+                        <div class="faq-answer">
+
+                            <p class="lang-en">
+                                No. You can use the app without creating an account.
+                            </p>
+
+                            <p class="lang-ja">
+                                いいえ。アカウントを作成することなく利用できます。
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item">
+
+                        <button class="faq-question" type="button">
+
+                            <span class="lang-en">
+                                Is this app a replacement for music lessons?
+                            </span>
+
+                            <span class="lang-ja">
+                                音楽レッスンの代わりになりますか？
+                            </span>
+
+                        </button>
+
+                        <div class="faq-answer">
+
+                            <p class="lang-en">
+                                The app is designed as a supplementary ear-training tool.
+                            </p>
+
+                            <p class="lang-ja">
+                                本アプリは耳のトレーニングを補助するためのツールです。
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Keywords -->
+        <section class="keywords">
+
+            <div class="container">
+
+                <p class="lang-en">
+                    Relative Pitch, Ear Training, Music Training, Interval Training,
+                    Music Theory, Piano, Musician, Singer, Composer, Free App
+                </p>
+
+                <p class="lang-ja">
+                    相対音感, 聴音, 音感, 音程, 耳トレ,
+                    音楽トレーニング, 音楽理論, ピアノ,
+                    ミュージシャン, 歌手, 作曲, 無料アプリ
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="container">
+
+            <p>
+                <span class="lang-en">
+                    © 2026 Relative Pitch Trainer. All rights reserved.
+                </span>
+
+                <span class="lang-ja">
+                    © 2026 Relative Pitch Trainer. All rights reserved.
+                </span>
+            </p>
+
+        </div>
+
+    </footer>
+
 
     <script>
-        function setLanguage(lang) {
-            document.body.className = 'lang-' + lang;
 
-            // Update active button state
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
+        /* =========================
+           Language Switching
+        ========================= */
+
+        function setLanguage(lang) {
+
+            if (lang !== 'ja' && lang !== 'en') {
+                lang = 'ja';
+            }
+
+            document.body.classList.remove('lang-ja', 'lang-en');
+            document.body.classList.add('lang-' + lang);
+
+            document.documentElement.lang = lang;
+
+            /* Active language button */
+
+            document.querySelectorAll('.lang-btn').forEach(function (btn) {
+
+                btn.classList.toggle(
+                    'active',
+                    btn.dataset.lang === lang
+                );
+
             });
 
-            // Save preference
-            localStorage.setItem('preferred-language', lang);
+
+            /* App Store URL */
+
+            const appStoreUrl =
+                'https://apps.apple.com/jp/app/piano-relative-pitch-trainer/id6758669715';
+
+            document.querySelectorAll('.download-btn').forEach(function (link) {
+                link.href = appStoreUrl;
+            });
+
+
+            /* Save preference */
+
+            localStorage.setItem(
+                'preferred-language',
+                lang
+            );
+
         }
 
-        // Auto-detect language on load
+
+        /* =========================
+           Language Detection
+        ========================= */
+
         (function () {
-            const savedLang = localStorage.getItem('preferred-language');
-            if (savedLang) {
+
+            const savedLang =
+                localStorage.getItem('preferred-language');
+
+            if (savedLang === 'ja' || savedLang === 'en') {
+
                 setLanguage(savedLang);
                 return;
+
             }
 
-            const browserLang = navigator.language || navigator.userLanguage;
-            if (browserLang.startsWith('ja')) {
-                setLanguage('ja');
-            } else {
-                setLanguage('en');
-            }
+            const browserLang =
+                navigator.language ||
+                navigator.userLanguage ||
+                '';
+
+            setLanguage(
+                browserLang.toLowerCase().startsWith('ja')
+                    ? 'ja'
+                    : 'en'
+            );
+
         })();
+
+
+        /* =========================
+           FAQ Accordion
+        ========================= */
+
+        document.addEventListener(
+            'DOMContentLoaded',
+            function () {
+
+                document
+                    .querySelectorAll('.faq-question')
+                    .forEach(function (button) {
+
+                        button.addEventListener(
+                            'click',
+                            function () {
+
+                                const item =
+                                    button.closest('.faq-item');
+
+                                const isOpen =
+                                    item.classList.contains('open');
+
+
+                                /* Close all other FAQ items */
+
+                                document
+                                    .querySelectorAll('.faq-item.open')
+                                    .forEach(function (openItem) {
+
+                                        if (openItem !== item) {
+                                            openItem.classList.remove('open');
+                                        }
+
+                                    });
+
+
+                                item.classList.toggle(
+                                    'open',
+                                    !isOpen
+                                );
+
+                            }
+                        );
+
+                    });
+
+            }
+        );
+
     </script>
+
 </body>
 
 </html>

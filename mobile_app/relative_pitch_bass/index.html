@@ -4,13 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bass Relative Pitch Trainer | Elevate Your Bass Ears</title>
+
+    <title>Bass Relative Pitch Trainer | ベース相対音感トレーナー</title>
+
     <meta name="description"
-        content="Ear training designed specifically for bassists. Master relative pitch, intervals, and walking bass lines with real bass guitar sounds.">
+        content="ベーシストのための相対音感・聴音トレーニングアプリ。リアルなベース音源、指板UI、スケール・コード確認、ウォーキングベース練習に対応。すべての機能を無料で利用できます。">
+
+    <meta name="keywords"
+        content="ベース,相対音感,聴音,耳コピ,ベース練習,音感トレーニング,ベースギター,ウォーキングベース,ジャズベース,音楽理論">
+
     <link rel="icon" type="image/png" href="favicon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
             --primary-bg: #0F172A;
@@ -19,8 +28,8 @@
             --accent-purple: #8b5cf6;
             --text-main: #F8FAFC;
             --text-dim: #94A3B8;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(255, 255, 255, 0.035);
+            --glass-border: rgba(255, 255, 255, 0.09);
             --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         }
 
@@ -28,7 +37,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -38,16 +51,24 @@
             overflow-x: hidden;
         }
 
+        a {
+            color: inherit;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Navigation styles */
+        /* =========================
+           Navigation
+        ========================= */
+
         .top-nav {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(8px);
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,7 +78,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .lang-switch {
@@ -81,20 +102,25 @@
             background: transparent;
             border: 1px solid rgba(255, 255, 255, 0.3);
             color: #fff;
-            padding: 4px 10px;
+            padding: 5px 11px;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 5px;
             font-size: 0.85em;
             transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            border-color: rgba(255, 255, 255, 0.7);
         }
 
         .lang-btn.active {
             background: var(--accent-blue);
             border-color: var(--accent-blue);
-            font-weight: bold;
+            font-weight: 700;
         }
 
-        /* Language switching styles */
+        /* Language switching */
+
         body.lang-en .lang-ja {
             display: none !important;
         }
@@ -103,23 +129,41 @@
             display: none !important;
         }
 
+        /* =========================
+           Header
+        ========================= */
+
         header {
-            padding: 100px 32px 32px 32px;
+            padding: 105px 32px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: var(--accent-blue);
+            letter-spacing: 0.5px;
         }
 
         .back-link {
             color: var(--text-dim);
             text-decoration: none;
             font-size: 14px;
-            font-weight: 500;
             transition: color 0.3s;
         }
 
+        .back-link:hover {
+            color: #fff;
+        }
+
+        /* =========================
+           Hero
+        ========================= */
+
         .hero {
-            padding: 60px 0 80px;
+            padding: 65px 0 85px;
             text-align: center;
             position: relative;
         }
@@ -127,34 +171,38 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -100px;
+            top: -120px;
             left: 50%;
             transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            width: min(650px, 90vw);
+            height: 650px;
+            background: radial-gradient(
+                circle,
+                rgba(59, 130, 246, 0.12) 0%,
+                transparent 70%
+            );
             z-index: -1;
+            pointer-events: none;
         }
 
         .app-badge {
             display: inline-block;
-            padding: 8px 16px;
+            padding: 8px 17px;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: 100px;
             font-size: 14px;
             font-weight: 600;
-            color: var(--accent-blue);
+            color: #60a5fa;
             margin-bottom: 24px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         h1 {
-            font-size: 4.5rem;
+            font-size: 4.2rem;
             font-weight: 900;
             line-height: 1.1;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             background: linear-gradient(to right, #FFFFFF, #94A3B8);
             -webkit-background-clip: text;
             background-clip: text;
@@ -162,10 +210,10 @@
         }
 
         .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             color: var(--text-dim);
-            max-width: 700px;
-            margin: 0 auto 48px;
+            max-width: 760px;
+            margin: 0 auto 42px;
             font-weight: 400;
         }
 
@@ -173,28 +221,29 @@
             display: flex;
             gap: 16px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-flex;
             flex-direction: column;
             align-items: center;
-            padding: 12px 36px;
+            padding: 13px 36px;
             border-radius: 16px;
             font-weight: 700;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
 
         .btn-primary {
             background: var(--gradient);
             color: white;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.25);
         }
 
         .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.35);
         }
 
         .btn span {
@@ -206,23 +255,32 @@
             margin-bottom: 2px;
         }
 
-        /* Screenshots Display */
+        /* =========================
+           Screenshots
+        ========================= */
+
         .screenshots-container {
-            padding: 60px 0;
+            padding: 35px 0 80px;
+        }
+
+        .screenshots-title {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
         }
 
         .screenshots {
             display: flex;
             gap: 24px;
             overflow-x: auto;
-            padding: 20px 40px 60px;
+            padding: 20px 40px 50px;
             scrollbar-width: thin;
             scrollbar-color: var(--accent-blue) var(--secondary-bg);
         }
 
         .screenshots::-webkit-scrollbar {
             height: 8px;
-            display: block;
         }
 
         .screenshots::-webkit-scrollbar-track {
@@ -237,20 +295,29 @@
 
         .screenshots img {
             height: 520px;
-            border-radius: 32px;
+            width: auto;
+            flex: 0 0 auto;
+            border-radius: 30px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-            border: 4px solid var(--glass-border);
-            transition: transform 0.5s;
+            border: 1px solid var(--glass-border);
+            transition: transform 0.3s ease;
         }
 
         .screenshots img:hover {
-            transform: scale(1.02);
+            transform: translateY(-5px);
         }
 
-        /* Features Section */
+        /* =========================
+           Features
+        ========================= */
+
+        .features {
+            padding: 70px 0 50px;
+        }
+
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 55px;
         }
 
         .section-title h2 {
@@ -261,58 +328,88 @@
 
         .section-title p {
             color: var(--text-dim);
-            font-size: 1.2rem;
+            font-size: 1.15rem;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 24px;
-            margin-bottom: 100px;
+            margin-bottom: 90px;
         }
 
         .feature-card {
             background: var(--glass-bg);
-            padding: 40px;
-            border-radius: 32px;
+            padding: 34px;
+            border-radius: 28px;
             border: 1px solid var(--glass-border);
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .feature-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--accent-blue);
-            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.055);
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-5px);
         }
 
         .icon-box {
-            width: 56px;
-            height: 56px;
+            width: 54px;
+            height: 54px;
             background: var(--gradient);
-            border-radius: 16px;
-            margin-bottom: 24px;
+            border-radius: 15px;
+            margin-bottom: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 23px;
         }
 
         .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
+            font-size: 1.35rem;
+            margin-bottom: 14px;
             font-weight: 700;
         }
 
         .feature-card p {
             color: var(--text-dim);
-            font-size: 1rem;
+            font-size: 0.98rem;
         }
 
-        /* Special Walking Bass Section */
+        /* =========================
+           Free App Notice
+        ========================= */
+
+        .free-notice {
+            background: linear-gradient(
+                135deg,
+                rgba(59, 130, 246, 0.12),
+                rgba(139, 92, 246, 0.10)
+            );
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            border-radius: 28px;
+            padding: 35px;
+            text-align: center;
+            margin: 0 auto 90px;
+            max-width: 900px;
+        }
+
+        .free-notice h2 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .free-notice p {
+            color: var(--text-dim);
+        }
+
+        /* =========================
+           Walking Bass
+        ========================= */
+
         .walking-bass {
             background: var(--secondary-bg);
-            border-radius: 48px;
-            padding: 80px 60px;
+            border-radius: 45px;
+            padding: 75px 60px;
             display: flex;
             align-items: center;
             gap: 60px;
@@ -325,7 +422,13 @@
 
         .walking-bass-content h2 {
             font-size: 2.5rem;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
+            line-height: 1.25;
+        }
+
+        .walking-bass-content > p {
+            color: var(--text-dim);
+            font-size: 1.05rem;
         }
 
         .walking-bass-content ul {
@@ -334,25 +437,141 @@
         }
 
         .walking-bass-content li {
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
             color: var(--text-dim);
         }
 
         .walking-bass-content li::before {
             content: '✓';
-            color: var(--accent-blue);
+            color: #60a5fa;
             font-weight: bold;
+            flex-shrink: 0;
         }
 
-        /* Footer */
+        .walking-bass-card {
+            flex: 0 0 300px;
+            background: var(--glass-bg);
+            padding: 40px;
+            border-radius: 32px;
+            border: 1px solid var(--accent-blue);
+            text-align: center;
+        }
+
+        .walking-bass-card .music-icon {
+            font-size: 4rem;
+        }
+
+        .walking-bass-card h4 {
+            margin-top: 20px;
+            font-size: 1.25rem;
+        }
+
+        .walking-bass-card p {
+            color: var(--text-dim);
+            margin-top: 10px;
+        }
+
+        /* =========================
+           About
+        ========================= */
+
+        .about {
+            padding: 40px 0 80px;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .about p {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           FAQ
+        ========================= */
+
+        .faq {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 0 100px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            margin-bottom: 14px;
+            background: var(--glass-bg);
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            cursor: pointer;
+            padding: 20px 24px;
+            font-weight: 700;
+            list-style: none;
+            position: relative;
+            padding-right: 55px;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            position: absolute;
+            right: 22px;
+            top: 17px;
+            font-size: 24px;
+            color: #60a5fa;
+            font-weight: 400;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 0 24px 22px;
+            color: var(--text-dim);
+            font-size: 0.98rem;
+        }
+
+        /* =========================
+           Final CTA
+        ========================= */
+
+        .final-cta {
+            text-align: center;
+            padding: 50px 0 100px;
+        }
+
+        .final-cta h2 {
+            font-size: 2.7rem;
+            margin-bottom: 12px;
+        }
+
+        .final-cta p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+        }
+
+        /* =========================
+           Footer
+        ========================= */
+
         footer {
-            padding: 80px 0 40px;
+            padding: 70px 0 40px;
             border-top: 1px solid var(--glass-border);
             text-align: center;
             color: var(--text-dim);
+            font-size: 14px;
         }
 
         .footer-logo {
@@ -363,12 +582,30 @@
             display: block;
         }
 
-        /* Mobile Adjustments */
+        .footer-note {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        /* =========================
+           Responsive
+        ========================= */
+
         @media (max-width: 900px) {
             .walking-bass {
                 flex-direction: column;
-                padding: 40px 24px;
+                padding: 45px 25px;
                 text-align: center;
+            }
+
+            .walking-bass-content li {
+                text-align: left;
+            }
+
+            .walking-bass-card {
+                width: 100%;
+                flex: none;
             }
 
             h1 {
@@ -378,252 +615,819 @@
             .section-title h2 {
                 font-size: 2.2rem;
             }
+
+            .final-cta h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .top-nav {
+                padding: 10px 15px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            header {
+                padding: 90px 8px 20px;
+            }
+
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            .subtitle {
+                font-size: 1.05rem;
+                margin-bottom: 32px;
+            }
+
+            .hero {
+                padding: 45px 0 60px;
+            }
+
+            .app-badge {
+                font-size: 12px;
+            }
+
+            .screenshots-container {
+                padding-top: 20px;
+            }
+
+            .screenshots {
+                padding-left: 10px;
+                padding-right: 10px;
+                gap: 16px;
+            }
+
+            .screenshots img {
+                height: 430px;
+                border-radius: 24px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-card {
+                padding: 28px;
+            }
+
+            .walking-bass {
+                border-radius: 28px;
+                margin-bottom: 70px;
+            }
+
+            .walking-bass-content h2 {
+                font-size: 2rem;
+            }
+
+            .free-notice {
+                padding: 28px 20px;
+                margin-bottom: 70px;
+            }
+
+            .faq {
+                padding-bottom: 70px;
+            }
+
+            .faq-item summary {
+                padding: 18px 45px 18px 18px;
+                font-size: 0.95rem;
+            }
+
+            .faq-answer {
+                padding: 0 18px 18px;
+            }
         }
     </style>
 </head>
 
 <body class="lang-ja">
+
+    <!-- Navigation -->
     <nav class="top-nav">
         <a href="../../index.html" class="back-home">← Home</a>
+
         <div class="lang-switch">
-            <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-            <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
+            <button class="lang-btn" type="button" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" type="button" onclick="setLanguage('ja')">JP</button>
         </div>
     </nav>
 
     <div class="container">
+
+        <!-- Header -->
         <header>
-            <span style="font-weight: 800; font-size: 1.2rem; color: var(--accent-blue);">BASS EAR</span>
+            <span class="brand">BASS EAR</span>
+
             <a href="../../index.html" class="back-link">
                 <span class="lang-en">Developer Site</span>
                 <span class="lang-ja">開発者サイト</span>
             </a>
         </header>
 
+        <!-- Hero -->
         <section class="hero">
+
             <div class="app-badge">
                 <span class="lang-en">Ultimate Ear Training for Bassists</span>
                 <span class="lang-ja">ベーシストのための聴音トレーニング</span>
             </div>
-            <h1 class="lang-en">Master Your Fretboard.<br>Elevate Your Play.</h1>
-            <h1 class="lang-ja">指板をマスターし、<br>演奏レベルを引き上げる。</h1>
+
+            <h1 class="lang-en">
+                Master Your Fretboard.<br>
+                Elevate Your Play.
+            </h1>
+
+            <h1 class="lang-ja">
+                指板をマスターし、<br>
+                演奏レベルを引き上げる。
+            </h1>
+
             <p class="subtitle">
-                <span class="lang-en">Master relative pitch with realistic bass sounds. An ear training app for bassists
-                    with walking bass training features.</span>
-                <span class="lang-ja">リアルなベース音源で相対音感を鍛える。ウォーキング・ベース・トレーニング機能を搭載した、ベーシストのための聴音アプリ。</span>
+                <span class="lang-en">
+                    Master relative pitch with realistic bass sounds.
+                    An ear training app for bassists with walking bass training features.
+                </span>
+
+                <span class="lang-ja">
+                    リアルなベース音源で相対音感を鍛える。
+                    ウォーキング・ベース・トレーニング機能を搭載した、
+                    ベーシストのための聴音アプリです。
+                </span>
             </p>
+
             <div class="cta-group">
+
                 <a href="https://apps.apple.com/us/app/bass-relative-pitch-trainer/id6758913116"
-                    class="btn btn-primary lang-en">
+                    class="btn btn-primary lang-en" target="_blank" rel="noopener">
                     <span>Download on</span>
                     App Store
                 </a>
+
                 <a href="https://apps.apple.com/jp/app/bass-relative-pitch-trainer/id6758913116"
-                    class="btn btn-primary lang-ja">
+                    class="btn btn-primary lang-ja" target="_blank" rel="noopener">
                     <span>App Storeで</span>
                     ダウンロード
                 </a>
+
             </div>
         </section>
 
+        <!-- Screenshots -->
         <section class="screenshots-container">
+
+            <p class="screenshots-title">
+                <span class="lang-en">Explore the app interface and training modes</span>
+                <span class="lang-ja">アプリの画面とトレーニング機能をご覧ください</span>
+            </p>
+
             <div class="screenshots">
-                <img src="screenshot_home.PNG" alt="Home Screen">
-                <img src="screenshot_training.PNG" alt="Training Screen">
-                <img src="screenshot_walking_bass.PNG" alt="Walking Bass Mode">
-                <img src="screenshot_scale_ref.PNG" alt="Scale Reference Screen">
-                <img src="screenshot_settings.png" alt="Settings Screen">
+
+                <img src="screenshot_home.PNG"
+                    alt="Bass Relative Pitch Trainer home screen">
+
+                <img src="screenshot_training.PNG"
+                    alt="Bass relative pitch training screen">
+
+                <img src="screenshot_walking_bass.PNG"
+                    alt="Walking bass training screen">
+
+                <img src="screenshot_scale_ref.PNG"
+                    alt="Bass scale and chord reference screen">
+
+                <img src="screenshot_settings.png"
+                    alt="Bass Relative Pitch Trainer settings screen">
+
             </div>
         </section>
 
+        <!-- Features -->
         <section class="features">
+
             <div class="section-title">
                 <h2>
                     <span class="lang-en">Powerful Tools for Your Ears</span>
                     <span class="lang-ja">耳を鍛える強力なツール</span>
                 </h2>
+
                 <p>
-                    <span class="lang-en">Everything a bassist needs in one app.</span>
-                    <span class="lang-ja">ベーシストに必要な全ての機能をこの一つに。</span>
+                    <span class="lang-en">
+                        Everything a bassist needs for practical ear training.
+                    </span>
+                    <span class="lang-ja">
+                        ベーシストの実践的な聴音トレーニングに必要な機能を一つに。
+                    </span>
                 </p>
             </div>
+
             <div class="features-grid">
+
                 <div class="feature-card">
                     <div class="icon-box">🎸</div>
+
                     <h3>
                         <span class="lang-en">Realistic Bass Samples</span>
                         <span class="lang-ja">リアルなベース・サンプル</span>
                     </h3>
-                    <p class="lang-en">Uses realistic 4-string bass sounds (E1-G3). Develop a professional ear with the
-                        optimal range for the instrument.</p>
-                    <p class="lang-ja">リアルな4弦ベース音源（E1〜G3）を使用。実際の楽器を想定した最適な音域で、プロの耳を養います。</p>
+
+                    <p class="lang-en">
+                        Uses realistic four-string bass sounds from E1 to G3.
+                        Train your ears using a range that matches the instrument.
+                    </p>
+
+                    <p class="lang-ja">
+                        リアルな4弦ベース音源（E1〜G3）を使用。
+                        実際の楽器を想定した音域で、ベース演奏に役立つ聴音トレーニングができます。
+                    </p>
                 </div>
+
                 <div class="feature-card">
                     <div class="icon-box">🎯</div>
+
                     <h3>
                         <span class="lang-en">Precision Fretboard UI</span>
                         <span class="lang-ja">精密な指板UI</span>
                     </h3>
-                    <p class="lang-en">An interface that faithfully reproduces the bass fretboard. Train directly with
-                        actual fingerings.</p>
-                    <p class="lang-ja">ベースの指板を忠実に再現したインターフェース。音を聴くだけでなく、実際の運指と直結したトレーニングが可能です。</p>
+
+                    <p class="lang-en">
+                        A fretboard-based interface connects what you hear with actual bass fingerings.
+                    </p>
+
+                    <p class="lang-ja">
+                        ベースの指板を再現したインターフェース。
+                        音を聴くだけでなく、実際の運指と結びつけながらトレーニングできます。
+                    </p>
                 </div>
+
                 <div class="feature-card">
                     <div class="icon-box">📐</div>
+
                     <h3>
                         <span class="lang-en">Scale & Chord Reference</span>
                         <span class="lang-ja">スケール＆コード・リファレンス</span>
                     </h3>
-                    <p class="lang-en">Check major/minor scales and various chords (7th, m7b5, etc.) on the fretboard.
-                        Degree display deepens theory understanding.</p>
-                    <p class="lang-ja">メジャー/マイナースケールや各種コード（7th, m7b5等）の形を指板上で確認。ルートからの度数表示で音楽理論の理解も深まります。</p>
+
+                    <p class="lang-en">
+                        Check major, minor and various seventh chords directly on the fretboard.
+                        Degree display also helps reinforce music theory.
+                    </p>
+
+                    <p class="lang-ja">
+                        メジャー・マイナースケールや各種コードを指板上で確認できます。
+                        ルートからの度数表示にも対応し、音楽理論の理解にも役立ちます。
+                    </p>
                 </div>
+
                 <div class="feature-card">
                     <div class="icon-box">⚡</div>
+
                     <h3>
                         <span class="lang-en">Adaptive Difficulty</span>
-                        <span class="lang-ja">適応型難易度</span>
+                        <span class="lang-ja">レベルに合わせた難易度</span>
                     </h3>
-                    <p class="lang-en">Step up from single-note identification for beginners to continuous listening for
-                        intermediate and advanced players.</p>
-                    <p class="lang-ja">初心者向けの単音当てから、中〜上級者向けの連続聴音まで。自分のレベルに合わせてステップアップ。</p>
+
+                    <p class="lang-en">
+                        Start with single-note identification and progress to continuous listening exercises
+                        as your skills improve.
+                    </p>
+
+                    <p class="lang-ja">
+                        初心者向けの単音当てから、中・上級者向けの連続聴音まで対応。
+                        自分のレベルに合わせて段階的に練習できます。
+                    </p>
                 </div>
+
                 <div class="feature-card">
                     <div class="icon-box">📊</div>
+
                     <h3>
                         <span class="lang-en">Progress Tracking</span>
                         <span class="lang-ja">進捗履歴管理</span>
                     </h3>
-                    <p class="lang-en">Manage daily training with a calendar. Visualize your growth and maintain
-                        motivation.</p>
-                    <p class="lang-ja">日々のトレーニング実績をカレンダーで管理。自分の成長を視覚化し、モチベーションを維持できます。</p>
+
+                    <p class="lang-en">
+                        Keep track of your daily practice with a calendar view and see your training history.
+                    </p>
+
+                    <p class="lang-ja">
+                        日々のトレーニング実績をカレンダーで管理。
+                        練習履歴を振り返りながら、継続的なトレーニングをサポートします。
+                    </p>
                 </div>
+
                 <div class="feature-card">
                     <div class="icon-box">🌏</div>
+
                     <h3>
-                        <span class="lang-en">Global Ready</span>
-                        <span class="lang-ja">グローバル対応</span>
+                        <span class="lang-en">Multi-Language Support</span>
+                        <span class="lang-ja">多言語対応</span>
                     </h3>
-                    <p class="lang-en">Supports both CDE and Do-Re-Mi notation. Multi-language support for Japanese,
-                        English, and Vietnamese.</p>
-                    <p class="lang-ja">CDE表記、ドレミ表記の両方に対応。日本語・英語・ベトナム語のマルチランゲージ・サポート。</p>
+
+                    <p class="lang-en">
+                        Supports CDE and Do-Re-Mi notation with Japanese, English and Vietnamese language support.
+                    </p>
+
+                    <p class="lang-ja">
+                        CDE表記とドレミ表記の両方に対応。
+                        日本語・英語・ベトナム語で利用できます。
+                    </p>
                 </div>
+
                 <div class="feature-card">
                     <div class="icon-box">✨</div>
+
                     <h3>
-                        <span class="lang-en">Ad-Free Focus</span>
-                        <span class="lang-ja">広告なしで集中</span>
+                        <span class="lang-en">Completely Free</span>
+                        <span class="lang-ja">完全無料</span>
                     </h3>
-                    <p class="lang-en">Sophisticated design to help you focus on training. All features available for
-                        free.</p>
-                    <p class="lang-ja">トレーニングに集中できるよう、洗練されたデザイン。無料ですべての機能を利用可能。</p>
+
+                    <p class="lang-en">
+                        All training features are available for free.
+                        There is no subscription required to use the app.
+                    </p>
+
+                    <p class="lang-ja">
+                        すべてのトレーニング機能を無料で利用できます。
+                        利用にあたってサブスクリプション契約は必要ありません。
+                    </p>
                 </div>
+
             </div>
         </section>
 
+        <!-- Free Notice -->
+        <section class="free-notice">
+
+            <h2>
+                <span class="lang-en">Free to Train, Free to Improve</span>
+                <span class="lang-ja">すべてのトレーニング機能を無料で</span>
+            </h2>
+
+            <p class="lang-en">
+                Bass Relative Pitch Trainer is completely free.
+                You can use the ear training, fretboard, scale and chord reference,
+                walking bass training and progress tracking features without a paid subscription.
+            </p>
+
+            <p class="lang-ja">
+                Bass Relative Pitch Trainerは完全無料で利用できるアプリです。
+                聴音トレーニング、指板トレーニング、スケール・コード確認、
+                ウォーキング・ベース・トレーニング、練習履歴などの機能を無料で利用できます。
+            </p>
+
+        </section>
+
+        <!-- Walking Bass -->
         <section id="walking-bass" class="walking-bass">
+
             <div class="walking-bass-content">
+
                 <h2>
                     <span class="lang-en">Master Walking Bass Lines</span>
                     <span class="lang-ja">ウォーキング・ベース・ラインをマスターする</span>
                 </h2>
-                <p style="font-size: 1.1rem;">
-                    <span class="lang-en">Learn jazz and blues lines by ear and move your fingers. Practical walking
-                        bass mode based on chord progressions.</span>
-                    <span class="lang-ja">ジャズやブルースのラインを耳で覚え、指を動かす。コード進行に基づいた実践的なウォーキング・ベース・モードを搭載。</span>
+
+                <p class="lang-en">
+                    Learn jazz and blues bass lines by ear and connect what you hear
+                    with your fingers. The walking bass mode provides practical exercises
+                    based on chord progressions.
                 </p>
+
+                <p class="lang-ja">
+                    ジャズやブルースのベース・ラインを耳で聴き、
+                    その音を指板上の運指につなげていきます。
+                    コード進行に基づいた実践的なウォーキング・ベース・モードを搭載しています。
+                </p>
+
                 <ul>
+
                     <li>
-                        <span class="lang-en">Practice based on 12-bar blues progressions</span>
-                        <span class="lang-ja">12小節ブルース進行に基づいた実践ワーク</span>
+                        <span class="lang-en">
+                            Practice based on 12-bar blues progressions
+                        </span>
+                        <span class="lang-ja">
+                            12小節ブルース進行に基づいた実践トレーニング
+                        </span>
                     </li>
+
                     <li>
-                        <span class="lang-en">Support for Major / Minor / Dominant 7th styles</span>
-                        <span class="lang-ja">Major / Minor / Dominant 7th 各種スタイル対応</span>
+                        <span class="lang-en">
+                            Major, Minor and Dominant 7th styles
+                        </span>
+                        <span class="lang-ja">
+                            Major / Minor / Dominant 7th 各種スタイルに対応
+                        </span>
                     </li>
+
                     <li>
-                        <span class="lang-en">Real-time chord degree (I, IV, V) display</span>
-                        <span class="lang-ja">リアルタイムなコード・ディグリー（I, IV, V）表示</span>
+                        <span class="lang-en">
+                            Real-time chord degree display
+                        </span>
+                        <span class="lang-ja">
+                            コード・ディグリー（I, IV, Vなど）を確認
+                        </span>
                     </li>
+
                     <li>
-                        <span class="lang-en">Musical line generation including chromatic approaches</span>
-                        <span class="lang-ja">クロマチック・アプローチを含む音楽的なライン生成</span>
+                        <span class="lang-en">
+                            Musical lines including chromatic approaches
+                        </span>
+                        <span class="lang-ja">
+                            クロマチック・アプローチを含む音楽的なライン
+                        </span>
                     </li>
+
                 </ul>
+
             </div>
-            <div
-                style="flex: 0 0 300px; background: var(--glass-bg); padding: 40px; border-radius: 32px; border: 1px solid var(--accent-blue); text-align: center;">
-                <span style="font-size: 4rem;">🎼</span>
-                <h4 style="margin-top: 20px;">Jazz & Blues</h4>
-                <p style="color: var(--text-dim); margin-top: 10px;">Practice over real progressions.</p>
+
+            <div class="walking-bass-card">
+
+                <div class="music-icon">🎼</div>
+
+                <h4>
+                    <span class="lang-en">Jazz & Blues</span>
+                    <span class="lang-ja">Jazz & Blues</span>
+                </h4>
+
+                <p class="lang-en">
+                    Practice over real chord progressions.
+                </p>
+
+                <p class="lang-ja">
+                    実践的なコード進行で練習できます。
+                </p>
+
             </div>
+
         </section>
 
-        <section class="section-title" style="padding: 60px 0;">
+        <!-- About -->
+        <section class="about">
+
+            <div class="section-title">
+                <h2>
+                    <span class="lang-en">About the App</span>
+                    <span class="lang-ja">アプリについて</span>
+                </h2>
+            </div>
+
+            <p class="lang-en">
+                Bass Relative Pitch Trainer is an ear training application designed
+                specifically for bass players. It focuses on the practical connection
+                between hearing a note, recognizing its interval and locating it on the fretboard.
+            </p>
+
+            <p class="lang-ja">
+                Bass Relative Pitch Trainerは、ベーシストのために設計された
+                相対音感・聴音トレーニングアプリです。
+                音を聴く、音程を認識する、そしてその音をベースの指板上で探すという
+                一連の能力を結びつけることを目的としています。
+            </p>
+
+            <p class="lang-en">
+                It can be used by beginners who are learning the fretboard,
+                as well as intermediate and advanced players who want to improve
+                ear training, transcription and musical awareness.
+            </p>
+
+            <p class="lang-ja">
+                指板を覚え始めた初心者から、
+                耳コピやアンサンブル能力をさらに高めたい中・上級者まで、
+                自分のレベルに合わせて利用できます。
+            </p>
+
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq">
+
+            <div class="section-title">
+                <h2>
+                    <span class="lang-en">Frequently Asked Questions</span>
+                    <span class="lang-ja">よくある質問</span>
+                </h2>
+
+                <p>
+                    <span class="lang-en">
+                        Answers to common questions about the app.
+                    </span>
+                    <span class="lang-ja">
+                        アプリについてよくいただく質問をまとめました。
+                    </span>
+                </p>
+            </div>
+
+            <!-- FAQ 1 -->
+            <details class="faq-item">
+                <summary>
+                    <span class="lang-en">Is Bass Relative Pitch Trainer free?</span>
+                    <span class="lang-ja">このアプリは無料ですか？</span>
+                </summary>
+
+                <div class="faq-answer">
+
+                    <p class="lang-en">
+                        Yes. Bass Relative Pitch Trainer is completely free.
+                        All major training features are available without a subscription or paid plan.
+                    </p>
+
+                    <p class="lang-ja">
+                        はい。Bass Relative Pitch Trainerは完全無料です。
+                        サブスクリプションや有料プランへの加入は必要ありません。
+                        聴音トレーニング、指板確認、スケール・コード確認、
+                        ウォーキング・ベース・トレーニングなどの主要機能を無料で利用できます。
+                    </p>
+
+                </div>
+            </details>
+
+            <!-- FAQ 2 -->
+            <details class="faq-item">
+                <summary>
+                    <span class="lang-en">Who is this app for?</span>
+                    <span class="lang-ja">どのような人におすすめですか？</span>
+                </summary>
+
+                <div class="faq-answer">
+
+                    <p class="lang-en">
+                        The app is designed primarily for bass players,
+                        from beginners to experienced musicians.
+                        It is useful for ear training, fretboard memorization,
+                        interval recognition and musical practice.
+                    </p>
+
+                    <p class="lang-ja">
+                        ベースを演奏する方を主な対象としています。
+                        初心者から経験者まで、相対音感、指板の理解、
+                        音程の聞き取り、耳コピなどのトレーニングに利用できます。
+                    </p>
+
+                </div>
+            </details>
+
+            <!-- FAQ 3 -->
+            <details class="faq-item">
+                <summary>
+                    <span class="lang-en">Can beginners use the app?</span>
+                    <span class="lang-ja">初心者でも使えますか？</span>
+                </summary>
+
+                <div class="faq-answer">
+
+                    <p class="lang-en">
+                        Yes. You can start with simple single-note exercises
+                        and gradually move to more advanced listening exercises.
+                    </p>
+
+                    <p class="lang-ja">
+                        はい。初心者でも利用できます。
+                        まずは単音を聞き分ける簡単なトレーニングから始め、
+                        慣れてきたらより難しい聴音トレーニングへ進むことができます。
+                    </p>
+
+                </div>
+            </details>
+
+            <!-- FAQ 4 -->
+            <details class="faq-item">
+                <summary>
+                    <span class="lang-en">Does the app include walking bass training?</span>
+                    <span class="lang-ja">ウォーキング・ベースの練習はできますか？</span>
+                </summary>
+
+                <div class="faq-answer">
+
+                    <p class="lang-en">
+                        Yes. The app includes a walking bass mode based on
+                        chord progressions such as 12-bar blues.
+                        It is designed to help connect your hearing with actual playing.
+                    </p>
+
+                    <p class="lang-ja">
+                        はい。12小節ブルースなどのコード進行をベースにした
+                        ウォーキング・ベース・モードを搭載しています。
+                        聴いた音を実際の演奏につなげるトレーニングに活用できます。
+                    </p>
+
+                </div>
+            </details>
+
+            <!-- FAQ 5 -->
+            <details class="faq-item">
+                <summary>
+                    <span class="lang-en">What languages are supported?</span>
+                    <span class="lang-ja">対応している言語は何ですか？</span>
+                </summary>
+
+                <div class="faq-answer">
+
+                    <p class="lang-en">
+                        The app supports Japanese, English and Vietnamese.
+                        CDE and Do-Re-Mi note naming can also be selected.
+                    </p>
+
+                    <p class="lang-ja">
+                        日本語・英語・ベトナム語に対応しています。
+                        また、音名表示はCDE表記とドレミ表記から選択できます。
+                    </p>
+
+                </div>
+            </details>
+
+            <!-- FAQ 6 -->
+            <details class="faq-item">
+                <summary>
+                    <span class="lang-en">Does the app require an account?</span>
+                    <span class="lang-ja">アカウント登録は必要ですか？</span>
+                </summary>
+
+                <div class="faq-answer">
+
+                    <p class="lang-en">
+                        No account registration is required to use the app.
+                    </p>
+
+                    <p class="lang-ja">
+                        いいえ。アプリを利用するためのアカウント登録は必要ありません。
+                    </p>
+
+                </div>
+            </details>
+
+            <!-- FAQ 7 -->
+            <details class="faq-item">
+                <summary>
+                    <span class="lang-en">Is this app a substitute for professional music instruction?</span>
+                    <span class="lang-ja">音楽教室や専門的な指導の代わりになりますか？</span>
+                </summary>
+
+                <div class="faq-answer">
+
+                    <p class="lang-en">
+                        The app is designed as a self-practice and ear training tool.
+                    </p>
+
+                    <p class="lang-ja">
+                        本アプリは自主練習や聴音トレーニングをサポートするためのツールです。
+                    </p>
+
+                </div>
+            </details>
+
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta">
+
             <h2>
                 <span class="lang-en">Unlock Your Musical Potential</span>
                 <span class="lang-ja">音楽的な可能性を解き放つ</span>
             </h2>
+
             <p>
-                <span class="lang-en">Relative pitch is the key to better ensemble and solo play.</span>
-                <span class="lang-ja">相対音感は、より良いアンサンブルとソロプレイの鍵です。</span>
+                <span class="lang-en">
+                    Train your ears and connect what you hear to your fretboard.
+                </span>
+                <span class="lang-ja">
+                    耳で聴いた音を指板上の音へつなげるトレーニングを始めましょう。
+                </span>
             </p>
-            <div class="cta-group" style="margin-top: 40px;">
+
+            <div class="cta-group">
+
                 <a href="https://apps.apple.com/us/app/bass-relative-pitch-trainer/id6758913116"
-                    class="btn btn-primary lang-en">
+                    class="btn btn-primary lang-en" target="_blank" rel="noopener">
                     <span>Get Started</span>
                     Start Training Free
                 </a>
+
                 <a href="https://apps.apple.com/jp/app/bass-relative-pitch-trainer/id6758913116"
-                    class="btn btn-primary lang-ja">
+                    class="btn btn-primary lang-ja" target="_blank" rel="noopener">
                     <span>今すぐ始める</span>
-                    無料でトレーニングを開始
+                    無料でトレーニング
                 </a>
+
             </div>
+
         </section>
 
+        <!-- Footer -->
         <footer>
-            <span class="footer-logo">Bass Relative Pitch Trainer</span>
+
+            <span class="footer-logo">
+                Bass Relative Pitch Trainer
+            </span>
+
             <p>
-                <span class="lang-en">© 2026 Bass Relative Pitch Trainer. Created with Passion for Bassists.</span>
-                <span class="lang-ja">© 2026 Bass Relative Pitch Trainer. ベーシストへの情熱を込めて制作。</span>
+                <span class="lang-en">
+                    © 2026 Bass Relative Pitch Trainer. Created for bass players.
+                </span>
+
+                <span class="lang-ja">
+                    © 2026 Bass Relative Pitch Trainer. ベーシストのための聴音トレーニングアプリ。
+                </span>
             </p>
+
+            <p class="footer-note">
+                <span class="lang-en">
+                    This application is intended for music practice and ear training.
+                </span>
+
+                <span class="lang-ja">
+                    本アプリは音楽練習・聴音トレーニングを目的としたアプリです。
+                </span>
+            </p>
+
         </footer>
+
     </div>
 
     <script>
         function setLanguage(lang) {
+
+            if (lang !== 'ja' && lang !== 'en') {
+                lang = 'ja';
+            }
+
             document.body.className = 'lang-' + lang;
 
-            // Update active button state
+            // Update active language button
             document.querySelectorAll('.lang-btn').forEach(btn => {
-                if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
+
+                const buttonLanguage =
+                    btn.textContent.trim().toUpperCase() === 'EN'
+                        ? 'en'
+                        : 'ja';
+
+                btn.classList.toggle(
+                    'active',
+                    buttonLanguage === lang
+                );
+
             });
+
+            // Update HTML language
+            document.documentElement.lang = lang;
+
+            // Update page title and description
+            if (lang === 'ja') {
+
+                document.title =
+                    'ベース相対音感トレーナー | Bass Relative Pitch Trainer';
+
+                const description =
+                    'ベーシストのための相対音感・聴音トレーニングアプリ。リアルなベース音源、指板UI、スケール・コード確認、ウォーキングベース練習に対応。すべての機能を無料で利用できます。';
+
+                document
+                    .querySelector('meta[name="description"]')
+                    .setAttribute('content', description);
+
+            } else {
+
+                document.title =
+                    'Bass Relative Pitch Trainer | Ear Training for Bassists';
+
+                const description =
+                    'Ear training designed specifically for bassists. Practice relative pitch, intervals, fretboard recognition, scales, chords and walking bass lines with realistic bass sounds. Completely free.';
+
+                document
+                    .querySelector('meta[name="description"]')
+                    .setAttribute('content', description);
+            }
 
             // Save preference
             localStorage.setItem('preferred-language', lang);
         }
 
-        // Auto-detect language on load
+        // Auto-detect language
         (function () {
-            const savedLang = localStorage.getItem('preferred-language');
-            if (savedLang) {
+
+            const savedLang =
+                localStorage.getItem('preferred-language');
+
+            if (savedLang === 'ja' || savedLang === 'en') {
                 setLanguage(savedLang);
                 return;
             }
 
-            const browserLang = navigator.language || navigator.userLanguage;
-            if (browserLang.startsWith('ja')) {
-                setLanguage('ja');
-            } else {
-                setLanguage('en');
-            }
+            const browserLang =
+                navigator.language || navigator.userLanguage || '';
+
+            const lang =
+                browserLang.toLowerCase().startsWith('ja')
+                    ? 'ja'
+                    : 'en';
+
+            setLanguage(lang);
+
         })();
     </script>
+
 </body>
 
 </html>
