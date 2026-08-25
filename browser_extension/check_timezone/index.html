@@ -4,39 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timezone Check - World Time in an Instant</title>
+
+    <title>Timezone Check | タイムゾーン・時差をすばやく確認できるChrome拡張機能</title>
+
     <meta name="description"
-        content="Instantly search and convert timezones worldwide. Modern interface with search function for smooth communication with global teams.">
+        content="Timezone Checkは、世界各地の現在時刻と時差をすばやく確認できる無料のChrome拡張機能です。都市名や国名からタイムゾーンを検索し、海外チームとの予定調整やリモートワークに役立ちます。">
+
     <meta name="keywords"
-        content="timezone, converter, world clock, chrome extension, developer tools, タイムゾーン, 時間変換, 世界時計, Chrome拡張機能, 開発効率化">
+        content="Timezone Check, timezone, time zone, world time, time difference, Chrome extension, タイムゾーン, 時差, 世界時計, Chrome拡張機能">
+
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / Facebook -->
+    <link rel="canonical"
+        href="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo">
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
+    <meta property="og:title"
+        content="Timezone Check | タイムゾーン・時差をすばやく確認">
+    <meta property="og:description"
+        content="世界各地の現在時刻と時差をすばやく確認できる無料のChrome拡張機能。海外チームとの予定調整やリモートワークに便利です。">
     <meta property="og:url"
         content="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo">
-    <meta property="og:title" content="Timezone Check - World Time in an Instant">
-    <meta property="og:description"
-        content="Instantly search and convert timezones worldwide. Modern interface with search function for smooth communication with global teams.">
     <meta property="og:image" content="og-image.png">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url"
-        content="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo">
-    <meta property="twitter:title" content="Timezone Check - World Time in an Instant">
-    <meta property="twitter:description"
-        content="Instantly search and convert timezones worldwide. Modern interface with search function for smooth communication with global teams.">
-    <meta property="twitter:image" content="og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="Timezone Check | タイムゾーン・時差をすばやく確認">
+    <meta name="twitter:description"
+        content="世界各地の現在時刻と時差をすばやく確認できる無料のChrome拡張機能。">
+    <meta name="twitter:image" content="og-image.png">
+
+    <link rel="icon" type="image/png" href="icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
-    <!-- Icon -->
-    <link rel="icon" type="image/png" href="icon.png">
+
     <style>
-        /* Language switching styles */
+        /* =========================================================
+           Language
+        ========================================================= */
+
         body.lang-en [lang="ja"] {
             display: none !important;
         }
@@ -45,11 +59,14 @@
             display: none !important;
         }
 
-        /* Additional styles for switcher */
+        /* =========================================================
+           Navigation
+        ========================================================= */
+
         .lang-switch {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            display: flex;
+            gap: 6px;
+            position: static;
         }
 
         .lang-btn {
@@ -58,13 +75,19 @@
             color: #fff;
             padding: 5px 10px;
             cursor: pointer;
-            border-radius: 3px;
-            font-size: 0.9em;
+            border-radius: 5px;
+            font-size: 0.85em;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         .lang-btn.active {
-            background: rgba(255, 255, 255, 0.2);
-            font-weight: bold;
+            background: rgba(255, 255, 255, 0.16);
+            border-color: rgba(255, 255, 255, 0.4);
+            font-weight: 700;
         }
 
         .back-home {
@@ -94,6 +117,276 @@
             align-items: center;
         }
 
+        /* =========================================================
+           Content
+        ========================================================= */
+
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto 90px;
+        }
+
+        .content-section h2 {
+            font-size: 2.2rem;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .content-section > p {
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 22px;
+        }
+
+        .content-section strong {
+            color: inherit;
+        }
+
+        /* =========================================================
+           Intro / concept
+        ========================================================= */
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .concept-card {
+            padding: 28px 24px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .concept-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .concept-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           How to use
+        ========================================================= */
+
+        .steps {
+            display: grid;
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .step {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .step-number {
+            flex: 0 0 44px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .step h3 {
+            margin-bottom: 6px;
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* =========================================================
+           Use cases
+        ========================================================= */
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .use-case {
+            padding: 28px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .use-case h3 {
+            margin-bottom: 10px;
+        }
+
+        .use-case p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* =========================================================
+           Timezone explanation
+        ========================================================= */
+
+        .example-box {
+            margin-top: 30px;
+            padding: 28px;
+            border-radius: 18px;
+            background: linear-gradient(
+                135deg,
+                rgba(56, 189, 248, 0.08),
+                rgba(99, 102, 241, 0.08)
+            );
+            border: 1px solid rgba(56, 189, 248, 0.18);
+        }
+
+        .example-box h3 {
+            margin-bottom: 12px;
+        }
+
+        .example-box p {
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin: 0;
+        }
+
+         /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .faq-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .faq-list details {
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .faq-list summary {
+            cursor: pointer;
+            padding: 20px 50px 20px 22px;
+            font-weight: 700;
+            list-style: none;
+            position: relative;
+            line-height: 1.6;
+            display: block;
+        }
+
+        .faq-list summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-list summary::marker {
+            display: none;
+        }
+
+        .faq-list summary::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .faq-list details[open] summary::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 0 22px 22px;
+            color: var(--text-secondary);
+            line-height: 1.85;
+        }
+
+        .faq-answer p {
+            margin: 0;
+        }
+
+        .faq-answer p + p {
+            margin-top: 1rem;
+        }
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .final-cta {
+            max-width: 900px;
+            margin: 0 auto 100px;
+            padding: 60px 30px;
+            text-align: center;
+            border-radius: 28px;
+            background: linear-gradient(
+                135deg,
+                rgba(56, 189, 248, 0.08),
+                rgba(99, 102, 241, 0.08)
+            );
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .final-cta h2 {
+            margin-bottom: 14px;
+        }
+
+        .final-cta p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+
+        .final-cta .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* =========================================================
+           Mobile
+        ========================================================= */
+
+        @media (max-width: 800px) {
+            .concept-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .use-case-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-section {
+                margin-bottom: 70px;
+            }
+
+            .content-section h2 {
+                font-size: 1.9rem;
+            }
+        }
+
         @media (max-width: 600px) {
             nav {
                 flex-direction: column;
@@ -110,133 +403,757 @@
             .back-home {
                 margin-right: 0;
             }
+
+            .hero {
+                padding-top: 45px;
+            }
+
+            .step {
+                gap: 14px;
+            }
+
+            .step-number {
+                flex-basis: 38px;
+                width: 38px;
+                height: 38px;
+            }
+
+            .final-cta {
+                padding: 45px 20px;
+            }
         }
     </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Timezone Check",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome",
+        "description": "世界各地の現在時刻と時差をすばやく確認できるChrome拡張機能。",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
 </head>
 
-<body class="lang-en">
+<body class="lang-ja">
+
     <div class="background-mesh"></div>
 
     <div class="container">
+
+        <!-- Navigation -->
         <nav>
             <div class="nav-left">
-                <a href="../../index.html" class="back-home">← Home</a>
+                <a href="../../index.html" class="back-home">
+                    ← Home
+                </a>
+
                 <div class="logo">
-                    <img src="icon.png" alt="Logo">
+                    <img src="icon.png" alt="Timezone Check icon">
                     <span>Timezone Check</span>
                 </div>
             </div>
+
             <div class="lang-switch">
                 <button class="lang-btn" onclick="setLanguage('en')">EN</button>
                 <button class="lang-btn" onclick="setLanguage('ja')">JP</button>
             </div>
         </nav>
 
+        <!-- Hero -->
         <section class="hero">
-            <h1 lang="en">World time,<br>in your hands.</h1>
-            <h1 lang="ja">世界中の時間を、<br>あなたの手の中に。</h1>
+
+            <h1 lang="en">
+                World time,<br>
+                in your hands.
+            </h1>
+
+            <h1 lang="ja">
+                世界中の時間を、<br>
+                あなたの手の中に。
+            </h1>
+
             <p lang="en">
-                Time difference calculation, no longer a confusion.<br>
-                Get current time with one click, and find the time of your destination<br>
-                instantly with searchable select box.
+                Check the current time and time differences around the world
+                without leaving your browser.
             </p>
+
             <p lang="ja">
-                時差の計算で、もう迷わない。 <br>
-                クリックひとつで現在時刻を取得し、検索可能なセレクトボックスで<br>
-                目的の地域の日時を瞬時に導き出します。
+                ブラウザから離れることなく、<br>
+                世界各地の現在時刻と時差をすばやく確認できます。
             </p>
+
             <a href="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo"
-                class="btn btn-primary" lang="en">Add to Chrome (Free)</a>
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener"
+                lang="en">
+                Add to Chrome — Free
+            </a>
+
             <a href="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo"
-                class="btn btn-primary" lang="ja">Chromeに追加する (無料)</a>
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener"
+                lang="ja">
+                Chromeに追加する — 無料
+            </a>
+
         </section>
 
-        <section class="features">
-            <div class="feature-card">
-                <div class="icon-box">🔍</div>
-                <h3 lang="en">Blazing Fast Search</h3>
-                <h3 lang="ja">爆速タイムゾーン検索</h3>
-                <p lang="en">Filter from vast world timezones by city or country name instantly.</p>
-                <p lang="ja">都市名や国名を入力するだけで、膨大な世界中のタイムゾーンから目的の場所をフィルタリングできます。</p>
+        <!-- What is Timezone Check -->
+        <section class="content-section">
+
+            <h2 lang="en">What is Timezone Check?</h2>
+            <h2 lang="ja">Timezone Checkとは？</h2>
+
+            <p lang="en">
+                Timezone Check is a lightweight Chrome extension designed to make
+                checking world time and time differences easier.
+                Instead of manually searching for a city and calculating the
+                difference from your local time, you can search for a timezone
+                directly and check the result in one place.
+            </p>
+
+            <p lang="ja">
+                Timezone Checkは、世界各地の現在時刻や時差を手軽に確認するための
+                Chrome拡張機能です。
+                都市名や国名を検索し、現在地との時差を確認する作業を、
+                ブラウザ上でシンプルに行えるように設計しています。
+            </p>
+
+            <div class="concept-grid">
+
+                <div class="concept-card">
+                    <h3 lang="en">Search</h3>
+                    <h3 lang="ja">検索</h3>
+
+                    <p lang="en">
+                        Find a city or timezone quickly by entering its name.
+                    </p>
+
+                    <p lang="ja">
+                        都市名や地域名を入力して、目的のタイムゾーンをすばやく検索できます。
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <h3 lang="en">Compare</h3>
+                    <h3 lang="ja">比較</h3>
+
+                    <p lang="en">
+                        Compare your local time with another location.
+                    </p>
+
+                    <p lang="ja">
+                        現在地と別の地域との時差を確認できます。
+                    </p>
+                </div>
+
+                <div class="concept-card">
+                    <h3 lang="en">Copy</h3>
+                    <h3 lang="ja">共有</h3>
+
+                    <p lang="en">
+                        Copy the calculated result and paste it into your communication tools.
+                    </p>
+
+                    <p lang="ja">
+                        確認した結果をコピーして、チャットやメールなどにそのまま利用できます。
+                    </p>
+                </div>
+
             </div>
-            <div class="feature-card">
-                <div class="icon-box">🌍</div>
-                <h3 lang="en">Multilingual & Auto</h3>
-                <h3 lang="ja">多言語・自動対応</h3>
-                <p lang="en">Optimized for browser language. Works comfortably in global environments.</p>
-                <p lang="ja">ブラウザの言語設定に合わせて最適化。日本語だけでなく、グローバルな環境でも快適に使用可能です。</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-box">⚡️</div>
-                <h3 lang="en">Smart Conversion</h3>
-                <h3 lang="ja">スマートな変換</h3>
-                <p lang="en">Set current time instantly. Swap source and target for smooth two-way checks.</p>
-                <p lang="ja">現在の時刻を一瞬でセット。SourceとTargetを入れ替えるスワップ機能で、双方向の確認もスムーズです。</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-box">📋</div>
-                <h3 lang="en">One-Click Copy</h3>
-                <h3 lang="ja">ワンクリックコピー</h3>
-                <p lang="en">Copy result to clipboard. Paste to chat, email, or calendar in a flash.</p>
-                <p lang="ja">計算結果はワンクリックでクリップボードへ。チャットやメール、カレンダーへの貼り付けも一瞬です。</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-box">🎨</div>
-                <h3 lang="en">Premium Design</h3>
-                <h3 lang="ja">プレミアムなデザイン</h3>
-                <p lang="en">Dark mode optimized, eye-friendly refined UI. UX that doesn't hinder development
-                    efficiency.</p>
-                <p lang="ja">ダークモードに最適化された、目に優しく洗練されたUI。開発効率を損なわないUXを追求しました。</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon-box">🔒</div>
-                <h3 lang="en">Fully Offline</h3>
-                <h3 lang="ja">完全オフライン動作</h3>
-                <p lang="en">Data processed in browser only, no external communication. Privacy and security first.</p>
-                <p lang="ja">データはブラウザ内のみで処理され、外部への通信は行いません。プライバシーとセキュリティを重視しています。</p>
-            </div>
+
         </section>
 
+        <!-- Timezone basics -->
+        <section class="content-section">
+
+            <h2 lang="en">Why Timezones Can Be Confusing</h2>
+            <h2 lang="ja">なぜタイムゾーンは分かりにくいのか</h2>
+
+            <p lang="en">
+                A simple time difference is not always enough when working with
+                people in different countries. Daylight saving time can change
+                the offset depending on the season, and the date may also differ
+                between locations.
+            </p>
+
+            <p lang="ja">
+                海外の人と仕事をするとき、単純に「日本より何時間遅い・早い」
+                と覚えておくだけでは不十分な場合があります。
+                地域によっては夏時間（Daylight Saving Time）が採用されており、
+                季節によって時差が変わることがあります。
+            </p>
+
+            <div class="example-box">
+
+                <h3 lang="en">For example</h3>
+                <h3 lang="ja">たとえば</h3>
+
+                <p lang="en">
+                    When scheduling an online meeting, 10:00 in your local time
+                    may correspond to a completely different time in another
+                    country. Checking the destination timezone before sending
+                    an invitation can help prevent accidental early-morning or
+                    late-night meetings.
+                </p>
+
+                <p lang="ja">
+                    オンライン会議を設定するとき、自分にとって午前10時でも、
+                    相手の地域では早朝や深夜になっている可能性があります。
+                    招待を送る前に相手のタイムゾーンを確認することで、
+                    時間帯の勘違いを防ぎやすくなります。
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Features -->
+        <section class="content-section">
+
+            <h2 lang="en">Features</h2>
+            <h2 lang="ja">主な機能</h2>
+
+            <p lang="en">
+                Timezone Check focuses on the small tasks that frequently occur
+                when communicating across timezones.
+            </p>
+
+            <p lang="ja">
+                Timezone Checkは、海外とのコミュニケーションで頻繁に発生する
+                「ちょっとした時差確認」を効率化することを目的としています。
+            </p>
+
+            <section class="features">
+
+                <div class="feature-card">
+                    <div class="icon-box">🔍</div>
+
+                    <h3 lang="en">Fast Timezone Search</h3>
+                    <h3 lang="ja">タイムゾーンをすばやく検索</h3>
+
+                    <p lang="en">
+                        Search by city or country name and quickly find the
+                        timezone you need.
+                    </p>
+
+                    <p lang="ja">
+                        都市名や国名を入力して、必要なタイムゾーンをすばやく検索できます。
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon-box">🌍</div>
+
+                    <h3 lang="en">Worldwide Timezones</h3>
+                    <h3 lang="ja">世界各地のタイムゾーンに対応</h3>
+
+                    <p lang="en">
+                        Check local time across different regions from one interface.
+                    </p>
+
+                    <p lang="ja">
+                        さまざまな地域の現在時刻を、ひとつの画面から確認できます。
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon-box">⚡</div>
+
+                    <h3 lang="en">Smart Conversion</h3>
+                    <h3 lang="ja">スマートな時刻変換</h3>
+
+                    <p lang="en">
+                        Set the current time quickly and switch source and target
+                        locations for two-way checking.
+                    </p>
+
+                    <p lang="ja">
+                        現在時刻をすばやく設定でき、SourceとTargetを入れ替えて
+                        双方向の時刻確認も行えます。
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon-box">📋</div>
+
+                    <h3 lang="en">One-Click Copy</h3>
+                    <h3 lang="ja">ワンクリックコピー</h3>
+
+                    <p lang="en">
+                        Copy the result and use it in chat messages, emails,
+                        schedules, and documentation.
+                    </p>
+
+                    <p lang="ja">
+                        結果をワンクリックでコピーし、チャット、メール、
+                        スケジュール、ドキュメントなどに利用できます。
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon-box">🎨</div>
+
+                    <h3 lang="en">Simple Interface</h3>
+                    <h3 lang="ja">シンプルなインターフェース</h3>
+
+                    <p lang="en">
+                        Designed to make timezone checks quick without adding
+                        unnecessary steps to your workflow.
+                    </p>
+
+                    <p lang="ja">
+                        必要な情報をすばやく確認できるよう、
+                        日常の作業を邪魔しないシンプルなUIを採用しています。
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon-box">🔒</div>
+
+                    <h3 lang="en">Offline Processing</h3>
+                    <h3 lang="ja">オフラインで処理</h3>
+
+                    <p lang="en">
+                        Timezone calculations are performed within the browser,
+                        without requiring external communication for the core function.
+                    </p>
+
+                    <p lang="ja">
+                        基本的なタイムゾーン計算はブラウザ内で処理され、
+                        コア機能のために外部通信を必要としません。
+                    </p>
+                </div>
+
+            </section>
+
+        </section>
+
+        <!-- How to use -->
+        <section class="content-section">
+
+            <h2 lang="en">How to Use Timezone Check</h2>
+            <h2 lang="ja">Timezone Checkの使い方</h2>
+
+            <p lang="en">
+                The extension is designed for quick checks. A typical workflow
+                can be completed in just a few steps.
+            </p>
+
+            <p lang="ja">
+                操作はできるだけシンプルに設計しています。
+                基本的には次の手順で時差を確認できます。
+            </p>
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-number">1</div>
+
+                    <div>
+                        <h3 lang="en">Open the extension</h3>
+                        <h3 lang="ja">拡張機能を開く</h3>
+
+                        <p lang="en">
+                            Open Timezone Check from the Chrome toolbar.
+                        </p>
+
+                        <p lang="ja">
+                            ChromeのツールバーからTimezone Checkを開きます。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+
+                    <div>
+                        <h3 lang="en">Select your timezone</h3>
+                        <h3 lang="ja">現在地のタイムゾーンを選択</h3>
+
+                        <p lang="en">
+                            Select the source timezone or use the current time as the starting point.
+                        </p>
+
+                        <p lang="ja">
+                            基準となるタイムゾーンを選択し、現在時刻を基準に設定します。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+
+                    <div>
+                        <h3 lang="en">Search for the destination</h3>
+                        <h3 lang="ja">目的地を検索</h3>
+
+                        <p lang="en">
+                            Search for a city or country and select the timezone you need.
+                        </p>
+
+                        <p lang="ja">
+                            都市名や国名を検索し、確認したい地域を選択します。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+
+                    <div>
+                        <h3 lang="en">Check and copy the result</h3>
+                        <h3 lang="ja">結果を確認・コピー</h3>
+
+                        <p lang="en">
+                            Check the converted time and copy the result when needed.
+                        </p>
+
+                        <p lang="ja">
+                            変換された時刻を確認し、必要に応じて結果をコピーします。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Use cases -->
+        <section class="content-section">
+
+            <h2 lang="en">Useful in Everyday Work</h2>
+            <h2 lang="ja">こんな場面で便利</h2>
+
+            <div class="use-case-grid">
+
+                <div class="use-case">
+                    <h3 lang="en">🌏 Working with Global Teams</h3>
+                    <h3 lang="ja">🌏 海外チームとの仕事</h3>
+
+                    <p lang="en">
+                        Check a colleague's local time before starting a meeting
+                        or sending an urgent message.
+                    </p>
+
+                    <p lang="ja">
+                        会議を設定したり急ぎのメッセージを送ったりする前に、
+                        相手の現地時刻を確認できます。
+                    </p>
+                </div>
+
+                <div class="use-case">
+                    <h3 lang="en">💻 Remote Meetings</h3>
+                    <h3 lang="ja">💻 オンライン会議</h3>
+
+                    <p lang="en">
+                        Reduce scheduling mistakes when participants are located
+                        in different timezones.
+                    </p>
+
+                    <p lang="ja">
+                        参加者が複数のタイムゾーンに分かれている場合でも、
+                        会議時間の確認に役立ちます。
+                    </p>
+                </div>
+
+                <div class="use-case">
+                    <h3 lang="en">📅 Scheduling</h3>
+                    <h3 lang="ja">📅 スケジュール調整</h3>
+
+                    <p lang="en">
+                        Compare local times before proposing a suitable meeting slot.
+                    </p>
+
+                    <p lang="ja">
+                        会議候補を提示する前に、それぞれの地域で何時になるのかを確認できます。
+                    </p>
+                </div>
+
+                <div class="use-case">
+                    <h3 lang="en">✈️ Travel and Overseas Work</h3>
+                    <h3 lang="ja">✈️ 海外出張・旅行</h3>
+
+                    <p lang="en">
+                        Quickly check the local time of your destination without
+                        opening a separate website.
+                    </p>
+
+                    <p lang="ja">
+                        別のサイトを探すことなく、滞在先の現地時刻をすばやく確認できます。
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FAQ -->
+        <section class="content-section">
+
+            <h2 lang="en">Frequently Asked Questions</h2>
+            <h2 lang="ja">よくある質問</h2>
+
+            <div class="faq-list">
+
+                <details>
+                    <summary>
+                        <span lang="en">Is Timezone Check free?</span>
+                        <span lang="ja">Timezone Checkは無料ですか？</span>
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        <p lang="en">
+                            Yes. Timezone Check is available as a free Chrome extension.
+                        </p>
+
+                        <p lang="ja">
+                            はい。Timezone Checkは無料で利用できるChrome拡張機能です。
+                        </p>
+
+                    </div>
+                </details>
+
+
+                <details>
+                    <summary>
+                        <span lang="en">Do I need to create an account?</span>
+                        <span lang="ja">アカウント登録は必要ですか？</span>
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        <p lang="en">
+                            No account registration is required to use the core functionality.
+                        </p>
+
+                        <p lang="ja">
+                            基本機能を利用するためにアカウント登録は必要ありません。
+                        </p>
+
+                    </div>
+                </details>
+
+
+                <details>
+                    <summary>
+                        <span lang="en">Does it require an internet connection?</span>
+                        <span lang="ja">インターネット接続は必要ですか？</span>
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        <p lang="en">
+                            The core timezone calculation is designed to run within the browser
+                            without requiring external communication.
+                        </p>
+
+                        <p lang="ja">
+                            基本的なタイムゾーン計算はブラウザ内で行われるため、
+                            コア機能の利用に外部通信を必要としない設計です。
+                        </p>
+
+                    </div>
+                </details>
+
+
+                <details>
+                    <summary>
+                        <span lang="en">Can I search for cities?</span>
+                        <span lang="ja">都市名から検索できますか？</span>
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        <p lang="en">
+                            Yes. You can search available timezones using city or country names.
+                        </p>
+
+                        <p lang="ja">
+                            はい。都市名や国名を使って、利用可能なタイムゾーンを検索できます。
+                        </p>
+
+                    </div>
+                </details>
+
+
+                <details>
+                    <summary>
+                        <span lang="en">Who is this extension for?</span>
+                        <span lang="ja">どのような人におすすめですか？</span>
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        <p lang="en">
+                            It is especially useful for developers, remote workers,
+                            international teams, travelers, and anyone who frequently
+                            communicates across timezones.
+                        </p>
+
+                        <p lang="ja">
+                            海外と仕事をする開発者、リモートワーカー、
+                            国際チームのメンバー、海外旅行・出張をする方など、
+                            時差を確認する機会が多い方に向いています。
+                        </p>
+
+                    </div>
+                </details>
+
+            </div>
+
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta">
+
+            <h2 lang="en">
+                Make timezone checks simpler.
+            </h2>
+
+            <h2 lang="ja">
+                時差確認を、もっとシンプルに。
+            </h2>
+
+            <p lang="en">
+                Install Timezone Check and keep world time just one click away.
+            </p>
+
+            <p lang="ja">
+                Timezone Checkをインストールして、世界各地の時間を
+                必要なときにすばやく確認できる環境を作りましょう。
+            </p>
+
+            <a href="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener"
+                lang="en">
+                Add to Chrome — Free
+            </a>
+
+            <a href="https://chromewebstore.google.com/detail/check-timezone/fdijdiecfdlfgpgmpgoofdlialncifdo"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener"
+                lang="ja">
+                Chromeに追加する — 無料
+            </a>
+
+        </section>
+
+        <!-- Footer -->
         <footer>
-            <p>&copy; 2025 Timezone Check. All rights reserved.</p>
+
+            <p>
+                &copy; 2026 Timezone Check. All rights reserved.
+            </p>
+
             <p style="margin-top: 10px;">
-                <a href="https://buymeacoffee.com/tokb" target="_blank"
+
+                <a href="https://buymeacoffee.com/tokb"
+                    target="_blank"
+                    rel="noopener"
                     style="color: var(--text-secondary); text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
                     ☕️ Buy me a coffee
                 </a>
+
             </p>
+
         </footer>
+
     </div>
+
     <script>
         function setLanguage(lang) {
+
             document.body.className = 'lang-' + lang;
 
+            document.documentElement.lang = lang;
+
             document.querySelectorAll('.lang-btn').forEach(btn => {
-                if (btn.textContent.toLowerCase() === (lang === 'en' ? 'en' : 'jp')) {
+
+                const isEnglish =
+                    btn.textContent.trim().toLowerCase() === 'en';
+
+                const isJapanese =
+                    btn.textContent.trim().toLowerCase() === 'jp';
+
+                if (
+                    (lang === 'en' && isEnglish) ||
+                    (lang === 'ja' && isJapanese)
+                ) {
                     btn.classList.add('active');
                 } else {
                     btn.classList.remove('active');
                 }
+
             });
+
+            if (lang === 'ja') {
+
+                document.title =
+                    'Timezone Check | タイムゾーン・時差をすばやく確認できるChrome拡張機能';
+
+                const description =
+                    document.querySelector('meta[name="description"]');
+
+                if (description) {
+                    description.content =
+                        'Timezone Checkは、世界各地の現在時刻と時差をすばやく確認できる無料のChrome拡張機能です。都市名や国名からタイムゾーンを検索し、海外チームとの予定調整やリモートワークに役立ちます。';
+                }
+
+            } else {
+
+                document.title =
+                    'Timezone Check | Quickly Check World Time and Time Differences';
+
+                const description =
+                    document.querySelector('meta[name="description"]');
+
+                if (description) {
+                    description.content =
+                        'Timezone Check is a free Chrome extension for quickly checking world time and time differences. Search timezones by city or country and simplify communication with global teams.';
+                }
+
+            }
 
             localStorage.setItem('preferred-language', lang);
         }
 
         (function () {
-            const savedLang = localStorage.getItem('preferred-language');
-            if (savedLang) {
+
+            const savedLang =
+                localStorage.getItem('preferred-language');
+
+            if (savedLang === 'ja' || savedLang === 'en') {
                 setLanguage(savedLang);
                 return;
             }
 
-            const browserLang = navigator.language || navigator.userLanguage;
-            if (browserLang.startsWith('ja')) {
+            const browserLang =
+                navigator.language || navigator.userLanguage;
+
+            if (browserLang && browserLang.startsWith('ja')) {
                 setLanguage('ja');
             } else {
                 setLanguage('en');
             }
+
         })();
     </script>
+
 </body>
 
 </html>
