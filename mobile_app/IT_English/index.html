@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>IT英語ドリル-BrSEへの道- | 実践的なIT英語を学ぶアプリ</title>
+
+    <meta name="description"
+        content="IT英語ドリル-BrSEへの道-は、BrSE、ITエンジニア、プロジェクトマネージャー、QA担当者などを対象とした実践型IT英語学習アプリです。要件定義、API、データベース、QA、アジャイルなど、グローバルなIT開発現場で使われる英語を4択ドリルやAIロールプレイで学習できます。">
+
+    <meta name="keywords"
+        content="IT英語, BrSE, ブリッジSE, エンジニア英語, ITエンジニア, 英語学習, 英語ドリル, 技術英語, 開発英語, ビジネス英語, オフショア開発, Agile, API, QA">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="index.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="IT英語ドリル-BrSEへの道- | 実践的なIT英語を学ぶアプリ">
+    <meta property="og:description" content="BrSE・ITエンジニア向け。要件定義、API、QA、アジャイルなど、実際の開発現場で使われる英語を4択ドリルとAIロールプレイで学習できます。">
+    <meta property="og:image" content="og-image.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IT英語ドリル-BrSEへの道- | 実践的なIT英語学習アプリ">
+    <meta name="twitter:description" content="BrSE・ITエンジニア向けの実践型IT英語学習アプリ。開発現場で使われる英語を効率よく学習できます。">
+    <meta name="twitter:image" content="og-image.png">
+
+    <link rel="icon" type="image/png" href="icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --text-secondary: #9ca3af;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            font-family:
+                'Inter',
+                'Noto Sans JP',
+                -apple-system,
+                BlinkMacSystemFont,
+                sans-serif;
+        }
+
+        /* Navigation */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+
+        .nav-logo img {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+        }
+
+        .back-home {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-home:hover {
+            color: #fff;
+        }
+
+        /* Hero */
+
+        .hero {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 90px 0 100px;
+        }
+
+        .app-icon {
+            width: 110px;
+            height: 110px;
+            border-radius: 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.3rem, 6vw, 4.2rem);
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -0.04em;
+        }
+
+        .hero .subtitle {
+            color: var(--text-secondary);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            line-height: 1.9;
+            margin-bottom: 36px;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            border-radius: 999px;
+            background: linear-gradient(135deg,
+                    var(--accent),
+                    var(--accent-light));
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Sections */
+
+        .section {
+            max-width: 1000px;
+            margin: 0 auto 100px;
+        }
+
+        .section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            margin-bottom: 28px;
+            line-height: 1.3;
+        }
+
+        .section>p {
+            color: var(--text-secondary);
+            line-height: 1.9;
+            font-size: 1.02rem;
+            margin-bottom: 20px;
+        }
+
+        /* Concept */
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .concept-card {
+            padding: 28px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            border-radius: 18px;
+        }
+
+        .concept-card h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .concept-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* Features */
+
+        .feature {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 50px;
+            align-items: center;
+            padding: 45px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .feature:last-child {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .feature-text h3 {
+            margin: 0 0 12px;
+            font-size: 1.45rem;
+        }
+
+        .feature-text p {
+            color: var(--text-secondary);
+            line-height: 1.85;
+        }
+
+        .feature-image {
+            text-align: center;
+        }
+
+        .feature-image img {
+            max-width: 100%;
+            width: 300px;
+            border-radius: 22px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Learning areas */
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .learning-card {
+            padding: 28px;
+            border-radius: 18px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+        }
+
+        .learning-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .learning-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* Use cases */
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .use-case {
+            padding: 28px;
+            border-radius: 18px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+        }
+
+        .use-case h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .use-case p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* How to use */
+
+        .steps {
+            display: grid;
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .step {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+            border-radius: 18px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+        }
+
+        .step-number {
+            flex: 0 0 44px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg,
+                    var(--accent),
+                    var(--accent-light));
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .step h3 {
+            margin: 0 0 8px;
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* FAQ */
+
+        .faq-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .faq-list details {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--card-bg);
+            overflow: hidden;
+        }
+
+        .faq-list summary {
+            cursor: pointer;
+            padding: 20px 50px 20px 22px;
+            font-weight: 700;
+            line-height: 1.6;
+            position: relative;
+            list-style: none;
+        }
+
+        .faq-list summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-list summary::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+        }
+
+        .faq-list details[open] summary::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 0 22px 22px;
+            color: var(--text-secondary);
+            line-height: 1.85;
+        }
+
+        /* CTA */
+
+        .final-cta {
+            max-width: 900px;
+            margin: 0 auto 100px;
+            padding: 60px 30px;
+            text-align: center;
+            border-radius: 28px;
+            background:
+                linear-gradient(135deg,
+                    rgba(99, 102, 241, 0.12),
+                    rgba(129, 140, 248, 0.05));
+            border: 1px solid var(--border);
+        }
+
+        .final-cta h2 {
+            margin-bottom: 16px;
+        }
+
+        .final-cta p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+
+        /* Keywords */
+
+        .keywords {
+            padding: 30px;
+            border-radius: 18px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+        }
+
+        .keywords h3 {
+            margin-top: 0;
+        }
+
+        .keywords p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 800px) {
+
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .hero {
+                padding: 60px 0 70px;
+            }
+
+            .concept-grid,
+            .learning-grid,
+            .use-case-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .feature-image {
+                order: -1;
+            }
+
+            .section {
+                margin-bottom: 75px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .hero .subtitle {
+                font-size: 0.95rem;
+            }
+
+            .feature {
+                padding: 35px 0;
+            }
+
+            .step {
+                gap: 14px;
+            }
+
+            .step-number {
+                flex-basis: 38px;
+                width: 38px;
+                height: 38px;
+            }
+
+            .final-cta {
+                padding: 45px 20px;
+            }
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "IT英語ドリル-BrSEへの道-",
+    "alternateName": "IT English Drill - Road to BrSE -",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "iOS",
+    "description": "BrSE、ITエンジニア、プロジェクトマネージャーなどを対象とした実践型IT英語学習アプリ。",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "JPY"
+    }
+}
+</script>
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <!-- Navigation -->
+
+        <nav>
+
+            <a href="../../index.html" class="back-home">
+                ← Home
+            </a>
+
+            <div class="nav-logo">
+                <img src="icon.png" alt="IT英語ドリル アプリアイコン">
+                <span>IT英語ドリル</span>
+            </div>
+
+        </nav>
+
+
+        <!-- Hero -->
+
+        <header class="hero">
+
+            <img src="icon.png" alt="IT英語ドリル-BrSEへの道- アプリアイコン" class="app-icon">
+
+            <h1>
+                IT英語ドリル<br>
+                <span>BrSEへの道</span>
+            </h1>
+
+            <p class="subtitle">
+                1日数分で学ぶ、グローバルIT開発現場の実務英語。<br>
+                要件定義・API・QA・アジャイルなど、
+                実際の開発現場で使われる英語を効率よく学習できます。
+            </p>
+
+            <a href="#download" class="btn-download">
+                App Storeから入手する
+            </a>
+
+        </header>
+
+
+        <!-- About -->
+
+        <section class="section">
+
+            <h2>IT英語ドリル-BrSEへの道-とは？</h2>
+
+            <p>
+                <strong>IT英語ドリル-BrSEへの道-</strong>は、
+                グローバルなIT開発環境で必要となる英語コミュニケーションを
+                学ぶための実践型学習アプリです。
+            </p>
+
+            <p>
+                一般的な日常英会話ではなく、
+                ソフトウェア開発の現場で頻繁に登場する
+                要件定義、仕様確認、API、データベース、QAテスト、
+                アジャイル開発、スケジュール調整などを題材にしています。
+            </p>
+
+            <p>
+                特に、海外の開発チームとの橋渡しを担当する
+                <strong>BrSE（Bridge System Engineer）</strong>や、
+                海外メンバーと仕事をするITエンジニア、
+                プロジェクトマネージャーなどの学習を想定しています。
+            </p>
+
+
+            <div class="concept-grid">
+
+                <div class="concept-card">
+
+                    <h3>💻 開発現場の英語</h3>
+
+                    <p>
+                        ソフトウェア開発で実際に登場する
+                        技術用語やコミュニケーション表現を中心に学習します。
+                    </p>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <h3>🤝 コミュニケーション</h3>
+
+                    <p>
+                        仕様確認や質問、問題報告、スケジュール調整など、
+                        海外チームとのやり取りを想定した英語を学べます。
+                    </p>
+
+                </div>
+
+
+                <div class="concept-card">
+
+                    <h3>📚 スキマ時間学習</h3>
+
+                    <p>
+                        4択問題を中心とした短時間学習により、
+                        通勤時間や休憩時間にも取り組めます。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Learning Areas -->
+
+        <section class="section">
+
+            <h2>どんなIT英語を学べる？</h2>
+
+            <p>
+                IT英語ドリルでは、単語だけではなく、
+                実際の開発プロジェクトで発生しやすい場面を想定して
+                英語表現を学習します。
+            </p>
+
+
+            <div class="learning-grid">
+
+                <div class="learning-card">
+
+                    <h3>📋 要件定義・仕様確認</h3>
+
+                    <p>
+                        Requirements、specification、scope、
+                        acceptance criteriaなど、
+                        要件や仕様を確認するときに使われる表現を学びます。
+                    </p>
+
+                </div>
+
+
+                <div class="learning-card">
+
+                    <h3>🔌 API・システム連携</h3>
+
+                    <p>
+                        API specification、endpoint、
+                        request、responseなど、
+                        技術的な仕様を説明・確認するための英語を扱います。
+                    </p>
+
+                </div>
+
+
+                <div class="learning-card">
+
+                    <h3>🗄️ データベース</h3>
+
+                    <p>
+                        Migration、schema、query、
+                        data consistencyなど、
+                        データベース関連のコミュニケーションを学習します。
+                    </p>
+
+                </div>
+
+
+                <div class="learning-card">
+
+                    <h3>🧪 QA・テスト</h3>
+
+                    <p>
+                        Bug、reproduction steps、
+                        expected result、actual resultなど、
+                        QAや不具合報告に必要な英語を学びます。
+                    </p>
+
+                </div>
+
+
+                <div class="learning-card">
+
+                    <h3>🔄 Agile・Sprint</h3>
+
+                    <p>
+                        Sprint planning、backlog、
+                        priority、estimateなど、
+                        アジャイル開発で使われる表現を扱います。
+                    </p>
+
+                </div>
+
+
+                <div class="learning-card">
+
+                    <h3>🤝 交渉・仕様調整</h3>
+
+                    <p>
+                        納期、優先順位、仕様変更などについて、
+                        海外メンバーと調整するときに必要となる表現を学びます。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Features -->
+
+        <section class="section">
+
+            <h2>主な機能</h2>
+
+            <div class="feature">
+
+                <div class="feature-text">
+
+                    <h3>4択形式の実践IT英語ドリル</h3>
+
+                    <p>
+                        実際のソフトウェア開発で起こりやすい場面を題材にした
+                        4択問題で、IT英語を効率よく学習できます。
+                    </p>
+
+                    <p>
+                        問題だけでなく、日本語訳や解説を確認することで、
+                        「なぜこの表現が適切なのか」まで理解できる構成を目指しています。
+                    </p>
+
+                </div>
+
+                <div class="feature-image">
+
+                    <img src="screenshot_01.png" alt="IT英語ドリルの4択問題画面">
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-text">
+
+                    <h3>開発チームを想定したAIロールプレイ</h3>
+
+                    <p>
+                        Senior Developer、QA Tester、Project Manager、
+                        UX Designerなど、開発チームのメンバーを想定した
+                        テキストベースのロールプレイを体験できます。
+                    </p>
+
+                    <p>
+                        単語や文法だけでなく、
+                        質問、確認、説明、交渉など、
+                        実際のコミュニケーションを意識した学習に活用できます。
+                    </p>
+
+                </div>
+
+                <div class="feature-image">
+
+                    <img src="screenshot_02.png" alt="IT開発チームを想定したAIチャットロールプレイ画面">
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-text">
+
+                    <h3>復習ノートとオンデバイスAI</h3>
+
+                    <p>
+                        間違えた問題や後から確認したい項目を記録し、
+                        自分の弱点を繰り返し復習できます。
+                    </p>
+
+                    <p>
+                        対応環境では軽量なAIモデルを端末上で動作させることで、
+                        AIとの英語練習を行える機能も用意しています。
+                    </p>
+
+                </div>
+
+                <div class="feature-image">
+
+                    <img src="screenshot_03.png" alt="IT英語の復習ノートとAI学習画面">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- How to use -->
+
+        <section class="section">
+
+            <h2>基本的な学習方法</h2>
+
+            <p>
+                毎日長時間勉強するのではなく、
+                短い時間でも継続してIT英語に触れることを想定しています。
+            </p>
+
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <div class="step-number">1</div>
+
+                    <div>
+
+                        <h3>4択問題に挑戦</h3>
+
+                        <p>
+                            IT開発に関連する英文を読み、
+                            適切な単語や表現を選択します。
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">2</div>
+
+                    <div>
+
+                        <h3>解説と日本語訳を確認</h3>
+
+                        <p>
+                            正解だけでなく、
+                            英文の意味や表現の使い方を確認します。
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">3</div>
+
+                    <div>
+
+                        <h3>間違えた問題を復習</h3>
+
+                        <p>
+                            苦手な問題や覚えたい表現を復習ノートで
+                            繰り返し確認します。
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">4</div>
+
+                    <div>
+
+                        <h3>AIロールプレイで実践</h3>
+
+                        <p>
+                            対応している場合はAIとの会話練習を行い、
+                            実際のコミュニケーションを意識して学習します。
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Use Cases -->
+
+        <section class="section">
+
+            <h2>こんな方におすすめ</h2>
+
+            <div class="use-case-grid">
+
+                <div class="use-case">
+
+                    <h3>👨‍💻 ITエンジニア</h3>
+
+                    <p>
+                        技術的な内容を英語で説明したり、
+                        海外エンジニアの質問を理解したりする機会がある方。
+                    </p>
+
+                </div>
+
+
+                <div class="use-case">
+
+                    <h3>🌏 BrSE・ブリッジSE</h3>
+
+                    <p>
+                        日本側と海外開発チームの間に立ち、
+                        要件や仕様を英語で調整する方。
+                    </p>
+
+                </div>
+
+
+                <div class="use-case">
+
+                    <h3>📊 プロジェクトマネージャー</h3>
+
+                    <p>
+                        海外メンバーとの進捗確認、
+                        スケジュール調整、課題管理などを行う方。
+                    </p>
+
+                </div>
+
+
+                <div class="use-case">
+
+                    <h3>🧪 QAエンジニア</h3>
+
+                    <p>
+                        英語で不具合報告やテスト結果を共有する必要がある方。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FAQ -->
+
+        <section class="section">
+
+            <h2>よくある質問</h2>
+
+            <div class="faq-list">
+
+                <details>
+
+                    <summary>
+                        このアプリはどのような人向けですか？
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        ITエンジニア、BrSE、ブリッジSE、
+                        プロジェクトマネージャー、QAエンジニアなど、
+                        海外の開発チームと英語でコミュニケーションする機会がある方を
+                        主な対象としています。
+
+                    </div>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        一般的な英会話アプリとの違いは何ですか？
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        日常会話だけではなく、
+                        要件定義、API、データベース、QA、
+                        アジャイル開発など、
+                        IT開発現場で使われる表現を中心に扱っている点が特徴です。
+
+                    </div>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        英語初心者でも利用できますか？
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        IT分野の英語を学びたい方を対象としており、
+                        問題の日本語訳や解説を確認しながら学習できます。
+                        まずは知っている単語から少しずつ取り組む使い方がおすすめです。
+
+                    </div>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        AI機能は必ずインターネット接続が必要ですか？
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        初回ダウンロード時にインターネット接続が必要になります。
+                        以降、インターネット接続は不要になります。<br>
+                        ※端末によってはAIモデルを実行することができません。
+
+                    </div>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        短時間でも学習できますか？
+                    </summary>
+
+                    <div class="faq-answer">
+
+                        はい。
+                        4択問題を中心とした構成のため、
+                        通勤時間や休憩時間など、
+                        数分程度のスキマ時間を利用した学習にも向いています。
+
+                    </div>
+
+                </details>
+
+            </div>
+
+        </section>
+
+
+        <!-- Keywords -->
+
+        <section class="section keywords">
+
+            <h3>関連するキーワード</h3>
+
+            <p>
+                IT English / BrSE / Bridge Engineer /
+                Software Engineering / Technical English /
+                Developer English / Business English /
+                Offshore Development / Agile / API / QA
+            </p>
+
+            <p>
+                IT英語 / ブリッジSE / エンジニア英語 /
+                技術英語 / 英語学習 / 英語ドリル /
+                開発英語 / オフショア開発 /
+                アジャイル / API / QA / プロジェクト管理
+            </p>
+
+        </section>
+
+
+        <!-- Final CTA -->
+
+        <section class="final-cta" id="download">
+
+            <h2>
+                IT開発のための英語を、毎日の学習に。
+            </h2>
+
+            <p>
+                IT英語ドリル-BrSEへの道-で、
+                グローバルな開発現場で必要となる英語表現を
+                少しずつ身につけていきましょう。
+            </p>
+
+            <a href="#" class="btn-download">
+                App Storeから入手する
+            </a>
+
+        </section>
+
+    </div>
+
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                &copy; 2026 IT英語ドリル-BrSEへの道-.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
