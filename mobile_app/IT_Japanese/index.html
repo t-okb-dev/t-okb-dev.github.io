@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Primary Meta Tags -->
+    <title>IT日本語ドリル | 外国人ITエンジニア・BrSE向け実践日本語学習アプリ - IT Japanese Drill</title>
+    <meta name="title" content="IT日本語ドリル | 外国人ITエンジニア・BrSE向け実践日本語学習アプリ - IT Japanese Drill">
+    <meta name="description"
+        content="IT日本語ドリル（IT Japanese Drill）は、日本で働く・働きたい外国人ITエンジニア、BrSE（ブリッジSE）、プログラマーのための実践型日本語学習アプリです。要件定義、コードレビュー、バグ報告、アジャイル朝会など、実際のIT開発現場で使われる日本語表現を4択ドリル、チャット＆ロールプレイ、ネイティブ音声読み上げ（TTS）で7言語（英語・ベトナム語・中国語等）対応で効率よく習得できます。">
+    <meta name="keywords"
+        content="IT日本語, IT日本語ドリル, 外国人ITエンジニア 日本語, ブリッジSE, BrSE, IT Japanese, Learn Japanese for IT Engineers, 技術日本語, 開発現場 日本語, IT用語 日本語, 日本語ドリル, オフショア開発, コードレビュー 日本語, 報連相 IT, アジャイル 日本語, JLPT N3, JLPT N2, JLPT N1, Tiếng Nhật IT, IT日语, IT 일본어">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="author" content="IT日本語ドリル 開発チーム">
+    <link rel="canonical" href="index.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="index.html">
+    <meta property="og:title" content="IT日本語ドリル | 外国人ITエンジニア・BrSE向け実践日本語学習アプリ">
+    <meta property="og:description"
+        content="日本のIT現場で即戦力になる日本語を。要件定義、コードレビュー、障害対応、アジャイル開発まで、4択ドリルと実践的なロールプレイチャットでマスターしよう。7言語母国語解説・音声読み上げ対応。">
+    <meta property="og:image" content="icon.png">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="IT日本語ドリル (IT Japanese Drill)">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IT日本語ドリル | 外国人ITエンジニア・BrSE向け実践日本語学習アプリ">
+    <meta name="twitter:description"
+        content="外国人ITエンジニア・BrSE特化の実践日本語アプリ。仕様書読解、コードレビュー、朝会の報連相などを4択ドリルとロールプレイチャットで完全攻略！">
+    <meta name="twitter:image" content="icon.png">
+
+    <!-- App Favicon & Apple Touch Icon -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data (JSON-LD) for Search Engine Rich Snippets -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "SoftwareApplication",
+                "name": "IT日本語ドリル",
+                "alternateName": ["IT Japanese Drill", "BrSE Japanese", "外国人エンジニアのためのIT日本語"],
+                "applicationCategory": "EducationalApplication",
+                "operatingSystem": "iOS, Android",
+                "description": "日本のIT業界・開発現場で活躍したい外国人ITエンジニアおよびBrSE向けの実践的日本語学習アプリ。要件定義、仕様書、コードレビュー、障害対応、アジャイルスクラム等の現場日本語を4択ドリルとチャット＆ロールプレイで学習。",
+                "inLanguage": ["ja", "en", "vi", "zh", "ko", "id", "my"],
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "JPY"
+                },
+                "featureList": [
+                    "IT現場に特化した4択穴埋めドリル（110問超の初期シード＋解説）",
+                    "先輩エンジニア・PMとのチャット＆ロールプレイ",
+                    "7言語（英語・ベトナム語・中国語・韓国語・インドネシア語・ミャンマー語）の母国語解説",
+                    "ネイティブ音声読み上げ（TTS）機能",
+                    "端末内完結オンデバイスAIによる新問題自動生成",
+                    "スマート単語カードと復習ノート機能"
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "IT日本語ドリルはどのようなエンジニアを対象としていますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "日本国内のIT企業で働く、または就職・転職を目指す外国人エンジニア（プログラマー、SE、QA、インフラ担当等）、日本側クライアントと協業するBrSE（ブリッジSE）、オフショア開発チームのメンバーを主な対象としています。JLPT N3〜N1レベルの方の実務日本語強化に最適です。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "一般的な日本語学習アプリやJLPT対策と何が違いますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "日常会話や試験用の文法ではなく、「プルリクエスト」「デプロイ」「要件定義」「デッドロック」「切り戻し」「報連相」など、実際の開発現場・チャット（SlackやTeams）・仕様書で日常的に使われる専門用語や実務表現に特化している点が決定的に異なります。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "日本語以外の母国語での解説はありますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "はい。英語（English）、ベトナム語（Tiếng Việt）、中国語（中文）、韓国語（한국어）、インドネシア語（Bahasa Indonesia）、ミャンマー語（မြန်မာဘာသာ）の全7言語に対応しており、初回起動時やお好みのタイミングで母国語を設定できます。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "チャット＆ロールプレイではどのような会話練習ができますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "現場の先輩エンジニア（佐藤さん）やプロジェクトマネージャー（田中PM）などを相手に、コードレビューの依頼、仕様書の確認、バグ報告、進捗共有などのリアルなシチュエーションで対話演習ができます。選択肢アシストや母国語翻訳も完備しています。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "オフラインでも利用できますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "はい。標準のドリル問題、単語帳、音声読み上げ、そしてオンデバイスローカルAI機能は端末上で動作するため、通信環境がない飛行機内や地下鉄でも快適に学習できます。"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container">
+            <nav aria-label="メインナビゲーション">
+                <a href="#" class="nav-brand" title="IT日本語ドリル ホーム">
+                    <img src="icon.png" alt="IT日本語ドリル アプリアイコン" width="40" height="40">
+                    <span class="brand-title">IT日本語ドリル</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#concept">特徴</a>
+                    <a href="#categories">学習分野</a>
+                    <a href="#features">機能一覧</a>
+                    <a href="#audience">対象読者</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#download" class="btn-nav-cta">無料ダウンロード</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container" aria-labelledby="hero-title">
+            <div class="hero-badge">
+                <span>🚀 外国人ITエンジニア & BrSEのための実践日本語</span>
+            </div>
+
+            <div class="hero-icon-wrapper">
+                <img src="icon.png" alt="IT日本語ドリル アプリアイコン - ITと日本語をマスター" class="app-icon-hero" width="120" height="120">
+            </div>
+
+            <h1 id="hero-title">
+                日本の開発現場で即戦力になる<br>
+                <span class="gradient-text">本物のIT日本語を、手のひらに。</span>
+            </h1>
+
+            <p class="subtitle">
+                日常会話やJLPTの勉強だけでは通用しない「現場の日本語」。<br>
+                仕様書読解、プルリクのコードレビュー、朝会の報連相、障害アラート対応まで。<br>
+                4択ドリルと実践的なロールプレイチャットで、自信を持って現場で話せる力を鍛えます。
+            </p>
+
+            <div class="hero-actions">
+                <a href="#download" class="btn-download-hero" id="app-store-cta">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.64-.78 1.08-1.86.96-2.95-1 .04-2.15.65-2.82 1.43-.59.68-1.1 1.77-.97 2.84 1.12.09 2.21-.57 2.83-1.32z"/>
+                    </svg>
+                    <span>App Storeから入手する</span>
+                </a>
+                <a href="#features" class="btn-secondary">
+                    <span>機能を詳しく見る ↓</span>
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">9<span>カテゴリ</span></div>
+                    <div class="stat-label">要件定義〜AIまで網羅</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">7<span>言語対応</span></div>
+                    <div class="stat-label">英語・ベトナム語・中国語等</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">対話<span>ロールプレイ</span></div>
+                    <div class="stat-label">現場ペルソナと実践チャット</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100<span>%無料</span></div>
+                    <div class="stat-label">オフライン・ローカルAI対応</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Concept / Problem & Solution -->
+        <section class="section container" id="concept" aria-labelledby="concept-title">
+            <div class="section-header">
+                <span class="section-tag">WHY IT JAPANESE DRILL</span>
+                <h2 class="section-title" id="concept-title">なぜ、多くのエンジニアが「現場の日本語」で困るのか？</h2>
+                <p class="section-desc">
+                    JLPT N2やN1を持っていても、日本の開発チームに入ると「仕様書の微妙なニュアンスがわからない」「障害時にどう報告すればいいか焦る」という課題に直面します。
+                </p>
+            </div>
+
+            <div class="concept-grid">
+                <article class="concept-card">
+                    <div class="concept-icon">💬</div>
+                    <h3>教科書に載っていない現場用語</h3>
+                    <p>
+                        「デプロイ」「ロールバック」「デッドロック」「切り戻し」「エスカレーション」など、現場のSlackや設計書で飛び交うカタカナIT語や略語を体系的に学べます。
+                    </p>
+                </article>
+
+                <article class="concept-card">
+                    <div class="concept-icon">🤝</div>
+                    <h3>日本独特のビジネスITマナー & 報連相</h3>
+                    <p>
+                        「お時間よろしいでしょうか」「〜の件でご相談があるのですが」「想定通りの挙動を確認しました」など、失礼にならず的確に意図を伝える実践フレーズが身につきます。
+                    </p>
+                </article>
+
+                <article class="concept-card">
+                    <div class="concept-icon">🤝</div>
+                    <h3>チャット＆ロールプレイで「話す」「書く」自信をつける</h3>
+                    <p>
+                        選択肢形式で迷わず学べるロールプレイチャット。先輩エンジニアやPMからの問いかけに対して、適切な日本語でレスポンスする瞬発力を養えます。
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 9 Learning Categories -->
+        <section class="section container" id="categories" aria-labelledby="categories-title">
+            <div class="section-header">
+                <span class="section-tag">CURRICULUM</span>
+                <h2 class="section-title" id="categories-title">開発現場の全フェーズを網羅する9大カテゴリ</h2>
+                <p class="section-desc">
+                    基礎的なIT語彙から、上流工程（要件定義）、実装、テスト、インフラ、最新のAI技術までをカバー。
+                </p>
+            </div>
+
+            <div class="category-grid">
+                <div class="category-card">
+                    <span class="category-badge">BASIC</span>
+                    <h3>💻 IT基礎用語</h3>
+                    <p>サーバー、データベース、API、クライアント、プロトコルなど、IT開発の土台となる必須語彙。</p>
+                    <div class="category-keywords">
+                        <span>#サーバー</span><span>#データベース</span><span>#API</span><span>#キャッシュ</span>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <span class="category-badge">PROCESS</span>
+                    <h3>📑 開発プロセス</h3>
+                    <p>要件定義、基本設計、詳細設計、単体テスト、結合テスト、リリース手順書の読み書き。</p>
+                    <div class="category-keywords">
+                        <span>#要件定義書</span><span>#基本設計</span><span>#受入テスト</span><span>#検収</span>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <span class="category-badge">MANAGEMENT</span>
+                    <h3>📊 プロジェクト管理</h3>
+                    <p>WBS、工数見積もり、マイルストーン、納期調整、遅延リスクの早期アラート。</p>
+                    <div class="category-keywords">
+                        <span>#WBS</span><span>#工数</span><span>#バッファ</span><span>#ボトルネック</span>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <span class="category-badge">COMMUNICATION</span>
+                    <h3>🗣️ 現場コミュニケーション</h3>
+                    <p>朝会での進捗報告、先輩への質問の仕方、仕様変更の相談、Slackでの適切な依頼表現。</p>
+                    <div class="category-keywords">
+                        <span>#報連相</span><span>#進捗報告</span><span>#壁打ち</span><span>#ご教示</span>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <span class="category-badge">QA & OPS</span>
+                    <h3>🚨 品質保証・障害対応</h3>
+                    <p>バグ起票、再現手順の記述、障害一次切り分け、ロールバック（切り戻し）、恒久対策。</p>
+                    <div class="category-keywords">
+                        <span>#再現手順</span><span>#切り戻し</span><span>#一次切り分け</span><span>#恒久対応</span>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <span class="category-badge">CLOUD & INFRA</span>
+                    <h3>☁️ インフラ・クラウド</h3>
+                    <p>AWS/GCP、コンテナ（Docker）、Kubernetes、ロードバランサ、CI/CDパイプライン。</p>
+                    <div class="category-keywords">
+                        <span>#コンテナ</span><span>#スケーリング</span><span>#可用性</span><span>#CI/CD</span>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <span class="category-badge">AGILE</span>
+                    <h3>⚡ アジャイル・スクラム</h3>
+                    <p>スプリントプランニング、デイリースクラム、レトロスペクティブ（振り返り）、ユーザーストーリー。</p>
+                    <div class="category-keywords">
+                        <span>#スプリント</span><span>#ベロシティ</span><span>#KPT</span><span>#バックログ</span>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <span class="category-badge">GIT & CODE</span>
+                    <h3>🌿 バージョン管理・レビュー</h3>
+                    <p>ブランチ運用、プルリクエスト作成、コンフリクト解消、コードレビューでの指摘・修正。</p>
+                    <div class="category-keywords">
+                        <span>#プルリク</span><span>#コンフリクト</span><span>#リファクタ</span><span>#LGTM</span>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <span class="category-badge">TREND</span>
+                    <h3>🤖 AI・機械学習</h3>
+                    <p>LLM、プロンプトエンジニアリング、ファインチューニング、トークン、データ前処理。</p>
+                    <div class="category-keywords">
+                        <span>#LLM</span><span>#プロンプト</span><span>#推論</span><span>#RAG</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Showcase -->
+        <section class="section container" id="features" aria-labelledby="features-title">
+            <div class="section-header">
+                <span class="section-tag">FEATURES</span>
+                <h2 class="section-title" id="features-title">実力と瞬発力を鍛える5つの学習機能</h2>
+                <p class="section-desc">
+                    通勤時間やすきま時間にスマホ1台で手軽に学べる、直感的で心地よいUXを追求しました。
+                </p>
+            </div>
+
+            <!-- Feature 1: 4-Choice Drill -->
+            <div class="feature-row">
+                <div class="feature-content">
+                    <span class="feature-tag">CORE DRILL</span>
+                    <h3>実践現場を再現した4択穴埋めドリル</h3>
+                    <p>
+                        「仕様書」や「Slackでの会話」をベースにした実践的な穴埋め問題。即座に正解・不正解が判定され、紛らわしい選択肢（ダミー）の理由まで深く理解できます。
+                    </p>
+                    <ul class="feature-checklist">
+                        <li>110問以上の厳選シード問題＋ヒント表示対応</li>
+                        <li>文脈に合わせた自然なビジネスIT例文</li>
+                        <li>母国語での詳細な意味・ニュアンス解説付き</li>
+                    </ul>
+                </div>
+                <div class="feature-mockup">
+                    <div class="mockup-header">
+                        <div class="mockup-dot red"></div>
+                        <div class="mockup-dot yellow"></div>
+                        <div class="mockup-dot green"></div>
+                        <span class="mockup-badge">DRILL #042</span>
+                    </div>
+                    <div class="mockup-code-box">
+                        <p style="color: var(--text-muted); margin-bottom: 8px;">// 問題文</p>
+                        <p>「非同期処理の実装が終わりましたので、例外ハンドリングの箇所を <span class="highlight">[ ______ ]</span> していただけますでしょうか？」</p>
+                        <div style="margin-top: 14px; display: grid; gap: 8px;">
+                            <div style="padding: 8px 12px; background: rgba(99, 102, 241, 0.2); border-radius: 6px; border: 1px solid var(--primary);">① レビュー（正解 ✓）</div>
+                            <div style="padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;">② リリース</div>
+                            <div style="padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;">③ リファクタ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2: Roleplay Chat -->
+            <div class="feature-row reverse">
+                <div class="feature-content">
+                    <span class="feature-tag">ROLEPLAY CHAT</span>
+                    <h3>先輩エンジニアやPMとのチャット＆ロールプレイ</h3>
+                    <p>
+                        「コードレビューを依頼したい」「障害の進捗を報告したい」など、開発現場で避けて通れないシチュエーションをリアルにロールプレイ。
+                        選択肢アシストや母国語翻訳があるため、言葉に詰まる心配もありません。
+                    </p>
+                    <ul class="feature-checklist">
+                        <li>先輩エンジニア・佐藤さん、田中PMなどのリアルなペルソナ</li>
+                        <li>💡推奨ラベル付きの模範回答候補アシスト</li>
+                        <li>シナリオ形式で自然な会話の流れを習得</li>
+                    </ul>
+                </div>
+                <div class="feature-mockup">
+                    <div class="mockup-header">
+                        <div class="mockup-dot red"></div>
+                        <div class="mockup-dot yellow"></div>
+                        <div class="mockup-dot green"></div>
+                        <span class="mockup-badge">ROLEPLAY CHAT</span>
+                    </div>
+                    <div class="mockup-chat-bubble ai">
+                        <strong>先輩・佐藤:</strong><br>
+                        「お疲れ様です。プルリクエスト #42、拝見しました。例外ハンドリングの箇所、とても綺麗に書けていますね！」
+                    </div>
+                    <div class="mockup-chat-bubble user">
+                        <strong>あなた:</strong><br>
+                        「レビューありがとうございます！指摘いただいた点も修正し、マージ準備完了しました。」
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3: Native TTS Audio -->
+            <div class="feature-row">
+                <div class="feature-content">
+                    <span class="feature-tag">TTS LISTENING</span>
+                    <h3>ネイティブ音声読み上げでリスニング＆発音特訓</h3>
+                    <p>
+                        問題文、単語、会話シナリオの全テキストをワンタップでクリアに音声再生。
+                        耳から自然なイントネーションをインプットすることで、朝会やMTGで聞き取れる耳をつくります。
+                    </p>
+                    <ul class="feature-checklist">
+                        <li>自然で聞き取りやすい日本語音声エンジン（TTS）</li>
+                        <li>問題文や単語の個別再生・シャドーイングに最適</li>
+                        <li>通勤中でもイヤホン1つで耳学可能</li>
+                    </ul>
+                </div>
+                <div class="feature-mockup" style="text-align: center; padding: 40px 24px;">
+                    <div style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent-cyan)); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                        </svg>
+                    </div>
+                    <p style="font-weight: 700; font-size: 1.1rem; margin-bottom: 6px;">音声読み上げ機能（TTS）</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">「データベースのインデックスを再構築してください」</p>
+                </div>
+            </div>
+
+            <!-- Feature 4: On-Device AI Generator -->
+            <div class="feature-row reverse">
+                <div class="feature-content">
+                    <span class="feature-tag">LOCAL AI / PRIVACY</span>
+                    <h3>オンデバイスAIによる新問題自動生成</h3>
+                    <p>
+                        スマートフォンのローカルLLMエンジンを活用し、オフライン環境でも無限に新しいIT日本語問題を自動生成可能。
+                        通信量を気にせず、飛行機内や外出先でもストレスフリーに問題演習を継続できます。
+                    </p>
+                    <ul class="feature-checklist">
+                        <li>完全端末内完結・プライベート＆セキュア</li>
+                        <li>カテゴリを選ぶだけで新鮮な問題を即座に生成</li>
+                        <li>オフライン環境でも止まらない学習サイクル</li>
+                    </ul>
+                </div>
+                <div class="feature-mockup">
+                    <div class="mockup-header">
+                        <div class="mockup-dot red"></div>
+                        <div class="mockup-dot yellow"></div>
+                        <div class="mockup-dot green"></div>
+                        <span class="mockup-badge">LOCAL LLM</span>
+                    </div>
+                    <div class="mockup-code-box">
+                        <p style="color: var(--accent-emerald); font-weight: 600;">⚡ オンデバイスAIが新問題を生成中...</p>
+                        <p style="color: var(--text-muted); margin: 8px 0;">[Category: クラウド・インフラ]</p>
+                        <p style="color: #fff;">「負荷分散のために、トラフィックを複数台のサーバーに振り分ける装置を ______ と呼びます。」</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 5: Flashcards & Notebook -->
+            <div class="feature-row">
+                <div class="feature-content">
+                    <span class="feature-tag">SMART VOCABULARY</span>
+                    <h3>フリップ式単語カード & 間違えた問題の復習ノート</h3>
+                    <p>
+                        カードをタップするとくるっと裏返るアニメーション単語帳。
+                        間違えたドリル問題は自動的に「復習ノート」に蓄積され、苦手を残さず確実にマスターできます。
+                    </p>
+                    <ul class="feature-checklist">
+                        <li>直感的なスワイプ＆フリップ式UI</li>
+                        <li>習得済み・要復習を1タップで自動仕分け</li>
+                        <li>忘却曲線に沿った効率的な定着サポート</li>
+                    </ul>
+                </div>
+                <div class="feature-mockup" style="text-align: center; padding: 36px 20px;">
+                    <div style="background: rgba(255, 255, 255, 0.05); border: 2px dashed rgba(99, 102, 241, 0.4); border-radius: 16px; padding: 24px; max-width: 320px; margin: 0 auto;">
+                        <span style="font-size: 0.8rem; color: var(--primary-light); font-weight: 700;">単語カード [表面]</span>
+                        <h4 style="font-size: 1.5rem; margin: 12px 0;">要件定義（ようけんていぎ）</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.85rem;">タップして意味・例文を表示 🔄</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Multilingual Support Banner -->
+        <section class="container">
+            <div class="multilingual-banner">
+                <h3>🌏 世界中のITエンジニアのための多言語サポート</h3>
+                <p style="color: var(--text-secondary); max-width: 650px; margin: 0 auto;">
+                    問題のヒントや解説、例文の対訳はすべて母国語で確認可能。初回インストール時に選択でき、いつでも設定から切り替えられます。
+                </p>
+                <div class="lang-tags">
+                    <span class="lang-tag">🇯🇵 日本語 (Japanese)</span>
+                    <span class="lang-tag">🇺🇸 English (英語)</span>
+                    <span class="lang-tag">🇻🇳 Tiếng Việt (ベトナム語)</span>
+                    <span class="lang-tag">🇨🇳 中文 (中国語)</span>
+                    <span class="lang-tag">🇰🇷 한국어 (韓国語)</span>
+                    <span class="lang-tag">🇮🇩 Bahasa Indonesia (インドネシア語)</span>
+                    <span class="lang-tag">🇲🇲 မြန်မာဘာသာ (ミャンマー語)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Audience Section -->
+        <section class="section container" id="audience" aria-labelledby="audience-title">
+            <div class="section-header">
+                <span class="section-tag">WHO IS THIS FOR</span>
+                <h2 class="section-title" id="audience-title">このような方におすすめです</h2>
+                <p class="section-desc">
+                    日本のIT業界でキャリアを築きたいすべての方の言語の壁を取り払います。
+                </p>
+            </div>
+
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-header">
+                        <div class="audience-icon">💻</div>
+                        <div>
+                            <h3>日本のIT企業で働く外国人エンジニア</h3>
+                        </div>
+                    </div>
+                    <p>
+                        設計書や仕様書の日本語が難解で時間がかかる方、コードレビューやPRのコメントでニュアンスをうまく伝えたいプログラマー・開発者。
+                    </p>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-header">
+                        <div class="audience-icon">🌉</div>
+                        <div>
+                            <h3>ブリッジSE（BrSE）を目指す方・現役BrSE</h3>
+                        </div>
+                    </div>
+                    <p>
+                        日本側クライアントと母国開発チームの間に立ち、要件のすり合わせや進捗報告、障害のエスカレーションを円滑に行いたい方。
+                    </p>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-header">
+                        <div class="audience-icon">🎯</div>
+                        <div>
+                            <h3>日本のIT企業へ就職・転職活動中の方</h3>
+                        </div>
+                    </div>
+                    <p>
+                        日本のWeb系企業・SIerの技術面接で、これまでの開発経験やアーキテクチャの選定理由を淀みなく日本語でアピールしたい方。
+                    </p>
+                </div>
+
+                <div class="audience-card">
+                    <div class="audience-header">
+                        <div class="audience-icon">🏢</div>
+                        <div>
+                            <h3>外国人メンバーを受け入れる開発チーム・人事</h3>
+                        </div>
+                    </div>
+                    <p>
+                        海外拠点のオフショア開発メンバーや、新しくチームに加わったグローバルエンジニアの技術日本語オンボーディング教材をお探しの方。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4-Step Learning Workflow -->
+        <section class="section container" aria-labelledby="steps-title">
+            <div class="section-header">
+                <span class="section-tag">LEARNING WORKFLOW</span>
+                <h2 class="section-title" id="steps-title">1日5分、確実に伸びる4ステップ学習法</h2>
+                <p class="section-desc">
+                    知識のインプットから実践のアウトプットまでをスムーズに繋ぐ学習サイクル。
+                </p>
+            </div>
+
+            <div class="step-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>ドリルで力試し</h3>
+                    <p>現場の実例に基づいた4択問題をテンポよく解答。現在の語彙力をチェック。</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>母国語解説で納得</h3>
+                    <p>なぜその語彙が使われるのか、文脈と背景を母国語で深く理解。</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>チャット＆ロールプレイで対話</h3>
+                    <p>先輩エンジニアやPMを相手に、学んだ表現を会話で実際にアウトプット。</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>復習ノートで定着</h3>
+                    <p>間違えた問題だけを抽出して繰り返し演習。苦手をゼロにする。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section container" id="faq" aria-labelledby="faq-title">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title" id="faq-title">よくある質問</h2>
+                <p class="section-desc">
+                    利用にあたって気になる点や疑問にお答えします。
+                </p>
+            </div>
+
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">アプリの利用料金はかかりますか？</summary>
+                    <div class="faq-answer">
+                        基本機能（4択ドリル、単語カード、チャット＆ロールプレイ、音声読み上げ等）はすべて無料でお使いいただけます。
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">どのくらいの日本語レベル（JLPT）が必要ですか？</summary>
+                    <div class="faq-answer">
+                        JLPT N3〜N1程度を目指す方や、すでに合格しているものの大手IT企業や開発現場での実践会話に不安がある方に最も効果的です。各問題に英語・ベトナム語などの対訳やヒントがついているため、N4レベルの方でも無理なくステップアップできます。
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">電波のない場所（オフライン）でも学習できますか？</summary>
+                    <div class="faq-answer">
+                        はい。標準のドリル問題、単語帳、音声読み上げ機能、オンデバイスローカルAI機能は端末上で動作するため、インターネット接続がない飛行機内や地下鉄でも学習可能です。
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">表示言語（母国語）の変更はいつでもできますか？</summary>
+                    <div class="faq-answer">
+                        初回インストール時に母国語（英語、ベトナム語、中国語、韓国語、インドネシア語、ミャンマー語、日本語）を選択できます。その後も設定画面からいつでも自由に言語を切り替えることができます。
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">チャット＆ロールプレイ機能で個人情報や会話内容は外部に送信されますか？</summary>
+                    <div class="faq-answer">
+                        いいえ。ロールプレイシナリオはすべてアプリ内でローカルに動作するため、個人情報や学習履歴が外部に送信されることは一切ありません。プライバシーとセキュリティに配慮して設計されています。
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- SEO Keywords Cloud Section -->
+        <section class="container">
+            <div class="keywords-section">
+                <h3>🔍 関連検索キーワード</h3>
+                <div class="keywords-cloud">
+                    <span class="keyword-badge">IT日本語</span>
+                    <span class="keyword-badge">IT日本語ドリル</span>
+                    <span class="keyword-badge">外国人エンジニア 日本語</span>
+                    <span class="keyword-badge">ブリッジSE 日本語</span>
+                    <span class="keyword-badge">BrSE 日本語学習</span>
+                    <span class="keyword-badge">IT Japanese Drill</span>
+                    <span class="keyword-badge">Japanese for Developers</span>
+                    <span class="keyword-badge">開発現場 日本語</span>
+                    <span class="keyword-badge">技術日本語</span>
+                    <span class="keyword-badge">IT用語 日本語</span>
+                    <span class="keyword-badge">要件定義 日本語</span>
+                    <span class="keyword-badge">コードレビュー 日本語</span>
+                    <span class="keyword-badge">障害対応 報連相</span>
+                    <span class="keyword-badge">アジャイル スクラム用語</span>
+                    <span class="keyword-badge">オフショア開発 日本語</span>
+                    <span class="keyword-badge">JLPT N3 IT</span>
+                    <span class="keyword-badge">JLPT N2 エンジニア</span>
+                    <span class="keyword-badge">JLPT N1 IT用語</span>
+                    <span class="keyword-badge">IT日本語ロールプレイ</span>
+                    <span class="keyword-badge">チャット＆ロールプレイ</span>
+                    <span class="keyword-badge">Tiếng Nhật CNTT</span>
+                    <span class="keyword-badge">Tiếng Nhật IT BrSE</span>
+                    <span class="keyword-badge">IT日语 编程日语</span>
+                    <span class="keyword-badge">IT 일본어 드릴</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta container" id="download" aria-labelledby="cta-title">
+            <h2 id="cta-title">
+                現場で自信を持って話せるエンジニアへ。<br>
+                今すぐ、新しい学習をはじめよう。
+            </h2>
+            <p>
+                「IT日本語ドリル」はApp Storeから無料でダウンロードいただけます。<br>
+                あなたの日本のIT現場での活躍を全力でサポートします。
+            </p>
+            <a href="#" class="btn-download-hero">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.64-.78 1.08-1.86.96-2.95-1 .04-2.15.65-2.82 1.43-.59.68-1.1 1.77-.97 2.84 1.12.09 2.21-.57 2.83-1.32z"/>
+                </svg>
+                <span>App Storeから無料ダウンロード</span>
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 IT日本語ドリル (IT Japanese Drill). All rights reserved.</p>
+            <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 6px;">
+                Designed for global software engineers, BrSE, and multilingual IT teams working in Japan.
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
