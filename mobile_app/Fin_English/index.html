@@ -5,904 +5,782 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>金融英語ドリル | 金融・会計・M&Aの実務英語を学ぶ</title>
-
+    <!-- Primary SEO Meta Tags -->
+    <title>金融英語ドリル | 外資系・投資銀行・財務・M&Aの実務金融英語学習アプリ (Finance English Drill)</title>
+    <meta name="title" content="金融英語ドリル | 外資系・投資銀行・財務・M&Aの実務金融英語学習アプリ (Finance English Drill)">
     <meta name="description"
-        content="金融英語ドリルは、投資銀行、企業財務、会計、M&A、アセットマネジメント、リスク管理などで使われる金融・会計英語を学べるiOSアプリです。4択ドリル、用語復習、AIロールプレイ、オンデバイスAIを使って金融英語を実践的に学習できます。">
-
-    <meta name="robots" content="index, follow">
-
+        content="「金融英語ドリル (Finance English Drill)」は、投資銀行（IBD）、M&A、企業財務（FP&A/CFO）、会計・監査、アセットマネジメントで使われる実務金融英語をマスターするiOSアプリです。現場直結の4択ドリル、厳選金融用語カード、完全オフライン対応のオンデバイスAIロールプレイを搭載。ウォール街やグローバル金融ビジネスで通用する本物の英語力を身につけましょう。">
+    <meta name="keywords"
+        content="金融英語, 金融英語 アプリ, 投資銀行 英語, M&A 英語, 財務 会計 英語, 外資系金融 英語, 企業財務 英語, 決算 IR 英語, DCF EBITDA Valuation 英語, オンデバイスAI 英語学習, オフライン AI会話, 金融英語 ドリル, Finance English Drill, Wall Street English, Financial Vocabulary, 証券 英語, アセットマネジメント 英語">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="author" content="t-okb-dev">
+    <link rel="canonical" href="index.html">
 
-    <!-- Open Graph -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="金融英語ドリル | 金融・会計・M&Aの実務英語を学ぶ">
+    <meta property="og:url" content="index.html">
+    <meta property="og:title" content="金融英語ドリル | 金融・財務・M&Aの実務英語を学ぶ - Finance English Drill">
     <meta property="og:description"
-        content="投資銀行、企業財務、会計、M&A、アセットマネジメントなどで使われる金融英語を4択ドリルやAIロールプレイで学べるiOSアプリです。">
-    <meta property="og:image" content="icon.png">
+        content="Finance English. For Real Work. 投資銀行、M&A、企業財務、会計の現場で使われる専門英語を、4択ドリル × 単語カード × オンデバイスAIロールプレイで実践的に学ぶiOSアプリ。">
+    <meta property="og:image" content="appstore_hero.jpg">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="金融英語ドリル (Finance English Drill)">
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="金融英語ドリル | 金融・会計・M&Aの実務英語を学ぶ">
+    <meta name="twitter:title" content="金融英語ドリル | 金融・財務・M&Aの実務英語を学ぶ - Finance English Drill">
     <meta name="twitter:description"
-        content="金融・会計・M&Aなどの専門英語を、4択ドリル、単語レビュー、AIロールプレイで学習できるiOSアプリです。">
-    <meta name="twitter:image" content="icon.png">
+        content="Finance English. For Real Work. 投資銀行、M&A、企業財務、会計の現場英語を、4択ドリル × 単語カード × オンデバイスAIロールプレイでマスター！">
+    <meta name="twitter:image" content="appstore_hero.jpg">
 
+    <!-- App Favicon & Apple Touch Icon -->
     <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
 
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap"
+        rel="stylesheet">
 
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Additional page styles -->
-    <style>
-        .content-note {
-            margin-top: 1.5rem;
-            padding: 1rem 1.25rem;
-            border-left: 4px solid #3b82f6;
-            background: #f8fafc;
-            border-radius: 8px;
-            color: #475569;
-        }
-
-        .example-grid,
-        .audience-grid,
-        .study-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
-            margin-top: 1.5rem;
-        }
-
-        .example-card,
-        .audience-card,
-        .study-card {
-            padding: 1.5rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            background: #fff;
-        }
-
-        .example-card h3,
-        .audience-card h3,
-        .study-card h3 {
-            margin-top: 0;
-            margin-bottom: 0.75rem;
-        }
-
-        .example-en {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .example-ja {
-            color: #64748b;
-            margin-bottom: 0;
-        }
-
-        .important-note {
-            margin-top: 1.5rem;
-            padding: 1.25rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            background: #f8fafc;
-            color: #475569;
-        }
-
-        .faq-list details {
-            margin-bottom: 0.75rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            background: #fff;
-        }
-
-        .faq-list summary {
-            cursor: pointer;
-            padding: 1rem 1.25rem;
-            font-weight: 700;
-        }
-
-        .faq-answer {
-            padding: 0 1.25rem 1.25rem;
-            color: #475569;
-        }
-
-        .final-cta {
-            text-align: center;
-        }
-
-        .final-cta p {
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @media (max-width: 700px) {
-            .example-grid,
-            .audience-grid,
-            .study-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .content-note,
-            .important-note {
-                background: #172033;
-                color: #cbd5e1;
-                border-color: #334155;
-            }
-
-            .example-card,
-            .audience-card,
-            .study-card,
-            .faq-list details {
-                background: #1e293b;
-                border-color: #334155;
-            }
-
-            .example-ja,
-            .faq-answer {
-                color: #94a3b8;
-            }
-        }
-    </style>
-
-    <!-- Structured Data -->
+    <!-- Structured Data (JSON-LD) for Search Engines & LLM / AI Search Engines -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "金融英語ドリル",
-        "alternateName": "Finance English Drill",
-        "applicationCategory": "EducationalApplication",
-        "operatingSystem": "iOS",
-        "description": "投資銀行、企業財務、会計、M&A、アセットマネジメント、リスク管理などで使われる金融・会計英語を学習できるiOSアプリ。",
-        "image": "icon.png",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "JPY"
-        }
+        "@graph": [
+            {
+                "@type": "SoftwareApplication",
+                "name": "金融英語ドリル",
+                "alternateName": [
+                    "Finance English Drill",
+                    "金融英語",
+                    "Finance English: For Real Work"
+                ],
+                "applicationCategory": "EducationalApplication",
+                "operatingSystem": "iOS",
+                "downloadUrl": "https://apps.apple.com/jp/app/%E9%87%91%E8%9E%8D%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB/id6811929829",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "JPY"
+                },
+                "image": "icon.png",
+                "screenshot": [
+                    "appstore_hero.jpg",
+                    "appstore_slide_01.png",
+                    "appstore_slide_02.png",
+                    "appstore_slide_03.png"
+                ],
+                "description": "投資銀行、M&A、企業財務（FP&A）、会計・監査、リスクマネジメント、アセットマネジメントなどで使われる専門英語を実践的に学べるiOSアプリ。4択ドリル、厳選金融用語カード、端末内完結のオンデバイスAIロールプレイを搭載。",
+                "featureList": [
+                    "金融・財務・会計に特化した実践4択穴埋めドリル",
+                    "Investment BankerやCFOとの対話を想定したオンデバイスAIロールプレイ",
+                    "機密性を保ち通信不要で動作する完全オフラインAIモデル搭載",
+                    "M&A、Valuation、Liquidity Riskなどを網羅したスマート単語カード",
+                    "未習得単語の集中復習および復習ノート機能",
+                    "ネイティブのニュアンスや実務文脈を解説した日本語解説付き"
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "金融英語ドリルはどのような人におすすめですか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "外資系投資銀行（IBD・リサーチ・マーケット部門）、事業会社の財務・経理・経営企画・海外IR担当、M&Aアドバイザリー、PE/VCファンド、アセットマネジメント、監査法人・会計士、そして将来グローバル金融ビジネスを目指すビジネスパーソンに最適です。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "一般的なビジネス英語学習アプリとの決定的な違いは何ですか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "日常の挨拶や一般的なミーティング英語ではなく、「EBITDA multiple」「syndicated loan」「liquidity risk」「debt-to-equity ratio」「valuation」など、金融・財務・会計の現場で飛び交う高度な専門用語と実際のビジネス文脈に特化している点が特徴です。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "AIロールプレイはオフラインや機密性の高い環境でも使えますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "はい。本アプリは端末上で軽量AIモデルを実行するオンデバイスAI方式を採用しています。初回のモデルダウンロード後は、通信環境がない飛行機内や地下鉄でも高速に動作し、入力した内容が外部サーバーに送信されないためプライバシー面でも安心です。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "金融の初学者でも学習できますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "はい。すべての問題や単語カードには丁寧な日本語訳と実務文脈の解説が付いています。4択ドリルを通じて用語の意味だけでなく「どのような文脈で使われるか」を自然に身につけることができます。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "アプリは無料で利用できますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "はい、基本的なドリル、単語カード、AIロールプレイ機能を無料で学習いただけます。App Storeよりダウンロードしてすぐにご利用いただけます。"
+                        }
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "ホーム",
+                        "item": "../../index.html"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "モバイルアプリ",
+                        "item": "../../index.html#mobile-apps"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "金融英語ドリル",
+                        "item": "index.html"
+                    }
+                ]
+            }
+        ]
     }
     </script>
 </head>
 
 <body>
 
-    <div class="container">
-
-        <!-- Navigation -->
-        <nav aria-label="ページナビゲーション">
-
-            <a href="../../index.html" class="back-home">
-                ← ホームへ戻る
-            </a>
-
-            <div class="nav-logo">
-                <img src="icon.png" alt="金融英語ドリルのアプリアイコン">
-                <span>金融英語ドリル</span>
-            </div>
-
-        </nav>
-
-
-        <!-- Hero -->
-        <header class="hero">
-
-            <img src="icon.png"
-                alt="金融英語ドリルのアプリアイコン"
-                class="app-icon">
-
-            <h1>
-                金融英語ドリル
-                <br>
-                <span>Finance English Drill</span>
-            </h1>
-
-            <p class="subtitle">
-                金融・会計・M&A・投資の現場で使われる英語を学ぶ。<br>
-                4択ドリル、用語レビュー、AIロールプレイで、<br>
-                金融分野の英語表現を実践的に学習できます。
-            </p>
-
-            <a href="https://apps.apple.com/jp/app/%E9%87%91%E8%9E%8D%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB/id6811929829"
-                class="btn-download"
-                target="_blank"
-                rel="noopener noreferrer">
-                App Storeから入手する
-            </a>
-
-        </header>
-
-
-        <!-- About -->
-        <section class="section">
-
-            <h2>金融英語ドリルとは？</h2>
-
-            <p>
-                <strong>金融英語ドリル</strong>は、金融・財務・会計などの分野で使用される
-                英語表現を学習するためのiOSアプリです。
-            </p>
-
-            <p>
-                一般的な日常英会話だけではなく、
-                財務諸表、企業分析、M&amp;A、資本市場、リスク管理、
-                アセットマネジメントなどのテーマを題材に、
-                金融分野でよく使われる用語や表現を学習できるように構成しています。
-            </p>
-
-            <p>
-                4択形式のドリルで知識を確認した後、
-                日本語訳や解説を確認し、単語カードや用語一覧で復習できます。
-                AIロールプレイでは、金融業務を想定した会話形式の練習も行えます。
-            </p>
-
-            <div class="content-note">
-                金融英語では、単語の意味を知っているだけでなく、
-                その単語がどのような文脈で使われるかを理解することが重要です。
-                このアプリでは、単語と文脈を組み合わせて学習することを重視しています。
-            </div>
-
-        </section>
-
-
-        <!-- What is Finance English -->
-        <section class="section">
-
-            <h2>金融英語とは？</h2>
-
-            <p>
-                金融英語とは、金融機関や企業の財務部門、会計・監査、
-                投資、M&amp;Aなどの業務で使用される専門的な英語表現のことです。
-            </p>
-
-            <p>
-                例えば、一般的な英語で「利益」と表現する場合でも、
-                金融・会計の文脈では
-                <strong>revenue、operating income、net income、EBITDA</strong>
-                など、意味や使用場面の異なる用語を使い分ける必要があります。
-            </p>
-
-            <p>
-                また、金融業務では数字や契約条件、リスク、予測などを
-                正確に説明する必要があります。
-                そのため、単語の暗記だけでなく、
-                文脈の中で表現を理解することが重要になります。
-            </p>
-
-        </section>
-
-
-        <!-- Learning Areas -->
-        <section class="section">
-
-            <h2>学習できる分野</h2>
-
-            <p>
-                金融英語ドリルでは、さまざまな金融・財務分野を題材にして
-                英語表現を学習できます。
-            </p>
-
-            <div class="learning-grid">
-
-                <div class="learning-card">
-                    <h3>📈 決算・IR・財務諸表</h3>
-                    <p>
-                        Revenue、margin、free cash flow、balance sheet、
-                        income statementなど、業績説明や財務分析に関連する表現を学びます。
-                    </p>
-                </div>
-
-                <div class="learning-card">
-                    <h3>🤝 M&amp;A・デューデリジェンス</h3>
-                    <p>
-                        Valuation、due diligence、synergy、EBITDA multiple、
-                        letter of intentなど、企業買収や取引に関連する用語を扱います。
-                    </p>
-                </div>
-
-                <div class="learning-card">
-                    <h3>🏦 投資銀行・資本市場</h3>
-                    <p>
-                        Equity research、underwriting、IPO、yield curve、
-                        syndicated loan、capital marketsなどの表現を学習します。
-                    </p>
-                </div>
-
-                <div class="learning-card">
-                    <h3>📊 会計・監査</h3>
-                    <p>
-                        US GAAP、IFRS、amortization、internal audit、
-                        financial reportingなど、会計・監査関連の英語を扱います。
-                    </p>
-                </div>
-
-                <div class="learning-card">
-                    <h3>💼 企業財務</h3>
-                    <p>
-                        Capital structure、working capital、
-                        debt refinancing、budget allocationなど、
-                        企業財務に関連する表現を学びます。
-                    </p>
-                </div>
-
-                <div class="learning-card">
-                    <h3>🌐 市場・マクロ経済</h3>
-                    <p>
-                        Monetary policy、interest rates、inflation、
-                        FX volatilityなど、市場分析で使用される表現を学習します。
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Practical Examples -->
-        <section class="section">
-
-            <h2>金融英語の具体例</h2>
-
-            <p>
-                金融分野では、単語単体ではなく、
-                実際の業務を想定した文章の中で表現を理解することが役立ちます。
-                以下は学習テーマの一例です。
-            </p>
-
-            <div class="example-grid">
-
-                <article class="example-card">
-
-                    <h3>決算・業績説明</h3>
-
-                    <p class="example-en">
-                        "The company raised its revenue guidance for the full year."
-                    </p>
-
-                    <p class="example-ja">
-                        「同社は通期の売上高見通しを引き上げました。」
-                    </p>
-
-                </article>
-
-
-                <article class="example-card">
-
-                    <h3>M&amp;A・企業価値評価</h3>
-
-                    <p class="example-en">
-                        "The valuation is based on a multiple of adjusted EBITDA."
-                    </p>
-
-                    <p class="example-ja">
-                        「その企業価値評価は調整後EBITDAの倍率を基準としています。」
-                    </p>
-
-                </article>
-
-
-                <article class="example-card">
-
-                    <h3>企業財務</h3>
-
-                    <p class="example-en">
-                        "We need to improve working capital management."
-                    </p>
-
-                    <p class="example-ja">
-                        「運転資本の管理を改善する必要があります。」
-                    </p>
-
-                </article>
-
-
-                <article class="example-card">
-
-                    <h3>市場分析</h3>
-
-                    <p class="example-en">
-                        "The rate hike increased pressure on equity valuations."
-                    </p>
-
-                    <p class="example-ja">
-                        「利上げによって株式のバリュエーションに圧力がかかりました。」
-                    </p>
-
-                </article>
-
-            </div>
-
-            <div class="important-note">
-                <strong>学習上のポイント：</strong>
-                金融用語には複数の意味や使い方が存在する場合があります。
-                実際の業務では、企業・市場・契約・会計基準などの文脈を確認しながら
-                用語を使用することが重要です。
-            </div>
-
-        </section>
-
-
-        <!-- Features -->
-        <section class="section">
-
-            <h2>主な機能</h2>
-
-
-            <div class="feature">
-
-                <div class="feature-text">
-
-                    <h3>4択形式の金融英語ドリル</h3>
-
-                    <p>
-                        金融・会計・投資などのテーマを題材にした
-                        4択形式の問題に取り組むことができます。
-                    </p>
-
-                    <p>
-                        各問題では日本語訳や解説を確認できるため、
-                        正解を覚えるだけではなく、なぜその表現が使われるのかを
-                        確認しながら学習できます。
-                    </p>
-
-                </div>
-
-                <div class="feature-image">
-
-                    <img src="screenshot_01.png"
-                        alt="金融英語ドリルの4択問題画面"
-                        loading="lazy">
-
-                </div>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-text">
-
-                    <h3>金融業務を想定したAIロールプレイ</h3>
-
-                    <p>
-                        Senior Analyst、CFO、Risk Manager、
-                        Investment Bankerなどの役割を想定した
-                        AIとのテキスト会話を通して、金融分野の英語表現を練習できます。
-                    </p>
-
-                    <p>
-                        決算に関する質問、リスク説明、M&amp;Aに関するやり取りなど、
-                        金融業務を想定したシナリオで英語を使う練習ができます。
-                    </p>
-
-                </div>
-
-                <div class="feature-image">
-
-                    <img src="screenshot_02.png"
-                        alt="金融英語AIロールプレイ画面"
-                        loading="lazy">
-
-                </div>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-text">
-
-                    <h3>単語カード・用語一覧</h3>
-
-                    <p>
-                        EBITDA、Valuation、Syndicated Loan、Cap Tableなどの
-                        金融専門用語を単語カード形式で確認できます。
-                    </p>
-
-                    <p>
-                        収録されている用語や保存した重要単語を一覧で確認できるため、
-                        問題演習とは別に用語をまとめて復習することもできます。
-                    </p>
-
-                </div>
-
-                <div class="feature-image">
-
-                    <img src="screenshot_03.png"
-                        alt="金融英語の単語カードと用語一覧画面"
-                        loading="lazy">
-
-                </div>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-text">
-
-                    <h3>復習ノートとオンデバイスAI</h3>
-
-                    <p>
-                        間違えた問題や保存した単語を復習ノートに記録し、
-                        後から重点的に確認できます。
-                    </p>
-
-                    <p>
-                        また、端末上で軽量AIモデルを実行する
-                        オンデバイスAI機能を利用して、
-                        AIを使った学習やロールプレイを行うことができます。
-                    </p>
-
-                    <p>
-                        AI処理を端末上で行う構成のため、
-                        AIとの学習機能をネットワーク環境に依存しない形で利用できます。
-                    </p>
-
-                </div>
-
-                <div class="feature-image">
-
-                    <img src="screenshot_04.png"
-                        alt="復習ノートとオンデバイスAI画面"
-                        loading="lazy">
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Learning Method -->
-        <section class="section">
-
-            <h2>基本的な学習方法</h2>
-
-            <p>
-                金融英語を継続的に学ぶためには、
-                問題を解くだけではなく、間違えた表現を復習して
-                実際の文脈で使うことが重要です。
-            </p>
-
-            <div class="study-grid">
-
-                <article class="study-card">
-
-                    <h3>1. 4択ドリル</h3>
-
-                    <p>
-                        金融・会計・投資に関連する英文を読み、
-                        適切な単語や表現を選択します。
-                    </p>
-
-                </article>
-
-
-                <article class="study-card">
-
-                    <h3>2. 解説を確認</h3>
-
-                    <p>
-                        正解だけでなく、日本語訳や金融分野での
-                        表現の使われ方を確認します。
-                    </p>
-
-                </article>
-
-
-                <article class="study-card">
-
-                    <h3>3. 用語を復習</h3>
-
-                    <p>
-                        気になった用語や間違えた問題を
-                        単語カードや復習ノートで繰り返し確認します。
-                    </p>
-
-                </article>
-
-
-                <article class="study-card">
-
-                    <h3>4. AIロールプレイ</h3>
-
-                    <p>
-                        学習した表現を使ってAIとの会話練習を行い、
-                        金融業務を想定したアウトプット練習につなげます。
-                    </p>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- Target Audience -->
-        <section class="section">
-
-            <h2>こんな方に</h2>
-
-            <p>
-                金融・財務分野で英語を使用する方だけでなく、
-                将来的に海外業務やグローバルな金融ビジネスに関わりたい方にも
-                学習テーマとして利用できます。
-            </p>
-
-            <div class="audience-grid">
-
-                <article class="audience-card">
-
-                    <h3>🏦 投資銀行・証券</h3>
-
-                    <p>
-                        投資銀行業務、証券分析、資本市場などで使用される
-                        金融用語や企業分析関連の英語を学びたい方。
-                    </p>
-
-                </article>
-
-
-                <article class="audience-card">
-
-                    <h3>💼 企業財務・経理</h3>
-
-                    <p>
-                        海外子会社との財務協議、IR、資金調達、
-                        予算管理などに関連する英語を学びたい方。
-                    </p>
-
-                </article>
-
-
-                <article class="audience-card">
-
-                    <h3>📊 会計・監査・コンサルティング</h3>
-
-                    <p>
-                        IFRS、US GAAP、監査、財務分析、
-                        M&amp;Aデューデリジェンスなどの専門英語に触れたい方。
-                    </p>
-
-                </article>
-
-
-                <article class="audience-card">
-
-                    <h3>🌐 アセットマネジメント・FinTech</h3>
-
-                    <p>
-                        資産運用、リスク管理、金融サービス、
-                        FinTechなどのグローバル業務に関連する英語を学びたい方。
-                    </p>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- AI Explanation -->
-        <section class="section">
-
-            <h2>オンデバイスAIについて</h2>
-
-            <p>
-                本アプリでは、AIを利用した会話練習の一部を
-                端末上で処理するオンデバイスAI方式を採用しています。
-            </p>
-
-            <p>
-                初回利用時に必要なAIモデルを端末へ準備した後は、
-                AIとの学習処理を端末内で行うことができます。
-                そのため、通信環境がない場所でもAI学習機能を利用できる構成になっています。
-            </p>
-
-            <div class="important-note">
-                <strong>AI利用時の注意：</strong>
-                AIが生成する文章や回答は、学習を目的とした参考情報です。
-                金融商品への投資判断、会計処理、法務・税務上の判断などについては、
-                AIの回答だけを根拠にせず、必要に応じて専門家や一次資料を確認してください。
-            </div>
-
-        </section>
-
-
-        <!-- FAQ -->
-        <section class="section">
-
-            <h2>よくある質問</h2>
-
-            <div class="faq-list">
-
-                <details>
-
-                    <summary>
-                        このアプリはどのような人向けですか？
-                    </summary>
-
-                    <div class="faq-answer">
-                        投資銀行、証券、アセットマネジメント、企業財務、
-                        経理、会計・監査、M&amp;A、FinTechなどの分野で
-                        金融英語を学びたい方を想定しています。
-                        金融業務の経験者だけでなく、これから金融分野の英語を学びたい方にも利用できます。
-                    </div>
-
-                </details>
-
-
-                <details>
-
-                    <summary>
-                        一般的なビジネス英語との違いは何ですか？
-                    </summary>
-
-                    <div class="faq-answer">
-                        一般的なビジネス英語ではメール、会議、プレゼンテーションなど
-                        幅広い場面を扱いますが、本アプリでは金融・会計・投資などの
-                        専門分野で使用される用語や表現を中心に学習します。
-                    </div>
-
-                </details>
-
-
-                <details>
-
-                    <summary>
-                        金融の知識が少なくても利用できますか？
-                    </summary>
-
-                    <div class="faq-answer">
-                        はい。各問題には日本語訳や解説が用意されているため、
-                        英語表現と金融用語を確認しながら学習できます。
-                        ただし、金融・会計の専門知識そのものを体系的に学ぶための
-                        資格教材や専門書の代替を目的としたアプリではありません。
-                    </div>
-
-                </details>
-
-
-                <details>
-
-                    <summary>
-                        AI機能はオフラインで利用できますか？
-                    </summary>
-
-                    <div class="faq-answer">
-                        AIモデルを端末に準備した後は、AIとの学習処理を端末上で行うことができます。
-                        そのため、AIロールプレイなどの機能を通信環境に依存しない形で利用できます。
-                    </div>
-
-                </details>
-
-
-                <details>
-
-                    <summary>
-                        AIの回答は金融情報として信頼できますか？
-                    </summary>
-
-                    <div class="faq-answer">
-                        AI機能は英語学習・会話練習を目的としています。
-                        AIが生成する内容が常に正確であることを保証するものではありません。
-                        投資判断、会計、税務、法務などの重要な判断には利用せず、
-                        必要に応じて公式資料や専門家の情報を確認してください。
-                    </div>
-
-                </details>
-
-
-                <details>
-
-                    <summary>
-                        単語カードや用語一覧はありますか？
-                    </summary>
-
-                    <div class="faq-answer">
-                        はい。金融専門用語を確認できる単語カード機能と、
-                        収録用語や保存した単語を一覧で確認できる用語一覧機能があります。
-                        ドリルで学習した内容を復習するときに利用できます。
-                    </div>
-
-                </details>
-
-
-                <details>
-
-                    <summary>
-                        アプリは無料で利用できますか？
-                    </summary>
-
-                    <div class="faq-answer">
-                        基本的なドリルや学習機能を無料で利用できます。
-                        最新の提供内容や利用条件については、App Storeの掲載情報をご確認ください。
-                    </div>
-
-                </details>
-
-            </div>
-
-        </section>
-
-
-        <!-- Development Philosophy -->
-        <section class="section">
-
-            <h2>このアプリの学習設計</h2>
-
-            <p>
-                金融英語を学ぶ際には、単語帳だけで用語を暗記する方法と、
-                実際の文章や会話の中で表現を学ぶ方法を組み合わせることが有効です。
-            </p>
-
-            <p>
-                金融英語ドリルでは、
-                <strong>「問題を解く → 解説を読む → 用語を復習する → 会話で使う」</strong>
-                という流れで学習できるようにしています。
-            </p>
-
-            <p>
-                例えば「valuation」という単語を覚えるだけではなく、
-                企業価値評価、M&amp;A、投資判断などの文脈でどのように使用されるかを
-                確認することで、単語と実務的な文脈を関連付けて学習できます。
-            </p>
-
-        </section>
-
-
-        <!-- Final CTA -->
-        <section class="final-cta" id="download">
-
-            <h2>
-                金融英語を、毎日の学習習慣に。
-            </h2>
-
-            <p>
-                金融・会計・M&amp;A・投資などの専門分野で使われる英語表現を、
-                4択ドリル、用語レビュー、AIロールプレイを通して学習できます。
-                通勤時間やスキマ時間の学習にもご利用ください。
-            </p>
-
-            <a href="https://apps.apple.com/jp/app/%E9%87%91%E8%9E%8D%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB/id6811929829"
-                class="btn-download"
-                target="_blank"
-                rel="noopener noreferrer">
-                App Storeから入手する
-            </a>
-
-        </section>
-
-    </div>
-
-
-    <footer>
-
+    <!-- Header Navigation -->
+    <header class="site-header">
         <div class="container">
-
-            <p>
-                <a href="../../index.html">
-                    t-okb-dev
+            <nav class="main-nav" aria-label="メインナビゲーション">
+                <a href="index.html" class="nav-brand">
+                    <img src="icon.png" alt="金融英語ドリル アプリアイコン" width="42" height="42">
+                    <div class="brand-text-wrap">
+                        <span class="brand-title">金融英語ドリル</span>
+                        <span class="brand-sub">Finance English Drill</span>
+                    </div>
                 </a>
-                —
-                金融英語ドリル (Finance English Drill)
-            </p>
 
-            <p>
-                金融・会計・投資分野の英語学習を目的とした個人開発アプリ
-            </p>
-
-            <p>
-                &copy; 2026 金融英語ドリル (Finance English Drill). All rights reserved.
-            </p>
-
+                <div class="nav-links">
+                    <a href="#features">3つの特長</a>
+                    <a href="#preview">対話＆ドリル体験</a>
+                    <a href="#categories">学習カテゴリー</a>
+                    <a href="#on-device-ai">オンデバイスAI</a>
+                    <a href="#audience">対象者</a>
+                    <a href="#faq">よくある質問</a>
+                    <a href="https://apps.apple.com/jp/app/%E9%87%91%E8%9E%8D%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB/id6811929829"
+                        target="_blank" rel="noopener noreferrer" class="nav-cta-btn">
+                        App Store で入手
+                    </a>
+                </div>
+            </nav>
         </div>
+    </header>
 
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-glow-orbit"></div>
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <span class="pulse-dot"></span>
+                            iOS App Store にて配信中 • 完全無料
+                        </div>
+
+                        <h1 class="hero-headline">
+                            金融の現場で使える英語を、<br>
+                            <span class="gold-text">実践的に。</span>
+                        </h1>
+
+                        <div class="hero-subhead-en">
+                            Finance English. For Real Work.
+                        </div>
+
+                        <p class="hero-description">
+                            投資銀行（IBD）、M&amp;A、企業財務、会計・監査、アセットマネジメント。<br>
+                            教科書的な英語ではなく、世界の金融ビジネスの最前線で交わされるリアルな英語表現を、
+                            <strong>「4択ドリル × 厳選単語カード × オンデバイスAIロールプレイ」</strong>で体得する実践型学習アプリです。
+                        </p>
+
+                        <div class="hero-actions">
+                            <a href="https://apps.apple.com/jp/app/%E9%87%91%E8%9E%8D%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB/id6811929829"
+                                class="btn-primary-appstore" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 1.01-2.85-.92.04-2.03.62-2.69 1.37-.58.66-1.1 1.73-.96 2.76 1.03.08 2.02-.53 2.64-1.28z" />
+                                </svg>
+                                <span>App Store から無料ダウンロード</span>
+                            </a>
+                            <a href="#features" class="btn-secondary-link">
+                                機能・特徴を見る ↓
+                            </a>
+                        </div>
+
+                        <div class="hero-meta-points">
+                            <span>
+                                <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                                登録・ログイン不要
+                            </span>
+                            <span>
+                                <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                                完全オフラインAI動作
+                            </span>
+                            <span>
+                                <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                                実務直結シナリオ搭載
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="hero-card-frame">
+                            <img src="appstore_hero.jpg" alt="金融英語ドリル Finance English. For Real Work. メイン画面" width="600" height="400">
+                        </div>
+                        <div class="floating-pill">
+                            <span>⚡ Drills • Vocabulary • AI Roleplay</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Domain Strip -->
+        <section class="domain-strip" aria-label="対応する金融・財務領域">
+            <div class="container">
+                <div class="domain-tags">
+                    <span class="domain-tag">🤝 M&amp;A / デューデリジェンス</span>
+                    <span class="domain-tag">🏦 投資銀行・資本市場（IBD）</span>
+                    <span class="domain-tag">💼 企業財務・IR・CFO業務</span>
+                    <span class="domain-tag">📊 会計・財務諸表（US GAAP / IFRS）</span>
+                    <span class="domain-tag">🛡️ リスクマネジメント・流動性</span>
+                    <span class="domain-tag">🌐 アセットマネジメント・マクロ経済</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 Core Features (App Store Showcase) -->
+        <section class="section-wrapper" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Core Features</span>
+                    <h2 class="section-title">
+                        プロフェッショナルのための、<br>
+                        <span class="gold-text">3つの実践学習アプローチ</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        単なる暗記で終わらせない。「問題を解く」「AIと会話する」「語彙をストックして定着させる」の3ステップで、実務の現場で即座にアウトプットできる英語力を養います。
+                    </p>
+                </div>
+
+                <div class="core-features">
+                    <!-- Feature 01 -->
+                    <article class="feature-row">
+                        <div class="feature-content">
+                            <div class="feature-num">01</div>
+                            <h3>Master the Language of Finance</h3>
+                            <div class="feature-jp-lead">金融の現場で使える英語を、実践的に学べる。</div>
+                            <p class="feature-desc">
+                                決算発表、M&amp;Aの交渉、バリュエーション、リスク開示など、実際の金融ビジネスで頻出する文章を題材にした4択ドリルを収録。
+                                単語の意味を知っているだけでなく、「どの文脈でどの言葉を選択すべきか」の判断力を鍛えます。
+                            </p>
+                            <ul class="feature-highlights">
+                                <li>
+                                    <div class="highlight-icon">📖</div>
+                                    <div><strong>実践的なクイズ：</strong> 実際の英文レポートやアナリストノートに基づく穴埋め4択問題。</div>
+                                </li>
+                                <li>
+                                    <div class="highlight-icon">📈</div>
+                                    <div><strong>金融特化の語彙学習：</strong> 一般的なビジネス英語とは一線を画す専門金融ワードを厳選。</div>
+                                </li>
+                                <li>
+                                    <div class="highlight-icon">🎯</div>
+                                    <div><strong>効率的な復習：</strong> カテゴリー別（Accounting &amp; Reporting, Banking &amp; Finance等）に弱点を集中攻略。</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feature-media">
+                            <div class="feature-media-frame">
+                                <img src="appstore_slide_01.png" alt="01 Master the Language of Finance 金融の現場で使える英語を実践的に学べる" loading="lazy" width="470" height="1024">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Feature 02 -->
+                    <article class="feature-row reverse">
+                        <div class="feature-content">
+                            <div class="feature-num">02</div>
+                            <h3>Practice Finance English with AI</h3>
+                            <div class="feature-jp-lead">AIとのロールプレイで、実際のビジネスシーンを想定した会話練習。</div>
+                            <p class="feature-desc">
+                                Investment Banker、CFO、Senior Analyst、Risk Managerなどの相手をAIが演じ、M&amp;Aの買収交渉や財務戦略の議論を再現。
+                                「Recommended（推奨）」「Banker Trigger（交渉カード）」「Risky（リスク回答）」の選択肢アシスト付きで、プロフェッショナルとしての最適な切り返しを体感できます。
+                            </p>
+                            <ul class="feature-highlights">
+                                <li>
+                                    <div class="highlight-icon">🤖</div>
+                                    <div><strong>AIとのロールプレイ：</strong> M&amp;Aディール組成や決算ブリーフィングなど多彩な実務シナリオ。</div>
+                                </li>
+                                <li>
+                                    <div class="highlight-icon">💬</div>
+                                    <div><strong>実践的な会話練習：</strong> ニュアンスに応じた選択肢サポートで、洗練された英語フレーズが身につく。</div>
+                                </li>
+                                <li>
+                                    <div class="highlight-icon">📶</div>
+                                    <div><strong>完全オフラインで利用可能：</strong> オンデバイスAI搭載。機密性を損なわず、飛行機や地下鉄でも演習可能。</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feature-media">
+                            <div class="feature-media-frame">
+                                <img src="appstore_slide_02.png" alt="02 Practice Finance English with AI AIとのロールプレイで会話練習" loading="lazy" width="470" height="1024">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Feature 03 -->
+                    <article class="feature-row">
+                        <div class="feature-content">
+                            <div class="feature-num">03</div>
+                            <h3>Build Your Financial Vocabulary</h3>
+                            <div class="feature-jp-lead">単語カードで、重要な金融用語を効率よく定着させましょう。</div>
+                            <p class="feature-desc">
+                                EBITDA、Liquidity Risk、Syndicated Loan、Cap Table、Due Diligenceなど、金融パーソンなら避けて通れない重要用語をカード形式で学習。
+                                「習得済み」「学習中」「未着手」のステータス管理で、忘却を防ぎながら着実にボキャブラリーを積み上げます。
+                            </p>
+                            <ul class="feature-highlights">
+                                <li>
+                                    <div class="highlight-icon">💳</div>
+                                    <div><strong>厳選された金融単語：</strong> 実務での使用頻度・重要度が高いコア用語を体系的に収録。</div>
+                                </li>
+                                <li>
+                                    <div class="highlight-icon">🧠</div>
+                                    <div><strong>理解を深める解説：</strong> 単語の定義だけでなく、財務諸表や契約での使われ方を解説。</div>
+                                </li>
+                                <li>
+                                    <div class="highlight-icon">📊</div>
+                                    <div><strong>学習の定着をサポート：</strong> 未習得カードの集中復習やカスタム単語カード追加機能も搭載。</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feature-media">
+                            <div class="feature-media-frame">
+                                <img src="appstore_slide_03.png" alt="03 Build Your Financial Vocabulary 単語カードで金融用語を定着" loading="lazy" width="470" height="1024">
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Interactive Preview Showcase -->
+                <div class="preview-box" id="preview">
+                    <div class="preview-header">
+                        <div class="preview-title-wrap">
+                            <span class="preview-badge">AI Roleplay Demo</span>
+                            <h3 style="color:#fff; font-size:1.15rem; margin:0;">M&amp;A Deal Structuring シナリオ</h3>
+                        </div>
+                        <span style="color:var(--gold-light); font-size:0.85rem; font-weight:600;">Scenario: Cross-Border Acquisition</span>
+                    </div>
+
+                    <div class="roleplay-card">
+                        <div class="speaker-bar">
+                            <div class="speaker-avatar">IB</div>
+                            <div class="speaker-info">
+                                <h4>Investment Banker (James)</h4>
+                                <span>Senior Partner / M&amp;A Advisory Division</span>
+                            </div>
+                        </div>
+                        <p class="dialogue-text">
+                            "Hi! I've been working on the financial model for the cross-border acquisition of TechCorp. The target's enterprise value is around $2.5 billion. Do you have any thoughts on the deal structure?"
+                        </p>
+                        <p class="dialogue-translation">
+                            「TechCorpのクロスボーダー買収に向けた財務モデルを構築しました。ターゲット企業の企業価値は約25億ドルです。ディール構造について何かご意見はありますか？」
+                        </p>
+                    </div>
+
+                    <div class="options-label">返答内容を選択してください（アプリ内アシスト画面）:</div>
+                    <div class="options-grid">
+                        <div class="option-item recommended">
+                            <span class="option-badge badge-rec">A. Recommended</span>
+                            <div class="option-text">
+                                <h5>"Thanks for the update. What's the proposed debt-to-equity ratio for the acquisition financing? We need to ensure the leverage is manageable."</h5>
+                                <p>「進捗を共有いただきありがとうございます。買収ファイナンスの負債資本比率はどう想定していますか？レバレッジが過大にならないか確認する必要があります。」</p>
+                            </div>
+                        </div>
+                        <div class="option-item">
+                            <span class="option-badge" style="background:rgba(229,184,105,0.2); color:var(--gold-light);">B. Banker Trigger</span>
+                            <div class="option-text">
+                                <h5>"Can you also handle the regulatory filings and antitrust clearance yourself?"</h5>
+                                <p>「規制当局への届出や反トラスト法関連のクリアランスもそちらで対応してもらえますか？」</p>
+                            </div>
+                        </div>
+                        <div class="option-item">
+                            <span class="option-badge badge-risk">C. Risky</span>
+                            <div class="option-text">
+                                <h5>"The valuation looks high. Let's just offer 30% below the asking price and see if they accept."</h5>
+                                <p>「評価額が高すぎるように見えます。希望価格の3割引きでオファーして反応を見ましょう。」</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6 Learning Categories Section -->
+        <section class="section-wrapper" id="categories" style="background: rgba(10, 18, 35, 0.45);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Curriculum</span>
+                    <h2 class="section-title">
+                        網羅された<span class="gold-text">6大実務領域</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        投資銀行、コーポレートファイナンス、資産運用まで。現場で必須となる専門分野を完全カバーしています。
+                    </p>
+                </div>
+
+                <div class="categories-grid">
+                    <!-- 1 -->
+                    <article class="category-card">
+                        <div class="category-icon">🤝</div>
+                        <h3>M&amp;A・デューデリジェンス</h3>
+                        <p>
+                            Valuation（企業価値評価）、Synergy（シナジー効果）、Due Diligence、LOI（意向表明書）、Term Sheetなど、買収・再編の交渉で必須となる表現を学びます。
+                        </p>
+                        <div class="category-terms">
+                            <span>EBITDA Multiple</span>
+                            <span>DCF Analysis</span>
+                            <span>Earn-out</span>
+                            <span>Carve-out</span>
+                        </div>
+                    </article>
+
+                    <!-- 2 -->
+                    <article class="category-card">
+                        <div class="category-icon">🏦</div>
+                        <h3>投資銀行・資本市場</h3>
+                        <p>
+                            IPO、Underwriting（引受）、Equity Research、Yield Curve、Syndicated Loan（協調融資）など、プライマリー・セカンダリー市場で交わされる専門英語を習得。
+                        </p>
+                        <div class="category-terms">
+                            <span>Bookbuilding</span>
+                            <span>Spread</span>
+                            <span>Prospectus</span>
+                            <span>Roadshow</span>
+                        </div>
+                    </article>
+
+                    <!-- 3 -->
+                    <article class="category-card">
+                        <div class="category-icon">💼</div>
+                        <h3>企業財務・IR・CFO業務</h3>
+                        <p>
+                            Working Capital（運転資本）、Capital Structure、Debt Refinancing、Guidance（業績予想開示）など、CFO・財務部門が海外投資家や銀行と交渉する際の必須語彙。
+                        </p>
+                        <div class="category-terms">
+                            <span>Free Cash Flow</span>
+                            <span>Cap Table</span>
+                            <span>Dividend Policy</span>
+                            <span>Buyback</span>
+                        </div>
+                    </article>
+
+                    <!-- 4 -->
+                    <article class="category-card">
+                        <div class="category-icon">📊</div>
+                        <h3>会計・財務諸表分析</h3>
+                        <p>
+                            US GAAP、IFRS、Balance Sheet（貸借対照表）、Income Statement（損益計算書）、Amortization（のれん償却）など、決算分析・監査の専門英語を網羅。
+                        </p>
+                        <div class="category-terms">
+                            <span>Revenue Recognition</span>
+                            <span>Operating Margin</span>
+                            <span>Accruals</span>
+                            <span>Goodwill</span>
+                        </div>
+                    </article>
+
+                    <!-- 5 -->
+                    <article class="category-card">
+                        <div class="category-icon">🛡️</div>
+                        <h3>リスク管理・ガバナンス</h3>
+                        <p>
+                            Liquidity Risk（流動性リスク）、Credit Risk、Hedging、Compliance、Internal Controlsなど、金融機関やグローバル企業のリスク管理統括で使われる表現。
+                        </p>
+                        <div class="category-terms">
+                            <span>Stress Test</span>
+                            <span>Value at Risk (VaR)</span>
+                            <span>Covenant</span>
+                            <span>Mitigation</span>
+                        </div>
+                    </article>
+
+                    <!-- 6 -->
+                    <article class="category-card">
+                        <div class="category-icon">🌐</div>
+                        <h3>アセットマネジメント・市場</h3>
+                        <p>
+                            Monetary Policy（金融政策）、Inflation、FX Volatility、Portfolio Allocation、Alpha / Betaなど、マクロ経済分析やファンドマネジメントの専門用語。
+                        </p>
+                        <div class="category-terms">
+                            <span>Benchmark</span>
+                            <span>Quantitative Tightening</span>
+                            <span>Asset Allocation</span>
+                            <span>Hedge Fund</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table: Why Finance English Drill -->
+        <section class="section-wrapper">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Why Choose Us</span>
+                    <h2 class="section-title">
+                        一般的なビジネス英語アプリとの<span class="gold-text">決定的な違い</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        一般的な英会話アプリではカバーされない「金融・財務の生きた現場英語」に100%特化しています。
+                    </p>
+                </div>
+
+                <div class="value-table-card">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>学習項目 / 機能</th>
+                                <th class="app-col">金融英語ドリル</th>
+                                <th>一般的なビジネス英語アプリ</th>
+                                <th>金融英語の単語本・専門書</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>専門領域の特化度</strong></td>
+                                <td class="app-col">◎ 金融・M&amp;A・財務・会計に完全特化</td>
+                                <td>△ 一般オフィス会話・日常表現が中心</td>
+                                <td>◯ 網羅されているが活用の場が少ない</td>
+                            </tr>
+                            <tr>
+                                <td><strong>実務シチュエーション</strong></td>
+                                <td class="app-col">◎ バンカーやCFOとのロールプレイ</td>
+                                <td>△ 定型的な会議やメール作成のみ</td>
+                                <td>× 音声や対話演習は不可</td>
+                            </tr>
+                            <tr>
+                                <td><strong>AI学習環境</strong></td>
+                                <td class="app-col">◎ 完全オンデバイスAI（完全オフライン・機密性）</td>
+                                <td>◯ クラウドAI（要常時通信）</td>
+                                <td>× なし</td>
+                            </tr>
+                            <tr>
+                                <td><strong>復習・定着システム</strong></td>
+                                <td class="app-col">◎ スマート単語カード ＆ 未習得集中モード</td>
+                                <td>◯ 一般的なブックマーク機能</td>
+                                <td>△ 自分で単語帳を作成する必要あり</td>
+                            </tr>
+                            <tr>
+                                <td><strong>コスト</strong></td>
+                                <td class="app-col">◎ 無料でダウンロードしてすぐ開始可能</td>
+                                <td>△ 月額数千円〜数万円のサブスク</td>
+                                <td>△ 1冊2,000円〜4,000円程度</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- On-Device AI Highlight Box -->
+                <div class="privacy-highlight-box" id="on-device-ai">
+                    <div class="privacy-icon-wrap">🔒</div>
+                    <div class="privacy-content">
+                        <h3>金融パーソンが安心して使える「オンデバイスAI」設計</h3>
+                        <p>
+                            本アプリは、軽量ローカルAIモデルを端末内で実行する「オンデバイスAI」を採用しています。
+                            初回にAIモデルを準備した後は、<strong>インターネット通信を一切必要とせず、飛行機内や電波の届かない地下鉄でも即座に応答</strong>します。
+                            また、学習中に入力したテキストやロールプレイの履歴が外部サーバーに送信されることもありません。情報管理に厳しい金融プロフェッショナルでも安心して毎日の自己研鑽にご活用いただけます。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Target Audience Section -->
+        <section class="section-wrapper" id="audience" style="background: rgba(10, 18, 35, 0.45);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Target Audience</span>
+                    <h2 class="section-title">
+                        このような方に<span class="gold-text">最適です</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        すでに金融業界で活躍されているプロフェッショナルから、キャリアアップを目指す方まで幅広く支持されています。
+                    </p>
+                </div>
+
+                <div class="audience-grid">
+                    <article class="audience-card">
+                        <h3>🏦 投資銀行・証券（IBD / マーケット / リサーチ）</h3>
+                        <p>
+                            クロスボーダーM&amp;A、資金調達、英文アナリストレポートの読解・執筆、海外機関投資家とのディスカッションで自信を持って発言したい方。
+                        </p>
+                    </article>
+
+                    <article class="audience-card">
+                        <h3>💼 企業財務・経理・経営企画・海外IR担当</h3>
+                        <p>
+                            グローバル本国や海外子会社との財務ミーティング、外国人株主向けの決算説明（Earnings Call）、資金調達交渉を円滑に進めたい方。
+                        </p>
+                    </article>
+
+                    <article class="audience-card">
+                        <h3>📊 監査法人・会計士・税理士・コンサルタント</h3>
+                        <p>
+                            US GAAPやIFRSに基づく英文財務諸表の監査、財務デューデリジェンス（FDD）、バリュエーション業務で専門英語を正確に使いこなしたい方。
+                        </p>
+                    </article>
+
+                    <article class="audience-card">
+                        <h3>🎓 外資系金融志望者・CFA/USCPA/MBA受験生</h3>
+                        <p>
+                            金融英語の基礎から実務レベルまでを一気にインプットし、英語面接やケーススタディ、資格試験の英文読解スピードを格段に引き上げたい方。
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section-wrapper" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2 class="section-title">
+                        よくある<span class="gold-text">ご質問</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        アプリのご利用に関して寄せられる代表的なご質問にお答えします。
+                    </p>
+                </div>
+
+                <div class="faq-list">
+                    <details>
+                        <summary>金融英語ドリルはどのような人向けですか？</summary>
+                        <div class="faq-answer">
+                            投資銀行、証券会社、アセットマネジメント、事業会社の財務・経理・IR部門、監査法人、M&amp;Aアドバイザリーなどに勤務している方、または将来これらの分野でグローバルに働きたい方を対象としています。
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>一般的なビジネス英語アプリとの違いは何ですか？</summary>
+                        <div class="faq-answer">
+                            一般的なビジネス英語アプリは「自己紹介」「日程調整」「日常的な会議」などを扱いますが、本アプリは「DCFバリュエーション」「流動性リスク管理」「M&amp;Aの価格交渉」「決算ガイダンス」など、金融・会計・投資分野の実務に直結する専門表現のみに特化しています。
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>金融の知識にまだ自信がなくても始められますか？</summary>
+                        <div class="faq-answer">
+                            はい、問題ありません。すべての4択ドリルや単語カードには分かりやすい日本語訳と実務文脈の解説が添えられています。問題を解き進めることで、英語と同時に金融の実務概念も自然と深まるよう設計されています。
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>AIロールプレイはオフラインでも利用できますか？</summary>
+                        <div class="faq-answer">
+                            はい。本アプリはオンデバイスAI（端末内完結型AI）を採用しているため、初回のモデルセットアップ後は、電波の届かない地下鉄や長距離フライトの機内でも完全オフラインでAI対話練習が可能です。
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>AIに入力した内容や個人情報の機密性は安全ですか？</summary>
+                        <div class="faq-answer">
+                            オンデバイスAIの強みとして、AIの推論処理はすべてお使いのiPhone端末上で行われます。入力したテキストや学習履歴が外部サーバーに送信されたり保存されたりすることはありませんので、金融従事者の方も安心してご利用いただけます。
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>アプリの利用料金はいくらですか？</summary>
+                        <div class="faq-answer">
+                            基本機能（4択ドリル、単語カード、AIロールプレイ等）を無料でご利用いただけます。最新の配信状況やアップデート情報はApp Storeの掲載ページをご確認ください。
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Banner Section -->
+        <section class="cta-banner-section" id="download">
+            <div class="container">
+                <div class="cta-banner-card">
+                    <img src="appstore_banner.png" alt="金融英語ドリル App Store バナー Master the Language of Finance" class="cta-bg-banner" loading="lazy">
+                    <div class="cta-content">
+                        <span class="hero-badge" style="margin-bottom:16px;">
+                            Practice. Learn. Apply.
+                        </span>
+                        <h2>
+                            世界の金融市場で通用する、<br>
+                            <span class="gold-text">本物の英語力を手に入れよう。</span>
+                        </h2>
+                        <p>
+                            毎日の通勤時間やスキマ時間の5分から。4択ドリルと単語カードで語彙を固め、AIロールプレイで実践へ。
+                            あなたのファイナンスキャリアを一段上へ引き上げるパートナーとして、ぜひご活用ください。
+                        </p>
+                        <a href="https://apps.apple.com/jp/app/%E9%87%91%E8%9E%8D%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB/id6811929829"
+                            class="btn-primary-appstore" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 1.01-2.85-.92.04-2.03.62-2.69 1.37-.58.66-1.1 1.73-.96 2.76 1.03.08 2.02-.53 2.64-1.28z" />
+                            </svg>
+                            <span>App Store から無料で入手する</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <img src="icon.png" alt="金融英語ドリル アイコン" width="32" height="32">
+                    <span style="font-weight:700; color:#fff;">金融英語ドリル (Finance English Drill)</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../../index.html">開発者トップ</a>
+                    <a href="PrivacyPolicy.html">プライバシーポリシー</a>
+                    <a href="https://apps.apple.com/jp/app/%E9%87%91%E8%9E%8D%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB/id6811929829"
+                        target="_blank" rel="noopener noreferrer">App Store</a>
+                </div>
+            </div>
+
+            <div class="footer-disclaimer">
+                <p>
+                    <strong>【免責事項】</strong>
+                    本アプリ「金融英語ドリル」は金融・会計・投資分野の英語学習および表現の習得を目的とした教育用アプリケーションです。
+                    アプリ内のドリル問題、解説、およびAIロールプレイが生成する内容は学習用の参考情報であり、特定の金融商品への投資勧誘、投資判断、財務・会計処理、法務・税務上のアドバイスを提供するものではありません。
+                </p>
+                <p style="margin-top: 10px;">
+                    &copy; 2026 t-okb-dev / 金融英語ドリル (Finance English Drill). All rights reserved.
+                </p>
+            </div>
+        </div>
     </footer>
 
 </body>

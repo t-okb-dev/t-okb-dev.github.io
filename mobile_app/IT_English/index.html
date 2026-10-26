@@ -1,1115 +1,821 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-    <title>IT英語ドリル-BrSEへの道- | 実践的なIT英語を学ぶアプリ</title>
-
+    <!-- Primary SEO Meta Tags -->
+    <title>IT英語ドリル-BrSEへの道- | エンジニア・BrSE向け実践IT英語学習アプリ (IT English)</title>
+    <meta name="title" content="IT英語ドリル-BrSEへの道- | エンジニア・BrSE向け実践IT英語学習アプリ (IT English)">
     <meta name="description"
-        content="IT英語ドリル-BrSEへの道-は、BrSE、ITエンジニア、プロジェクトマネージャー、QA担当者などを対象とした実践型IT英語学習アプリです。要件定義、API、データベース、QA、アジャイルなど、グローバルなIT開発現場で使われる英語を4択ドリルやAIロールプレイで学習できます。">
-
+        content="「IT英語ドリル-BrSEへの道- (IT English)」は、ITエンジニア、プログラマー、BrSE（ブリッジSE）、PM、QA担当者のための実践型IT英語学習アプリです。Git・Pull Request・API設計・AWSクラウド・データベース・セキュリティなどの開発現場英語を、4択ドリル、スマート復習ノート、完全オフライン対応オンデバイスAI英会話ロールプレイで楽しく効果的に習得できます。">
     <meta name="keywords"
-        content="IT英語, BrSE, ブリッジSE, エンジニア英語, ITエンジニア, 英語学習, 英語ドリル, 技術英語, 開発英語, ビジネス英語, オフショア開発, Agile, API, QA">
-
-    <meta name="robots" content="index, follow">
-
+        content="IT英語, IT英語ドリル, BrSE, ブリッジSE, エンジニア英語, プログラミング 英語, 開発英語, 技術英語, オフショア開発, Git 英語, API設計 英語, クラウド AWS 英語, オンデバイスAI, オフライン 英会話, IT English Drill, コードレビュー 英語, プルリク 英語">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="author" content="t-okb-dev">
     <link rel="canonical" href="index.html">
 
-    <!-- Open Graph -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="IT英語ドリル-BrSEへの道- | 実践的なIT英語を学ぶアプリ">
-    <meta property="og:description" content="BrSE・ITエンジニア向け。要件定義、API、QA、アジャイルなど、実際の開発現場で使われる英語を4択ドリルとAIロールプレイで学習できます。">
-    <meta property="og:image" content="og-image.png">
+    <meta property="og:url" content="index.html">
+    <meta property="og:title" content="IT英語ドリル-BrSEへの道- | 実践的なIT英語を学ぶアプリ - IT English">
+    <meta property="og:description"
+        content="Learn IT. Build Your Future. ITの世界で使う英語を、楽しく・効果的に。Git、API、クラウド、セキュリティなどの開発現場英語を、4択ドリル × 復習ノート × オンデバイスAIでマスター！">
+    <meta property="og:image" content="appstore_hero.jpg">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="IT英語ドリル-BrSEへの道- (IT English)">
 
-    <!-- Twitter -->
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="IT英語ドリル-BrSEへの道- | 実践的なIT英語学習アプリ">
-    <meta name="twitter:description" content="BrSE・ITエンジニア向けの実践型IT英語学習アプリ。開発現場で使われる英語を効率よく学習できます。">
-    <meta name="twitter:image" content="og-image.png">
+    <meta name="twitter:title" content="IT英語ドリル-BrSEへの道- | 実践的なIT英語を学ぶアプリ - IT English">
+    <meta name="twitter:description"
+        content="ITエンジニア・BrSEのための現場英語学習アプリ。プルリク、API設計、クラウド、障害対応を4択ドリルと完全オフラインAIロールプレイで学習！">
+    <meta name="twitter:image" content="appstore_hero.jpg">
 
+    <!-- App Favicon & Apple Touch Icon -->
     <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=Outfit:wght@500;600;700;800;900&display=swap"
         rel="stylesheet">
 
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        :root {
-            --accent: #6366f1;
-            --accent-light: #818cf8;
-            --text-secondary: #9ca3af;
-            --card-bg: rgba(255, 255, 255, 0.04);
-            --border: rgba(255, 255, 255, 0.08);
-        }
-
-        body {
-            font-family:
-                'Inter',
-                'Noto Sans JP',
-                -apple-system,
-                BlinkMacSystemFont,
-                sans-serif;
-        }
-
-        /* Navigation */
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px 0;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 800;
-        }
-
-        .nav-logo img {
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
-        }
-
-        .back-home {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .back-home:hover {
-            color: #fff;
-        }
-
-        /* Hero */
-
-        .hero {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 90px 0 100px;
-        }
-
-        .app-icon {
-            width: 110px;
-            height: 110px;
-            border-radius: 24px;
-            margin-bottom: 28px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-        }
-
-        .hero h1 {
-            font-size: clamp(2.3rem, 6vw, 4.2rem);
-            line-height: 1.15;
-            margin-bottom: 24px;
-            letter-spacing: -0.04em;
-        }
-
-        .hero .subtitle {
-            color: var(--text-secondary);
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            line-height: 1.9;
-            margin-bottom: 36px;
-        }
-
-        .btn-download {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px 30px;
-            border-radius: 999px;
-            background: linear-gradient(135deg,
-                    var(--accent),
-                    var(--accent-light));
-            color: #fff;
-            font-weight: 700;
-            text-decoration: none;
-            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn-download:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 16px 40px rgba(99, 102, 241, 0.4);
-        }
-
-        /* Sections */
-
-        .section {
-            max-width: 1000px;
-            margin: 0 auto 100px;
-        }
-
-        .section h2 {
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
-            margin-bottom: 28px;
-            line-height: 1.3;
-        }
-
-        .section>p {
-            color: var(--text-secondary);
-            line-height: 1.9;
-            font-size: 1.02rem;
-            margin-bottom: 20px;
-        }
-
-        /* Concept */
-
-        .concept-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 35px;
-        }
-
-        .concept-card {
-            padding: 28px;
-            border: 1px solid var(--border);
-            background: var(--card-bg);
-            border-radius: 18px;
-        }
-
-        .concept-card h3 {
-            margin-top: 0;
-            margin-bottom: 12px;
-        }
-
-        .concept-card p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin: 0;
-        }
-
-        /* Features */
-
-        .feature {
-            display: grid;
-            grid-template-columns: 1fr 360px;
-            gap: 50px;
-            align-items: center;
-            padding: 45px 0;
-            border-top: 1px solid var(--border);
-        }
-
-        .feature:last-child {
-            border-bottom: 1px solid var(--border);
-        }
-
-        .feature-text h3 {
-            margin: 0 0 12px;
-            font-size: 1.45rem;
-        }
-
-        .feature-text p {
-            color: var(--text-secondary);
-            line-height: 1.85;
-        }
-
-        .feature-image {
-            text-align: center;
-        }
-
-        .feature-image img {
-            max-width: 100%;
-            width: 300px;
-            border-radius: 22px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-        }
-
-        /* Learning areas */
-
-        .learning-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .learning-card {
-            padding: 28px;
-            border-radius: 18px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-        }
-
-        .learning-card h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .learning-card p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin: 0;
-        }
-
-        /* Use cases */
-
-        .use-case-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .use-case {
-            padding: 28px;
-            border-radius: 18px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-        }
-
-        .use-case h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .use-case p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin: 0;
-        }
-
-        /* How to use */
-
-        .steps {
-            display: grid;
-            gap: 18px;
-            margin-top: 30px;
-        }
-
-        .step {
-            display: flex;
-            gap: 20px;
-            padding: 24px;
-            border-radius: 18px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-        }
-
-        .step-number {
-            flex: 0 0 44px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg,
-                    var(--accent),
-                    var(--accent-light));
-            color: #fff;
-            font-weight: 800;
-        }
-
-        .step h3 {
-            margin: 0 0 8px;
-        }
-
-        .step p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin: 0;
-        }
-
-        /* FAQ */
-
-        .faq-list {
-            display: grid;
-            gap: 12px;
-            margin-top: 30px;
-        }
-
-        .faq-list details {
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            background: var(--card-bg);
-            overflow: hidden;
-        }
-
-        .faq-list summary {
-            cursor: pointer;
-            padding: 20px 50px 20px 22px;
-            font-weight: 700;
-            line-height: 1.6;
-            position: relative;
-            list-style: none;
-        }
-
-        .faq-list summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .faq-list summary::after {
-            content: '+';
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.4rem;
-        }
-
-        .faq-list details[open] summary::after {
-            content: '−';
-        }
-
-        .faq-answer {
-            padding: 0 22px 22px;
-            color: var(--text-secondary);
-            line-height: 1.85;
-        }
-
-        /* CTA */
-
-        .final-cta {
-            max-width: 900px;
-            margin: 0 auto 100px;
-            padding: 60px 30px;
-            text-align: center;
-            border-radius: 28px;
-            background:
-                linear-gradient(135deg,
-                    rgba(99, 102, 241, 0.12),
-                    rgba(129, 140, 248, 0.05));
-            border: 1px solid var(--border);
-        }
-
-        .final-cta h2 {
-            margin-bottom: 16px;
-        }
-
-        .final-cta p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 28px;
-        }
-
-        /* Keywords */
-
-        .keywords {
-            padding: 30px;
-            border-radius: 18px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-        }
-
-        .keywords h3 {
-            margin-top: 0;
-        }
-
-        .keywords p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        /* Mobile */
-
-        @media (max-width: 800px) {
-
-            .container {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-
-            .hero {
-                padding: 60px 0 70px;
-            }
-
-            .concept-grid,
-            .learning-grid,
-            .use-case-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .feature {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .feature-image {
-                order: -1;
-            }
-
-            .section {
-                margin-bottom: 75px;
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            nav {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-
-            .hero .subtitle {
-                font-size: 0.95rem;
-            }
-
-            .feature {
-                padding: 35px 0;
-            }
-
-            .step {
-                gap: 14px;
-            }
-
-            .step-number {
-                flex-basis: 38px;
-                width: 38px;
-                height: 38px;
-            }
-
-            .final-cta {
-                padding: 45px 20px;
-            }
-        }
-    </style>
-
-    <!-- Structured Data -->
+    <!-- Structured Data (JSON-LD) for Search Engines & LLM / AI Search Engines -->
     <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "IT英語ドリル-BrSEへの道-",
-    "alternateName": "IT English Drill - Road to BrSE -",
-    "applicationCategory": "EducationalApplication",
-    "operatingSystem": "iOS",
-    "description": "BrSE、ITエンジニア、プロジェクトマネージャーなどを対象とした実践型IT英語学習アプリ。",
-    "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "JPY"
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "SoftwareApplication",
+                "name": "IT英語ドリル-BrSEへの道-",
+                "alternateName": [
+                    "IT English",
+                    "IT English Drill",
+                    "IT英語ドリル",
+                    "Learn IT. Build Your Future."
+                ],
+                "applicationCategory": "EducationalApplication",
+                "operatingSystem": "iOS",
+                "downloadUrl": "https://apps.apple.com/us/app/it%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB-brse%E3%81%B8%E3%81%AE%E9%81%93/id6802693547",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "JPY"
+                },
+                "image": "icon.png",
+                "screenshot": [
+                    "appstore_hero.jpg",
+                    "appstore_slide_01.png",
+                    "appstore_slide_02.png",
+                    "appstore_slide_03.png"
+                ],
+                "description": "ITエンジニア、プログラマー、BrSE（ブリッジSE）、PM、QA担当者のための実践型IT英語学習アプリ。Git、プルリクエスト、API設計、AWSクラウド、データベース、セキュリティなどの開発現場英語を、4択ドリル、復習・見返しノート、端末内完結オンデバイスAIロールプレイで学習。",
+                "featureList": [
+                    "開発現場に特化した4択形式のIT英語実践ドリル",
+                    "Senior Developerとの設計議論を模したオンデバイスAIチャット＆ロールプレイ",
+                    "機密性を保ち通信不要で動作する完全オフラインAI機能",
+                    "間違えた問題・ブックマークを集中攻略できる復習・見返しノート",
+                    "Programming, Cloud, Database, Securityの体系的カテゴリー分類",
+                    "日本語訳と技術文脈の詳しい解説付き"
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "IT英語ドリルはどのようなエンジニアを対象としていますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "外資系IT企業や海外開発拠点と協業するソフトウェアエンジニア、オフショア開発を牽引するBrSE（ブリッジSE）、英語の技術仕様書やGitHub Issuesを読み書きするプログラマー、アジャイルスクラムで英語を使うテックリードやPMを主な対象としています。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "一般的な日常英会話やTOEIC対策と何が違いますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "日常会話や定型ビジネス英語ではなく、「branch rebase」「JWT expiration」「refresh token endpoint」「offline persistence」「Docker container」「pull request review」など、実際のコーディングやシステム設計、コードレビューで日常的に使われる専門技術表現に特化しています。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "英語が苦手なプログラミング初心者でも学習できますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "はい。すべての問題やAIチャットには分かりやすい日本語訳と技術的な解説が付いています。4択形式で気軽に解き進めながら、開発現場でよくあるシチュエーションと英語フレーズをセットで無理なく習得できます。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "AIチャット機能はオフラインでも利用できますか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "はい。本アプリは端末上で軽量AIモデルを実行するオンデバイスAI方式を採用しています。初回のモデル準備後は、インターネット接続のない飛行機内や地下鉄でも高速に応答し、入力したテキストが外部サーバーに送信されないためセキュリティ面でも安心です。"
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "アプリの利用料金はいくらですか？",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "基本機能（実践ドリル、AIチャット、復習ノート、単語カード等）を無料でご利用いただけます。App Storeよりダウンロードしてすぐにご利用いただけます。"
+                        }
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "ホーム",
+                        "item": "../../index.html"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "モバイルアプリ",
+                        "item": "../../index.html#mobile-apps"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "IT英語ドリル-BrSEへの道-",
+                        "item": "index.html"
+                    }
+                ]
+            }
+        ]
     }
-}
-</script>
-
-
+    </script>
 </head>
 
 <body>
 
-
-    <div class="container">
-
-        <!-- Navigation -->
-
-        <nav>
-
-            <a href="../../index.html" class="back-home">
-                ← Home
-            </a>
-
-            <div class="nav-logo">
-                <img src="icon.png" alt="IT英語ドリル アプリ">
-                <span>IT英語ドリル</span>
-            </div>
-
-        </nav>
-
-
-        <!-- Hero -->
-
-        <header class="hero">
-
-            <img src="icon.png" alt="IT英語ドリル-BrSEへの道- アプリアイコン" class="app-icon">
-
-            <h1>
-                IT英語ドリル<br>
-                <span>BrSEへの道</span>
-            </h1>
-
-            <p class="subtitle">
-                1日数分で学ぶ、グローバルIT開発現場の実務英語。<br>
-                要件定義・API・QA・アジャイルなど、
-                実際の開発現場で使われる英語を効率よく学習できます。
-            </p>
-
-            <a href="https://apps.apple.com/us/app/it%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB-brse%E3%81%B8%E3%81%AE%E9%81%93/id6802693547" class="btn-download" target="_blank">
-                App Storeから入手する
-            </a>
-
-        </header>
-
-
-        <!-- About -->
-
-        <section class="section">
-
-            <h2>IT英語ドリル-BrSEへの道-とは？</h2>
-
-            <p>
-                <strong>IT英語ドリル-BrSEへの道-</strong>は、
-                グローバルなIT開発環境で必要となる英語コミュニケーションを
-                学ぶための実践型学習アプリです。
-            </p>
-
-            <p>
-                一般的な日常英会話ではなく、
-                ソフトウェア開発の現場で頻繁に登場する
-                要件定義、仕様確認、API、データベース、QAテスト、
-                アジャイル開発、スケジュール調整などを題材にしています。
-            </p>
-
-            <p>
-                特に、海外の開発チームとの橋渡しを担当する
-                <strong>BrSE（Bridge System Engineer）</strong>や、
-                海外メンバーと仕事をするITエンジニア、
-                プロジェクトマネージャーなどの学習を想定しています。
-            </p>
-
-
-            <div class="concept-grid">
-
-                <div class="concept-card">
-
-                    <h3>💻 開発現場の英語</h3>
-
-                    <p>
-                        ソフトウェア開発で実際に登場する
-                        技術用語やコミュニケーション表現を中心に学習します。
-                    </p>
-
-                </div>
-
-
-                <div class="concept-card">
-
-                    <h3>🤝 コミュニケーション</h3>
-
-                    <p>
-                        仕様確認や質問、問題報告、スケジュール調整など、
-                        海外チームとのやり取りを想定した英語を学べます。
-                    </p>
-
-                </div>
-
-
-                <div class="concept-card">
-
-                    <h3>📚 スキマ時間学習</h3>
-
-                    <p>
-                        4択問題を中心とした短時間学習により、
-                        通勤時間や休憩時間にも取り組めます。
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Learning Areas -->
-
-        <section class="section">
-
-            <h2>どんなIT英語を学べる？</h2>
-
-            <p>
-                IT英語ドリルでは、単語だけではなく、
-                実際の開発プロジェクトで発生しやすい場面を想定して
-                英語表現を学習します。
-            </p>
-
-
-            <div class="learning-grid">
-
-                <div class="learning-card">
-
-                    <h3>📋 要件定義・仕様確認</h3>
-
-                    <p>
-                        Requirements、specification、scope、
-                        acceptance criteriaなど、
-                        要件や仕様を確認するときに使われる表現を学びます。
-                    </p>
-
-                </div>
-
-
-                <div class="learning-card">
-
-                    <h3>🔌 API・システム連携</h3>
-
-                    <p>
-                        API specification、endpoint、
-                        request、responseなど、
-                        技術的な仕様を説明・確認するための英語を扱います。
-                    </p>
-
-                </div>
-
-
-                <div class="learning-card">
-
-                    <h3>🗄️ データベース</h3>
-
-                    <p>
-                        Migration、schema、query、
-                        data consistencyなど、
-                        データベース関連のコミュニケーションを学習します。
-                    </p>
-
-                </div>
-
-
-                <div class="learning-card">
-
-                    <h3>🧪 QA・テスト</h3>
-
-                    <p>
-                        Bug、reproduction steps、
-                        expected result、actual resultなど、
-                        QAや不具合報告に必要な英語を学びます。
-                    </p>
-
-                </div>
-
-
-                <div class="learning-card">
-
-                    <h3>🔄 Agile・Sprint</h3>
-
-                    <p>
-                        Sprint planning、backlog、
-                        priority、estimateなど、
-                        アジャイル開発で使われる表現を扱います。
-                    </p>
-
-                </div>
-
-
-                <div class="learning-card">
-
-                    <h3>🤝 交渉・仕様調整</h3>
-
-                    <p>
-                        納期、優先順位、仕様変更などについて、
-                        海外メンバーと調整するときに必要となる表現を学びます。
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Features -->
-
-        <section class="section">
-
-            <h2>主な機能</h2>
-
-            <div class="feature">
-
-                <div class="feature-text">
-
-                    <h3>4択形式の実践IT英語ドリル</h3>
-
-                    <p>
-                        実際のソフトウェア開発で起こりやすい場面を題材にした
-                        4択問題で、IT英語を効率よく学習できます。
-                    </p>
-
-                    <p>
-                        問題だけでなく、日本語訳や解説を確認することで、
-                        「なぜこの表現が適切なのか」まで理解できる構成を目指しています。
-                    </p>
-
-                </div>
-
-                <div class="feature-image">
-
-                    <img src="screenshot_01.png" alt="IT英語ドリルの4択問題画面">
-
-                </div>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-text">
-
-                    <h3>開発チームを想定したAIロールプレイ</h3>
-
-                    <p>
-                        Senior Developer、QA Tester、Project Manager、
-                        UX Designerなど、開発チームのメンバーを想定した
-                        テキストベースのロールプレイを体験できます。
-                    </p>
-
-                    <p>
-                        単語や文法だけでなく、
-                        質問、確認、説明、交渉など、
-                        実際のコミュニケーションを意識した学習に活用できます。
-                    </p>
-
-                </div>
-
-                <div class="feature-image">
-
-                    <img src="screenshot_02.png" alt="IT開発チームを想定したAIチャットロールプレイ画面">
-
-                </div>
-
-            </div>
-
-
-            <div class="feature">
-
-                <div class="feature-text">
-
-                    <h3>復習ノートとオンデバイスAI</h3>
-
-                    <p>
-                        間違えた問題や後から確認したい項目を記録し、
-                        自分の弱点を繰り返し復習できます。
-                    </p>
-
-                    <p>
-                        対応環境では軽量なAIモデルを端末上で動作させることで、
-                        AIとの英語練習を行える機能も用意しています。
-                    </p>
-
-                </div>
-
-                <div class="feature-image">
-
-                    <img src="screenshot_03.png" alt="IT英語の復習ノートとAI学習画面">
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- How to use -->
-
-        <section class="section">
-
-            <h2>基本的な学習方法</h2>
-
-            <p>
-                毎日長時間勉強するのではなく、
-                短い時間でも継続してIT英語に触れることを想定しています。
-            </p>
-
-
-            <div class="steps">
-
-                <div class="step">
-
-                    <div class="step-number">1</div>
-
-                    <div>
-
-                        <h3>4択問題に挑戦</h3>
-
-                        <p>
-                            IT開発に関連する英文を読み、
-                            適切な単語や表現を選択します。
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="step">
-
-                    <div class="step-number">2</div>
-
-                    <div>
-
-                        <h3>解説と日本語訳を確認</h3>
-
-                        <p>
-                            正解だけでなく、
-                            英文の意味や表現の使い方を確認します。
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="step">
-
-                    <div class="step-number">3</div>
-
-                    <div>
-
-                        <h3>間違えた問題を復習</h3>
-
-                        <p>
-                            苦手な問題や覚えたい表現を復習ノートで
-                            繰り返し確認します。
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="step">
-
-                    <div class="step-number">4</div>
-
-                    <div>
-
-                        <h3>AIロールプレイで実践</h3>
-
-                        <p>
-                            対応している場合はAIとの会話練習を行い、
-                            実際のコミュニケーションを意識して学習します。
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Use Cases -->
-
-        <section class="section">
-
-            <h2>こんな方におすすめ</h2>
-
-            <div class="use-case-grid">
-
-                <div class="use-case">
-
-                    <h3>👨‍💻 ITエンジニア</h3>
-
-                    <p>
-                        技術的な内容を英語で説明したり、
-                        海外エンジニアの質問を理解したりする機会がある方。
-                    </p>
-
-                </div>
-
-
-                <div class="use-case">
-
-                    <h3>🌏 BrSE・ブリッジSE</h3>
-
-                    <p>
-                        日本側と海外開発チームの間に立ち、
-                        要件や仕様を英語で調整する方。
-                    </p>
-
-                </div>
-
-
-                <div class="use-case">
-
-                    <h3>📊 プロジェクトマネージャー</h3>
-
-                    <p>
-                        海外メンバーとの進捗確認、
-                        スケジュール調整、課題管理などを行う方。
-                    </p>
-
-                </div>
-
-
-                <div class="use-case">
-
-                    <h3>🧪 QAエンジニア</h3>
-
-                    <p>
-                        英語で不具合報告やテスト結果を共有する必要がある方。
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- FAQ -->
-
-        <section class="section">
-
-            <h2>よくある質問</h2>
-
-            <div class="faq-list">
-
-                <details>
-
-                    <summary>
-                        このアプリはどのような人向けですか？
-                    </summary>
-
-                    <div class="faq-answer">
-
-                        ITエンジニア、BrSE、ブリッジSE、
-                        プロジェクトマネージャー、QAエンジニアなど、
-                        海外の開発チームと英語でコミュニケーションする機会がある方を
-                        主な対象としています。
-
-                    </div>
-
-                </details>
-
-
-                <details>
-
-                    <summary>
-                        一般的な英会話アプリとの違いは何ですか？
-                    </summary>
-
-                    <div class="faq-answer">
-
-                        日常会話だけではなく、
-                        要件定義、API、データベース、QA、
-                        アジャイル開発など、
-                        IT開発現場で使われる表現を中心に扱っている点が特徴です。
-
-                    </div>
-
-                </details>
-
-
-                <details>
-
-                    <summary>
-                        英語初心者でも利用できますか？
-                    </summary>
-
-                    <div class="faq-answer">
-
-                        IT分野の英語を学びたい方を対象としており、
-                        問題の日本語訳や解説を確認しながら学習できます。
-                        まずは知っている単語から少しずつ取り組む使い方がおすすめです。
-
-                    </div>
-
-                </details>
-
-
-                <details>
-
-                    <summary>
-                        AI機能は必ずインターネット接続が必要ですか？
-                    </summary>
-
-                    <div class="faq-answer">
-
-                        初回ダウンロード時にインターネット接続が必要になります。
-                        以降、インターネット接続は不要になります。<br>
-                        ※端末によってはAIモデルを実行することができません。
-
-                    </div>
-
-                </details>
-
-
-                <details>
-
-                    <summary>
-                        短時間でも学習できますか？
-                    </summary>
-
-                    <div class="faq-answer">
-
-                        はい。
-                        4択問題を中心とした構成のため、
-                        通勤時間や休憩時間など、
-                        数分程度のスキマ時間を利用した学習にも向いています。
-
-                    </div>
-
-                </details>
-
-            </div>
-
-        </section>
-
-
-        <!-- Keywords -->
-
-        <section class="section keywords">
-
-            <h3>関連するキーワード</h3>
-
-            <p>
-                IT English / BrSE / Bridge Engineer /
-                Software Engineering / Technical English /
-                Developer English / Business English /
-                Offshore Development / Agile / API / QA
-            </p>
-
-            <p>
-                IT英語 / ブリッジSE / エンジニア英語 /
-                技術英語 / 英語学習 / 英語ドリル /
-                開発英語 / オフショア開発 /
-                アジャイル / API / QA / プロジェクト管理
-            </p>
-
-        </section>
-
-
-        <!-- Final CTA -->
-
-        <section class="final-cta" id="download">
-
-            <h2>
-                IT開発のための英語を、毎日の学習に。
-            </h2>
-
-            <p>
-                IT英語ドリル-BrSEへの道-で、
-                グローバルな開発現場で必要となる英語表現を
-                少しずつ身につけていきましょう。
-            </p>
-
-            <a href="https://apps.apple.com/us/app/it%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB-brse%E3%81%B8%E3%81%AE%E9%81%93/id6802693547" class="btn-download" target="_blank">
-                App Storeから入手する
-            </a>
-
-        </section>
-
-    </div>
-
-
-    <footer>
-
+    <!-- Header Navigation -->
+    <header class="site-header">
         <div class="container">
+            <nav class="main-nav" aria-label="メインナビゲーション">
+                <a href="index.html" class="nav-brand">
+                    <img src="icon.png" alt="IT英語ドリル アプリアイコン" width="44" height="44">
+                    <div class="brand-text-wrap">
+                        <span class="brand-title">IT英語ドリル</span>
+                        <span class="brand-sub">IT English - BrSEへの道</span>
+                    </div>
+                </a>
 
-            <p>
-                &copy; 2026 IT英語ドリル-BrSEへの道-.
-                All rights reserved.
-            </p>
-
+                <div class="nav-links">
+                    <a href="#features">3つの特長</a>
+                    <a href="#preview">チャット対話体験</a>
+                    <a href="#categories">学習カテゴリー</a>
+                    <a href="#on-device-ai">オンデバイスAI</a>
+                    <a href="#audience">対象者</a>
+                    <a href="#faq">よくある質問</a>
+                    <a href="https://apps.apple.com/us/app/it%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB-brse%E3%81%B8%E3%81%AE%E9%81%93/id6802693547"
+                        target="_blank" rel="noopener noreferrer" class="nav-cta-btn">
+                        App Store で入手
+                    </a>
+                </div>
+            </nav>
         </div>
+    </header>
 
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-glow-orbit"></div>
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="hero-badge-wrap">
+                            <div class="hero-badge">
+                                <span class="pulse-dot"></span>
+                                iOS App Store にて配信中 • 完全無料
+                            </div>
+                            <span class="hero-note-badge">✨ Small steps, Big progress!</span>
+                        </div>
+
+                        <h1 class="hero-headline">
+                            ITの世界で使う英語を、<br>
+                            <span class="sky-gradient-text">楽しく・効果的に。</span>
+                        </h1>
+
+                        <div class="hero-subhead-en">
+                            Learn IT. Build Your Future. — IT English
+                        </div>
+
+                        <p class="hero-description">
+                            Git、Pull Request、API設計、AWSクラウド、データベース、セキュリティ。<br>
+                            教科書英語ではない、世界のIT開発現場でエンジニア同士が日常的に交わすリアルな英語を、
+                            <strong>「実践ドリル × AI会話ロールプレイ × 復習ノート」</strong>で効率的に身につける学習アプリです。
+                        </p>
+
+                        <!-- Category Pills -->
+                        <div class="hero-category-pills">
+                            <span class="cat-pill programming">&lt;/&gt; Programming</span>
+                            <span class="cat-pill cloud">☁️ Cloud</span>
+                            <span class="cat-pill database">🗄️ Database</span>
+                            <span class="cat-pill security">🛡️ Security</span>
+                        </div>
+
+                        <div class="hero-actions">
+                            <a href="https://apps.apple.com/us/app/it%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB-brse%E3%81%B8%E3%81%AE%E9%81%93/id6802693547"
+                                class="btn-primary-appstore" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 1.01-2.85-.92.04-2.03.62-2.69 1.37-.58.66-1.1 1.73-.96 2.76 1.03.08 2.02-.53 2.64-1.28z" />
+                                </svg>
+                                <span>App Store から無料ダウンロード</span>
+                            </a>
+                            <a href="#features" class="btn-secondary-link">
+                                機能・特長を見る ↓
+                            </a>
+                        </div>
+
+                        <div class="hero-meta-points">
+                            <span>
+                                <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                                登録・ログイン不要ですぐ開始
+                            </span>
+                            <span>
+                                <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                                完全オフラインAI動作
+                            </span>
+                            <span>
+                                <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                                豊富な145問以上の実務ドリル
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="hero-card-frame">
+                            <img src="appstore_hero.jpg" alt="IT英語ドリル Learn IT. Build Your Future. メイン画面" width="600" height="400">
+                        </div>
+                        <div class="floating-pill">
+                            <span>💻 ITエンジニアに必要な英語力を身につけよう！</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Strip -->
+        <section class="domain-strip" aria-label="対応する技術スタック">
+            <div class="container">
+                <div class="domain-tags">
+                    <span class="tech-badge">🐍 Python</span>
+                    <span class="tech-badge">☁️ AWS / GCP</span>
+                    <span class="tech-badge">🐧 Linux</span>
+                    <span class="tech-badge">🌐 Network &amp; API</span>
+                    <span class="tech-badge">🔀 Git &amp; GitHub</span>
+                    <span class="tech-badge">🐳 Docker / Kubernetes</span>
+                    <span class="tech-badge">🔐 JWT / OAuth</span>
+                    <span class="tech-badge">🗄️ SQL / NoSQL</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3 Core Features (App Store Showcase) -->
+        <section class="section-wrapper" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Core Features</span>
+                    <h2 class="section-title">
+                        エンジニアのための、<br>
+                        <span class="sky-gradient-text">3大実践学習アプローチ</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        暗記ではなく、開発現場のリアルな文脈で学ぶ。「ドリルを解く」「AIと技術議論する」「復習ノートで定着させる」のサイクルで、現場で即座に通用する英語力を培います。
+                    </p>
+                </div>
+
+                <div class="core-features">
+                    <!-- Feature 01 -->
+                    <article class="feature-row">
+                        <div class="feature-content">
+                            <span class="feature-badge-label blue">&lt;/&gt; 実践的な問題でしっかり定着！</span>
+                            <h3>ドリルで実践！<br>ITに特化した英語問題でスキルを身につけよう</h3>
+                            <div class="feature-jp-lead">ブランチ運用、プルリクエスト、状態管理など現場英文が満載。</div>
+                            <p class="feature-desc">
+                                「Before creating the pull request, make sure to _____ your feature branch onto the latest main. (rebase)」のように、
+                                実際のチーム開発やコードレビューで日常的に使われるフレーズを4択形式で演習。意味だけでなく技術的な正解判断力も同時に身につきます。
+                            </p>
+                            <ul class="feature-highlights">
+                                <li>
+                                    <div class="highlight-icon">⚡</div>
+                                    <div><strong>実践的な4択問題：</strong> 現場のコミットメッセージ、ドキュメント、Issuesから厳選。</div>
+                                </li>
+                                <li>
+                                    <div class="highlight-icon">🔍</div>
+                                    <div><strong>詳しい解説と和訳：</strong> なぜその単語が現場で選ばれるのかのニュアンスまで解説。</div>
+                                </li>
+                                <li>
+                                    <div class="highlight-icon">🎯</div>
+                                    <div><strong>カテゴリー別学習：</strong> Programming, Cloud, Database, Securityごとに集中攻略。</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feature-media">
+                            <div class="feature-media-frame">
+                                <img src="appstore_slide_01.png" alt="01 ドリルで実践！ITに特化した英語問題でスキルを身につけよう" loading="lazy" width="512" height="1024">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Feature 02 -->
+                    <article class="feature-row reverse">
+                        <div class="feature-content">
+                            <span class="feature-badge-label green">💬 AIがあなたの学習をサポート！</span>
+                            <h3>AIと会話してスキルアップ！<br>実践的なシチュエーションで英語のやり取りを練習</h3>
+                            <div class="feature-jp-lead">Senior Developerとの仕様書レビューやAPI設計議論をリアル再現。</div>
+                            <p class="feature-desc">
+                                「Senior Developer (Alex)」などのAIキャラクターとSlackやTeams感覚で英語チャット。
+                                トークン設計、リフレッシュトークン実装、テストケース作成などの議論を通じて、自然な切り返しフレーズが学べます。
+                                おすすめの返答（Recommended）アシスト付きなので、英語に不慣れでも安心です。
+                            </p>
+                            <ul class="feature-highlights">
+                                <li>
+                                    <div class="highlight-icon">🤖</div>
+                                    <div><strong>AI英会話ロールプレイ：</strong> 先輩エンジニアやPMとの本格的な設計・開発ディスカッション。</div>
+                                </li>
+                                <li>
+                                    <div class="highlight-icon">💡</div>
+                                    <div><strong>選択肢アシスト搭載：</strong> プロフェッショナルな推奨提案フレーズ（Recommended）がすぐに分かる。</div>
+                                </li>
+                                <li>
+                                    <div class="highlight-icon">🔒</div>
+                                    <div><strong>完全オフライン動作：</strong> オンデバイスAI採用。機密コードやアイデアを外部サーバーに送らない安心設計。</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feature-media">
+                            <div class="feature-media-frame">
+                                <img src="appstore_slide_02.png" alt="02 AIと会話してスキルアップ！実践的なシチュエーションで英語のやり取りを練習" loading="lazy" width="512" height="1024">
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Feature 03 -->
+                    <article class="feature-row">
+                        <div class="feature-content">
+                            <span class="feature-badge-label purple">📖 復習で学習効果を最大化！</span>
+                            <h3>復習・見返しノートで知識を定着！<br>間違えた問題や学習履歴を見返して効率的に復習</h3>
+                            <div class="feature-jp-lead">復習でもっとできる自分に！忘却を防ぐスマート学習システム。</div>
+                            <p class="feature-desc">
+                                ドリルで間違えた問題は自動的に「復習・見返しノート」に蓄積。「間違えた問題」「ブックマーク」「未習得カード」に絞り込んで繰り返し演習できるため、苦手な技術英語を確実に克服できます。
+                            </p>
+                            <ul class="feature-highlights">
+                                <li>
+                                    <div class="highlight-icon">📝</div>
+                                    <div><strong>自動ミストラッキング：</strong> あなたの間違い履歴（「あなたの誤答: replace」など）を記録。</div>
+                                </li>
+                                <li>
+                                    <div class="highlight-icon">🔖</div>
+                                    <div><strong>ワンタップブックマーク：</strong> 後で見直したい重要表現をサッと保存。</div>
+                                </li>
+                                <li>
+                                    <div class="highlight-icon">📈</div>
+                                    <div><strong>克服・削除機能：</strong> 理解できた問題は「克服・削除」して常にノートをクリーンに保てる。</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feature-media">
+                            <div class="feature-media-frame">
+                                <img src="appstore_slide_03.png" alt="03 復習・見返しノートで知識を定着！間違えた問題や学習履歴を効率的に復習" loading="lazy" width="512" height="1024">
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Interactive Preview Showcase (Chat Thread) -->
+                <div class="preview-box" id="preview">
+                    <div class="preview-header">
+                        <div class="preview-title-wrap">
+                            <span class="preview-badge">AI Chat Demo</span>
+                            <h3 style="color:#fff; font-size:1.15rem; margin:0;">API Authentication &amp; Token Design シナリオ</h3>
+                        </div>
+                        <span style="color:var(--sky-light); font-size:0.85rem; font-weight:600;">Scenario: User Authentication Spec Review</span>
+                    </div>
+
+                    <div class="chat-thread">
+                        <!-- Alex Bubble -->
+                        <div class="chat-bubble alex">
+                            <div class="chat-avatar alex-avatar">Alex</div>
+                            <div class="bubble-content">
+                                <div class="bubble-sender">Senior Developer (Alex)</div>
+                                <p class="bubble-text">
+                                    "Hey! I just drafted the specification for the new User Authentication API with 15-minute JWT expiration. Have you had a chance to review the spec document?"
+                                </p>
+                                <p class="bubble-ja">
+                                    「やあ！15分有効期限のJWTを使った新しいユーザー認証APIの仕様書ドラフトを作成したよ。仕様書はもう確認できたかい？」
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- User Bubble -->
+                        <div class="chat-bubble user">
+                            <div class="chat-avatar user-avatar">You</div>
+                            <div class="bubble-content">
+                                <div class="bubble-sender" style="color:#6ee7b7;">Your Response</div>
+                                <p class="bubble-text">
+                                    "Yes, I reviewed it. 15 minutes is secure, but could we implement a refresh token endpoint to avoid frequent logouts?"
+                                </p>
+                                <p class="bubble-ja">
+                                    「はい、確認しました。15分は安全ですが、頻繁なログアウトを防ぐためにリフレッシュトークン用のエンドポイントを実装できますか？」
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Alex Reply -->
+                        <div class="chat-bubble alex">
+                            <div class="chat-avatar alex-avatar">Alex</div>
+                            <div class="bubble-content">
+                                <div class="bubble-sender">Senior Developer (Alex)</div>
+                                <p class="bubble-text">
+                                    "Good thinking! I'll add the refresh token endpoint to the sprint."
+                                </p>
+                                <p class="bubble-ja">
+                                    「ナイスな着眼点だね！リフレッシュトークンのエンドポイントをスプリントに追加しておくよ。」
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="options-label">返信内容を選択してください（アプリ内アシスト画面）:</div>
+                    <div class="options-grid">
+                        <div class="option-item recommended">
+                            <span class="option-badge badge-rec">Recommended</span>
+                            <div class="option-text">
+                                <h5>"Can you also write and execute manual QA test cases for the login flow?"</h5>
+                                <p>「ログインフローの手動QAテストケースの作成と実行もそちらでお願いできますか？」</p>
+                            </div>
+                        </div>
+                        <div class="option-item">
+                            <span class="option-badge" style="background:rgba(56,189,248,0.2); color:var(--sky-light);">Option B</span>
+                            <div class="option-text">
+                                <h5>"Let's just deploy it directly to production without testing."</h5>
+                                <p>「テストなしで直接本番環境へデプロイしてしまいましょう。」</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6 Learning Categories Section -->
+        <section class="section-wrapper" id="categories" style="background: rgba(10, 20, 40, 0.45);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Curriculum</span>
+                    <h2 class="section-title">
+                        開発現場を完全網羅した<span class="sky-gradient-text">6大カリキュラム</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        要件定義からコーディング、インフラ、セキュリティ、QAまで。エンジニアの実務に必要な技術英語を完全カバー。
+                    </p>
+                </div>
+
+                <div class="categories-grid">
+                    <!-- 1 -->
+                    <article class="category-card">
+                        <div class="category-icon">💻</div>
+                        <h3>プログラミング・Git運用</h3>
+                        <p>
+                            Branch Rebase、Pull Request、Cherry-pick、Conflict解消、コードレビューなど、日々のコーディング・Gitワークフローで使われる英語。
+                        </p>
+                        <div class="category-terms">
+                            <span>Rebase vs Merge</span>
+                            <span>Code Review</span>
+                            <span>Refactoring</span>
+                            <span>PR Description</span>
+                        </div>
+                    </article>
+
+                    <!-- 2 -->
+                    <article class="category-card">
+                        <div class="category-icon">☁️</div>
+                        <h3>クラウド・インフラ（AWS/GCP）</h3>
+                        <p>
+                            Container、Kubernetes、CI/CDパイプライン、ロードバランサー、Auto-scaling、可用性設計などクラウドインフラの専門英語。
+                        </p>
+                        <div class="category-terms">
+                            <span>High Availability</span>
+                            <span>Microservices</span>
+                            <span>Infrastructure as Code</span>
+                            <span>Latency</span>
+                        </div>
+                    </article>
+
+                    <!-- 3 -->
+                    <article class="category-card">
+                        <div class="category-icon">🗄️</div>
+                        <h3>データベース・ストレージ</h3>
+                        <p>
+                            Data Migration、Indexing、Transaction、Deadlock、Sharding、Offline Persistenceなど、DB設計とデータ管理の英語表現。
+                        </p>
+                        <div class="category-terms">
+                            <span>Schema Migration</span>
+                            <span>ACID Properties</span>
+                            <span>Caching</span>
+                            <span>Query Optimization</span>
+                        </div>
+                    </article>
+
+                    <!-- 4 -->
+                    <article class="category-card">
+                        <div class="category-icon">🛡️</div>
+                        <h3>セキュリティ・認証認可</h3>
+                        <p>
+                            JWT（JSON Web Token）、OAuth 2.0、Encryption、Vulnerability（脆弱性）、Rate Limiting、CORS設定などセキュリティ周りの実践英語。
+                        </p>
+                        <div class="category-terms">
+                            <span>Token Expiration</span>
+                            <span>Sanitization</span>
+                            <span>Zero Trust</span>
+                            <span>Penetration Test</span>
+                        </div>
+                    </article>
+
+                    <!-- 5 -->
+                    <article class="category-card">
+                        <div class="category-icon">📋</div>
+                        <h3>要件定義・アジャイル開発</h3>
+                        <p>
+                            User Story、Sprint Planning、Backlog Grooming、Scope Creep、Daily Standupなど、プロダクト開発のミーティング英語。
+                        </p>
+                        <div class="category-terms">
+                            <span>Acceptance Criteria</span>
+                            <span>Story Points</span>
+                            <span>Retrospective</span>
+                            <span>Velocity</span>
+                        </div>
+                    </article>
+
+                    <!-- 6 -->
+                    <article class="category-card">
+                        <div class="category-icon">🐛</div>
+                        <h3>QA・テスト・障害対応</h3>
+                        <p>
+                            Unit Test、Regression Test、Bug Reporting、Incident Postmortem、Hotfix、Rollbackなど、品質管理とインシデント対応の英語。
+                        </p>
+                        <div class="category-terms">
+                            <span>Root Cause Analysis</span>
+                            <span>Rollback Strategy</span>
+                            <span>Flaky Test</span>
+                            <span>Edge Case</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table: Why IT English Drill -->
+        <section class="section-wrapper">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Why Choose Us</span>
+                    <h2 class="section-title">
+                        一般的な英会話アプリとの<span class="sky-gradient-text">決定的な違い</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        「空港での入国審査」や「カフェでの注文」は学べません。エンジニアが明日から現場で使う英語だけに特化しています。
+                    </p>
+                </div>
+
+                <div class="value-table-card">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>学習項目 / 機能</th>
+                                <th class="app-col">IT英語ドリル</th>
+                                <th>一般的なビジネス英語アプリ</th>
+                                <th>技術書・洋書</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>IT開発の特化度</strong></td>
+                                <td class="app-col">◎ Git・API・クラウド・設計に完全特化</td>
+                                <td>△ 日常オフィス会話や挨拶が中心</td>
+                                <td>◯ 技術知識は得られるが会話力はつかない</td>
+                            </tr>
+                            <tr>
+                                <td><strong>現場シチュエーション</strong></td>
+                                <td class="app-col">◎ 先輩エンジニアやPMとの設計対話</td>
+                                <td>△ 定型的な会議やメールのみ</td>
+                                <td>× 音声や対話演習は不可</td>
+                            </tr>
+                            <tr>
+                                <td><strong>AI学習環境</strong></td>
+                                <td class="app-col">◎ 完全オンデバイスAI（完全オフライン＆機密性）</td>
+                                <td>◯ クラウドAI（要通信）</td>
+                                <td>× なし</td>
+                            </tr>
+                            <tr>
+                                <td><strong>復習・定着システム</strong></td>
+                                <td class="app-col">◎ 誤答トラッキング付き「復習・見返しノート」</td>
+                                <td>◯ 一般的なお気に入り機能</td>
+                                <td>△ 自分でまとめ直す必要あり</td>
+                            </tr>
+                            <tr>
+                                <td><strong>利用料金</strong></td>
+                                <td class="app-col">◎ 無料でダウンロードしてすぐに開始可能</td>
+                                <td>△ 月額数千円〜数万円のサブスク</td>
+                                <td>△ 1冊3,000円〜5,000円</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- On-Device AI Highlight Box -->
+                <div class="privacy-highlight-box" id="on-device-ai">
+                    <div class="privacy-icon-wrap">🔒</div>
+                    <div class="privacy-content">
+                        <h3>エンジニアの機密性を守る「オンデバイスAI」設計</h3>
+                        <p>
+                            本アプリは、軽量ローカルAIモデルをお使いのiPhone上で直接実行する「オンデバイスAI」方式を採用しています。
+                            初回にモデルを準備した後は、<strong>インターネット通信を一切行わず、地下鉄や電波の届かない場所でも高速に応答</strong>します。
+                            入力したソースコードやチャット履歴が外部サーバーに送信されることもありません。開発プロジェクトの機密性を重視するエンジニアでも安心してスキマ時間に学習できます。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Target Audience Section -->
+        <section class="section-wrapper" id="audience" style="background: rgba(10, 20, 40, 0.45);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Target Audience</span>
+                    <h2 class="section-title">
+                        このような方に<span class="sky-gradient-text">最適です</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        グローバルな開発現場で活躍したいすべてのエンジニア・プログラマーに。
+                    </p>
+                </div>
+
+                <div class="audience-grid">
+                    <article class="audience-card">
+                        <h3>🌐 海外案件・外資系ITで働くエンジニア</h3>
+                        <p>
+                            英語でのデイリースクラム、コードレビュー、Slack/Teamsでの技術ディスカッションで、詰まることなく自信を持って意思疎通したい方。
+                        </p>
+                    </article>
+
+                    <article class="audience-card">
+                        <h3>🤝 ブリッジSE（BrSE）やテックリード</h3>
+                        <p>
+                            オフショア開発拠点や海外ベンダーとの要件調整、アーキテクチャ設計の共有、仕様変更の交渉をスムーズに進めたいリーダー層。
+                        </p>
+                    </article>
+
+                    <article class="audience-card">
+                        <h3>📚 英語の公式ドキュメントを読解したいプログラマー</h3>
+                        <p>
+                            最新のライブラリ、RFC、GitHub Issues、Stack Overflowを翻訳ツールに頼らず素早く理解し、自ら英語でIssueやPRを起票したい方。
+                        </p>
+                    </article>
+
+                    <article class="audience-card">
+                        <h3>🎓 外資系IT転職や海外就職を目指す方</h3>
+                        <p>
+                            技術面接（Technical Interview）やSystem Designの質疑応答で頻出する専門英語フレーズを網羅的にインプットしたい方。
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section-wrapper" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Frequently Asked Questions</span>
+                    <h2 class="section-title">
+                        よくある<span class="sky-gradient-text">ご質問</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        アプリのご利用に関して寄せられる代表的なご質問にお答えします。
+                    </p>
+                </div>
+
+                <div class="faq-list">
+                    <details>
+                        <summary>IT英語ドリルはどのような人向けですか？</summary>
+                        <div class="faq-answer">
+                            Web系・業務系ソフトウェアエンジニア、モバイルアプリ開発者、インフラ/SREエンジニア、BrSE（ブリッジSE）、QAエンジニア、プロジェクトマネージャーなど、IT開発に関わるすべての方を対象としています。
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>一般的な日常英会話アプリとの違いは何ですか？</summary>
+                        <div class="faq-answer">
+                            一般的な日常英会話アプリは「旅行」「挨拶」「レストラン」などを扱いますが、本アプリは「ブランチのリベース」「JWT有効期限」「リフレッシュトークン」「オフライン永続化」「Dockerコンテナ」など、実際の開発現場で毎日使われる実践表現に特化しています。
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>英語にあまり自信がなくても始められますか？</summary>
+                        <div class="faq-answer">
+                            はい、大丈夫です！すべてのドリルやAI会話には日本語訳と技術文脈の丁寧な解説が添えられており、AIチャットでも推奨される返信文（Recommended）がアシスト表示されるため、無理なく自然にスキルアップできます。
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>AIチャットはオフラインでも動作しますか？</summary>
+                        <div class="faq-answer">
+                            はい。本アプリはオンデバイスAIを採用しているため、初回のセットアップ後は、地下鉄の中や飛行機の機内など通信環境がない場所でも完全オフラインでAIロールプレイ学習が可能です。
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>入力した情報やプライバシーは保護されますか？</summary>
+                        <div class="faq-answer">
+                            オンデバイスAIの仕組みにより、推論処理はすべて端末内で行われます。チャット内容や学習データが外部サーバーに送信・蓄積されることはありませんので、安心してお使いいただけます。
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>アプリは無料で使えますか？</summary>
+                        <div class="faq-answer">
+                            はい、実践ドリル、AIチャット、復習ノートなどのコア機能を無料でご利用いただけます。App Storeよりダウンロードしてすぐにご利用いただけます。
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Banner Section -->
+        <section class="cta-banner-section" id="download">
+            <div class="container">
+                <div class="cta-banner-card">
+                    <img src="appstore_banner.png" alt="IT英語ドリル App Store バナー Learn IT. Build Your Future." class="cta-bg-banner" loading="lazy">
+                    <div class="cta-content">
+                        <div class="hero-badge" style="margin-bottom:16px;">
+                            Small steps, Big progress!
+                        </div>
+                        <h2>
+                            ITの世界で自由に活躍する、<br>
+                            <span class="sky-gradient-text">実践英語を今日から始めよう。</span>
+                        </h2>
+                        <p>
+                            通勤時間や作業の合間の5分から。実践的な4択ドリルで語彙力を固め、AI会話でアウトプット。
+                            あなたのエンジニアキャリアを世界へ広げる最高のパートナーです。
+                        </p>
+                        <a href="https://apps.apple.com/us/app/it%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB-brse%E3%81%B8%E3%81%AE%E9%81%93/id6802693547"
+                            class="btn-primary-appstore" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 1.01-2.85-.92.04-2.03.62-2.69 1.37-.58.66-1.1 1.73-.96 2.76 1.03.08 2.02-.53 2.64-1.28z" />
+                            </svg>
+                            <span>App Store から無料で入手する</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <img src="icon.png" alt="IT英語ドリル アイコン" width="34" height="34">
+                    <span style="font-weight:700; color:#fff;">IT英語ドリル-BrSEへの道- (IT English)</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../../index.html">開発者トップ</a>
+                    <a href="PrivacyPolicy.html">プライバシーポリシー</a>
+                    <a href="https://apps.apple.com/us/app/it%E8%8B%B1%E8%AA%9E%E3%83%89%E3%83%AA%E3%83%AB-brse%E3%81%B8%E3%81%AE%E9%81%93/id6802693547"
+                        target="_blank" rel="noopener noreferrer">App Store</a>
+                </div>
+            </div>
+
+            <div class="footer-disclaimer">
+                <p>
+                    <strong>【免責事項】</strong>
+                    本アプリ「IT英語ドリル-BrSEへの道-」は、ソフトウェアエンジニアリングおよびIT開発分野の英語学習を目的とした教育用アプリケーションです。
+                    アプリ内の問題、解説、およびAIロールプレイが生成する内容は学習用の参考情報であり、特定のシステム設計や運用方法を保証するものではありません。
+                </p>
+                <p style="margin-top: 10px;">
+                    &copy; 2026 t-okb-dev / IT英語ドリル-BrSEへの道- (IT English). All rights reserved.
+                </p>
+            </div>
+        </div>
     </footer>
 
 </body>
