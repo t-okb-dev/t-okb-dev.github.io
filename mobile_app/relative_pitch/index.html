@@ -15,6 +15,16 @@
 
     <link rel="icon" type="image/png" href="favicon.png">
 
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Relative Pitch Trainer | 相対音感・聴音トレーニング">
+    <meta property="og:description" content="音程を聞き分ける力を身につけるための相対音感・聴音トレーニングアプリ。初心者から上級者まで毎日の耳トレに。">
+    <meta property="og:image" content="appstore_hero.jpg">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="682">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="appstore_hero.jpg">
+
     <style>
         :root {
             --primary-bg: #0F172A;
@@ -220,6 +230,42 @@
 
         .download-btn strong {
             font-size: 1rem;
+        }
+
+        /* =========================
+           Hero Mockup & Promo Banner
+        ========================= */
+
+        .hero-mockup-wrapper {
+            margin: 48px auto 0;
+            max-width: 960px;
+            text-align: center;
+        }
+
+        .hero-mockup-img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+            display: block;
+        }
+
+        .banner-section {
+            padding: 30px 0 60px;
+        }
+
+        .cta-banner-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-banner-img {
+            width: 100%;
+            height: auto;
+            border-radius: 18px;
+            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+            display: block;
         }
 
         /* =========================
@@ -592,6 +638,24 @@
                     </strong>
                 </a>
 
+                <!-- Hero 3D Mockup -->
+                <div class="hero-mockup-wrapper">
+                    <img
+                        src="appstore_hero.jpg"
+                        alt="Relative Pitch Trainer 3Dヒーローモックアップ"
+                        class="hero-mockup-img lang-ja"
+                        width="1024"
+                        height="682"
+                    >
+                    <img
+                        src="appstore_hero_eng.jpg"
+                        alt="Relative Pitch Trainer 3D Hero Mockup"
+                        class="hero-mockup-img lang-en"
+                        width="1024"
+                        height="682"
+                    >
+                </div>
+
             </div>
         </section>
 
@@ -604,27 +668,31 @@
                 <div class="screenshots lang-ja">
 
                     <img
-                        src="screenshot_home_ja.png"
-                        alt="相対音感トレーナー ホーム画面"
+                        src="appstore_slide_01.png"
+                        alt="相対音感トレーナー ホーム画面（カレンダーで練習管理）"
                         class="screenshot"
+                        loading="lazy"
                     >
 
                     <img
-                        src="screenshot_training_simple.png"
-                        alt="相対音感トレーニング画面"
+                        src="appstore_slide_02.png"
+                        alt="基礎トレーニング 単音・インターバル聴音ドリル"
                         class="screenshot"
+                        loading="lazy"
                     >
 
                     <img
-                        src="screenshot_training_advanced.png"
-                        alt="高度な相対音感トレーニング画面"
+                        src="appstore_slide_03.png"
+                        alt="応用トレーニング 複数音当てでステップアップ"
                         class="screenshot"
+                        loading="lazy"
                     >
 
                     <img
-                        src="screenshot_settings.png"
-                        alt="設定画面"
+                        src="appstore_slide_04.png"
+                        alt="設定・カスタマイズ 自分のレベルに合わせて設定"
                         class="screenshot"
+                        loading="lazy"
                     >
 
                 </div>
@@ -634,27 +702,31 @@
                 <div class="screenshots lang-en">
 
                     <img
-                        src="screenshot_home_en.png"
-                        alt="Relative Pitch Trainer Home Screen"
+                        src="appstore_slide_01_eng.png"
+                        alt="Relative Pitch Trainer - Home Screen with Calendar"
                         class="screenshot"
+                        loading="lazy"
                     >
 
                     <img
-                        src="screenshot_training_simple.png"
-                        alt="Relative Pitch Training"
+                        src="appstore_slide_02_eng.png"
+                        alt="Basic Training - Single Note and Interval Drills"
                         class="screenshot"
+                        loading="lazy"
                     >
 
                     <img
-                        src="screenshot_training_advanced.png"
-                        alt="Advanced Relative Pitch Training"
+                        src="appstore_slide_03_eng.png"
+                        alt="Advanced Training - Multi-note Ear Training"
                         class="screenshot"
+                        loading="lazy"
                     >
 
                     <img
-                        src="screenshot_settings.png"
-                        alt="Settings Screen"
+                        src="appstore_slide_04_eng.png"
+                        alt="Customization & Settings"
                         class="screenshot"
+                        loading="lazy"
                     >
 
                 </div>
@@ -1105,6 +1177,31 @@
 
             </div>
 
+        </section>
+
+
+        <!-- Promotional Banner -->
+        <section class="banner-section">
+            <div class="container">
+                <div class="cta-banner-wrapper">
+                    <img
+                        src="appstore_banner.png"
+                        alt="Relative Pitch Trainer プロモーションバナー"
+                        class="cta-banner-img lang-ja"
+                        loading="lazy"
+                        width="1024"
+                        height="438"
+                    >
+                    <img
+                        src="appstore_banner_eng.png"
+                        alt="Relative Pitch Trainer Promotion Banner"
+                        class="cta-banner-img lang-en"
+                        loading="lazy"
+                        width="1024"
+                        height="438"
+                    >
+                </div>
+            </div>
         </section>
 
 
