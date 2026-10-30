@@ -15,10 +15,45 @@
 
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800;900&display=swap"
-        rel="stylesheet">
+    <link rel="canonical" href="index.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="index.html">
+    <meta property="og:title" content="Bass Relative Pitch Trainer | ベース相対音感トレーナー">
+    <meta property="og:description" content="ベーシストのための相対音感・聴音トレーニングアプリ。リアルなベース音源、指板UI、スケール・コード確認、ウォーキングベース練習に対応。">
+    <meta property="og:image" content="appstore_hero.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bass Relative Pitch Trainer | ベース相対音感トレーナー">
+    <meta name="twitter:description" content="ベーシストのための相対音感・聴音トレーニングアプリ。リアルなベース音源、指板UI、スケール・コード確認、ウォーキングベース練習に対応。">
+    <meta name="twitter:image" content="appstore_hero.jpg">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Bass Relative Pitch Trainer",
+      "alternateName": "ベース相対音感トレーナー",
+      "operatingSystem": "iOS",
+      "applicationCategory": "MusicApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "JPY"
+      },
+      "description": "ベーシストのための相対音感・聴音トレーニングアプリ。リアルなベース音源、指板UI、スケール・コード確認、ウォーキングベース練習に対応。",
+      "screenshot": [
+        "appstore_hero.jpg",
+        "appstore_slide_01.png",
+        "appstore_slide_02.png",
+        "appstore_slide_03.png",
+        "appstore_banner.png"
+      ]
+    }
+    </script>
 
     <style>
         :root {
@@ -253,6 +288,48 @@
             letter-spacing: 0.05em;
             opacity: 0.8;
             margin-bottom: 2px;
+        }
+
+        /* Hero Mockup */
+        .hero-mockup-wrapper {
+            margin: 48px auto 0;
+            max-width: 960px;
+            padding: 0 16px;
+            position: relative;
+        }
+
+        .hero-mockup-img {
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 25px 60px -12px rgba(59, 130, 246, 0.28), 0 12px 30px -8px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .hero-mockup-img:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 32px 75px -12px rgba(59, 130, 246, 0.38), 0 16px 40px -8px rgba(0, 0, 0, 0.8);
+        }
+
+        /* CTA Banner */
+        .cta-banner-wrapper {
+            max-width: 960px;
+            margin: 0 auto 36px;
+            padding: 0 16px;
+        }
+
+        .cta-banner-img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .cta-banner-img:hover {
+            transform: translateY(-3px);
         }
 
         /* =========================
@@ -774,6 +851,11 @@
                 </a>
 
             </div>
+
+            <!-- Hero 3D Mockup -->
+            <div class="hero-mockup-wrapper">
+                <img src="appstore_hero.jpg" alt="Bass Relative Pitch Trainer ヒーロー画面" class="hero-mockup-img" width="1024" height="682">
+            </div>
         </section>
 
         <!-- Screenshots -->
@@ -786,20 +868,29 @@
 
             <div class="screenshots">
 
-                <img src="screenshot_home.PNG"
-                    alt="Bass Relative Pitch Trainer home screen">
+                <img src="appstore_slide_01.png"
+                    alt="01 聴音ドリルで実践！指板UIとリアルなベース音源" loading="lazy">
+
+                <img src="appstore_slide_02.png"
+                    alt="02 ウォーキングベース実践！コード進行トレーニング" loading="lazy">
+
+                <img src="appstore_slide_03.png"
+                    alt="03 指板スケール攻略！ペンタトニックや各種コード確認" loading="lazy">
 
                 <img src="screenshot_training.PNG"
-                    alt="Bass relative pitch training screen">
+                    alt="Bass relative pitch training screen" loading="lazy">
 
                 <img src="screenshot_walking_bass.PNG"
-                    alt="Walking bass training screen">
+                    alt="Walking bass training screen" loading="lazy">
 
                 <img src="screenshot_scale_ref.PNG"
-                    alt="Bass scale and chord reference screen">
+                    alt="Bass scale and chord reference screen" loading="lazy">
+
+                <img src="screenshot_home.PNG"
+                    alt="Bass Relative Pitch Trainer home screen" loading="lazy">
 
                 <img src="screenshot_settings.png"
-                    alt="Bass Relative Pitch Trainer settings screen">
+                    alt="Bass Relative Pitch Trainer settings screen" loading="lazy">
 
             </div>
         </section>
@@ -1283,6 +1374,10 @@
 
         <!-- Final CTA -->
         <section class="final-cta">
+
+            <div class="cta-banner-wrapper">
+                <img src="appstore_banner.png" alt="Bass Relative Pitch Trainer プロモーションバナー" class="cta-banner-img" loading="lazy">
+            </div>
 
             <h2>
                 <span class="lang-en">Unlock Your Musical Potential</span>
