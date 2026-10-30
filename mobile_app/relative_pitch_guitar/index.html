@@ -21,9 +21,28 @@
     <meta property="og:title" content="Guitar Relative Pitch Trainer | ギタリストのための相対音感トレーニング">
     <meta property="og:description"
         content="リアルなギター音源と指板UIを使って、ギタリストのための相対音感・聴音トレーニングができるアプリ。">
-    <meta property="og:url" content="https://your-domain.example/mobile_app/relative_pitch_guitar/">
+    <meta property="og:url" content="https://t-okb-dev.github.io/mobile_app/relative_pitch_guitar/">
+    <meta property="og:image" content="appstore_hero.jpg">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="682">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="appstore_hero.jpg">
 
+    <link rel="canonical" href="https://t-okb-dev.github.io/mobile_app/relative_pitch_guitar/">
     <link rel="icon" type="image/png" href="favicon.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Guitar Relative Pitch Trainer",
+      "operatingSystem": "iOS",
+      "applicationCategory": "EducationApplication",
+      "description": "ギタリストのための相対音感・聴音トレーニングアプリ。リアルなギター実音と指板UIで音感を鍛える。",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+      "url": "https://apps.apple.com/jp/app/guitar-relative-pitch-trainer/id6759158639"
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -197,6 +216,70 @@
                 );
             z-index: -1;
             pointer-events: none;
+        }
+
+        /* Hero mockup image */
+        .hero-mockup {
+            margin: 48px auto 0;
+            max-width: 900px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+        }
+        .hero-mockup img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Slide gallery */
+        .slide-gallery {
+            padding: 60px 0;
+        }
+        .slide-gallery h2 {
+            text-align: center;
+            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .slide-gallery .gallery-sub {
+            text-align: center;
+            color: var(--text-dim);
+            margin-bottom: 36px;
+            font-size: 1rem;
+        }
+        .slides-track {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .slide-item {
+            flex: 0 0 auto;
+            width: min(280px, 82vw);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.45);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .slide-item:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 28px 64px rgba(0,0,0,0.55);
+        }
+        .slide-item img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Marketing banner */
+        .marketing-banner {
+            margin: 20px 0 60px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .marketing-banner img {
+            width: 100%;
+            display: block;
         }
 
         .app-badge {
@@ -873,6 +956,18 @@
 
         </section>
 
+        <!-- Hero Mockup Image -->
+        <div class="hero-mockup">
+            <img src="appstore_hero.jpg"
+                 class="lang-ja"
+                 alt="Guitar Relative Pitch Trainer – ギタリストのための相対音感トレーニング"
+                 loading="eager">
+            <img src="appstore_hero_eng.jpg"
+                 class="lang-en"
+                 alt="Guitar Relative Pitch Trainer – 3D mockup showing the app on iPhone"
+                 loading="eager">
+        </div>
+
         <!-- Introduction -->
         <section class="intro">
 
@@ -897,44 +992,64 @@
 
         </section>
 
-        <!-- Screenshots -->
-        <section class="screenshots-container">
+        <!-- Screenshot Slide Gallery -->
+        <section class="slide-gallery">
 
-            <div class="section-label">
+            <h2>
+                <span class="lang-en">See the App in Action</span>
+                <span class="lang-ja">アプリの画面</span>
+            </h2>
+            <p class="gallery-sub">
+                <span class="lang-en">Explore the main training and reference screens.</span>
+                <span class="lang-ja">トレーニングや参照機能の主な画面をご紹介します。</span>
+            </p>
 
-                <h2>
-                    <span class="lang-en">See the App in Action</span>
-                    <span class="lang-ja">アプリの画面</span>
-                </h2>
+            <div class="slides-track">
 
-                <p>
-                    <span class="lang-en">
-                        Explore the main training and reference screens.
-                    </span>
+                <div class="slide-item">
+                    <img src="appstore_slide_01.png" class="lang-ja"
+                         alt="Guitar Relative Pitch Trainer – ホーム画面（カレンダー付き）"
+                         loading="lazy">
+                    <img src="appstore_slide_01_eng.png" class="lang-en"
+                         alt="Guitar Relative Pitch Trainer – Home Screen with Calendar"
+                         loading="lazy">
+                </div>
 
-                    <span class="lang-ja">
-                        トレーニングや指板確認に利用できる主な画面をご紹介します。
-                    </span>
-                </p>
+                <div class="slide-item">
+                    <img src="appstore_slide_02.png" class="lang-ja"
+                         alt="Guitar Relative Pitch Trainer – 指板UIトレーニング画面"
+                         loading="lazy">
+                    <img src="appstore_slide_02_eng.png" class="lang-en"
+                         alt="Guitar Relative Pitch Trainer – Fretboard Ear Training"
+                         loading="lazy">
+                </div>
 
-            </div>
+                <div class="slide-item">
+                    <img src="appstore_slide_03.png" class="lang-ja"
+                         alt="Guitar Relative Pitch Trainer – 連続音当てモード"
+                         loading="lazy">
+                    <img src="appstore_slide_03_eng.png" class="lang-en"
+                         alt="Guitar Relative Pitch Trainer – Sequence Mode"
+                         loading="lazy">
+                </div>
 
-            <div class="screenshots">
+                <div class="slide-item">
+                    <img src="appstore_slide_04.png" class="lang-ja"
+                         alt="Guitar Relative Pitch Trainer – コードの押さえ方を確認"
+                         loading="lazy">
+                    <img src="appstore_slide_04_eng.png" class="lang-en"
+                         alt="Guitar Relative Pitch Trainer – Chord Reference"
+                         loading="lazy">
+                </div>
 
-                <img src="screenshot_home.png"
-                    alt="Guitar Relative Pitch Trainer home screen">
-
-                <img src="screenshot_training.png"
-                    alt="Guitar Relative Pitch Trainer training screen">
-
-                <img src="screenshot_sequence_mode.png"
-                    alt="Guitar Relative Pitch Trainer sequence mode">
-
-                <img src="screenshot_scale_ref.png"
-                    alt="Guitar Relative Pitch Trainer scale reference screen">
-
-                <img src="screenshot_chord_ref.png"
-                    alt="Guitar Relative Pitch Trainer chord reference screen">
+                <div class="slide-item">
+                    <img src="appstore_slide_05.png" class="lang-ja"
+                         alt="Guitar Relative Pitch Trainer – スケールの音位置を確認"
+                         loading="lazy">
+                    <img src="appstore_slide_05_eng.png" class="lang-en"
+                         alt="Guitar Relative Pitch Trainer – Scale Reference"
+                         loading="lazy">
+                </div>
 
             </div>
 
@@ -1590,6 +1705,18 @@
             </div>
 
         </section>
+
+        <!-- Marketing Banner -->
+        <div class="marketing-banner">
+            <img src="appstore_banner.png"
+                 class="lang-ja"
+                 alt="Guitar Relative Pitch Trainer – ギタリストのための相対音感・聴音トレーニングアプリ"
+                 loading="lazy">
+            <img src="appstore_banner_eng.png"
+                 class="lang-en"
+                 alt="Guitar Relative Pitch Trainer – Relative Pitch Ear Training for Guitarists"
+                 loading="lazy">
+        </div>
 
         <footer>
 
