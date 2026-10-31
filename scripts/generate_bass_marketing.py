@@ -28,7 +28,7 @@ SCREENSHOTS = {
     "scale_eng":    f"{BASE}/screenshot_scale_ref_eng.PNG",
 }
 
-OUT_HERO       = f"{BASE}/appstore_hero.jpg"
+OUT_HERO       = f"{BASE}/appstore_hero.png"
 OUT_SLIDES = [
     f"{BASE}/appstore_slide_01.png",
     f"{BASE}/appstore_slide_02.png",
@@ -37,7 +37,7 @@ OUT_SLIDES = [
 ]
 OUT_BANNER     = f"{BASE}/appstore_banner.png"
 
-OUT_HERO_ENG   = f"{BASE}/appstore_hero_eng.jpg"
+OUT_HERO_ENG   = f"{BASE}/appstore_hero_eng.png"
 OUT_SLIDES_ENG = [
     f"{BASE}/appstore_slide_01_eng.png",
     f"{BASE}/appstore_slide_02_eng.png",
@@ -176,7 +176,7 @@ def make_hero():
     draw.text((fx,322),"聴音・音感トレーニング",  font=lf(FONT_MEDIUM,21), fill=DIM)
     draw.text((fx,500),"Free on App Store",font=lf(FONT_MEDIUM,18),fill=ACCENT_BLUE)
 
-    canvas.convert('RGB').save(OUT_HERO,'JPEG',quality=95)
+    canvas.save(OUT_HERO, 'PNG')
     print(f"  Saved: {OUT_HERO}")
 
 
@@ -230,15 +230,54 @@ def make_slides(configs=None, out_paths=None, is_eng=False):
         print(f"  Saved: {out_paths[idx]}")
 
 
+def get_device_content_top(dev, min_alpha=120):
+    alpha = dev.split()[3]
+    for y in range(alpha.height):
+        row_data = list(alpha.crop((0, y, alpha.width, y+1)).getdata())
+        if max(row_data) > min_alpha:
+            return y
+    return 0
+
+
 # ─── BANNER 1024x438 ─────────────────────────────────────────────────────────
 def make_banner():
-    W_hero, H_hero   = 1024, 682
-    H_banner = 438
-    hero = Image.open(OUT_HERO)
-    top    = (H_hero - H_banner) // 2
-    banner = hero.crop((0, top, W_hero, top + H_banner))
-    banner.save(OUT_BANNER, "PNG")
-    print(f"  Saved (cropped from hero): {OUT_BANNER}")
+    W, H = 1024, 438
+    bg = create_gradient_bg(W, H, GRAD_TOP, GRAD_BOT,
+         radial_glow=(int(W*0.72), int(H*0.38), 350, (56,189,248,65)))
+    canvas = bg.convert('RGBA')
+
+    header_y = 40
+    dev_h = 600
+    dev_train   = render_phone("training", dev_h, -10, 28, 140)
+    dev_walking = render_phone("walking",  dev_h,  10, 28, 140)
+
+    top_tr = get_device_content_top(dev_train)
+    top_wk = get_device_content_top(dev_walking)
+
+    cy_tr = header_y - top_tr + dev_train.size[1] // 2
+    cy_wk = header_y - top_wk + dev_walking.size[1] // 2
+
+    canvas = place_phone(canvas, dev_walking, int(W*0.74), cy_wk)
+    canvas = place_phone(canvas, dev_train,   int(W*0.47), cy_tr)
+
+    fx = 44
+    canvas = draw_badge_on_canvas(canvas, fx, header_y, "Bass Ear Training", lf(FONT_MEDIUM,15),
+        fill_color=(56,189,248,35), text_color=(56,189,248,255),
+        border_color=(56,189,248,110), dot_color=(56,189,248,255))
+
+    feats = ["ベース実音で音程を耳で覚える", "指板UIで音の位置を確認", "ウォーキングベース・スケール対応"]
+    canvas = draw_features_on_canvas(canvas, feats, fx, 290, 30, lf(FONT_MEDIUM,15), WHITE, ACCENT_CYAN)
+
+    draw = ImageDraw.Draw(canvas)
+    draw.text((fx,82), "相対音感", font=lf(FONT_HEAVY,54), fill=WHITE)
+    draw.text((fx,142),"Bass",     font=lf(FONT_BOLD,36),  fill=ACCENT_CYAN)
+    draw.text((fx,178),"Trainer",  font=lf(FONT_BOLD,36),  fill=ACCENT_CYAN)
+    draw.text((fx,226),"ベーシストのための",     font=lf(FONT_MEDIUM,17), fill=DIM)
+    draw.text((fx,248),"聴音・音感トレーニング", font=lf(FONT_MEDIUM,17), fill=DIM)
+    draw.text((fx,390),"Free on App Store",      font=lf(FONT_MEDIUM,16), fill=ACCENT_BLUE)
+
+    canvas.save(OUT_BANNER, 'PNG')
+    print(f"  Saved: {OUT_BANNER}")
 
 
 # ─── HERO (English) 1024x682 ──────────────────────────────────────────────────
@@ -272,19 +311,49 @@ def make_hero_eng():
     draw.text((fx,313),"with real bass tones",       font=lf(FONT_MEDIUM,20), fill=DIM)
     draw.text((fx,500),"Free on App Store",font=lf(FONT_MEDIUM,18),fill=ACCENT_BLUE)
 
-    canvas.convert('RGB').save(OUT_HERO_ENG,'JPEG',quality=95)
+    canvas.save(OUT_HERO_ENG, 'PNG')
     print(f"  Saved: {OUT_HERO_ENG}")
 
 
 # ─── BANNER (English) ─────────────────────────────────────────────────────────
 def make_banner_eng():
-    W_hero, H_hero = 1024, 682
-    H_banner = 438
-    hero = Image.open(OUT_HERO_ENG)
-    top    = (H_hero - H_banner) // 2
-    banner = hero.crop((0, top, W_hero, top + H_banner))
-    banner.save(OUT_BANNER_ENG, "PNG")
-    print(f"  Saved (cropped from hero_eng): {OUT_BANNER_ENG}")
+    W, H = 1024, 438
+    bg = create_gradient_bg(W, H, GRAD_TOP, GRAD_BOT,
+         radial_glow=(int(W*0.72), int(H*0.38), 350, (56,189,248,65)))
+    canvas = bg.convert('RGBA')
+
+    header_y = 40
+    dev_h = 600
+    dev_train   = render_phone("training_eng", dev_h, -10, 28, 140)
+    dev_walking = render_phone("walking_eng",  dev_h,  10, 28, 140)
+
+    top_tr = get_device_content_top(dev_train)
+    top_wk = get_device_content_top(dev_walking)
+
+    cy_tr = header_y - top_tr + dev_train.size[1] // 2
+    cy_wk = header_y - top_wk + dev_walking.size[1] // 2
+
+    canvas = place_phone(canvas, dev_walking, int(W*0.74), cy_wk)
+    canvas = place_phone(canvas, dev_train,   int(W*0.47), cy_tr)
+
+    fx = 44
+    canvas = draw_badge_on_canvas(canvas, fx, header_y, "Bass Ear Training", lf(FONT_MEDIUM,15),
+        fill_color=(56,189,248,35), text_color=(56,189,248,255),
+        border_color=(56,189,248,110), dot_color=(56,189,248,255))
+
+    feats = ["Identify intervals with real bass sounds", "Interactive fretboard for visual learning", "Walking bass & scale reference modes"]
+    canvas = draw_features_on_canvas(canvas, feats, fx, 290, 30, lf(FONT_MEDIUM,15), WHITE, ACCENT_CYAN)
+
+    draw = ImageDraw.Draw(canvas)
+    draw.text((fx,82), "Relative", font=lf(FONT_HEAVY,46), fill=WHITE)
+    draw.text((fx,130),"Bass",     font=lf(FONT_BOLD,38),  fill=ACCENT_CYAN)
+    draw.text((fx,170),"Trainer",  font=lf(FONT_BOLD,38),  fill=ACCENT_CYAN)
+    draw.text((fx,222),"Ear training for bassists", font=lf(FONT_MEDIUM,16), fill=DIM)
+    draw.text((fx,244),"with real bass tones",       font=lf(FONT_MEDIUM,16), fill=DIM)
+    draw.text((fx,390),"Free on App Store",          font=lf(FONT_MEDIUM,16), fill=ACCENT_BLUE)
+
+    canvas.save(OUT_BANNER_ENG, 'PNG')
+    print(f"  Saved: {OUT_BANNER_ENG}")
 
 
 if __name__ == "__main__":

@@ -31,7 +31,7 @@ SCREENSHOTS = {
     "chord_eng":    f"{BASE}/screenshot_chord_ref_eng.png",
     "scale_eng":    f"{BASE}/screenshot_scale_ref_eng.png",
 }
-OUT_HERO   = f"{BASE}/appstore_hero.jpg"
+OUT_HERO   = f"{BASE}/appstore_hero.png"
 OUT_SLIDES = [
     f"{BASE}/appstore_slide_01.png",
     f"{BASE}/appstore_slide_02.png",
@@ -41,7 +41,7 @@ OUT_SLIDES = [
 ]
 OUT_BANNER = f"{BASE}/appstore_banner.png"
 
-OUT_HERO_ENG   = f"{BASE}/appstore_hero_eng.jpg"
+OUT_HERO_ENG   = f"{BASE}/appstore_hero_eng.png"
 OUT_SLIDES_ENG = [
     f"{BASE}/appstore_slide_01_eng.png",
     f"{BASE}/appstore_slide_02_eng.png",
@@ -188,7 +188,7 @@ def make_hero():
     draw.text((fx,322),"聴音・音感トレーニング",  font=lf(FONT_MEDIUM,21), fill=DIM)
     draw.text((fx,500),"Free on App Store",font=lf(FONT_MEDIUM,18),fill=ACCENT_BLUE)
 
-    canvas.convert('RGB').save(OUT_HERO,'JPEG',quality=95)
+    canvas.save(OUT_HERO, 'PNG')
     print(f"  Saved: {OUT_HERO}")
 
 
@@ -244,19 +244,57 @@ def make_slides(configs=None, out_paths=None, is_eng=False):
         print(f"  Saved: {out_paths[idx]}")
 
 
+def get_device_content_top(dev, min_alpha=120):
+    alpha = dev.split()[3]
+    for y in range(alpha.height):
+        row_data = list(alpha.crop((0, y, alpha.width, y+1)).getdata())
+        if max(row_data) > min_alpha:
+            return y
+    return 0
+
+
 # ─── BANNER 1024x438 ─────────────────────────────────────────────────────────
 def make_banner():
     """
-    Banner = center-crop of the hero image (1024x682 → 1024x438).
-    This ensures banner and hero show exactly the same phones/screenshots.
+    Dedicated banner rendering: phone tops align with the header badge.
     """
-    W_hero, H_hero   = 1024, 682
-    H_banner = 438
-    hero = Image.open(OUT_HERO)
-    top    = (H_hero - H_banner) // 2
-    banner = hero.crop((0, top, W_hero, top + H_banner))
-    banner.save(OUT_BANNER, "JPEG", quality=95)
-    print(f"  Saved (cropped from hero): {OUT_BANNER}")
+    W, H = 1024, 438
+    bg = create_gradient_bg(W, H, GRAD_TOP, GRAD_BOT,
+         radial_glow=(int(W*0.72), int(H*0.38), 350, (251,146,60,70)))
+    canvas = bg.convert('RGBA')
+
+    header_y = 40
+    dev_h = 600
+    dev_home  = render_phone("home",     dev_h, -10, 28, 140)
+    dev_train = render_phone("training", dev_h,  10, 28, 140)
+
+    top_h = get_device_content_top(dev_home)
+    top_t = get_device_content_top(dev_train)
+
+    cy_h = header_y - top_h + dev_home.size[1] // 2
+    cy_t = header_y - top_t + dev_train.size[1] // 2
+
+    canvas = place_phone(canvas, dev_train, int(W*0.74), cy_t)
+    canvas = place_phone(canvas, dev_home,  int(W*0.47), cy_h)
+
+    fx = 44
+    canvas = draw_badge_on_canvas(canvas, fx, header_y, "Guitar Ear Training", lf(FONT_MEDIUM,15),
+        fill_color=(251,146,60,40), text_color=(251,146,60,255),
+        border_color=(251,146,60,120), dot_color=(251,146,60,255))
+
+    feats = ["ギター実音で音程を耳で覚える", "指板UIで音の位置を確認", "連続音・スケール・コード対応"]
+    canvas = draw_features_on_canvas(canvas, feats, fx, 290, 30, lf(FONT_MEDIUM,15), WHITE, ACCENT1)
+
+    draw = ImageDraw.Draw(canvas)
+    draw.text((fx,82), "相対音感", font=lf(FONT_HEAVY,54), fill=WHITE)
+    draw.text((fx,142),"Guitar",   font=lf(FONT_BOLD,36),  fill=ACCENT1)
+    draw.text((fx,178),"Trainer",  font=lf(FONT_BOLD,36),  fill=ACCENT1)
+    draw.text((fx,226),"ギタリストのための",     font=lf(FONT_MEDIUM,17), fill=DIM)
+    draw.text((fx,248),"聴音・音感トレーニング", font=lf(FONT_MEDIUM,17), fill=DIM)
+    draw.text((fx,390),"Free on App Store",      font=lf(FONT_MEDIUM,16), fill=ACCENT_BLUE)
+
+    canvas.save(OUT_BANNER, 'PNG')
+    print(f"  Saved: {OUT_BANNER}")
 
 
 # ─── HERO (English) 1024x682 ───────────────────────────────────────────────────────────────────
@@ -290,20 +328,49 @@ def make_hero_eng():
     draw.text((fx,313),"with real guitar sounds",     font=lf(FONT_MEDIUM,20), fill=DIM)
     draw.text((fx,500),"Free on App Store",font=lf(FONT_MEDIUM,18),fill=ACCENT_BLUE)
 
-    canvas.convert('RGB').save(OUT_HERO_ENG,'JPEG',quality=95)
+    canvas.save(OUT_HERO_ENG, 'PNG')
     print(f"  Saved: {OUT_HERO_ENG}")
 
 
 # ─── BANNER (English) ───────────────────────────────────────────────────────────────────
 def make_banner_eng():
-    """Banner ENG = center-crop of the English hero image."""
-    W_hero, H_hero = 1024, 682
-    H_banner = 438
-    hero = Image.open(OUT_HERO_ENG)
-    top    = (H_hero - H_banner) // 2
-    banner = hero.crop((0, top, W_hero, top + H_banner))
-    banner.save(OUT_BANNER_ENG, "JPEG", quality=95)
-    print(f"  Saved (cropped from hero_eng): {OUT_BANNER_ENG}")
+    W, H = 1024, 438
+    bg = create_gradient_bg(W, H, GRAD_TOP, GRAD_BOT,
+         radial_glow=(int(W*0.72), int(H*0.38), 350, (251,146,60,70)))
+    canvas = bg.convert('RGBA')
+
+    header_y = 40
+    dev_h = 600
+    dev_home  = render_phone("home_eng",     dev_h, -10, 28, 140)
+    dev_train = render_phone("training_eng", dev_h,  10, 28, 140)
+
+    top_h = get_device_content_top(dev_home)
+    top_t = get_device_content_top(dev_train)
+
+    cy_h = header_y - top_h + dev_home.size[1] // 2
+    cy_t = header_y - top_t + dev_train.size[1] // 2
+
+    canvas = place_phone(canvas, dev_train, int(W*0.74), cy_t)
+    canvas = place_phone(canvas, dev_home,  int(W*0.47), cy_h)
+
+    fx = 44
+    canvas = draw_badge_on_canvas(canvas, fx, header_y, "Guitar Ear Training", lf(FONT_MEDIUM,15),
+        fill_color=(251,146,60,40), text_color=(251,146,60,255),
+        border_color=(251,146,60,120), dot_color=(251,146,60,255))
+
+    feats = ["Identify intervals by ear", "Fretboard UI for visual learning", "Sequences, scales & chords"]
+    canvas = draw_features_on_canvas(canvas, feats, fx, 290, 30, lf(FONT_MEDIUM,15), WHITE, ACCENT1)
+
+    draw = ImageDraw.Draw(canvas)
+    draw.text((fx,82), "Relative", font=lf(FONT_HEAVY,46), fill=WHITE)
+    draw.text((fx,130),"Pitch",    font=lf(FONT_BOLD,38),  fill=ACCENT1)
+    draw.text((fx,170),"Trainer",  font=lf(FONT_BOLD,38),  fill=ACCENT1)
+    draw.text((fx,222),"Ear training for guitarists", font=lf(FONT_MEDIUM,16), fill=DIM)
+    draw.text((fx,244),"with real guitar sounds",     font=lf(FONT_MEDIUM,16), fill=DIM)
+    draw.text((fx,390),"Free on App Store",           font=lf(FONT_MEDIUM,16), fill=ACCENT_BLUE)
+
+    canvas.save(OUT_BANNER_ENG, 'PNG')
+    print(f"  Saved: {OUT_BANNER_ENG}")
 
 
 if __name__ == "__main__":
